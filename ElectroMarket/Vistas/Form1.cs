@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace ElectroMarket.Vistas
 {
-    public partial class Vendedor : Form
+    public partial class Form1 : Form
     {
-        public Vendedor()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Vendedor_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TBCliente_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

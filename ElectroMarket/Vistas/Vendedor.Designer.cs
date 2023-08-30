@@ -56,6 +56,7 @@
             this.TBCliente.TabIndex = 0;
             this.TBCliente.Text = "Agregar Cliente";
             this.TBCliente.UseVisualStyleBackColor = true;
+            this.TBCliente.Click += new System.EventHandler(this.TBCliente_Click);
             // 
             // TBVenta
             // 
