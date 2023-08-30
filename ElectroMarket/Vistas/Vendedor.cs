@@ -16,5 +16,10 @@ namespace ElectroMarket.Vistas
         {
             InitializeComponent();
         }
+
+        private void Vendedor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

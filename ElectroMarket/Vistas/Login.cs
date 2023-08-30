@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectroMarket.Vistas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +53,8 @@ namespace ElectroMarket
             } else
             {
                 
+                Vendedor f1 = new Vendedor();
+                f1.Show();
             }
         }
     }
