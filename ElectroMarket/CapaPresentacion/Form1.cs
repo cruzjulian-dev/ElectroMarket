@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Login : Form
+    public partial class Form1 : Form
     {
-        public Login()
+        public Form1()
         {
             InitializeComponent();
         }
 
-        private void BSalir_Click(object sender, EventArgs e)
+        private void iconMenuItem1_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }
