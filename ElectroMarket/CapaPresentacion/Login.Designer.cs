@@ -29,28 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TUser = new System.Windows.Forms.TextBox();
             this.TContra = new System.Windows.Forms.TextBox();
             this.LUser = new System.Windows.Forms.Label();
             this.LContra = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.BIngresar = new FontAwesome.Sharp.IconButton();
             this.BSalir = new FontAwesome.Sharp.IconButton();
+            this.BIngresar = new FontAwesome.Sharp.IconButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.logo_electromarket_blanco;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(316, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TUser
             // 
@@ -67,6 +55,7 @@
             this.TContra.Location = new System.Drawing.Point(32, 187);
             this.TContra.Multiline = true;
             this.TContra.Name = "TContra";
+            this.TContra.PasswordChar = '*';
             this.TContra.Size = new System.Drawing.Size(272, 20);
             this.TContra.TabIndex = 2;
             // 
@@ -101,6 +90,25 @@
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // BSalir
+            // 
+            this.BSalir.BackColor = System.Drawing.Color.Red;
+            this.BSalir.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BSalir.ForeColor = System.Drawing.Color.White;
+            this.BSalir.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.BSalir.IconColor = System.Drawing.Color.White;
+            this.BSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BSalir.IconSize = 23;
+            this.BSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BSalir.Location = new System.Drawing.Point(32, 232);
+            this.BSalir.Name = "BSalir";
+            this.BSalir.Size = new System.Drawing.Size(75, 33);
+            this.BSalir.TabIndex = 9;
+            this.BSalir.Text = "&Salir";
+            this.BSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BSalir.UseVisualStyleBackColor = false;
+            this.BSalir.Click += new System.EventHandler(this.BSalir_Click);
+            // 
             // BIngresar
             // 
             this.BIngresar.BackColor = System.Drawing.Color.ForestGreen;
@@ -120,24 +128,17 @@
             this.BIngresar.UseVisualStyleBackColor = false;
             this.BIngresar.Click += new System.EventHandler(this.BIngresar_Click);
             // 
-            // BSalir
+            // pictureBox1
             // 
-            this.BSalir.BackColor = System.Drawing.Color.Red;
-            this.BSalir.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BSalir.ForeColor = System.Drawing.Color.White;
-            this.BSalir.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.BSalir.IconColor = System.Drawing.Color.White;
-            this.BSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BSalir.IconSize = 23;
-            this.BSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BSalir.Location = new System.Drawing.Point(32, 232);
-            this.BSalir.Name = "BSalir";
-            this.BSalir.Size = new System.Drawing.Size(75, 33);
-            this.BSalir.TabIndex = 9;
-            this.BSalir.Text = "&Salir";
-            this.BSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BSalir.UseVisualStyleBackColor = false;
-            this.BSalir.Click += new System.EventHandler(this.BSalir_Click);
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.logo_electromarket_blanco;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(316, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Login
             // 

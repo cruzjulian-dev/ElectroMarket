@@ -28,153 +28,165 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.LNombre = new System.Windows.Forms.Label();
+            this.LApellido = new System.Windows.Forms.Label();
+            this.LDni = new System.Windows.Forms.Label();
+            this.LDomicilio = new System.Windows.Forms.Label();
+            this.LFecha = new System.Windows.Forms.Label();
+            this.LCorreo = new System.Windows.Forms.Label();
+            this.TNombre = new System.Windows.Forms.TextBox();
+            this.TCorreo = new System.Windows.Forms.TextBox();
+            this.TFecha = new System.Windows.Forms.TextBox();
+            this.TDni = new System.Windows.Forms.TextBox();
+            this.TApellido = new System.Windows.Forms.TextBox();
+            this.TDomicilio = new System.Windows.Forms.TextBox();
             this.BAgregar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // LNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.LNombre.AutoSize = true;
+            this.LNombre.Location = new System.Drawing.Point(118, 28);
+            this.LNombre.Name = "LNombre";
+            this.LNombre.Size = new System.Drawing.Size(44, 13);
+            this.LNombre.TabIndex = 0;
+            this.LNombre.Text = "Nombre";
             // 
-            // label2
+            // LApellido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Apellido";
+            this.LApellido.AutoSize = true;
+            this.LApellido.Location = new System.Drawing.Point(118, 92);
+            this.LApellido.Name = "LApellido";
+            this.LApellido.Size = new System.Drawing.Size(44, 13);
+            this.LApellido.TabIndex = 1;
+            this.LApellido.Text = "Apellido";
             // 
-            // label3
+            // LDni
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "DNI";
+            this.LDni.AutoSize = true;
+            this.LDni.Location = new System.Drawing.Point(118, 150);
+            this.LDni.Name = "LDni";
+            this.LDni.Size = new System.Drawing.Size(26, 13);
+            this.LDni.TabIndex = 2;
+            this.LDni.Text = "DNI";
             // 
-            // label4
+            // LDomicilio
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(349, 184);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Domicilio";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.LDomicilio.AutoSize = true;
+            this.LDomicilio.Location = new System.Drawing.Point(363, 150);
+            this.LDomicilio.Name = "LDomicilio";
+            this.LDomicilio.Size = new System.Drawing.Size(49, 13);
+            this.LDomicilio.TabIndex = 3;
+            this.LDomicilio.Text = "Domicilio";
+            this.LDomicilio.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label5
+            // LFecha
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(349, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Fecha de Nacimiento";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.LFecha.AutoSize = true;
+            this.LFecha.Location = new System.Drawing.Point(363, 28);
+            this.LFecha.Name = "LFecha";
+            this.LFecha.Size = new System.Drawing.Size(108, 13);
+            this.LFecha.TabIndex = 4;
+            this.LFecha.Text = "Fecha de Nacimiento";
+            this.LFecha.Click += new System.EventHandler(this.label5_Click);
             // 
-            // label6
+            // LCorreo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(349, 127);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Correo";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.LCorreo.AutoSize = true;
+            this.LCorreo.Location = new System.Drawing.Point(363, 93);
+            this.LCorreo.Name = "LCorreo";
+            this.LCorreo.Size = new System.Drawing.Size(38, 13);
+            this.LCorreo.TabIndex = 5;
+            this.LCorreo.Text = "Correo";
+            this.LCorreo.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox1
+            // TNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 6;
+            this.TNombre.Location = new System.Drawing.Point(117, 44);
+            this.TNombre.Name = "TNombre";
+            this.TNombre.Size = new System.Drawing.Size(160, 20);
+            this.TNombre.TabIndex = 6;
             // 
-            // textBox2
+            // TCorreo
             // 
-            this.textBox2.Location = new System.Drawing.Point(348, 142);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 20);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.TCorreo.Location = new System.Drawing.Point(362, 108);
+            this.TCorreo.Name = "TCorreo";
+            this.TCorreo.Size = new System.Drawing.Size(160, 20);
+            this.TCorreo.TabIndex = 7;
+            this.TCorreo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // TFecha
             // 
-            this.textBox3.Location = new System.Drawing.Point(348, 78);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(160, 20);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.TFecha.Location = new System.Drawing.Point(362, 44);
+            this.TFecha.Name = "TFecha";
+            this.TFecha.Size = new System.Drawing.Size(160, 20);
+            this.TFecha.TabIndex = 8;
+            this.TFecha.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // textBox4
+            // TDni
             // 
-            this.textBox4.Location = new System.Drawing.Point(103, 200);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 20);
-            this.textBox4.TabIndex = 9;
+            this.TDni.Location = new System.Drawing.Point(117, 166);
+            this.TDni.Name = "TDni";
+            this.TDni.Size = new System.Drawing.Size(160, 20);
+            this.TDni.TabIndex = 9;
             // 
-            // textBox5
+            // TApellido
             // 
-            this.textBox5.Location = new System.Drawing.Point(103, 142);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(160, 20);
-            this.textBox5.TabIndex = 10;
+            this.TApellido.Location = new System.Drawing.Point(117, 108);
+            this.TApellido.Name = "TApellido";
+            this.TApellido.Size = new System.Drawing.Size(160, 20);
+            this.TApellido.TabIndex = 10;
             // 
-            // textBox6
+            // TDomicilio
             // 
-            this.textBox6.Location = new System.Drawing.Point(348, 200);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(160, 20);
-            this.textBox6.TabIndex = 11;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.TDomicilio.Location = new System.Drawing.Point(362, 166);
+            this.TDomicilio.Name = "TDomicilio";
+            this.TDomicilio.Size = new System.Drawing.Size(160, 20);
+            this.TDomicilio.TabIndex = 11;
+            this.TDomicilio.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // BAgregar
             // 
-            this.BAgregar.Location = new System.Drawing.Point(348, 261);
+            this.BAgregar.Location = new System.Drawing.Point(275, 230);
             this.BAgregar.Name = "BAgregar";
             this.BAgregar.Size = new System.Drawing.Size(75, 23);
             this.BAgregar.TabIndex = 12;
             this.BAgregar.Text = "Agregar";
             this.BAgregar.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 269);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(608, 155);
+            this.dataGridView1.TabIndex = 13;
+            // 
             // AgregarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 341);
+            this.ClientSize = new System.Drawing.Size(632, 436);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BAgregar);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TDomicilio);
+            this.Controls.Add(this.TApellido);
+            this.Controls.Add(this.TDni);
+            this.Controls.Add(this.TFecha);
+            this.Controls.Add(this.TCorreo);
+            this.Controls.Add(this.TNombre);
+            this.Controls.Add(this.LCorreo);
+            this.Controls.Add(this.LFecha);
+            this.Controls.Add(this.LDomicilio);
+            this.Controls.Add(this.LDni);
+            this.Controls.Add(this.LApellido);
+            this.Controls.Add(this.LNombre);
             this.Name = "AgregarCliente";
             this.Text = "AgregarCliente";
             this.Load += new System.EventHandler(this.AgregarCliente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,18 +194,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label LNombre;
+        private System.Windows.Forms.Label LApellido;
+        private System.Windows.Forms.Label LDni;
+        private System.Windows.Forms.Label LDomicilio;
+        private System.Windows.Forms.Label LFecha;
+        private System.Windows.Forms.Label LCorreo;
+        private System.Windows.Forms.TextBox TNombre;
+        private System.Windows.Forms.TextBox TCorreo;
+        private System.Windows.Forms.TextBox TFecha;
+        private System.Windows.Forms.TextBox TDni;
+        private System.Windows.Forms.TextBox TApellido;
+        private System.Windows.Forms.TextBox TDomicilio;
         private System.Windows.Forms.Button BAgregar;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
