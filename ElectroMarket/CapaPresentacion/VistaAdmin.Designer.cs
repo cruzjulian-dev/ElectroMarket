@@ -35,7 +35,7 @@
             this.MenuVentas = new FontAwesome.Sharp.IconMenuItem();
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.MenuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
-            this.Menu = new System.Windows.Forms.MenuStrip();
+            this.MenuLogo = new System.Windows.Forms.MenuStrip();
             this.LTitulo = new System.Windows.Forms.Label();
             this.MenuAdmin.SuspendLayout();
             this.SuspendLayout();
@@ -134,16 +134,16 @@
             this.MenuAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuAcercaDe.Click += new System.EventHandler(this.iconMenuItem1_Click);
             // 
-            // Menu
+            // MenuLogo
             // 
-            this.Menu.AutoSize = false;
-            this.Menu.BackColor = System.Drawing.Color.Black;
-            this.Menu.Location = new System.Drawing.Point(0, 0);
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(736, 68);
-            this.Menu.TabIndex = 1;
-            this.Menu.Text = "menuStrip2";
+            this.MenuLogo.AutoSize = false;
+            this.MenuLogo.BackColor = System.Drawing.Color.Black;
+            this.MenuLogo.Location = new System.Drawing.Point(0, 0);
+            this.MenuLogo.Name = "MenuLogo";
+            this.MenuLogo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MenuLogo.Size = new System.Drawing.Size(736, 68);
+            this.MenuLogo.TabIndex = 1;
+            this.MenuLogo.Text = "menuStrip2";
             // 
             // LTitulo
             // 
@@ -164,7 +164,7 @@
             this.ClientSize = new System.Drawing.Size(736, 688);
             this.Controls.Add(this.LTitulo);
             this.Controls.Add(this.MenuAdmin);
-            this.Controls.Add(this.Menu);
+            this.Controls.Add(this.MenuLogo);
             this.MainMenuStrip = this.MenuAdmin;
             this.Name = "VistaAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -180,7 +180,7 @@
 
         private System.Windows.Forms.MenuStrip MenuAdmin;
         private FontAwesome.Sharp.IconMenuItem MenuAcercaDe;
-        private System.Windows.Forms.MenuStrip Menu;
+        private System.Windows.Forms.MenuStrip MenuLogo;
         private System.Windows.Forms.Label LTitulo;
         private FontAwesome.Sharp.IconMenuItem MenuUser;
         private FontAwesome.Sharp.IconMenuItem MenuProd;
