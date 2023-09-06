@@ -19,7 +19,30 @@ namespace CapaPresentacion
 
         private void BSalir_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+
+
+        }
+
+        private void BIngresar_Click(object sender, EventArgs e)
+        {
+            VistaAdmin vistaAdmin = new VistaAdmin();
+            vistaAdmin.Show();
             this.Close();
+
+
+
+
+
+
+
+
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

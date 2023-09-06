@@ -149,11 +149,11 @@
             // 
             this.LTitulo.AutoSize = true;
             this.LTitulo.BackColor = System.Drawing.Color.Black;
-            this.LTitulo.Font = new System.Drawing.Font("Bad Brush", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTitulo.ForeColor = System.Drawing.Color.White;
             this.LTitulo.Location = new System.Drawing.Point(24, 19);
             this.LTitulo.Name = "LTitulo";
-            this.LTitulo.Size = new System.Drawing.Size(233, 31);
+            this.LTitulo.Size = new System.Drawing.Size(145, 25);
             this.LTitulo.TabIndex = 2;
             this.LTitulo.Text = "ElectroMarket";
             // 
@@ -162,6 +162,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 688);
+            this.ControlBox = false;
             this.Controls.Add(this.LTitulo);
             this.Controls.Add(this.MenuAdmin);
             this.Controls.Add(this.MenuLogo);
@@ -169,6 +170,7 @@
             this.Name = "VistaAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ElectroMarket";
+            this.Load += new System.EventHandler(this.VistaAdmin_Load);
             this.MenuAdmin.ResumeLayout(false);
             this.MenuAdmin.PerformLayout();
             this.ResumeLayout(false);
