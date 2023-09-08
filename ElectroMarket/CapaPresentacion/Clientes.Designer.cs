@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class AgregarCliente
+    partial class Clientes
     {
         /// <summary>
         /// Required designer variable.
