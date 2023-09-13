@@ -58,6 +58,8 @@ namespace CapaPresentacion
                 } else
                 {
                     MessageBox.Show("Usuario o contraseña incorrecto/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TUser.Text = "";
+                    TContra.Text = "";
                 }
 
             }
