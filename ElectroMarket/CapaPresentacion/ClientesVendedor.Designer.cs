@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Clientes
+    partial class ClientesVendedor
     {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -207,26 +206,6 @@
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Red;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEliminar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.btnEliminar.IconColor = System.Drawing.Color.White;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 23;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(21, 513);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(180, 33);
-            this.btnEliminar.TabIndex = 17;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
@@ -251,7 +230,7 @@
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // Clientes
+            // ClientesVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,7 +239,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TDomicilio);
             this.Controls.Add(this.TApellido);
@@ -274,7 +252,7 @@
             this.Controls.Add(this.LDni);
             this.Controls.Add(this.LApellido);
             this.Controls.Add(this.LNombre);
-            this.Name = "Clientes";
+            this.Name = "ClientesVendedor";
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.AgregarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -300,7 +278,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
     }

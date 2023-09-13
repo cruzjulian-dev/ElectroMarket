@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Categorias
+    partial class ProductosVendedor
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(265, 186);
+            this.label1.Location = new System.Drawing.Point(202, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(116, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "soy categoria";
+            this.label1.Text = "soy producto vendedor";
             // 
-            // Categorias
+            // ProductosVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Name = "Categorias";
-            this.Text = "so";
+            this.Name = "ProductosVendedor";
+            this.Text = "ProductosVendedor";
             this.ResumeLayout(false);
             this.PerformLayout();
 

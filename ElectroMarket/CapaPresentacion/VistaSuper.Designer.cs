@@ -32,8 +32,6 @@
             this.MenuLogo = new System.Windows.Forms.MenuStrip();
             this.MenuAdmin = new System.Windows.Forms.MenuStrip();
             this.MenuProd = new FontAwesome.Sharp.IconMenuItem();
-            this.SMCategoria = new System.Windows.Forms.ToolStripMenuItem();
-            this.SMProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -82,9 +80,6 @@
             // MenuProd
             // 
             this.MenuProd.AutoSize = false;
-            this.MenuProd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SMCategoria,
-            this.SMProductos});
             this.MenuProd.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.MenuProd.IconColor = System.Drawing.Color.Black;
             this.MenuProd.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -94,18 +89,7 @@
             this.MenuProd.Size = new System.Drawing.Size(142, 65);
             this.MenuProd.Text = "Backup Base de Datos";
             this.MenuProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // SMCategoria
-            // 
-            this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(128, 22);
-            this.SMCategoria.Text = "Categoria";
-            // 
-            // SMProductos
-            // 
-            this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(128, 22);
-            this.SMProductos.Text = "Productos";
+            this.MenuProd.Click += new System.EventHandler(this.MenuProd_Click);
             // 
             // MenuReportes
             // 
@@ -119,6 +103,7 @@
             this.MenuReportes.Size = new System.Drawing.Size(152, 65);
             this.MenuReportes.Text = "Restaurar Base de Datos";
             this.MenuReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MenuReportes.Click += new System.EventHandler(this.MenuReportes_Click);
             // 
             // PContenedor
             // 
@@ -165,8 +150,6 @@
         private System.Windows.Forms.MenuStrip MenuLogo;
         private System.Windows.Forms.MenuStrip MenuAdmin;
         private FontAwesome.Sharp.IconMenuItem MenuProd;
-        private System.Windows.Forms.ToolStripMenuItem SMCategoria;
-        private System.Windows.Forms.ToolStripMenuItem SMProductos;
         private FontAwesome.Sharp.IconMenuItem MenuReportes;
         private System.Windows.Forms.Panel PContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;

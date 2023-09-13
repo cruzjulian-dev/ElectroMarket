@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Productos : Form
+    public partial class Venta : Form
     {
-        public Productos()
+        public Venta()
         {
             InitializeComponent();
         }
 
-        private void AgregarProcucto_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void Venta_Load(object sender, EventArgs e)
         {
 
         }

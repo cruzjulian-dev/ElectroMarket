@@ -56,11 +56,29 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Productos.cs">
+    <Compile Include="BackupBD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Productos.designer.cs">
-      <DependentUpon>Productos.cs</DependentUpon>
+    <Compile Include="BackupBD.Designer.cs">
+      <DependentUpon>BackupBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesAdmin.Designer.cs">
+      <DependentUpon>ClientesAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MisVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MisVentas.Designer.cs">
+      <DependentUpon>MisVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductosAdmin.designer.cs">
+      <DependentUpon>ProductosAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Categorias.cs">
       <SubType>Form</SubType>
@@ -68,17 +86,41 @@
     <Compile Include="Categorias.Designer.cs">
       <DependentUpon>Categorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clientes.cs">
+    <Compile Include="ClientesVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientes.Designer.cs">
-      <DependentUpon>Clientes.cs</DependentUpon>
+    <Compile Include="ClientesVendedor.Designer.cs">
+      <DependentUpon>ClientesVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductosVendedor.Designer.cs">
+      <DependentUpon>ProductosVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurarBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestaurarBD.Designer.cs">
+      <DependentUpon>RestaurarBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venta.Designer.cs">
+      <DependentUpon>Venta.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaAdmin.cs">
       <SubType>Form</SubType>
@@ -100,14 +142,38 @@
     <Compile Include="VistaVendedor.Designer.cs">
       <DependentUpon>VistaVendedor.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Productos.resx">
-      <DependentUpon>Productos.cs</DependentUpon>
+    <EmbeddedResource Include="BackupBD.resx">
+      <DependentUpon>BackupBD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clientes.resx">
-      <DependentUpon>Clientes.cs</DependentUpon>
+    <EmbeddedResource Include="Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesAdmin.resx">
+      <DependentUpon>ClientesAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MisVentas.resx">
+      <DependentUpon>MisVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductosAdmin.resx">
+      <DependentUpon>ProductosAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesVendedor.resx">
+      <DependentUpon>ClientesVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductosVendedor.resx">
+      <DependentUpon>ProductosVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurarBD.resx">
+      <DependentUpon>RestaurarBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venta.resx">
+      <DependentUpon>Venta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaAdmin.resx">
       <DependentUpon>VistaAdmin.cs</DependentUpon>

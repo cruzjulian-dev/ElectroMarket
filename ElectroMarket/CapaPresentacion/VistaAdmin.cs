@@ -69,7 +69,7 @@ namespace CapaPresentacion
 
         private void MenuUser_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario((IconMenuItem)sender, new Usuarios());
+            AbrirFormulario((IconMenuItem)sender, new ClientesAdmin());
         }
 
         private void SMCategoria_Click(object sender, EventArgs e)
@@ -79,12 +79,12 @@ namespace CapaPresentacion
 
         private void MenuCliente_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new Clientes());
+            AbrirFormulario((IconMenuItem)sender, new ClientesVendedor());
         }
 
         private void SMProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(MenuProd, new Productos());
+            AbrirFormulario(MenuProd, new ProductosAdmin());
         }
 
         private void PContenedor_Paint(object sender, PaintEventArgs e)
@@ -109,7 +109,7 @@ namespace CapaPresentacion
 
         private void MenuReportes_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario(MenuProd, new Reportes());
         }
 
         private void MenuAdmin_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

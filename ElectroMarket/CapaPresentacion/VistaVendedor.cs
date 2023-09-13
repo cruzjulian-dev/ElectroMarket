@@ -53,16 +53,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void SMCategoria_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SMProductos_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MenuReportes_Click(object sender, EventArgs e)
         {
 
@@ -75,7 +65,32 @@ namespace CapaPresentacion
 
         private void MenuUser_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new Clientes());
+            AbrirFormulario((IconMenuItem)sender, new ClientesVendedor());
+        }
+
+        private void MenuProd_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new ProductosVendedor());
+        }
+
+        private void SMCategoria_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SMCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(MenuVentas, new Venta());
+        }
+
+        private void SMProductos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(MenuVentas, new MisVentas());
         }
     }
 }
