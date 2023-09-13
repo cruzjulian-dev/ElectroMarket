@@ -173,7 +173,7 @@
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.MenuAdmin);
             this.Controls.Add(this.MenuLogo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.MenuAdmin;
             this.Name = "VistaAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
