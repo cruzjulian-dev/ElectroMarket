@@ -30,13 +30,13 @@
         {
             this.MenuLogo = new System.Windows.Forms.MenuStrip();
             this.MenuVendedor = new System.Windows.Forms.MenuStrip();
-            this.PContenedor = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuUser = new FontAwesome.Sharp.IconMenuItem();
             this.MenuProd = new FontAwesome.Sharp.IconMenuItem();
             this.MenuVentas = new FontAwesome.Sharp.IconMenuItem();
             this.SMCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.SMProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.PContenedor = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.MenuVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,25 +65,6 @@
             this.MenuVendedor.Size = new System.Drawing.Size(984, 69);
             this.MenuVendedor.TabIndex = 6;
             this.MenuVendedor.Text = "menuStrip1";
-            // 
-            // PContenedor
-            // 
-            this.PContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PContenedor.Location = new System.Drawing.Point(0, 145);
-            this.PContenedor.Name = "PContenedor";
-            this.PContenedor.Size = new System.Drawing.Size(984, 553);
-            this.PContenedor.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.logo_electromarket_blanco;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(352, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // MenuUser
             // 
@@ -119,7 +100,7 @@
             this.MenuVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SMCategoria,
             this.SMProductos});
-            this.MenuVentas.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.MenuVentas.IconChar = FontAwesome.Sharp.IconChar.Tags;
             this.MenuVentas.IconColor = System.Drawing.Color.Black;
             this.MenuVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MenuVentas.IconSize = 46;
@@ -142,6 +123,25 @@
             this.SMProductos.Size = new System.Drawing.Size(180, 22);
             this.SMProductos.Text = "Mis Ventas";
             this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
+            // 
+            // PContenedor
+            // 
+            this.PContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PContenedor.Location = new System.Drawing.Point(0, 145);
+            this.PContenedor.Name = "PContenedor";
+            this.PContenedor.Size = new System.Drawing.Size(984, 553);
+            this.PContenedor.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.logo_electromarket_blanco;
+            this.pictureBox1.Location = new System.Drawing.Point(25, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(352, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // iconButton1
             // 
