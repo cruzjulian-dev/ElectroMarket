@@ -168,7 +168,7 @@
             this.Controls.Add(this.MenuVendedor);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.MenuLogo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "VistaVendedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VistaVendedor";

@@ -149,6 +149,7 @@
             this.Controls.Add(this.MenuAdmin);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.MenuLogo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "VistaSuper";
             this.Text = "VistaSuper";
             this.MenuAdmin.ResumeLayout(false);
