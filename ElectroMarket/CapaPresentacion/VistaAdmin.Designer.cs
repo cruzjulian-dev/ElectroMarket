@@ -36,16 +36,19 @@
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.MenuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             this.MenuLogo = new System.Windows.Forms.MenuStrip();
-            this.LTitulo = new System.Windows.Forms.Label();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuAdmin
             // 
             this.MenuAdmin.BackColor = System.Drawing.SystemColors.Window;
             this.MenuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iconMenuItem1,
             this.MenuUser,
             this.MenuProd,
             this.MenuReportes,
@@ -66,8 +69,8 @@
             this.MenuUser.IconSize = 46;
             this.MenuUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuUser.Name = "MenuUser";
-            this.MenuUser.Size = new System.Drawing.Size(75, 65);
-            this.MenuUser.Text = "Usuarios";
+            this.MenuUser.Size = new System.Drawing.Size(122, 65);
+            this.MenuUser.Text = "Baja Clientes";
             this.MenuUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuUser.Click += new System.EventHandler(this.MenuUser_Click);
             // 
@@ -142,19 +145,6 @@
             this.MenuLogo.Text = "menuStrip2";
             this.MenuLogo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuLogo_ItemClicked);
             // 
-            // LTitulo
-            // 
-            this.LTitulo.AutoSize = true;
-            this.LTitulo.BackColor = System.Drawing.Color.Black;
-            this.LTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTitulo.ForeColor = System.Drawing.Color.White;
-            this.LTitulo.Location = new System.Drawing.Point(24, 19);
-            this.LTitulo.Name = "LTitulo";
-            this.LTitulo.Size = new System.Drawing.Size(145, 25);
-            this.LTitulo.TabIndex = 2;
-            this.LTitulo.Text = "ElectroMarket";
-            this.LTitulo.Click += new System.EventHandler(this.LTitulo_Click);
-            // 
             // PContenedor
             // 
             this.PContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -179,15 +169,39 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.AutoSize = false;
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.IconSize = 46;
+            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(75, 65);
+            this.iconMenuItem1.Text = "Usuarios";
+            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.logo_electromarket_blanco;
+            this.pictureBox1.Location = new System.Drawing.Point(25, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(352, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // VistaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 698);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.LTitulo);
             this.Controls.Add(this.MenuAdmin);
             this.Controls.Add(this.MenuLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -198,6 +212,7 @@
             this.Load += new System.EventHandler(this.VistaAdmin_Load);
             this.MenuAdmin.ResumeLayout(false);
             this.MenuAdmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,7 +223,6 @@
         private System.Windows.Forms.MenuStrip MenuAdmin;
         private FontAwesome.Sharp.IconMenuItem MenuAcercaDe;
         private System.Windows.Forms.MenuStrip MenuLogo;
-        private System.Windows.Forms.Label LTitulo;
         private FontAwesome.Sharp.IconMenuItem MenuUser;
         private FontAwesome.Sharp.IconMenuItem MenuProd;
         private FontAwesome.Sharp.IconMenuItem MenuReportes;
@@ -216,6 +230,8 @@
         private System.Windows.Forms.Panel PContenedor;
         private System.Windows.Forms.ToolStripMenuItem SMCategoria;
         private System.Windows.Forms.ToolStripMenuItem SMProductos;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

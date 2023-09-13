@@ -48,6 +48,7 @@
             this.TUser.Name = "TUser";
             this.TUser.Size = new System.Drawing.Size(272, 22);
             this.TUser.TabIndex = 1;
+            this.TUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TUser_KeyPress);
             // 
             // TContra
             // 
@@ -58,6 +59,8 @@
             this.TContra.PasswordChar = '*';
             this.TContra.Size = new System.Drawing.Size(272, 20);
             this.TContra.TabIndex = 2;
+            this.TContra.TextChanged += new System.EventHandler(this.TContra_TextChanged);
+            this.TContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TContra_KeyPress);
             // 
             // LUser
             // 

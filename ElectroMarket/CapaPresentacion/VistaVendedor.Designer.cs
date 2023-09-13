@@ -39,7 +39,9 @@
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.MenuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             this.PContenedor = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // iconButton1
@@ -116,13 +118,13 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(128, 22);
             this.SMCategoria.Text = "Categoria";
             // 
             // SMProductos
             // 
             this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(180, 22);
+            this.SMProductos.Size = new System.Drawing.Size(128, 22);
             this.SMProductos.Text = "Productos";
             // 
             // iconMenuItem1
@@ -172,11 +174,23 @@
             this.PContenedor.Size = new System.Drawing.Size(984, 553);
             this.PContenedor.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.logo_electromarket_blanco;
+            this.pictureBox1.Location = new System.Drawing.Point(25, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(352, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // VistaVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 698);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.MenuAdmin);
             this.Controls.Add(this.iconButton1);
@@ -187,6 +201,7 @@
             this.Text = "VistaVendedor";
             this.MenuAdmin.ResumeLayout(false);
             this.MenuAdmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +220,6 @@
         private FontAwesome.Sharp.IconMenuItem MenuReportes;
         private FontAwesome.Sharp.IconMenuItem MenuAcercaDe;
         private System.Windows.Forms.Panel PContenedor;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
