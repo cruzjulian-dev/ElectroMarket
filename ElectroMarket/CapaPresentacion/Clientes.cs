@@ -51,5 +51,40 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void TNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LApellido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LDni_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

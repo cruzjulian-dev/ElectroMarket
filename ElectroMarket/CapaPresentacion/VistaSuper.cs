@@ -11,14 +11,15 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class VistaVendedor : Form
+    public partial class VistaSuper : Form
     {
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
-        public VistaVendedor()
+        public VistaSuper()
         {
             InitializeComponent();
         }
+
         private void AbrirFormulario(IconMenuItem menu, Form formulario)
         {
             if (MenuActivo != null)
@@ -51,31 +52,6 @@ namespace CapaPresentacion
                 Login login = new Login();
                 login.Show();
             }
-        }
-
-        private void SMCategoria_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SMProductos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuReportes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuUser_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new Clientes());
         }
     }
 }

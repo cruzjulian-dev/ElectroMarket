@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -48,10 +49,9 @@ namespace CapaPresentacion
                 }
                 if (TUser.Text.Trim() == "super" && TContra.Text.Trim() == "123")
                 {
-                    //VistaSuper vistaSuper = new VistaSuper();
-                    //vistaSuper.Show();
-                    //this.Close();
-                    Application.Exit();
+                    VistaSuper vistaSuper = new VistaSuper();
+                    vistaSuper.Show();
+                    this.Close();
                 }
                 //MessageBox.Show("Usuario o contraseña incorrecto/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
