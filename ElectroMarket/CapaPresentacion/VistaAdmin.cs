@@ -74,7 +74,7 @@ namespace CapaPresentacion
 
         private void SMCategoria_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(MenuProd, new Categorias());
+            AbrirFormulario(MenuProd, new CategoriasAdmin());
         }
 
         private void MenuCliente_Click(object sender, EventArgs e)
