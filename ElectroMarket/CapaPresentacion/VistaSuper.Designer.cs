@@ -35,6 +35,7 @@
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MenuUser = new FontAwesome.Sharp.IconMenuItem();
             this.MenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             this.MenuAdmin.BackColor = System.Drawing.SystemColors.Window;
             this.MenuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuUser,
             this.MenuProd,
             this.MenuReportes});
             this.MenuAdmin.Location = new System.Drawing.Point(0, 76);
@@ -124,6 +126,19 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // MenuUser
+            // 
+            this.MenuUser.AutoSize = false;
+            this.MenuUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.MenuUser.IconColor = System.Drawing.Color.Black;
+            this.MenuUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MenuUser.IconSize = 46;
+            this.MenuUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MenuUser.Name = "MenuUser";
+            this.MenuUser.Size = new System.Drawing.Size(122, 65);
+            this.MenuUser.Text = "Usuarios del sistema";
+            this.MenuUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // VistaSuper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,5 +168,6 @@
         private FontAwesome.Sharp.IconMenuItem MenuReportes;
         private System.Windows.Forms.Panel PContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconMenuItem MenuUser;
     }
 }
