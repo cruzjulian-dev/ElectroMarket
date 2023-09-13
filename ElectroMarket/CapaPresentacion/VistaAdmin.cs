@@ -35,9 +35,12 @@ namespace CapaPresentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Login login = new Login();
-            login.Show();
+            if (MessageBox.Show("Seguro que quieres cerrar sesión?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                Login login = new Login();
+                login.Show();
+            }
         }
 
         private void AbrirFormulario(IconMenuItem menu, Form formulario)
@@ -77,6 +80,46 @@ namespace CapaPresentacion
         private void MenuCliente_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new Clientes());
+        }
+
+        private void SMProductos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(MenuProd, new Productos());
+        }
+
+        private void PContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuProd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuVentas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuReportes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuAdmin_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void MenuLogo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -56,11 +56,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="formuProductos.cs">
+    <Compile Include="Productos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formuProductos.designer.cs">
-      <DependentUpon>formuProductos.cs</DependentUpon>
+    <Compile Include="Productos.designer.cs">
+      <DependentUpon>Productos.cs</DependentUpon>
     </Compile>
     <Compile Include="Categorias.cs">
       <SubType>Form</SubType>
@@ -88,8 +88,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="formuProductos.resx">
-      <DependentUpon>formuProductos.cs</DependentUpon>
+    <Compile Include="VistaVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaVendedor.Designer.cs">
+      <DependentUpon>VistaVendedor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Productos.resx">
+      <DependentUpon>Productos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
@@ -110,6 +116,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VistaVendedor.resx">
+      <DependentUpon>VistaVendedor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

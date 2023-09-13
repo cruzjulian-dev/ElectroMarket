@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class formuProductos
+    partial class Productos
     {
         /// <summary>
         /// Required designer variable.
@@ -166,7 +166,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 450);
+            this.label1.Size = new System.Drawing.Size(264, 561);
             this.label1.TabIndex = 13;
             // 
             // label2
@@ -369,12 +369,12 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // formuProductos
+            // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(904, 450);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
@@ -393,7 +393,7 @@
             this.Controls.Add(this.codigoProd);
             this.Controls.Add(this.lNombre);
             this.Controls.Add(this.label1);
-            this.Name = "formuProductos";
+            this.Name = "Productos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.AgregarProcucto_Load);

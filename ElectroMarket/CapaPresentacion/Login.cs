@@ -19,14 +19,46 @@ namespace CapaPresentacion
 
         private void BSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+            if (MessageBox.Show("Deseas cerrar la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
 
         private void BIngresar_Click(object sender, EventArgs e)
         {
-            VistaAdmin vistaAdmin = new VistaAdmin();
-            vistaAdmin.Show();
-            this.Close();
+            if (TUser.Text.Trim() == "" || TContra.Text.Trim() == "")
+            {
+                MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                if (TUser.Text.Trim() == "admin" && TContra.Text.Trim() == "123")
+                {
+                    VistaAdmin vistaAdmin = new VistaAdmin();
+                    vistaAdmin.Show();
+                    this.Close();
+                }
+                if (TUser.Text.Trim() == "vendedor" && TContra.Text.Trim() == "123")
+                {
+                    VistaVendedor vistaVendedor = new VistaVendedor();
+                    vistaVendedor.Show();
+                    this.Close();
+                }
+                if (TUser.Text.Trim() == "super" && TContra.Text.Trim() == "123")
+                {
+                    //VistaSuper vistaSuper = new VistaSuper();
+                    //vistaSuper.Show();
+                    //this.Close();
+                    Application.Exit();
+                }
+                //MessageBox.Show("Usuario o contraseña incorrecto/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

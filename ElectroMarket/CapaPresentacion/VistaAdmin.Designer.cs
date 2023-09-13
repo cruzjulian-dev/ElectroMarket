@@ -54,11 +54,12 @@
             this.MenuVentas,
             this.MenuReportes,
             this.MenuAcercaDe});
-            this.MenuAdmin.Location = new System.Drawing.Point(0, 68);
+            this.MenuAdmin.Location = new System.Drawing.Point(0, 76);
             this.MenuAdmin.Name = "MenuAdmin";
-            this.MenuAdmin.Size = new System.Drawing.Size(736, 69);
+            this.MenuAdmin.Size = new System.Drawing.Size(984, 69);
             this.MenuAdmin.TabIndex = 0;
             this.MenuAdmin.Text = "menuStrip1";
+            this.MenuAdmin.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuAdmin_ItemClicked);
             // 
             // MenuLogo
             // 
@@ -67,9 +68,10 @@
             this.MenuLogo.Location = new System.Drawing.Point(0, 0);
             this.MenuLogo.Name = "MenuLogo";
             this.MenuLogo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MenuLogo.Size = new System.Drawing.Size(736, 68);
+            this.MenuLogo.Size = new System.Drawing.Size(984, 76);
             this.MenuLogo.TabIndex = 1;
             this.MenuLogo.Text = "menuStrip2";
+            this.MenuLogo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuLogo_ItemClicked);
             // 
             // LTitulo
             // 
@@ -82,14 +84,16 @@
             this.LTitulo.Size = new System.Drawing.Size(145, 25);
             this.LTitulo.TabIndex = 2;
             this.LTitulo.Text = "ElectroMarket";
+            this.LTitulo.Click += new System.EventHandler(this.LTitulo_Click);
             // 
             // PContenedor
             // 
             this.PContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PContenedor.Location = new System.Drawing.Point(0, 137);
+            this.PContenedor.Location = new System.Drawing.Point(0, 145);
             this.PContenedor.Name = "PContenedor";
-            this.PContenedor.Size = new System.Drawing.Size(736, 551);
+            this.PContenedor.Size = new System.Drawing.Size(984, 553);
             this.PContenedor.TabIndex = 4;
+            this.PContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PContenedor_Paint);
             // 
             // iconButton1
             // 
@@ -97,11 +101,11 @@
             this.iconButton1.IconColor = System.Drawing.Color.Red;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton1.Location = new System.Drawing.Point(654, 2);
+            this.iconButton1.Location = new System.Drawing.Point(890, 5);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(70, 63);
+            this.iconButton1.Size = new System.Drawing.Size(82, 63);
             this.iconButton1.TabIndex = 3;
-            this.iconButton1.Text = "Salir";
+            this.iconButton1.Text = "Cerrar sesión";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
@@ -135,6 +139,7 @@
             this.MenuProd.Size = new System.Drawing.Size(75, 65);
             this.MenuProd.Text = "Productos";
             this.MenuProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MenuProd.Click += new System.EventHandler(this.MenuProd_Click);
             // 
             // SMCategoria
             // 
@@ -148,6 +153,7 @@
             this.SMProductos.Name = "SMProductos";
             this.SMProductos.Size = new System.Drawing.Size(128, 22);
             this.SMProductos.Text = "Productos";
+            this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
             // 
             // MenuCliente
             // 
@@ -175,6 +181,7 @@
             this.MenuVentas.Size = new System.Drawing.Size(75, 65);
             this.MenuVentas.Text = "Ventas";
             this.MenuVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MenuVentas.Click += new System.EventHandler(this.MenuVentas_Click);
             // 
             // MenuReportes
             // 
@@ -188,6 +195,7 @@
             this.MenuReportes.Size = new System.Drawing.Size(75, 65);
             this.MenuReportes.Text = "Reportes";
             this.MenuReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MenuReportes.Click += new System.EventHandler(this.MenuReportes_Click);
             // 
             // MenuAcercaDe
             // 
@@ -207,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 688);
+            this.ClientSize = new System.Drawing.Size(984, 698);
             this.ControlBox = false;
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.iconButton1);
