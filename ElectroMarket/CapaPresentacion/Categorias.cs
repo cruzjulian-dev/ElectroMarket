@@ -21,5 +21,38 @@ namespace CapaPresentacion
         {
 
         }
+
+        private bool ValidarCampos()
+        {
+            // Verificar si los TextBox están vacíos
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+
+            }
+
+            // Verificar si se ha seleccionado una opción en los ComboBox
+            /* 
+              if (comboBoxEstado.SelectedIndex == -1)
+              {
+                  MessageBox.Show("Por favor, seleccione un estado.");
+                  return false;
+              } */
+
+            // Si todos los campos están completos y se ha seleccionado una opción en los ComboBox, devuelve true
+            return true;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                // Mostrar un MessageBox satisfactorio
+                MessageBox.Show("Operación completada con éxito.", "Satisfactorio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Continúa con la acción de guardar u otra acción.
+            }
+        }
     }
 }
