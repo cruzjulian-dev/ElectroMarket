@@ -13,6 +13,7 @@ namespace CapaPresentacion
     public partial class ClientesVendedor : Form
     {
         int filaSeleccionada;
+        bool editar = false;
         public ClientesVendedor()
         {
             InitializeComponent();
@@ -95,8 +96,17 @@ namespace CapaPresentacion
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
             {
-
-                DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim());
+                if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim());
+                    TId.Text = "";
+                    TNombre.Text = "";
+                    TApellido.Text = "";
+                    TDni.Text = "";
+                    DTFecha.Text = "";
+                    TDomicilio.Text = "";
+                    editar = false;
+                }
             }
         }
 
@@ -107,6 +117,7 @@ namespace CapaPresentacion
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     filaSeleccionada = DGClientes.CurrentRow.Index;
+                    editar = true;
 
                     TId.Text = DGClientes.Rows[filaSeleccionada].Cells[0].Value.ToString();
                     TNombre.Text = DGClientes.Rows[filaSeleccionada].Cells[1].Value.ToString();
@@ -127,7 +138,7 @@ namespace CapaPresentacion
             }
             else
             {
-                if (filaSeleccionada == 99999999)
+                if (editar == false)
                 {
                     MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } else
@@ -139,7 +150,7 @@ namespace CapaPresentacion
                     DGClientes.Rows[filaSeleccionada].Cells[4].Value = DTFecha.Text.Trim();
                     DGClientes.Rows[filaSeleccionada].Cells[5].Value = TDomicilio.Text.Trim();
 
-                    filaSeleccionada = 99999999;
+                    editar = false;
                 }
                 
             }
