@@ -12,6 +12,7 @@ namespace CapaPresentacion
 {
     public partial class ClientesVendedor : Form
     {
+        int filaSeleccionada;
         public ClientesVendedor()
         {
             InitializeComponent();
@@ -85,6 +86,63 @@ namespace CapaPresentacion
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BGuardar_Click(object sender, EventArgs e)
+        {
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "")
+            {
+                MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+
+                DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim());
+            }
+        }
+
+        private void DGCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGClientes.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    filaSeleccionada = DGClientes.CurrentRow.Index;
+
+                    TId.Text = DGClientes.Rows[filaSeleccionada].Cells[0].Value.ToString();
+                    TNombre.Text = DGClientes.Rows[filaSeleccionada].Cells[1].Value.ToString();
+                    TApellido.Text = DGClientes.Rows[filaSeleccionada].Cells[2].Value.ToString();
+                    TDni.Text = DGClientes.Rows[filaSeleccionada].Cells[3].Value.ToString();
+                    DTFecha.Text = DGClientes.Rows[filaSeleccionada].Cells[4].Value.ToString();
+                    TDomicilio.Text = DGClientes.Rows[filaSeleccionada].Cells[5].Value.ToString();
+                }
+
+            }
+        }
+
+        private void BEditar_Click(object sender, EventArgs e)
+        {
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "")
+            {
+                MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (filaSeleccionada == 99999999)
+                {
+                    MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else
+                {
+                    DGClientes.Rows[filaSeleccionada].Cells[0].Value = TId.Text.Trim();
+                    DGClientes.Rows[filaSeleccionada].Cells[1].Value = TNombre.Text.Trim();
+                    DGClientes.Rows[filaSeleccionada].Cells[2].Value = TApellido.Text.Trim();
+                    DGClientes.Rows[filaSeleccionada].Cells[3].Value = TDni.Text.Trim();
+                    DGClientes.Rows[filaSeleccionada].Cells[4].Value = DTFecha.Text.Trim();
+                    DGClientes.Rows[filaSeleccionada].Cells[5].Value = TDomicilio.Text.Trim();
+
+                    filaSeleccionada = 99999999;
+                }
+                
+            }
         }
     }
 }

@@ -63,5 +63,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new RestaurarBD());
         }
+
+        private void MenuUser_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new Usuarios());
+        }
     }
 }

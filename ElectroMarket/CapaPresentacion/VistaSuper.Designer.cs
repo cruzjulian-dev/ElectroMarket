@@ -31,11 +31,11 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.MenuLogo = new System.Windows.Forms.MenuStrip();
             this.MenuAdmin = new System.Windows.Forms.MenuStrip();
+            this.MenuUser = new FontAwesome.Sharp.IconMenuItem();
             this.MenuProd = new FontAwesome.Sharp.IconMenuItem();
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MenuUser = new FontAwesome.Sharp.IconMenuItem();
             this.MenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,20 @@
             this.MenuAdmin.TabIndex = 8;
             this.MenuAdmin.Text = "menuStrip1";
             // 
+            // MenuUser
+            // 
+            this.MenuUser.AutoSize = false;
+            this.MenuUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.MenuUser.IconColor = System.Drawing.Color.Black;
+            this.MenuUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MenuUser.IconSize = 46;
+            this.MenuUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MenuUser.Name = "MenuUser";
+            this.MenuUser.Size = new System.Drawing.Size(122, 65);
+            this.MenuUser.Text = "Usuarios del sistema";
+            this.MenuUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MenuUser.Click += new System.EventHandler(this.MenuUser_Click);
+            // 
             // MenuProd
             // 
             this.MenuProd.AutoSize = false;
@@ -112,7 +126,7 @@
             this.PContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PContenedor.Location = new System.Drawing.Point(0, 145);
             this.PContenedor.Name = "PContenedor";
-            this.PContenedor.Size = new System.Drawing.Size(984, 416);
+            this.PContenedor.Size = new System.Drawing.Size(984, 553);
             this.PContenedor.TabIndex = 9;
             // 
             // pictureBox1
@@ -126,24 +140,12 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // MenuUser
-            // 
-            this.MenuUser.AutoSize = false;
-            this.MenuUser.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.MenuUser.IconColor = System.Drawing.Color.Black;
-            this.MenuUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MenuUser.IconSize = 46;
-            this.MenuUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MenuUser.Name = "MenuUser";
-            this.MenuUser.Size = new System.Drawing.Size(122, 65);
-            this.MenuUser.Text = "Usuarios del sistema";
-            this.MenuUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // VistaSuper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(984, 698);
+            this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.MenuAdmin);
@@ -151,6 +153,7 @@
             this.Controls.Add(this.MenuLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "VistaSuper";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VistaSuper";
             this.MenuAdmin.ResumeLayout(false);
             this.MenuAdmin.PerformLayout();

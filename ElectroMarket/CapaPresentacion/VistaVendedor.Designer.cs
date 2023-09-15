@@ -113,14 +113,14 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(140, 22);
             this.SMCategoria.Text = "Nueva Venta";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
             // 
             // SMProductos
             // 
             this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(180, 22);
+            this.SMProductos.Size = new System.Drawing.Size(140, 22);
             this.SMProductos.Text = "Mis Ventas";
             this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
             // 
@@ -163,6 +163,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 698);
+            this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.MenuVendedor);
