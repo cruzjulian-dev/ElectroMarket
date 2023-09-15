@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace CapaPresentacion
 {
@@ -16,6 +17,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
 
         private void AgregarProcucto_Load(object sender, EventArgs e)
         {
@@ -31,10 +33,49 @@ namespace CapaPresentacion
         {
             if (ValidarCampos())
             {
-                // Mostrar un MessageBox satisfactorio
-                MessageBox.Show("Operación completada con éxito.", "Satisfactorio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string codProducto = textBoxCodprod.Text;
+                string nombre = txtNombre.Text;
+                string opcionSeleccionada = comboBox1Cate.SelectedItem as string;
+                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
 
-                // Continúa con la acción de guardar u otra acción.
+
+
+
+                string descripcion = txtDescripcion.Text;
+                string precio = txtPrecio.Text;
+
+                // Agregar fila al DataGridView
+                int rowIndex = dataGridView1.Rows.Count;
+                dataGridView1.Rows.Add(1);
+
+                dataGridView1.Rows[rowIndex].Cells["Cestado"].Value = opcionSeleccionada2;
+                dataGridView1.Rows[rowIndex].Cells["Ccategoria"].Value = opcionSeleccionada;
+                dataGridView1.Rows[rowIndex].Cells["Ccodigo"].Value = codProducto;
+                dataGridView1.Rows[rowIndex].Cells["Cnombre"].Value = nombre;
+                dataGridView1.Rows[rowIndex].Cells["Cdescripcion"].Value = descripcion;
+                dataGridView1.Rows[rowIndex].Cells["cprecio"].Value = precio;
+
+
+
+
+
+                //limpiar todo
+                textBoxCodprod.Clear();
+                txtNombre.Clear();
+                txtDescripcion.Clear();
+                txtPrecio.Clear();
+                // Limpia la selección en el ComboBox para que aparezca vacío
+                comboBox1Cate.SelectedIndex = -1;
+                comboBoxEstado.SelectedIndex = -1;
+
+
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -57,17 +98,19 @@ namespace CapaPresentacion
             }
 
             // Verificar si se ha seleccionado una opción en los ComboBox
-          /* if (comboBox1Cate.SelectedIndex == -1)
+          if (comboBox1Cate.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, seleccione una categoría.");
+                MessageBox.Show("Por favor, seleccione una categoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (comboBoxEstado.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, seleccione un estado.");
+          
+                MessageBox.Show("Por favor, seleccione un estado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return false;
-            } */
+            } 
 
             // Si todos los campos están completos y se ha seleccionado una opción en los ComboBox, devuelve true
             return true;
