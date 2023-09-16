@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace CapaPresentacion
 {
@@ -33,12 +34,12 @@ namespace CapaPresentacion
             }
 
             // Verificar si se ha seleccionado una opción en los ComboBox
-            /* 
+            
               if (comboBoxEstado.SelectedIndex == -1)
               {
                   MessageBox.Show("Por favor, seleccione un estado.");
                   return false;
-              } */
+              }
 
             // Si todos los campos están completos y se ha seleccionado una opción en los ComboBox, devuelve true
             return true;
@@ -46,12 +47,29 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             if (ValidarCampos())
             {
-                // Mostrar un MessageBox satisfactorio
-                MessageBox.Show("Operación completada con éxito.", "Satisfactorio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
+                string descripcion = txtDescripcion.Text;
+        
 
-                // Continúa con la acción de guardar u otra acción.
+                // Agregar fila al DataGridView
+                int rowIndex = dataGridView1.Rows.Count;
+                dataGridView1.Rows.Add(1);
+
+                dataGridView1.Rows[rowIndex].Cells["Cestado"].Value = opcionSeleccionada2;
+                dataGridView1.Rows[rowIndex].Cells["Cdescripcion"].Value = descripcion;
+               
+
+
+                txtDescripcion.Clear();
+                // Limpia la selección en el ComboBox para que aparezca vacío
+                comboBoxEstado.SelectedIndex = -1;
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

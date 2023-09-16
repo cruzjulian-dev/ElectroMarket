@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lNombre = new System.Windows.Forms.Label();
             this.codigoProd = new System.Windows.Forms.Label();
             this.lDescrip = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.comboBoxEstado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datagridProd = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
@@ -55,7 +55,10 @@
             this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.Precio = new System.Windows.Forms.Label();
+            this.textBoxStock = new System.Windows.Forms.TextBox();
+            this.lblStock = new System.Windows.Forms.Label();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +69,7 @@
             this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
             this.SuspendLayout();
             // 
             // lNombre
@@ -104,7 +107,7 @@
             // 
             this.lCategoria.AutoSize = true;
             this.lCategoria.BackColor = System.Drawing.Color.White;
-            this.lCategoria.Location = new System.Drawing.Point(29, 238);
+            this.lCategoria.Location = new System.Drawing.Point(29, 275);
             this.lCategoria.Name = "lCategoria";
             this.lCategoria.Size = new System.Drawing.Size(55, 13);
             this.lCategoria.TabIndex = 3;
@@ -114,7 +117,7 @@
             // 
             this.lEstado.AutoSize = true;
             this.lEstado.BackColor = System.Drawing.Color.White;
-            this.lEstado.Location = new System.Drawing.Point(36, 278);
+            this.lEstado.Location = new System.Drawing.Point(36, 315);
             this.lEstado.Name = "lEstado";
             this.lEstado.Size = new System.Drawing.Size(43, 13);
             this.lEstado.TabIndex = 4;
@@ -155,7 +158,7 @@
             "categoria11",
             "categoria22",
             "categoria33"});
-            this.comboBox1Cate.Location = new System.Drawing.Point(32, 254);
+            this.comboBox1Cate.Location = new System.Drawing.Point(32, 291);
             this.comboBox1Cate.Name = "comboBox1Cate";
             this.comboBox1Cate.Size = new System.Drawing.Size(180, 21);
             this.comboBox1Cate.TabIndex = 11;
@@ -168,7 +171,7 @@
             this.comboBoxEstado.Items.AddRange(new object[] {
             "Activo ",
             "No Activo "});
-            this.comboBoxEstado.Location = new System.Drawing.Point(32, 294);
+            this.comboBoxEstado.Location = new System.Drawing.Point(32, 331);
             this.comboBoxEstado.Name = "comboBoxEstado";
             this.comboBoxEstado.Size = new System.Drawing.Size(180, 21);
             this.comboBoxEstado.TabIndex = 12;
@@ -194,12 +197,13 @@
             this.label2.Text = "Detalle Producto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dataGridView1
+            // datagridProd
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datagridProd.AllowUserToAddRows = false;
+            this.datagridProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
+            this.Editar,
             this.id,
             this.Ccodigo,
             this.Cnombre,
@@ -210,30 +214,31 @@
             this.cprecio,
             this.Cestado,
             this.CestadoVAlor});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Location = new System.Drawing.Point(298, 97);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(622, 312);
-            this.dataGridView1.TabIndex = 18;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle1;
+            this.datagridProd.Location = new System.Drawing.Point(298, 117);
+            this.datagridProd.MultiSelect = false;
+            this.datagridProd.Name = "datagridProd";
+            this.datagridProd.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.datagridProd.RowTemplate.Height = 28;
+            this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datagridProd.Size = new System.Drawing.Size(622, 312);
+            this.datagridProd.TabIndex = 18;
             // 
             // label3
             // 
@@ -268,7 +273,7 @@
             this.btnEditar.IconColor = System.Drawing.Color.White;
             this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditar.IconSize = 23;
-            this.btnEditar.Location = new System.Drawing.Point(32, 398);
+            this.btnEditar.Location = new System.Drawing.Point(32, 435);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(180, 33);
             this.btnEditar.TabIndex = 16;
@@ -289,7 +294,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.White;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnGuardar.IconSize = 23;
-            this.btnGuardar.Location = new System.Drawing.Point(32, 359);
+            this.btnGuardar.Location = new System.Drawing.Point(32, 396);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(180, 33);
             this.btnGuardar.TabIndex = 15;
@@ -310,7 +315,7 @@
             this.btnEliminar.IconColor = System.Drawing.Color.White;
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 23;
-            this.btnEliminar.Location = new System.Drawing.Point(32, 437);
+            this.btnEliminar.Location = new System.Drawing.Point(32, 474);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(180, 33);
             this.btnEliminar.TabIndex = 14;
@@ -402,12 +407,38 @@
             this.Precio.TabIndex = 27;
             this.Precio.Text = "Precio:";
             // 
+            // textBoxStock
+            // 
+            this.textBoxStock.BackColor = System.Drawing.Color.White;
+            this.textBoxStock.Location = new System.Drawing.Point(32, 254);
+            this.textBoxStock.Name = "textBoxStock";
+            this.textBoxStock.Size = new System.Drawing.Size(180, 20);
+            this.textBoxStock.TabIndex = 30;
+            this.textBoxStock.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.BackColor = System.Drawing.Color.White;
+            this.lblStock.Location = new System.Drawing.Point(34, 238);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(38, 13);
+            this.lblStock.TabIndex = 29;
+            this.lblStock.Text = "Stock:";
+            this.lblStock.Click += new System.EventHandler(this.label4_Click);
+            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.ReadOnly = true;
             this.btnSeleccionar.Width = 50;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
             // 
             // id
             // 
@@ -477,6 +508,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.textBoxStock);
+            this.Controls.Add(this.lblStock);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.Precio);
             this.Controls.Add(this.icoBtnBuscar);
@@ -486,7 +519,7 @@
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.datagridProd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
@@ -506,7 +539,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.AgregarProcucto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,7 +562,7 @@
         private FontAwesome.Sharp.IconButton btnGuardar;
         private FontAwesome.Sharp.IconButton btnEditar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datagridProd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblBuscar;
@@ -539,7 +572,10 @@
         private FontAwesome.Sharp.IconButton icoBtnBuscar;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label Precio;
+        private System.Windows.Forms.TextBox textBoxStock;
+        private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cnombre;

@@ -286,6 +286,9 @@
             this.comboBoxEstado.BackColor = System.Drawing.Color.White;
             this.comboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Items.AddRange(new object[] {
+            "Activo",
+            "No Activo"});
             this.comboBoxEstado.Location = new System.Drawing.Point(38, 155);
             this.comboBoxEstado.Name = "comboBoxEstado";
             this.comboBoxEstado.Size = new System.Drawing.Size(180, 21);
