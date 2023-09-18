@@ -15,11 +15,14 @@ namespace CapaPresentacion
     public partial class ProductosAdmin : Form
     {
 
-        
+        bool editar = false;
 
         public ProductosAdmin()
         {
             InitializeComponent();
+
+            // Suscribe el evento CellContentClick del DataGridView
+            datagridProd.CellContentClick += new DataGridViewCellEventHandler(datagridProd_CellContentClick);
         }
 
 
@@ -56,16 +59,9 @@ namespace CapaPresentacion
                 datagridProd.Rows[rowIndex].Cells["Cnombre"].Value = nombre;
                 datagridProd.Rows[rowIndex].Cells["Cdescripcion"].Value = descripcion;
                 datagridProd.Rows[rowIndex].Cells["cprecio"].Value = precio;
+                datagridProd.Rows[rowIndex].Cells["Ceditar"].Value = "Editar";
 
-                //limpiar todo
-                textBoxCodprod.Clear();
-                txtNombre.Clear();
-                txtDescripcion.Clear();
-                textBoxStock.Clear();
-                txtPrecio.Clear();
-                // Limpia la selección en el ComboBox para que aparezca vacío
-                comboBox1Cate.SelectedIndex = -1;
-                comboBoxEstado.SelectedIndex = -1;
+                limpiar();
                
             }
             else
@@ -74,42 +70,59 @@ namespace CapaPresentacion
             }
         }
 
+        void limpiar()
+        {
+            //limpiar todo
+            textBoxCodprod.Clear();
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            textBoxStock.Clear();
+            txtPrecio.Clear();
+            // Limpia la selección en el ComboBox para que aparezca vacío
+            comboBox1Cate.SelectedIndex = -1;
+            comboBoxEstado.SelectedIndex = -1;
+        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
-            if (datagridProd.SelectedRows.Count > 0)
+            if (editar == false)
             {
-                // Se ha seleccionado al menos una fila, procede a la edición
-
-                // Obtén la fila seleccionada
-                DataGridViewRow selectedRow = datagridProd.SelectedRows[0];
-
-                // Obtén los valores de las celdas y asígnalos a los controles en el formulario
-                string codProducto = selectedRow.Cells["Ccodigo"].Value.ToString();
-                string nombre = selectedRow.Cells["Cnombre"].Value.ToString();
-                string categoria = selectedRow.Cells["Ccategoria"].Value.ToString();
-                string estado = selectedRow.Cells["Cestado"].Value.ToString();
-                string descripcion = selectedRow.Cells["Cdescripcion"].Value.ToString();
-                string precio = selectedRow.Cells["cprecio"].Value.ToString();
-
-                // Asigna los valores a los controles en el formulario para su edición
-                textBoxCodprod.Text = codProducto;
-                txtNombre.Text = nombre;
-                comboBox1Cate.SelectedItem = categoria;
-                comboBoxEstado.SelectedItem = estado;
-                txtDescripcion.Text = descripcion;
-                txtPrecio.Text = precio;
-
+                MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione una fila para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Obtén los valores de las celdas seleccionadas y realiza la edición
+                string codProducto = textBoxCodprod.Text;
+                string nombre = txtNombre.Text;
+                string opcionSeleccionada = comboBox1Cate.SelectedItem as string;
+                string stock = textBoxStock.Text;
+                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
+                string descripcion = txtDescripcion.Text;
+                string precio = txtPrecio.Text;
+
+                // Actualiza la fila seleccionada en el DataGridView
+                DataGridViewRow selectedRow = datagridProd.Rows[datagridProd.CurrentCell.RowIndex];
+                selectedRow.Cells["Ccodigo"].Value = codProducto;
+                selectedRow.Cells["Cnombre"].Value = nombre;
+                selectedRow.Cells["ColStock"].Value = stock;
+                selectedRow.Cells["Cdescripcion"].Value = descripcion;
+                selectedRow.Cells["cprecio"].Value = precio;
+                selectedRow.Cells["Ccategoria"].Value = opcionSeleccionada;
+                selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
+
+                // Limpia los controles del formulario
+                limpiar();
+
+                // Deshabilita el botón "Modificar" nuevamente
+                btnEditar.Enabled = false;
+
+                editar = false;
             }
-
-
-
+           
         }
+
 
         private bool ValidarCampos()
         {
@@ -178,5 +191,43 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void datagridProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (datagridProd.Columns[e.ColumnIndex].Name == "Ceditar")
+            {
+
+                if (editar)
+                {
+                    return;
+                }
+                   
+                
+                if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                   
+                    
+                    // Obtén los valores de las celdas de la fila seleccionada
+                    DataGridViewRow selectedRow = datagridProd.Rows[e.RowIndex];
+                    textBoxCodprod.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
+                    txtNombre.Text = selectedRow.Cells["Cnombre"].Value.ToString();
+                    comboBox1Cate.SelectedItem = selectedRow.Cells["Ccategoria"].Value.ToString();
+                    comboBoxEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
+                    txtDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
+                    txtPrecio.Text = selectedRow.Cells["cprecio"].Value.ToString();
+                    textBoxStock.Text = selectedRow.Cells["ColStock"].Value.ToString();
+
+
+                    // Habilita el botón "Editar" para guardar los cambios después de la edición
+                    btnEditar.Enabled = true;
+                    btnGuardar.Enabled = false;
+                    editar = true;
+                }
+            }
+        }
+
+       
+
+        
     }
 }

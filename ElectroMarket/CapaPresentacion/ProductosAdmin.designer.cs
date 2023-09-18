@@ -58,7 +58,7 @@
             this.textBoxStock = new System.Windows.Forms.TextBox();
             this.lblStock = new System.Windows.Forms.Label();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -203,7 +203,7 @@
             this.datagridProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
-            this.Editar,
+            this.Ceditar,
             this.id,
             this.Ccodigo,
             this.Cnombre,
@@ -239,6 +239,7 @@
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridProd.Size = new System.Drawing.Size(622, 312);
             this.datagridProd.TabIndex = 18;
+            this.datagridProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             // 
             // label3
             // 
@@ -434,11 +435,11 @@
             this.btnSeleccionar.ReadOnly = true;
             this.btnSeleccionar.Width = 50;
             // 
-            // Editar
+            // Ceditar
             // 
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
             // 
             // id
             // 
@@ -575,7 +576,7 @@
         private System.Windows.Forms.TextBox textBoxStock;
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewButtonColumn Editar;
+        private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cnombre;
