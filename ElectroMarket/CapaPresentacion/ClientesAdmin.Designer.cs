@@ -70,7 +70,7 @@
             this.BEditar.BackColor = System.Drawing.Color.DarkCyan;
             this.BEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BEditar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BEditar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BEditar.ForeColor = System.Drawing.Color.White;
             this.BEditar.IconChar = FontAwesome.Sharp.IconChar.EarthAmericas;
             this.BEditar.IconColor = System.Drawing.Color.White;
@@ -91,7 +91,7 @@
             this.BGuardar.BackColor = System.Drawing.Color.ForestGreen;
             this.BGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BGuardar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BGuardar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BGuardar.ForeColor = System.Drawing.Color.White;
             this.BGuardar.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.BGuardar.IconColor = System.Drawing.Color.White;
@@ -112,7 +112,7 @@
             this.BEliminar.BackColor = System.Drawing.Color.Red;
             this.BEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BEliminar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BEliminar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BEliminar.ForeColor = System.Drawing.Color.White;
             this.BEliminar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.BEliminar.IconColor = System.Drawing.Color.White;
