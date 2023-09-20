@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -91,20 +92,28 @@ namespace CapaPresentacion
 
         private void BGuardar_Click(object sender, EventArgs e)
         {
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TCorreo.Text.Trim() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
             {
                 if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim());
+                    // Agregar nueva fila
+                    DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim());
+
+                    foreach (DataGridViewRow row in DGClientes.Rows)
+                    {
+                        row.Cells["Ceditar"].Value = "Editar";
+                    }
                     TId.Text = "";
                     TNombre.Text = "";
                     TApellido.Text = "";
                     TDni.Text = "";
                     DTFecha.Text = "";
                     TDomicilio.Text = "";
+                    TCorreo.Text = "";
+
                     editar = false;
                 }
             }
@@ -112,7 +121,7 @@ namespace CapaPresentacion
 
         private void DGCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DGClientes.Columns[e.ColumnIndex].Name == "Editar")
+            if (DGClientes.Columns[e.ColumnIndex].Name == "Ceditar")
             {
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -125,6 +134,8 @@ namespace CapaPresentacion
                     TDni.Text = DGClientes.Rows[filaSeleccionada].Cells[3].Value.ToString();
                     DTFecha.Text = DGClientes.Rows[filaSeleccionada].Cells[4].Value.ToString();
                     TDomicilio.Text = DGClientes.Rows[filaSeleccionada].Cells[5].Value.ToString();
+                    TCorreo.Text = DGClientes.Rows[filaSeleccionada].Cells[6].Value.ToString();
+
                 }
 
             }
@@ -132,7 +143,7 @@ namespace CapaPresentacion
 
         private void BEditar_Click(object sender, EventArgs e)
         {
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TCorreo.Text.Trim() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -149,11 +160,78 @@ namespace CapaPresentacion
                     DGClientes.Rows[filaSeleccionada].Cells[3].Value = TDni.Text.Trim();
                     DGClientes.Rows[filaSeleccionada].Cells[4].Value = DTFecha.Text.Trim();
                     DGClientes.Rows[filaSeleccionada].Cells[5].Value = TDomicilio.Text.Trim();
+                    DGClientes.Rows[filaSeleccionada].Cells[6].Value = TCorreo.Text.Trim();
+
 
                     editar = false;
                 }
                 
             }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DTFecha_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TCorreo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LCorreo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
