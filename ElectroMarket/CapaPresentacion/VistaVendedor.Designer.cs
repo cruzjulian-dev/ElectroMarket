@@ -38,6 +38,7 @@
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.SMdetalleVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +100,8 @@
             this.MenuVentas.AutoSize = false;
             this.MenuVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SMCategoria,
-            this.SMProductos});
+            this.SMProductos,
+            this.SMdetalleVenta});
             this.MenuVentas.IconChar = FontAwesome.Sharp.IconChar.Tags;
             this.MenuVentas.IconColor = System.Drawing.Color.Black;
             this.MenuVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -113,15 +115,15 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(140, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
             this.SMCategoria.Text = "Nueva Venta";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
             // 
             // SMProductos
             // 
             this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(140, 22);
-            this.SMProductos.Text = "Mis Ventas";
+            this.SMProductos.Size = new System.Drawing.Size(180, 22);
+            this.SMProductos.Text = "Detalle Venta";
             this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
             // 
             // PContenedor
@@ -158,6 +160,13 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
+            // SMdetalleVenta
+            // 
+            this.SMdetalleVenta.Name = "SMdetalleVenta";
+            this.SMdetalleVenta.Size = new System.Drawing.Size(180, 22);
+            this.SMdetalleVenta.Text = "Mis Ventas";
+            this.SMdetalleVenta.Click += new System.EventHandler(this.SMdetalleVenta_Click);
+            // 
             // VistaVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +202,6 @@
         private FontAwesome.Sharp.IconMenuItem MenuVentas;
         private System.Windows.Forms.ToolStripMenuItem SMCategoria;
         private System.Windows.Forms.ToolStripMenuItem SMProductos;
+        private System.Windows.Forms.ToolStripMenuItem SMdetalleVenta;
     }
 }

@@ -59,7 +59,7 @@
             // MenuUser
             // 
             this.MenuUser.AutoSize = false;
-            this.MenuUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.MenuUser.IconChar = FontAwesome.Sharp.IconChar.UserTag;
             this.MenuUser.IconColor = System.Drawing.Color.Black;
             this.MenuUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MenuUser.IconSize = 46;
