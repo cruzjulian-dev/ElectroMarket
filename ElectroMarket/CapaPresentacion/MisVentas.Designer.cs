@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -37,12 +37,12 @@
             this.lblBuscar = new System.Windows.Forms.Label();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.labelusuario = new System.Windows.Forms.Label();
+            this.txttipodocumento = new System.Windows.Forms.TextBox();
             this.Ltipodoc = new System.Windows.Forms.Label();
             this.LFecha = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.TextBox();
-            this.txttipodocumento = new System.Windows.Forms.TextBox();
-            this.txtusuario = new System.Windows.Forms.TextBox();
-            this.labelusuario = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtnombrecliente = new System.Windows.Forms.TextBox();
             this.labelNombreCliente = new System.Windows.Forms.Label();
@@ -160,6 +160,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion Venta";
             // 
+            // txtusuario
+            // 
+            this.txtusuario.Location = new System.Drawing.Point(402, 60);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(237, 20);
+            this.txtusuario.TabIndex = 27;
+            // 
+            // labelusuario
+            // 
+            this.labelusuario.AutoSize = true;
+            this.labelusuario.BackColor = System.Drawing.Color.White;
+            this.labelusuario.Location = new System.Drawing.Point(399, 44);
+            this.labelusuario.Name = "labelusuario";
+            this.labelusuario.Size = new System.Drawing.Size(46, 13);
+            this.labelusuario.TabIndex = 26;
+            this.labelusuario.Text = "Usuario:";
+            // 
+            // txttipodocumento
+            // 
+            this.txttipodocumento.Location = new System.Drawing.Point(184, 60);
+            this.txttipodocumento.Name = "txttipodocumento";
+            this.txttipodocumento.Size = new System.Drawing.Size(212, 20);
+            this.txttipodocumento.TabIndex = 25;
+            // 
             // Ltipodoc
             // 
             this.Ltipodoc.AutoSize = true;
@@ -186,30 +210,6 @@
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(172, 20);
             this.txtFecha.TabIndex = 0;
-            // 
-            // txttipodocumento
-            // 
-            this.txttipodocumento.Location = new System.Drawing.Point(184, 60);
-            this.txttipodocumento.Name = "txttipodocumento";
-            this.txttipodocumento.Size = new System.Drawing.Size(212, 20);
-            this.txttipodocumento.TabIndex = 25;
-            // 
-            // txtusuario
-            // 
-            this.txtusuario.Location = new System.Drawing.Point(402, 60);
-            this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(237, 20);
-            this.txtusuario.TabIndex = 27;
-            // 
-            // labelusuario
-            // 
-            this.labelusuario.AutoSize = true;
-            this.labelusuario.BackColor = System.Drawing.Color.White;
-            this.labelusuario.Location = new System.Drawing.Point(399, 44);
-            this.labelusuario.Name = "labelusuario";
-            this.labelusuario.Size = new System.Drawing.Size(46, 13);
-            this.labelusuario.TabIndex = 26;
-            this.labelusuario.Text = "Usuario:";
             // 
             // groupBox2
             // 
@@ -268,27 +268,27 @@
             this.Cprecioventa,
             this.Ccantidad,
             this.Csubtotal});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle1;
             this.datagridProd.Location = new System.Drawing.Point(99, 271);
             this.datagridProd.MultiSelect = false;
             this.datagridProd.Name = "datagridProd";
             this.datagridProd.ReadOnly = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datagridProd.RowTemplate.Height = 28;
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridProd.Size = new System.Drawing.Size(654, 223);
@@ -394,7 +394,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox2);

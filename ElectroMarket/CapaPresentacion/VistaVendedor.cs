@@ -97,5 +97,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario(MenuVentas, new frmMisVentas());
         }
+
+        private void MenuVendedor_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

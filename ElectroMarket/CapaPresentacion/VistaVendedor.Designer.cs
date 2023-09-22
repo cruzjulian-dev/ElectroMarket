@@ -35,10 +35,15 @@
             this.MenuVentas = new FontAwesome.Sharp.IconMenuItem();
             this.SMCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.SMProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.SMdetalleVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.SMdetalleVenta = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LBievenido = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.MenuVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +55,7 @@
             this.MenuLogo.Location = new System.Drawing.Point(0, 0);
             this.MenuLogo.Name = "MenuLogo";
             this.MenuLogo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MenuLogo.Size = new System.Drawing.Size(984, 76);
+            this.MenuLogo.Size = new System.Drawing.Size(1184, 76);
             this.MenuLogo.TabIndex = 4;
             this.MenuLogo.Text = "menuStrip2";
             // 
@@ -63,9 +68,10 @@
             this.MenuVentas});
             this.MenuVendedor.Location = new System.Drawing.Point(0, 76);
             this.MenuVendedor.Name = "MenuVendedor";
-            this.MenuVendedor.Size = new System.Drawing.Size(984, 69);
+            this.MenuVendedor.Size = new System.Drawing.Size(1184, 69);
             this.MenuVendedor.TabIndex = 6;
             this.MenuVendedor.Text = "menuStrip1";
+            this.MenuVendedor.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuVendedor_ItemClicked);
             // 
             // MenuUser
             // 
@@ -115,23 +121,30 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(142, 22);
             this.SMCategoria.Text = "Nueva Venta";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
             // 
             // SMProductos
             // 
             this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(180, 22);
+            this.SMProductos.Size = new System.Drawing.Size(142, 22);
             this.SMProductos.Text = "Detalle Venta";
             this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
+            // 
+            // SMdetalleVenta
+            // 
+            this.SMdetalleVenta.Name = "SMdetalleVenta";
+            this.SMdetalleVenta.Size = new System.Drawing.Size(142, 22);
+            this.SMdetalleVenta.Text = "Mis Ventas";
+            this.SMdetalleVenta.Click += new System.EventHandler(this.SMdetalleVenta_Click);
             // 
             // PContenedor
             // 
             this.PContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PContenedor.Location = new System.Drawing.Point(0, 145);
             this.PContenedor.Name = "PContenedor";
-            this.PContenedor.Size = new System.Drawing.Size(984, 553);
+            this.PContenedor.Size = new System.Drawing.Size(1184, 553);
             this.PContenedor.TabIndex = 7;
             // 
             // pictureBox1
@@ -151,7 +164,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Red;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton1.Location = new System.Drawing.Point(890, 5);
+            this.iconButton1.Location = new System.Drawing.Point(1090, 7);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(82, 63);
             this.iconButton1.TabIndex = 5;
@@ -160,19 +173,65 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // SMdetalleVenta
+            // label1
             // 
-            this.SMdetalleVenta.Name = "SMdetalleVenta";
-            this.SMdetalleVenta.Size = new System.Drawing.Size(180, 22);
-            this.SMdetalleVenta.Text = "Mis Ventas";
-            this.SMdetalleVenta.Click += new System.EventHandler(this.SMdetalleVenta_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(862, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 24);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Bienvenido:";
+            // 
+            // LBievenido
+            // 
+            this.LBievenido.AutoSize = true;
+            this.LBievenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBievenido.Location = new System.Drawing.Point(978, 87);
+            this.LBievenido.Name = "LBievenido";
+            this.LBievenido.Size = new System.Drawing.Size(0, 25);
+            this.LBievenido.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(978, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 25);
+            this.label3.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(862, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 24);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Rol:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(918, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 24);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Vendedor";
             // 
             // VistaVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 698);
+            this.ClientSize = new System.Drawing.Size(1184, 698);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.LBievenido);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.MenuVendedor);
@@ -203,5 +262,10 @@
         private System.Windows.Forms.ToolStripMenuItem SMCategoria;
         private System.Windows.Forms.ToolStripMenuItem SMProductos;
         private System.Windows.Forms.ToolStripMenuItem SMdetalleVenta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LBievenido;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
     }
 }

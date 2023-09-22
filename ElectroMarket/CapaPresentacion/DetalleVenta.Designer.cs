@@ -40,6 +40,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.txtIDCLIE = new System.Windows.Forms.TextBox();
+            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.lnombrecom = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -52,6 +53,7 @@
             this.lprecio = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.txtIDPROD = new System.Windows.Forms.TextBox();
+            this.btnBuscarProduc = new FontAwesome.Sharp.IconButton();
             this.lproducto = new System.Windows.Forms.Label();
             this.Lcodprod = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -71,8 +73,6 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.iconButtonVenta = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnBuscarProduc = new FontAwesome.Sharp.IconButton();
-            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -181,6 +181,24 @@
             this.txtIDCLIE.Size = new System.Drawing.Size(27, 20);
             this.txtIDCLIE.TabIndex = 24;
             this.txtIDCLIE.Visible = false;
+            // 
+            // icoBtnBuscar
+            // 
+            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnBuscar.IconSize = 23;
+            this.icoBtnBuscar.Location = new System.Drawing.Point(111, 56);
+            this.icoBtnBuscar.Name = "icoBtnBuscar";
+            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 26);
+            this.icoBtnBuscar.TabIndex = 27;
+            this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            this.icoBtnBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
             // 
             // lnombrecom
             // 
@@ -303,6 +321,24 @@
             this.txtIDPROD.Size = new System.Drawing.Size(27, 20);
             this.txtIDPROD.TabIndex = 24;
             this.txtIDPROD.Visible = false;
+            // 
+            // btnBuscarProduc
+            // 
+            this.btnBuscarProduc.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProduc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProduc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscarProduc.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProduc.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProduc.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.btnBuscarProduc.IconColor = System.Drawing.Color.Black;
+            this.btnBuscarProduc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarProduc.IconSize = 23;
+            this.btnBuscarProduc.Location = new System.Drawing.Point(133, 57);
+            this.btnBuscarProduc.Name = "btnBuscarProduc";
+            this.btnBuscarProduc.Size = new System.Drawing.Size(35, 26);
+            this.btnBuscarProduc.TabIndex = 27;
+            this.btnBuscarProduc.UseVisualStyleBackColor = false;
+            this.btnBuscarProduc.Click += new System.EventHandler(this.btnBuscarProduc_Click);
             // 
             // lproducto
             // 
@@ -502,47 +538,11 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // btnBuscarProduc
-            // 
-            this.btnBuscarProduc.BackColor = System.Drawing.Color.White;
-            this.btnBuscarProduc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarProduc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnBuscarProduc.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProduc.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarProduc.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.btnBuscarProduc.IconColor = System.Drawing.Color.Black;
-            this.btnBuscarProduc.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscarProduc.IconSize = 23;
-            this.btnBuscarProduc.Location = new System.Drawing.Point(133, 57);
-            this.btnBuscarProduc.Name = "btnBuscarProduc";
-            this.btnBuscarProduc.Size = new System.Drawing.Size(35, 26);
-            this.btnBuscarProduc.TabIndex = 27;
-            this.btnBuscarProduc.UseVisualStyleBackColor = false;
-            this.btnBuscarProduc.Click += new System.EventHandler(this.btnBuscarProduc_Click);
-            // 
-            // icoBtnBuscar
-            // 
-            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(111, 56);
-            this.icoBtnBuscar.Name = "icoBtnBuscar";
-            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 26);
-            this.icoBtnBuscar.TabIndex = 27;
-            this.icoBtnBuscar.UseVisualStyleBackColor = false;
-            this.icoBtnBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
-            // 
-            // Venta
+            // DetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.textBox11);
@@ -557,7 +557,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Name = "Venta";
+            this.Name = "DetalleVenta";
             this.Text = "Venta";
             this.Load += new System.EventHandler(this.Venta_Load);
             this.groupBox1.ResumeLayout(false);

@@ -38,6 +38,14 @@
             this.TApellido = new System.Windows.Forms.TextBox();
             this.TDomicilio = new System.Windows.Forms.TextBox();
             this.DGClientes = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.DTFecha = new System.Windows.Forms.DateTimePicker();
             this.TId = new System.Windows.Forms.TextBox();
@@ -51,16 +59,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BEditar = new FontAwesome.Sharp.IconButton();
             this.BGuardar = new FontAwesome.Sharp.IconButton();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TCorreo = new System.Windows.Forms.TextBox();
             this.LCorreo = new System.Windows.Forms.Label();
-            this.Ccorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,7 +148,7 @@
             this.TDomicilio.Location = new System.Drawing.Point(41, 363);
             this.TDomicilio.Name = "TDomicilio";
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
-            this.TDomicilio.TabIndex = 6;
+            this.TDomicilio.TabIndex = 7;
             this.TDomicilio.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // DGClientes
@@ -169,6 +169,52 @@
             this.DGClientes.Size = new System.Drawing.Size(671, 373);
             this.DGClientes.TabIndex = 13;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGCliente_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // DNI
+            // 
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            // 
+            // FechaNacim
+            // 
+            this.FechaNacim.HeaderText = "Fecha de Nacimiento";
+            this.FechaNacim.Name = "FechaNacim";
+            this.FechaNacim.ReadOnly = true;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.HeaderText = "Domicilio";
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.ReadOnly = true;
+            // 
+            // Ccorreo
+            // 
+            this.Ccorreo.HeaderText = "Correo";
+            this.Ccorreo.Name = "Ccorreo";
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
             // 
             // label2
             // 
@@ -343,48 +389,12 @@
             this.BGuardar.UseVisualStyleBackColor = false;
             this.BGuardar.Click += new System.EventHandler(this.BGuardar_Click);
             // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Domicilio";
-            this.Domicilio.Name = "Domicilio";
-            this.Domicilio.ReadOnly = true;
-            // 
-            // FechaNacim
-            // 
-            this.FechaNacim.HeaderText = "Fecha de Nacimiento";
-            this.FechaNacim.Name = "FechaNacim";
-            this.FechaNacim.ReadOnly = true;
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
             // TCorreo
             // 
             this.TCorreo.Location = new System.Drawing.Point(41, 320);
             this.TCorreo.Name = "TCorreo";
             this.TCorreo.Size = new System.Drawing.Size(180, 20);
-            this.TCorreo.TabIndex = 35;
+            this.TCorreo.TabIndex = 6;
             this.TCorreo.TextChanged += new System.EventHandler(this.TCorreo_TextChanged);
             // 
             // LCorreo
@@ -398,22 +408,12 @@
             this.LCorreo.Text = "Correo";
             this.LCorreo.Click += new System.EventHandler(this.LCorreo_Click);
             // 
-            // Ccorreo
-            // 
-            this.Ccorreo.HeaderText = "Correo";
-            this.Ccorreo.Name = "Ccorreo";
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            // 
             // ClientesVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.TCorreo);
             this.Controls.Add(this.LCorreo);
             this.Controls.Add(this.iconButton2);

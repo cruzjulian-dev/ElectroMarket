@@ -68,5 +68,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario((IconMenuItem)sender, new Usuarios());
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
