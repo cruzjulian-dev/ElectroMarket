@@ -529,16 +529,16 @@
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton1.Location = new System.Drawing.Point(770, 185);
+            this.iconButton1.Location = new System.Drawing.Point(770, 174);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(75, 74);
+            this.iconButton1.Size = new System.Drawing.Size(75, 85);
             this.iconButton1.TabIndex = 26;
-            this.iconButton1.Text = "Agregar";
+            this.iconButton1.Text = "Agregar Producto";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // DetalleVenta
+            // RegistrarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -557,7 +557,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Name = "DetalleVenta";
+            this.Name = "RegistrarVenta";
             this.Text = "Venta";
             this.Load += new System.EventHandler(this.Venta_Load);
             this.groupBox1.ResumeLayout(false);

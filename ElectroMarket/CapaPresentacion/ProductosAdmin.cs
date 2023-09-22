@@ -119,6 +119,8 @@ namespace CapaPresentacion
                 btnEditar.Enabled = false;
 
                 editar = false;
+
+                btnGuardar.Enabled = true;
             }
            
         }
@@ -220,8 +222,9 @@ namespace CapaPresentacion
 
                     // Habilita el botón "Editar" para guardar los cambios después de la edición
                     btnEditar.Enabled = true;
-                    btnGuardar.Enabled = false;
+                     // btnGuardar.Enabled = false;
                     editar = true;
+                    btnGuardar.Enabled = false; // Deshabilita el botón "Agregar" mientras editas
                 }
             }
         }
