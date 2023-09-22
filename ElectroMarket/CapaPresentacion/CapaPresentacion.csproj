@@ -74,11 +74,11 @@
     <Compile Include="frmMisVentas.Designer.cs">
       <DependentUpon>frmMisVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="MisVentas.cs">
+    <Compile Include="DetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MisVentas.Designer.cs">
-      <DependentUpon>MisVentas.cs</DependentUpon>
+    <Compile Include="DetalleVenta.Designer.cs">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\mdProductos.cs">
       <SubType>Form</SubType>
@@ -142,11 +142,11 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetalleVenta.cs">
+    <Compile Include="RegistrarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetalleVenta.Designer.cs">
-      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    <Compile Include="RegistrarVenta.Designer.cs">
+      <DependentUpon>RegistrarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaAdmin.cs">
       <SubType>Form</SubType>
@@ -180,8 +180,8 @@
     <EmbeddedResource Include="frmMisVentas.resx">
       <DependentUpon>frmMisVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MisVentas.resx">
-      <DependentUpon>MisVentas.cs</DependentUpon>
+    <EmbeddedResource Include="DetalleVenta.resx">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProductos.resx">
       <DependentUpon>mdProductos.cs</DependentUpon>
@@ -210,8 +210,8 @@
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetalleVenta.resx">
-      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    <EmbeddedResource Include="RegistrarVenta.resx">
+      <DependentUpon>RegistrarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaAdmin.resx">
       <DependentUpon>VistaAdmin.cs</DependentUpon>

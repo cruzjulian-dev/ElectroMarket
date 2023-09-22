@@ -85,12 +85,12 @@ namespace CapaPresentacion
 
         private void SMCategoria_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(MenuVentas, new DetalleVenta());
+            AbrirFormulario(MenuVentas, new RegistrarVenta());
         }
 
         private void SMProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(MenuVentas, new MisVentas());
+            AbrirFormulario(MenuVentas, new DetalleVenta());
         }
 
         private void SMdetalleVenta_Click(object sender, EventArgs e)
