@@ -35,6 +35,8 @@
             this.lblBuscar = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.datagridProd = new System.Windows.Forms.DataGridView();
+            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,8 +44,6 @@
             this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpreciocom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cprecioven = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +131,42 @@
             this.datagridProd.TabIndex = 32;
             this.datagridProd.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellDoubleClick);
             // 
+            // icoBtnBuscar
+            // 
+            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnBuscar.IconSize = 23;
+            this.icoBtnBuscar.Location = new System.Drawing.Point(387, 63);
+            this.icoBtnBuscar.Name = "icoBtnBuscar";
+            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnBuscar.TabIndex = 38;
+            this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            this.icoBtnBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
+            // 
+            // icoBtnLimpiar
+            // 
+            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnLimpiar.IconSize = 23;
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(428, 63);
+            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
+            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnLimpiar.TabIndex = 37;
+            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
+            this.icoBtnLimpiar.Click += new System.EventHandler(this.icoBtnLimpiar_Click);
+            // 
             // id
             // 
             this.id.HeaderText = "id";
@@ -176,42 +212,6 @@
             this.cprecioven.Name = "cprecioven";
             this.cprecioven.ReadOnly = true;
             this.cprecioven.Visible = false;
-            // 
-            // icoBtnBuscar
-            // 
-            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(387, 63);
-            this.icoBtnBuscar.Name = "icoBtnBuscar";
-            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 38;
-            this.icoBtnBuscar.UseVisualStyleBackColor = false;
-            this.icoBtnBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
-            // 
-            // icoBtnLimpiar
-            // 
-            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(428, 63);
-            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
-            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 37;
-            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
-            this.icoBtnLimpiar.Click += new System.EventHandler(this.icoBtnLimpiar_Click);
             // 
             // mdProductos
             // 

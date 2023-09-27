@@ -38,14 +38,6 @@
             this.TApellido = new System.Windows.Forms.TextBox();
             this.TDomicilio = new System.Windows.Forms.TextBox();
             this.DGClientes = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.DTFecha = new System.Windows.Forms.DateTimePicker();
             this.TId = new System.Windows.Forms.TextBox();
@@ -61,6 +53,14 @@
             this.BGuardar = new FontAwesome.Sharp.IconButton();
             this.TCorreo = new System.Windows.Forms.TextBox();
             this.LCorreo = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,52 +169,6 @@
             this.DGClientes.Size = new System.Drawing.Size(843, 373);
             this.DGClientes.TabIndex = 13;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGCliente_CellContentClick);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // FechaNacim
-            // 
-            this.FechaNacim.HeaderText = "Fecha de Nacimiento";
-            this.FechaNacim.Name = "FechaNacim";
-            this.FechaNacim.ReadOnly = true;
-            // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Domicilio";
-            this.Domicilio.Name = "Domicilio";
-            this.Domicilio.ReadOnly = true;
-            // 
-            // Ccorreo
-            // 
-            this.Ccorreo.HeaderText = "Correo";
-            this.Ccorreo.Name = "Ccorreo";
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
             // 
             // label2
             // 
@@ -413,6 +367,54 @@
             this.LCorreo.Text = "Correo";
             this.LCorreo.Click += new System.EventHandler(this.LCorreo_Click);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // DNI
+            // 
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            // 
+            // FechaNacim
+            // 
+            this.FechaNacim.HeaderText = "Fecha de Nacimiento";
+            this.FechaNacim.Name = "FechaNacim";
+            this.FechaNacim.ReadOnly = true;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.HeaderText = "Domicilio";
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.ReadOnly = true;
+            // 
+            // Ccorreo
+            // 
+            this.Ccorreo.HeaderText = "Correo";
+            this.Ccorreo.Name = "Ccorreo";
+            this.Ccorreo.ReadOnly = true;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            // 
             // ClientesVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +480,8 @@
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton BEditar;
         private FontAwesome.Sharp.IconButton BGuardar;
+        private System.Windows.Forms.TextBox TCorreo;
+        private System.Windows.Forms.Label LCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
@@ -485,8 +489,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacim;
         private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccorreo;
-        private System.Windows.Forms.TextBox TCorreo;
-        private System.Windows.Forms.Label LCorreo;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
     }
 }

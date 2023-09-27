@@ -151,5 +151,10 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void DGClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

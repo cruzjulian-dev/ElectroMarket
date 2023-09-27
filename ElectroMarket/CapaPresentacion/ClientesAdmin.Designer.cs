@@ -343,6 +343,7 @@
             this.DGClientes.Name = "DGClientes";
             this.DGClientes.Size = new System.Drawing.Size(863, 373);
             this.DGClientes.TabIndex = 39;
+            this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
             this.DGClientes.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.DGClientes_RowPrePaint);
             // 
             // TId
@@ -426,11 +427,13 @@
             // 
             this.Ccorreo.HeaderText = "Correo";
             this.Ccorreo.Name = "Ccorreo";
+            this.Ccorreo.ReadOnly = true;
             // 
             // Ceditar
             // 
             this.Ceditar.HeaderText = "Editar";
             this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
             // 
             // Cestado
             // 
