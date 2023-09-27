@@ -23,7 +23,7 @@ namespace CapaPresentacion
 
 
 
-            txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            DTFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtIDPROD.Text = "0";
             txtIDCLIE.Text = "0";
 
