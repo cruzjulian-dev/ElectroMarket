@@ -16,5 +16,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void datagridProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

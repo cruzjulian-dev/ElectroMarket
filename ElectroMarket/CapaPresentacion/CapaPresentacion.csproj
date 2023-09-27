@@ -86,11 +86,11 @@
     <Compile Include="Modales\mdProductos.Designer.cs">
       <DependentUpon>mdProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\mdProveedor.cs">
+    <Compile Include="Modales\mdClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\mdProveedor.Designer.cs">
-      <DependentUpon>mdProveedor.cs</DependentUpon>
+    <Compile Include="Modales\mdClientes.Designer.cs">
+      <DependentUpon>mdClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\Producto.cs" />
     <Compile Include="Modales\Proveedor.cs" />
@@ -186,8 +186,8 @@
     <EmbeddedResource Include="Modales\mdProductos.resx">
       <DependentUpon>mdProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\mdProveedor.resx">
-      <DependentUpon>mdProveedor.cs</DependentUpon>
+    <EmbeddedResource Include="Modales\mdClientes.resx">
+      <DependentUpon>mdClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductosAdmin.resx">
       <DependentUpon>ProductosAdmin.cs</DependentUpon>
