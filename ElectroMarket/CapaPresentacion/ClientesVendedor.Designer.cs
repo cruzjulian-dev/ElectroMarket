@@ -166,7 +166,7 @@
             this.Ceditar});
             this.DGClientes.Location = new System.Drawing.Point(292, 120);
             this.DGClientes.Name = "DGClientes";
-            this.DGClientes.Size = new System.Drawing.Size(671, 373);
+            this.DGClientes.Size = new System.Drawing.Size(843, 373);
             this.DGClientes.TabIndex = 13;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGCliente_CellContentClick);
             // 

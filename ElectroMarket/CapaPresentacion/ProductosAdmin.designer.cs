@@ -43,23 +43,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.datagridProd = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -69,6 +55,16 @@
             this.Precio = new System.Windows.Forms.Label();
             this.textBoxStock = new System.Windows.Forms.TextBox();
             this.lblStock = new System.Windows.Forms.Label();
+            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,6 +171,7 @@
             this.comboBoxEstado.Name = "comboBoxEstado";
             this.comboBoxEstado.Size = new System.Drawing.Size(180, 21);
             this.comboBoxEstado.TabIndex = 12;
+            this.comboBoxEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -202,9 +199,6 @@
             this.datagridProd.AllowUserToAddRows = false;
             this.datagridProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnSeleccionar,
-            this.Ceditar,
-            this.id,
             this.Ccodigo,
             this.Cnombre,
             this.Cdescripcion,
@@ -213,7 +207,8 @@
             this.ColStock,
             this.cprecio,
             this.Cestado,
-            this.CestadoVAlor});
+            this.CestadoVAlor,
+            this.Ceditar});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,84 +232,10 @@
             this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datagridProd.RowTemplate.Height = 28;
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridProd.Size = new System.Drawing.Size(622, 312);
+            this.datagridProd.Size = new System.Drawing.Size(842, 390);
             this.datagridProd.TabIndex = 18;
             this.datagridProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 50;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // Ccodigo
-            // 
-            this.Ccodigo.HeaderText = "Codigo de Producto";
-            this.Ccodigo.Name = "Ccodigo";
-            this.Ccodigo.ReadOnly = true;
-            // 
-            // Cnombre
-            // 
-            this.Cnombre.HeaderText = "Nombre";
-            this.Cnombre.Name = "Cnombre";
-            this.Cnombre.ReadOnly = true;
-            // 
-            // Cdescripcion
-            // 
-            this.Cdescripcion.HeaderText = "Descripcion";
-            this.Cdescripcion.Name = "Cdescripcion";
-            this.Cdescripcion.ReadOnly = true;
-            // 
-            // idCat
-            // 
-            this.idCat.HeaderText = "idCategoria";
-            this.idCat.Name = "idCat";
-            this.idCat.ReadOnly = true;
-            this.idCat.Visible = false;
-            // 
-            // Ccategoria
-            // 
-            this.Ccategoria.HeaderText = "Categoria";
-            this.Ccategoria.Name = "Ccategoria";
-            this.Ccategoria.ReadOnly = true;
-            // 
-            // ColStock
-            // 
-            this.ColStock.HeaderText = "Stock";
-            this.ColStock.Name = "ColStock";
-            this.ColStock.ReadOnly = true;
-            // 
-            // cprecio
-            // 
-            this.cprecio.HeaderText = "Precio ";
-            this.cprecio.Name = "cprecio";
-            this.cprecio.ReadOnly = true;
-            // 
-            // Cestado
-            // 
-            this.Cestado.HeaderText = "Estado";
-            this.Cestado.Name = "Cestado";
-            this.Cestado.ReadOnly = true;
-            // 
-            // CestadoVAlor
-            // 
-            this.CestadoVAlor.HeaderText = "EstadoValor";
-            this.CestadoVAlor.Name = "CestadoVAlor";
-            this.CestadoVAlor.ReadOnly = true;
-            this.CestadoVAlor.Visible = false;
+            this.datagridProd.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.datagridProd_RowPrePaint);
             // 
             // label3
             // 
@@ -327,16 +248,6 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Lista de Productos:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtID
-            // 
-            this.txtID.BackColor = System.Drawing.Color.White;
-            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtID.Location = new System.Drawing.Point(166, 71);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(46, 20);
-            this.txtID.TabIndex = 20;
-            this.txtID.Visible = false;
             // 
             // btnEditar
             // 
@@ -379,27 +290,6 @@
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Red;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEliminar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.btnEliminar.IconColor = System.Drawing.Color.White;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 23;
-            this.btnEliminar.Location = new System.Drawing.Point(32, 474);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(180, 33);
-            this.btnEliminar.TabIndex = 14;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblBuscar
             // 
@@ -503,6 +393,72 @@
             this.lblStock.Text = "Stock:";
             this.lblStock.Click += new System.EventHandler(this.label4_Click);
             // 
+            // Ccodigo
+            // 
+            this.Ccodigo.HeaderText = "Codigo";
+            this.Ccodigo.Name = "Ccodigo";
+            this.Ccodigo.ReadOnly = true;
+            this.Ccodigo.Width = 70;
+            // 
+            // Cnombre
+            // 
+            this.Cnombre.HeaderText = "Nombre";
+            this.Cnombre.Name = "Cnombre";
+            this.Cnombre.ReadOnly = true;
+            // 
+            // Cdescripcion
+            // 
+            this.Cdescripcion.HeaderText = "Descripcion";
+            this.Cdescripcion.Name = "Cdescripcion";
+            this.Cdescripcion.ReadOnly = true;
+            // 
+            // idCat
+            // 
+            this.idCat.HeaderText = "idCategoria";
+            this.idCat.Name = "idCat";
+            this.idCat.ReadOnly = true;
+            this.idCat.Visible = false;
+            // 
+            // Ccategoria
+            // 
+            this.Ccategoria.HeaderText = "Categoria";
+            this.Ccategoria.Name = "Ccategoria";
+            this.Ccategoria.ReadOnly = true;
+            // 
+            // ColStock
+            // 
+            this.ColStock.HeaderText = "Stock";
+            this.ColStock.Name = "ColStock";
+            this.ColStock.ReadOnly = true;
+            this.ColStock.Width = 80;
+            // 
+            // cprecio
+            // 
+            this.cprecio.HeaderText = "Precio ";
+            this.cprecio.Name = "cprecio";
+            this.cprecio.ReadOnly = true;
+            // 
+            // Cestado
+            // 
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
+            this.Cestado.Width = 80;
+            // 
+            // CestadoVAlor
+            // 
+            this.CestadoVAlor.HeaderText = "EstadoValor";
+            this.CestadoVAlor.Name = "CestadoVAlor";
+            this.CestadoVAlor.ReadOnly = true;
+            this.CestadoVAlor.Visible = false;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            this.Ceditar.Width = 75;
+            // 
             // ProductosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,13 +474,11 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.cboBusqueda);
             this.Controls.Add(this.lblBuscar);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.datagridProd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.comboBoxEstado);
             this.Controls.Add(this.comboBox1Cate);
             this.Controls.Add(this.txtDescripcion);
@@ -559,13 +513,11 @@
         private System.Windows.Forms.ComboBox comboBox1Cate;
         private System.Windows.Forms.ComboBox comboBoxEstado;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private FontAwesome.Sharp.IconButton btnEditar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView datagridProd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.ComboBox cboBusqueda;
         private System.Windows.Forms.TextBox textBox4;
@@ -575,9 +527,6 @@
         private System.Windows.Forms.Label Precio;
         private System.Windows.Forms.TextBox textBoxStock;
         private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cnombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cdescripcion;
@@ -587,5 +536,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cprecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cestado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CestadoVAlor;
+        private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
     }
 }

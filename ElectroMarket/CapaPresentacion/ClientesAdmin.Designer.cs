@@ -30,7 +30,6 @@
         {
             this.BEditar = new FontAwesome.Sharp.IconButton();
             this.BGuardar = new FontAwesome.Sharp.IconButton();
-            this.BEliminar = new FontAwesome.Sharp.IconButton();
             this.TDomicilio = new System.Windows.Forms.TextBox();
             this.TApellido = new System.Windows.Forms.TextBox();
             this.TDni = new System.Windows.Forms.TextBox();
@@ -52,6 +51,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DGClientes = new System.Windows.Forms.DataGridView();
+            this.TId = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+            this.lEstado = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,8 +63,7 @@
             this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ccorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.TId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +78,7 @@
             this.BEditar.IconColor = System.Drawing.Color.White;
             this.BEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BEditar.IconSize = 23;
-            this.BEditar.Location = new System.Drawing.Point(21, 465);
+            this.BEditar.Location = new System.Drawing.Point(21, 489);
             this.BEditar.Name = "BEditar";
             this.BEditar.Size = new System.Drawing.Size(180, 33);
             this.BEditar.TabIndex = 35;
@@ -97,7 +99,7 @@
             this.BGuardar.IconColor = System.Drawing.Color.White;
             this.BGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BGuardar.IconSize = 23;
-            this.BGuardar.Location = new System.Drawing.Point(21, 426);
+            this.BGuardar.Location = new System.Drawing.Point(21, 450);
             this.BGuardar.Name = "BGuardar";
             this.BGuardar.Size = new System.Drawing.Size(180, 33);
             this.BGuardar.TabIndex = 34;
@@ -107,30 +109,9 @@
             this.BGuardar.UseVisualStyleBackColor = false;
             this.BGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // BEliminar
-            // 
-            this.BEliminar.BackColor = System.Drawing.Color.Red;
-            this.BEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BEliminar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BEliminar.ForeColor = System.Drawing.Color.White;
-            this.BEliminar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.BEliminar.IconColor = System.Drawing.Color.White;
-            this.BEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BEliminar.IconSize = 23;
-            this.BEliminar.Location = new System.Drawing.Point(21, 504);
-            this.BEliminar.Name = "BEliminar";
-            this.BEliminar.Size = new System.Drawing.Size(180, 33);
-            this.BEliminar.TabIndex = 33;
-            this.BEliminar.Text = "Eliminar";
-            this.BEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BEliminar.UseVisualStyleBackColor = false;
-            this.BEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // TDomicilio
             // 
-            this.TDomicilio.Location = new System.Drawing.Point(21, 381);
+            this.TDomicilio.Location = new System.Drawing.Point(21, 351);
             this.TDomicilio.Name = "TDomicilio";
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 32;
@@ -154,7 +135,7 @@
             // 
             // TFecha
             // 
-            this.TFecha.Location = new System.Drawing.Point(21, 259);
+            this.TFecha.Location = new System.Drawing.Point(21, 249);
             this.TFecha.Name = "TFecha";
             this.TFecha.Size = new System.Drawing.Size(180, 20);
             this.TFecha.TabIndex = 29;
@@ -162,7 +143,7 @@
             // 
             // TCorreo
             // 
-            this.TCorreo.Location = new System.Drawing.Point(21, 323);
+            this.TCorreo.Location = new System.Drawing.Point(21, 302);
             this.TCorreo.Name = "TCorreo";
             this.TCorreo.Size = new System.Drawing.Size(180, 20);
             this.TCorreo.TabIndex = 28;
@@ -180,7 +161,7 @@
             // 
             this.LCorreo.AutoSize = true;
             this.LCorreo.BackColor = System.Drawing.Color.White;
-            this.LCorreo.Location = new System.Drawing.Point(22, 308);
+            this.LCorreo.Location = new System.Drawing.Point(22, 286);
             this.LCorreo.Name = "LCorreo";
             this.LCorreo.Size = new System.Drawing.Size(38, 13);
             this.LCorreo.TabIndex = 26;
@@ -191,7 +172,7 @@
             // 
             this.LFecha.AutoSize = true;
             this.LFecha.BackColor = System.Drawing.Color.White;
-            this.LFecha.Location = new System.Drawing.Point(22, 243);
+            this.LFecha.Location = new System.Drawing.Point(22, 233);
             this.LFecha.Name = "LFecha";
             this.LFecha.Size = new System.Drawing.Size(108, 13);
             this.LFecha.TabIndex = 25;
@@ -202,7 +183,7 @@
             // 
             this.LDomicilio.AutoSize = true;
             this.LDomicilio.BackColor = System.Drawing.Color.White;
-            this.LDomicilio.Location = new System.Drawing.Point(22, 365);
+            this.LDomicilio.Location = new System.Drawing.Point(18, 335);
             this.LDomicilio.Name = "LDomicilio";
             this.LDomicilio.Size = new System.Drawing.Size(49, 13);
             this.LDomicilio.TabIndex = 24;
@@ -312,6 +293,11 @@
             this.comboBox1.BackColor = System.Drawing.Color.White;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "DNI",
+            "Apellido",
+            "Nombre",
+            "ID"});
             this.comboBox1.Location = new System.Drawing.Point(628, 63);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(86, 21);
@@ -351,11 +337,54 @@
             this.FechaNacim,
             this.Domicilio,
             this.Ccorreo,
-            this.Ceditar});
+            this.Ceditar,
+            this.Cestado});
             this.DGClientes.Location = new System.Drawing.Point(291, 125);
             this.DGClientes.Name = "DGClientes";
-            this.DGClientes.Size = new System.Drawing.Size(671, 373);
+            this.DGClientes.Size = new System.Drawing.Size(863, 373);
             this.DGClientes.TabIndex = 39;
+            this.DGClientes.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.DGClientes_RowPrePaint);
+            // 
+            // TId
+            // 
+            this.TId.Location = new System.Drawing.Point(65, 62);
+            this.TId.Name = "TId";
+            this.TId.ReadOnly = true;
+            this.TId.Size = new System.Drawing.Size(136, 20);
+            this.TId.TabIndex = 46;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(38, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "ID:";
+            // 
+            // comboBoxEstado
+            // 
+            this.comboBoxEstado.BackColor = System.Drawing.Color.White;
+            this.comboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Items.AddRange(new object[] {
+            "Activo ",
+            "No Activo "});
+            this.comboBoxEstado.Location = new System.Drawing.Point(21, 399);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size(180, 21);
+            this.comboBoxEstado.TabIndex = 49;
+            // 
+            // lEstado
+            // 
+            this.lEstado.AutoSize = true;
+            this.lEstado.BackColor = System.Drawing.Color.White;
+            this.lEstado.Location = new System.Drawing.Point(22, 383);
+            this.lEstado.Name = "lEstado";
+            this.lEstado.Size = new System.Drawing.Size(43, 13);
+            this.lEstado.TabIndex = 48;
+            this.lEstado.Text = "Estado:";
             // 
             // ID
             // 
@@ -403,22 +432,11 @@
             this.Ceditar.HeaderText = "Editar";
             this.Ceditar.Name = "Ceditar";
             // 
-            // TId
+            // Cestado
             // 
-            this.TId.Location = new System.Drawing.Point(65, 62);
-            this.TId.Name = "TId";
-            this.TId.Size = new System.Drawing.Size(136, 20);
-            this.TId.TabIndex = 46;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(38, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "ID:";
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
             // 
             // ClientesAdmin
             // 
@@ -426,6 +444,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGreen;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.comboBoxEstado);
+            this.Controls.Add(this.lEstado);
             this.Controls.Add(this.TId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconButton2);
@@ -438,7 +458,6 @@
             this.Controls.Add(this.Cliente);
             this.Controls.Add(this.BEditar);
             this.Controls.Add(this.BGuardar);
-            this.Controls.Add(this.BEliminar);
             this.Controls.Add(this.TDomicilio);
             this.Controls.Add(this.TApellido);
             this.Controls.Add(this.TDni);
@@ -464,7 +483,6 @@
         #endregion
         private FontAwesome.Sharp.IconButton BEditar;
         private FontAwesome.Sharp.IconButton BGuardar;
-        private FontAwesome.Sharp.IconButton BEliminar;
         private System.Windows.Forms.TextBox TDomicilio;
         private System.Windows.Forms.TextBox TApellido;
         private System.Windows.Forms.TextBox TDni;
@@ -486,6 +504,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView DGClientes;
+        private System.Windows.Forms.TextBox TId;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxEstado;
+        private System.Windows.Forms.Label lEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
@@ -494,7 +516,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccorreo;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
-        private System.Windows.Forms.TextBox TId;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cestado;
     }
 }

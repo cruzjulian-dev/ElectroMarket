@@ -125,7 +125,6 @@ namespace CapaPresentacion
            
         }
 
-
         private bool ValidarCampos()
         {
             // Verificar si los TextBox están vacíos
@@ -229,8 +228,41 @@ namespace CapaPresentacion
             }
         }
 
-       
+        private void comboBoxEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        
+        }
+
+        private void datagridProd_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            /*
+            foreach (DataGridViewRow row in datagridProd.Rows)
+            {
+                datagridProd.DefaultCellStyle.BackColor = Color.White;
+                if (row.Cells["Estado"].Value.ToString() == "No Activo")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+            
+            // Cambiar el color de fondo de la fila en función de alguna condición
+
+            String estado = Convert.ToString(datagridProd.Rows[e.RowIndex].Cells["Estado"].Value);
+            if (e.RowIndex >= 0)
+            {
+                datagridProd.DefaultCellStyle.BackColor = Color.White;
+                if (estado == "No Activo")
+                {
+                    // Cambiar el color de fondo de la fila
+                    datagridProd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                }
+                else
+                {
+                    // Restaurar el color de fondo predeterminado
+                    datagridProd.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+            */
+        }
     }
 }
