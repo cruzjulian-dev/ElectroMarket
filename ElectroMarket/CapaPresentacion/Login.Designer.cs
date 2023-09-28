@@ -96,6 +96,7 @@
             // BSalir
             // 
             this.BSalir.BackColor = System.Drawing.Color.Red;
+            this.BSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BSalir.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSalir.ForeColor = System.Drawing.Color.White;
             this.BSalir.IconChar = FontAwesome.Sharp.IconChar.Xmark;
@@ -115,6 +116,7 @@
             // BIngresar
             // 
             this.BIngresar.BackColor = System.Drawing.Color.ForestGreen;
+            this.BIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BIngresar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BIngresar.ForeColor = System.Drawing.Color.White;
             this.BIngresar.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;

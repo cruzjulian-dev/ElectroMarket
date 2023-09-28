@@ -13,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class Usuarios : Form
     {
+        //SistemaEntidades bd = new SistemaEntidades();
         int filaSeleccionada;
         bool editar = false;
         public Usuarios()
@@ -38,6 +39,10 @@ namespace CapaPresentacion
                     // Agregar nueva fila
                     DGUsuarios.Rows.Add(1, TUsuario.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim());
 
+                    //Usuario usuario = new Usuario();
+                    //bd.Usuarios.Add(usuario);
+                    //bd.SaveChanges();
+
                     foreach (DataGridViewRow row in DGUsuarios.Rows)
                     {
                         row.Cells["Ceditar"].Value = "Editar";
@@ -58,6 +63,16 @@ namespace CapaPresentacion
         private void BEditar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Usuarios_Load(object sender, EventArgs e)
+        {
+            //DGUsuarios.DataSource = bd.Usuarios.ToList();
         }
     }
 }

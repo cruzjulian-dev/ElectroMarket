@@ -51,10 +51,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DGClientes = new System.Windows.Forms.DataGridView();
-            this.TId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
-            this.lEstado = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +60,10 @@
             this.Ccorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TId = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+            this.lEstado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -291,6 +291,7 @@
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.Color.White;
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -346,47 +347,6 @@
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
             this.DGClientes.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.DGClientes_RowPrePaint);
             // 
-            // TId
-            // 
-            this.TId.Location = new System.Drawing.Point(65, 62);
-            this.TId.Name = "TId";
-            this.TId.ReadOnly = true;
-            this.TId.Size = new System.Drawing.Size(136, 20);
-            this.TId.TabIndex = 46;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(38, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "ID:";
-            // 
-            // comboBoxEstado
-            // 
-            this.comboBoxEstado.BackColor = System.Drawing.Color.White;
-            this.comboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEstado.FormattingEnabled = true;
-            this.comboBoxEstado.Items.AddRange(new object[] {
-            "Activo ",
-            "No Activo "});
-            this.comboBoxEstado.Location = new System.Drawing.Point(21, 399);
-            this.comboBoxEstado.Name = "comboBoxEstado";
-            this.comboBoxEstado.Size = new System.Drawing.Size(180, 21);
-            this.comboBoxEstado.TabIndex = 49;
-            // 
-            // lEstado
-            // 
-            this.lEstado.AutoSize = true;
-            this.lEstado.BackColor = System.Drawing.Color.White;
-            this.lEstado.Location = new System.Drawing.Point(22, 383);
-            this.lEstado.Name = "lEstado";
-            this.lEstado.Size = new System.Drawing.Size(43, 13);
-            this.lEstado.TabIndex = 48;
-            this.lEstado.Text = "Estado:";
-            // 
             // ID
             // 
             this.ID.HeaderText = "ID";
@@ -440,6 +400,48 @@
             this.Cestado.HeaderText = "Estado";
             this.Cestado.Name = "Cestado";
             this.Cestado.ReadOnly = true;
+            // 
+            // TId
+            // 
+            this.TId.Location = new System.Drawing.Point(65, 62);
+            this.TId.Name = "TId";
+            this.TId.ReadOnly = true;
+            this.TId.Size = new System.Drawing.Size(136, 20);
+            this.TId.TabIndex = 46;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(38, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "ID:";
+            // 
+            // comboBoxEstado
+            // 
+            this.comboBoxEstado.BackColor = System.Drawing.Color.White;
+            this.comboBoxEstado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Items.AddRange(new object[] {
+            "Activo ",
+            "No Activo "});
+            this.comboBoxEstado.Location = new System.Drawing.Point(21, 399);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size(180, 21);
+            this.comboBoxEstado.TabIndex = 49;
+            // 
+            // lEstado
+            // 
+            this.lEstado.AutoSize = true;
+            this.lEstado.BackColor = System.Drawing.Color.White;
+            this.lEstado.Location = new System.Drawing.Point(22, 383);
+            this.lEstado.Name = "lEstado";
+            this.lEstado.Size = new System.Drawing.Size(43, 13);
+            this.lEstado.TabIndex = 48;
+            this.lEstado.Text = "Estado:";
             // 
             // ClientesAdmin
             // 

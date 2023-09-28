@@ -58,6 +58,7 @@
             // cboBusqueda
             // 
             this.cboBusqueda.BackColor = System.Drawing.Color.White;
+            this.cboBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBusqueda.FormattingEnabled = true;
             this.cboBusqueda.Items.AddRange(new object[] {

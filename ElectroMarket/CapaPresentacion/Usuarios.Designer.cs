@@ -295,6 +295,7 @@
             this.DGUsuarios.Name = "DGUsuarios";
             this.DGUsuarios.Size = new System.Drawing.Size(842, 373);
             this.DGUsuarios.TabIndex = 54;
+            this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
             // 
             // ID
             // 
@@ -377,6 +378,7 @@
             this.Controls.Add(this.label4);
             this.Name = "Usuarios";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.Usuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
