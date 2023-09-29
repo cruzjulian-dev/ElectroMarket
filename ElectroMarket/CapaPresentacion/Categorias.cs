@@ -6,13 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
 namespace CapaPresentacion
 {
+
     public partial class CategoriasAdmin : Form
     {
+
+        bool editar = false;
         public CategoriasAdmin()
         {
             InitializeComponent();
@@ -20,7 +24,34 @@ namespace CapaPresentacion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Ceditar")
+            {
 
+                if (editar)
+                {
+                    return;
+                }
+
+
+                if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+
+                    // Obtén los valores de las celdas de la fila seleccionada
+                    DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                    
+                    comboBoxEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
+                    txtDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
+                   
+
+
+                    // Habilita el botón "Editar" para guardar los cambios después de la edición
+                    btnEditar.Enabled = true;
+                    // btnGuardar.Enabled = false;
+                    editar = true;
+                    btnAgregar.Enabled = false; // Deshabilita el botón "Agregar" mientras editas
+                }
+            }
         }
 
         private bool ValidarCampos()
@@ -60,17 +91,57 @@ namespace CapaPresentacion
 
                 dataGridView1.Rows[rowIndex].Cells["Cestado"].Value = opcionSeleccionada2;
                 dataGridView1.Rows[rowIndex].Cells["Cdescripcion"].Value = descripcion;
-               
+
+                dataGridView1.Rows[rowIndex].Cells["Ceditar"].Value = "Editar";
+
+                limpiar();
 
 
-                txtDescripcion.Clear();
-                // Limpia la selección en el ComboBox para que aparezca vacío
-                comboBoxEstado.SelectedIndex = -1;
             }
             else
             {
                 MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (editar == false)
+            {
+                MessageBox.Show("No seleccionaste ninguna Categoria para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string descripcion = txtDescripcion.Text;
+                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
+
+                // Actualiza la fila seleccionada en el DataGridView
+                DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                selectedRow.Cells["Cdescripcion"].Value = descripcion;
+                selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
+
+
+                // Limpia los controles del formulario
+                limpiar();
+                // Deshabilita el botón "Modificar" nuevamente
+                btnEditar.Enabled = false;
+
+                editar = false;
+
+                btnAgregar.Enabled = true;
+            }
+
+        }
+
+        void limpiar()
+        {
+            //limpiar todo
+           
+            txtDescripcion.Clear();
+            
+            // Limpia la selección en el ComboBox para que aparezca vacío
+            
+            comboBoxEstado.SelectedIndex = -1;
         }
     }
 }

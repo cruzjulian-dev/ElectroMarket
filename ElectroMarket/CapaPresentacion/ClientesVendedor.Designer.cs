@@ -265,7 +265,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(296, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(623, 51);
+            this.label3.Size = new System.Drawing.Size(839, 51);
             this.label3.TabIndex = 27;
             this.label3.Text = "Lista de Clientes:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -275,7 +275,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(561, 62);
+            this.label5.Location = new System.Drawing.Point(784, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 28;
@@ -293,7 +293,7 @@
             "Apellido",
             "Nombre",
             "ID"});
-            this.comboBox1.Location = new System.Drawing.Point(629, 58);
+            this.comboBox1.Location = new System.Drawing.Point(852, 57);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(86, 21);
             this.comboBox1.TabIndex = 29;
@@ -302,7 +302,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(721, 58);
+            this.textBox1.Location = new System.Drawing.Point(944, 57);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 30;
@@ -319,7 +319,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 23;
-            this.iconButton1.Location = new System.Drawing.Point(868, 52);
+            this.iconButton1.Location = new System.Drawing.Point(1091, 51);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(35, 33);
             this.iconButton1.TabIndex = 31;
@@ -337,7 +337,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(827, 52);
+            this.iconButton2.Location = new System.Drawing.Point(1050, 51);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(35, 33);
             this.iconButton2.TabIndex = 32;

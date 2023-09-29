@@ -52,6 +52,7 @@
             this.codigoProd = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lNombre = new System.Windows.Forms.Label();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +103,8 @@
             this.id,
             this.Cdescripcion,
             this.Cestado,
-            this.CestadoVAlor});
+            this.CestadoVAlor,
+            this.Ceditar});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,6 +187,7 @@
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // textBox4
             // 
@@ -337,6 +340,12 @@
             this.lNombre.TabIndex = 27;
             this.lNombre.Text = "Nombre: ";
             // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            // 
             // CategoriasAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,5 +401,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cdescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cestado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CestadoVAlor;
+        private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
     }
 }

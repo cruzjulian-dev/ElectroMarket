@@ -39,10 +39,10 @@
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.LBievenido = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MenuVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -174,16 +174,6 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(862, 87);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 24);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Bienvenido:";
-            // 
             // LBievenido
             // 
             this.LBievenido.AutoSize = true;
@@ -204,23 +194,36 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(862, 117);
+            this.label4.BackColor = System.Drawing.SystemColors.Window;
+            this.label4.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(900, 110);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 24);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Rol:";
+            this.label4.Size = new System.Drawing.Size(125, 30);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Vendedor";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.Window;
+            this.label1.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(840, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 30);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Rol:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(918, 117);
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
+            this.label2.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(840, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 24);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Vendedor";
+            this.label2.Size = new System.Drawing.Size(140, 30);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Bienvenido";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // VistaVendedor
             // 
@@ -228,11 +231,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 698);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.LBievenido);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.MenuVendedor);
@@ -263,10 +266,10 @@
         private System.Windows.Forms.ToolStripMenuItem SMCategoria;
         private System.Windows.Forms.ToolStripMenuItem SMProductos;
         private System.Windows.Forms.ToolStripMenuItem SMdetalleVenta;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LBievenido;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
 }

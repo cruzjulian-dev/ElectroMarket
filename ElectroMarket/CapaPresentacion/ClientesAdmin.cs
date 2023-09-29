@@ -6,12 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace CapaPresentacion
 {
     public partial class ClientesAdmin : Form
     {
+
+        bool editar = false;
         public ClientesAdmin()
         {
             InitializeComponent();
@@ -129,7 +133,25 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (editar == false)
+            {
+                MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
 
+             
+
+                // Limpia los controles del formulario
+                //limpiar();
+
+                // Deshabilita el botón "Modificar" nuevamente
+                BEditar.Enabled = false;
+
+                editar = false;
+
+                BGuardar.Enabled = true;
+            }
         }
 
         private void DGClientes_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)

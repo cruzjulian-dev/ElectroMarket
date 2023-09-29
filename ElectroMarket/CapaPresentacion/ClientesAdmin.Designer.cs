@@ -257,7 +257,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(826, 57);
+            this.iconButton2.Location = new System.Drawing.Point(987, 57);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(35, 33);
             this.iconButton2.TabIndex = 45;
@@ -274,7 +274,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 23;
-            this.iconButton1.Location = new System.Drawing.Point(867, 57);
+            this.iconButton1.Location = new System.Drawing.Point(1028, 57);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(35, 33);
             this.iconButton1.TabIndex = 44;
@@ -283,7 +283,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(720, 63);
+            this.textBox1.Location = new System.Drawing.Point(881, 63);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 43;
@@ -299,7 +299,7 @@
             "Apellido",
             "Nombre",
             "ID"});
-            this.comboBox1.Location = new System.Drawing.Point(628, 63);
+            this.comboBox1.Location = new System.Drawing.Point(789, 63);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(86, 21);
             this.comboBox1.TabIndex = 42;
@@ -308,7 +308,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(560, 67);
+            this.label5.Location = new System.Drawing.Point(721, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 41;
@@ -321,7 +321,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(295, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(623, 51);
+            this.label3.Size = new System.Drawing.Size(777, 51);
             this.label3.TabIndex = 40;
             this.label3.Text = "Lista de Clientes:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -340,9 +340,9 @@
             this.Ccorreo,
             this.Ceditar,
             this.Cestado});
-            this.DGClientes.Location = new System.Drawing.Point(291, 125);
+            this.DGClientes.Location = new System.Drawing.Point(300, 137);
             this.DGClientes.Name = "DGClientes";
-            this.DGClientes.Size = new System.Drawing.Size(863, 373);
+            this.DGClientes.Size = new System.Drawing.Size(772, 373);
             this.DGClientes.TabIndex = 39;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
             this.DGClientes.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.DGClientes_RowPrePaint);

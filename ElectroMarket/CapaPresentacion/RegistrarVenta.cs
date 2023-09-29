@@ -54,5 +54,17 @@ namespace CapaPresentacion
                 var result = modal.ShowDialog();
             }
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Funcionalidad En Desarrollo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+        }
+
+        private void iconButtonVenta_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Funcionalidad En Desarrolo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+        }
     }
 }
