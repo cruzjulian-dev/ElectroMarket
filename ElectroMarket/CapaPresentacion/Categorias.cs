@@ -35,6 +35,8 @@ namespace CapaPresentacion
 
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    // Habilita el botón "Editar"
+                    btnEditar.Enabled = true;
 
 
                     // Obtén los valores de las celdas de la fila seleccionada
@@ -112,26 +114,40 @@ namespace CapaPresentacion
             }
             else
             {
-                string descripcion = txtDescripcion.Text;
-                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
+                // Preguntar al usuario si está seguro de editar
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas modificar esta categoría?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                // Actualiza la fila seleccionada en el DataGridView
-                DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
-                selectedRow.Cells["Cdescripcion"].Value = descripcion;
-                selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
+                if (result == DialogResult.Yes)
+                {
+                    string descripcion = txtDescripcion.Text;
+                    string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
 
+                    // Actualiza la fila seleccionada en el DataGridView
+                    DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                    selectedRow.Cells["Cdescripcion"].Value = descripcion;
+                    selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
 
-                // Limpia los controles del formulario
-                limpiar();
-                // Deshabilita el botón "Modificar" nuevamente
-                btnEditar.Enabled = false;
+                    // Limpia los controles del formulario
+                    limpiar();
 
-                editar = false;
+                    // Deshabilita el botón "Modificar" nuevamente
+                    btnEditar.Enabled = false;
+                    editar = false;
 
-                btnAgregar.Enabled = true;
+                    // Habilita el botón "Agregar" después de editar
+                    btnAgregar.Enabled = true;
+                }
+                else if (result == DialogResult.No)
+                {
+                    // Si el usuario elige "No", habilita el botón "Agregar"
+                    btnAgregar.Enabled = true;
+                    btnEditar.Enabled = false;
+                    limpiar() ; 
+                }
             }
-
         }
+
+
 
         void limpiar()
         {
@@ -142,6 +158,22 @@ namespace CapaPresentacion
             // Limpia la selección en el ComboBox para que aparezca vacío
             
             comboBoxEstado.SelectedIndex = -1;
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Cancela la pulsación de la tecla si no es válida
+                e.Handled = true;
+            }
+
+        }
+
+        private void CategoriasAdmin_Load(object sender, EventArgs e)
+        {
+            // Por defecto, deshabilita el botón "Editar"
+            btnEditar.Enabled = false;
         }
     }
 }
