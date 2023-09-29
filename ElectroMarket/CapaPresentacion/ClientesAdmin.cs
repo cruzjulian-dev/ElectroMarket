@@ -36,8 +36,10 @@ namespace CapaPresentacion
             {
                 if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+
                     // Agregar nueva fila
                     DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), TFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim(), comboBoxEstado.SelectedItem.ToString());
+
 
                     foreach (DataGridViewRow row in DGClientes.Rows)
                     {
@@ -177,6 +179,57 @@ namespace CapaPresentacion
         private void DGClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void TNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la entrada del carácter no válido
+            }
+        }
+
+        private void TApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la entrada del carácter no válido
+            }
+        }
+
+        private void TDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada no es un número o la tecla Backspace (borrar).
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es un número ni una tecla de borrar, cancela la entrada.
+                e.Handled = true;
+            }
+        }
+
+        private void TFecha_Validating(object sender, CancelEventArgs e)
+        {
+            DateTime fecha;
+            if (!DateTime.TryParse(TFecha.Text, out fecha))
+            {
+                // La fecha ingresada no es válida
+                MessageBox.Show("Por favor, ingrese una fecha válida en formato dd/mm/aaaa.", "Fecha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Evita que el foco cambie al siguiente control
+                e.Cancel = true;
+            }
+        }
+
+        private void TDomicilio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si el carácter ingresado no es una letra, número o espacio en blanco
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                // Si no es válido, marca el evento como manejado para evitar que se ingrese
+                e.Handled = true;
+            }
         }
     }
 }

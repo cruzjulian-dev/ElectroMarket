@@ -116,6 +116,7 @@
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 32;
             this.TDomicilio.TextChanged += new System.EventHandler(this.TDomicilio_TextChanged);
+            this.TDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDomicilio_KeyPress);
             // 
             // TApellido
             // 
@@ -124,6 +125,7 @@
             this.TApellido.Size = new System.Drawing.Size(180, 20);
             this.TApellido.TabIndex = 31;
             this.TApellido.TextChanged += new System.EventHandler(this.TApellido_TextChanged);
+            this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
             // TDni
             // 
@@ -132,6 +134,7 @@
             this.TDni.Size = new System.Drawing.Size(180, 20);
             this.TDni.TabIndex = 30;
             this.TDni.TextChanged += new System.EventHandler(this.TDni_TextChanged);
+            this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // TFecha
             // 
@@ -140,6 +143,7 @@
             this.TFecha.Size = new System.Drawing.Size(180, 20);
             this.TFecha.TabIndex = 29;
             this.TFecha.TextChanged += new System.EventHandler(this.TFecha_TextChanged);
+            this.TFecha.Validating += new System.ComponentModel.CancelEventHandler(this.TFecha_Validating);
             // 
             // TCorreo
             // 
@@ -156,6 +160,7 @@
             this.TNombre.Size = new System.Drawing.Size(180, 20);
             this.TNombre.TabIndex = 27;
             this.TNombre.TextChanged += new System.EventHandler(this.TNombre_TextChanged);
+            this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
             // LCorreo
             // 

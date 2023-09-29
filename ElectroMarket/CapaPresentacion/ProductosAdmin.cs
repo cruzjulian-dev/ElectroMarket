@@ -264,5 +264,34 @@ namespace CapaPresentacion
             }
             */
         }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si el carácter ingresado no es una letra, número o espacio en blanco
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                // Si no es válido, marca el evento como manejado para evitar que se ingrese
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada no es un número o la tecla Backspace (borrar).
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es un número ni una tecla de borrar, cancela la entrada.
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la entrada del carácter no válido
+            }
+        }
     }
 }
