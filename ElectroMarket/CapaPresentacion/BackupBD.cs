@@ -16,5 +16,13 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseas realizar un backup a la BD?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MessageBox.Show("Base de datos restaurada con exito!");
+            }
+        }
     }
 }

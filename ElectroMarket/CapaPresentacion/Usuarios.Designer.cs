@@ -46,7 +46,6 @@
             this.LApellido = new System.Windows.Forms.Label();
             this.LNombre = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.BEliminar = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.DGUsuarios = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +83,7 @@
             this.TUsuario.Name = "TUsuario";
             this.TUsuario.Size = new System.Drawing.Size(180, 20);
             this.TUsuario.TabIndex = 37;
+            this.TUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TUsuario_KeyPress);
             // 
             // label1
             // 
@@ -126,7 +126,7 @@
             this.BEditar.IconColor = System.Drawing.Color.White;
             this.BEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BEditar.IconSize = 23;
-            this.BEditar.Location = new System.Drawing.Point(16, 439);
+            this.BEditar.Location = new System.Drawing.Point(16, 466);
             this.BEditar.Name = "BEditar";
             this.BEditar.Size = new System.Drawing.Size(180, 33);
             this.BEditar.TabIndex = 48;
@@ -147,7 +147,7 @@
             this.BGuardar.IconColor = System.Drawing.Color.White;
             this.BGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BGuardar.IconSize = 23;
-            this.BGuardar.Location = new System.Drawing.Point(16, 400);
+            this.BGuardar.Location = new System.Drawing.Point(16, 427);
             this.BGuardar.Name = "BGuardar";
             this.BGuardar.Size = new System.Drawing.Size(180, 33);
             this.BGuardar.TabIndex = 47;
@@ -184,6 +184,7 @@
             this.TNombre.Name = "TNombre";
             this.TNombre.Size = new System.Drawing.Size(180, 20);
             this.TNombre.TabIndex = 39;
+            this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
             // LFecha
             // 
@@ -244,26 +245,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(264, 561);
             this.label4.TabIndex = 51;
-            // 
-            // BEliminar
-            // 
-            this.BEliminar.BackColor = System.Drawing.Color.Red;
-            this.BEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BEliminar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BEliminar.ForeColor = System.Drawing.Color.White;
-            this.BEliminar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.BEliminar.IconColor = System.Drawing.Color.White;
-            this.BEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BEliminar.IconSize = 23;
-            this.BEliminar.Location = new System.Drawing.Point(16, 478);
-            this.BEliminar.Name = "BEliminar";
-            this.BEliminar.Size = new System.Drawing.Size(180, 33);
-            this.BEliminar.TabIndex = 53;
-            this.BEliminar.Text = "Eliminar";
-            this.BEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BEliminar.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -357,7 +338,6 @@
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DGUsuarios);
-            this.Controls.Add(this.BEliminar);
             this.Controls.Add(this.TCorreo);
             this.Controls.Add(this.LCorreo);
             this.Controls.Add(this.TUsuario);
@@ -405,7 +385,6 @@
         private System.Windows.Forms.Label LApellido;
         private System.Windows.Forms.Label LNombre;
         private System.Windows.Forms.Label label4;
-        private FontAwesome.Sharp.IconButton BEliminar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView DGUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;

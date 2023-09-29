@@ -34,7 +34,6 @@
             this.MenuProd = new FontAwesome.Sharp.IconMenuItem();
             this.MenuVentas = new FontAwesome.Sharp.IconMenuItem();
             this.SMCategoria = new System.Windows.Forms.ToolStripMenuItem();
-            this.SMProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.SMdetalleVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -106,7 +105,6 @@
             this.MenuVentas.AutoSize = false;
             this.MenuVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SMCategoria,
-            this.SMProductos,
             this.SMdetalleVenta});
             this.MenuVentas.IconChar = FontAwesome.Sharp.IconChar.Tags;
             this.MenuVentas.IconColor = System.Drawing.Color.Black;
@@ -121,21 +119,14 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(142, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
             this.SMCategoria.Text = "Nueva Venta";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
-            // 
-            // SMProductos
-            // 
-            this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(142, 22);
-            this.SMProductos.Text = "Detalle Venta";
-            this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
             // 
             // SMdetalleVenta
             // 
             this.SMdetalleVenta.Name = "SMdetalleVenta";
-            this.SMdetalleVenta.Size = new System.Drawing.Size(142, 22);
+            this.SMdetalleVenta.Size = new System.Drawing.Size(180, 22);
             this.SMdetalleVenta.Text = "Mis Ventas";
             this.SMdetalleVenta.Click += new System.EventHandler(this.SMdetalleVenta_Click);
             // 
@@ -264,7 +255,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconMenuItem MenuVentas;
         private System.Windows.Forms.ToolStripMenuItem SMCategoria;
-        private System.Windows.Forms.ToolStripMenuItem SMProductos;
         private System.Windows.Forms.ToolStripMenuItem SMdetalleVenta;
         private System.Windows.Forms.Label LBievenido;
         private System.Windows.Forms.Label label3;
