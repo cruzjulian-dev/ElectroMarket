@@ -48,25 +48,32 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DGUsuarios = new System.Windows.Forms.DataGridView();
+            this.TContra = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
+            this.lEstado = new System.Windows.Forms.Label();
+            this.CIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CContra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.TContra = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TEstado = new System.Windows.Forms.ComboBox();
-            this.lEstado = new System.Windows.Forms.Label();
+            this.CBRol = new System.Windows.Forms.ComboBox();
+            this.LRol = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // TTelefono
             // 
-            this.TTelefono.Location = new System.Drawing.Point(20, 342);
+            this.TTelefono.Location = new System.Drawing.Point(20, 319);
             this.TTelefono.Name = "TTelefono";
             this.TTelefono.Size = new System.Drawing.Size(180, 20);
             this.TTelefono.TabIndex = 16;
@@ -75,7 +82,7 @@
             // 
             this.LTelefono.AutoSize = true;
             this.LTelefono.BackColor = System.Drawing.Color.White;
-            this.LTelefono.Location = new System.Drawing.Point(21, 326);
+            this.LTelefono.Location = new System.Drawing.Point(21, 303);
             this.LTelefono.Name = "LTelefono";
             this.LTelefono.Size = new System.Drawing.Size(52, 13);
             this.LTelefono.TabIndex = 52;
@@ -83,7 +90,7 @@
             // 
             // TUsuario
             // 
-            this.TUsuario.Location = new System.Drawing.Point(20, 204);
+            this.TUsuario.Location = new System.Drawing.Point(20, 184);
             this.TUsuario.Name = "TUsuario";
             this.TUsuario.Size = new System.Drawing.Size(180, 20);
             this.TUsuario.TabIndex = 13;
@@ -94,7 +101,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(21, 188);
+            this.label1.Location = new System.Drawing.Point(21, 168);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 50;
@@ -104,7 +111,7 @@
             // DTFecha
             // 
             this.DTFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTFecha.Location = new System.Drawing.Point(20, 294);
+            this.DTFecha.Location = new System.Drawing.Point(20, 272);
             this.DTFecha.Name = "DTFecha";
             this.DTFecha.Size = new System.Drawing.Size(180, 20);
             this.DTFecha.TabIndex = 15;
@@ -113,9 +120,9 @@
             // 
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 18);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 30);
+            this.label2.Size = new System.Drawing.Size(220, 26);
             this.label2.TabIndex = 49;
             this.label2.Text = "Gestión de Usuarios";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,7 +139,7 @@
             this.BEditar.IconColor = System.Drawing.Color.White;
             this.BEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BEditar.IconSize = 23;
-            this.BEditar.Location = new System.Drawing.Point(20, 510);
+            this.BEditar.Location = new System.Drawing.Point(20, 516);
             this.BEditar.Name = "BEditar";
             this.BEditar.Size = new System.Drawing.Size(180, 33);
             this.BEditar.TabIndex = 20;
@@ -153,7 +160,7 @@
             this.BGuardar.IconColor = System.Drawing.Color.White;
             this.BGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BGuardar.IconSize = 23;
-            this.BGuardar.Location = new System.Drawing.Point(20, 471);
+            this.BGuardar.Location = new System.Drawing.Point(20, 477);
             this.BGuardar.Name = "BGuardar";
             this.BGuardar.Size = new System.Drawing.Size(180, 33);
             this.BGuardar.TabIndex = 19;
@@ -165,28 +172,28 @@
             // 
             // TDomicilio
             // 
-            this.TDomicilio.Location = new System.Drawing.Point(20, 385);
+            this.TDomicilio.Location = new System.Drawing.Point(20, 360);
             this.TDomicilio.Name = "TDomicilio";
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 17;
             // 
             // TApellido
             // 
-            this.TApellido.Location = new System.Drawing.Point(20, 118);
+            this.TApellido.Location = new System.Drawing.Point(20, 100);
             this.TApellido.Name = "TApellido";
             this.TApellido.Size = new System.Drawing.Size(180, 20);
             this.TApellido.TabIndex = 11;
             // 
             // TDni
             // 
-            this.TDni.Location = new System.Drawing.Point(20, 161);
+            this.TDni.Location = new System.Drawing.Point(20, 141);
             this.TDni.Name = "TDni";
             this.TDni.Size = new System.Drawing.Size(180, 20);
             this.TDni.TabIndex = 12;
             // 
             // TNombre
             // 
-            this.TNombre.Location = new System.Drawing.Point(20, 75);
+            this.TNombre.Location = new System.Drawing.Point(20, 59);
             this.TNombre.Name = "TNombre";
             this.TNombre.Size = new System.Drawing.Size(180, 20);
             this.TNombre.TabIndex = 10;
@@ -197,7 +204,7 @@
             // 
             this.LFecha.AutoSize = true;
             this.LFecha.BackColor = System.Drawing.Color.White;
-            this.LFecha.Location = new System.Drawing.Point(21, 278);
+            this.LFecha.Location = new System.Drawing.Point(21, 256);
             this.LFecha.Name = "LFecha";
             this.LFecha.Size = new System.Drawing.Size(111, 13);
             this.LFecha.TabIndex = 42;
@@ -207,7 +214,7 @@
             // 
             this.LDomicilio.AutoSize = true;
             this.LDomicilio.BackColor = System.Drawing.Color.White;
-            this.LDomicilio.Location = new System.Drawing.Point(21, 369);
+            this.LDomicilio.Location = new System.Drawing.Point(21, 344);
             this.LDomicilio.Name = "LDomicilio";
             this.LDomicilio.Size = new System.Drawing.Size(52, 13);
             this.LDomicilio.TabIndex = 40;
@@ -217,7 +224,7 @@
             // 
             this.LDni.AutoSize = true;
             this.LDni.BackColor = System.Drawing.Color.White;
-            this.LDni.Location = new System.Drawing.Point(21, 145);
+            this.LDni.Location = new System.Drawing.Point(21, 125);
             this.LDni.Name = "LDni";
             this.LDni.Size = new System.Drawing.Size(29, 13);
             this.LDni.TabIndex = 38;
@@ -227,7 +234,7 @@
             // 
             this.LApellido.AutoSize = true;
             this.LApellido.BackColor = System.Drawing.Color.White;
-            this.LApellido.Location = new System.Drawing.Point(21, 102);
+            this.LApellido.Location = new System.Drawing.Point(21, 84);
             this.LApellido.Name = "LApellido";
             this.LApellido.Size = new System.Drawing.Size(47, 13);
             this.LApellido.TabIndex = 36;
@@ -237,7 +244,7 @@
             // 
             this.LNombre.AutoSize = true;
             this.LNombre.BackColor = System.Drawing.Color.White;
-            this.LNombre.Location = new System.Drawing.Point(21, 59);
+            this.LNombre.Location = new System.Drawing.Point(21, 43);
             this.LNombre.Name = "LNombre";
             this.LNombre.Size = new System.Drawing.Size(47, 13);
             this.LNombre.TabIndex = 35;
@@ -272,20 +279,79 @@
             this.DGUsuarios.AllowUserToAddRows = false;
             this.DGUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIdUsuario,
+            this.CIdRol,
             this.CNombre,
             this.CApellido,
             this.CDni,
             this.CUsuario,
             this.CContra,
+            this.CRol,
             this.CFechaNacim,
             this.CTelefono,
             this.CDomicilio,
+            this.CEstado,
+            this.CEstadoValor,
             this.Ceditar});
             this.DGUsuarios.Location = new System.Drawing.Point(317, 113);
             this.DGUsuarios.Name = "DGUsuarios";
             this.DGUsuarios.Size = new System.Drawing.Size(842, 373);
             this.DGUsuarios.TabIndex = 21;
             this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
+            // 
+            // TContra
+            // 
+            this.TContra.Location = new System.Drawing.Point(20, 226);
+            this.TContra.Name = "TContra";
+            this.TContra.PasswordChar = '*';
+            this.TContra.Size = new System.Drawing.Size(180, 20);
+            this.TContra.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(21, 210);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 56;
+            this.label5.Text = "Contraseña:";
+            // 
+            // CBEstado
+            // 
+            this.CBEstado.BackColor = System.Drawing.Color.White;
+            this.CBEstado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBEstado.FormattingEnabled = true;
+            this.CBEstado.Items.AddRange(new object[] {
+            "Activo ",
+            "No Activo "});
+            this.CBEstado.Location = new System.Drawing.Point(20, 450);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(180, 21);
+            this.CBEstado.TabIndex = 18;
+            // 
+            // lEstado
+            // 
+            this.lEstado.AutoSize = true;
+            this.lEstado.BackColor = System.Drawing.Color.White;
+            this.lEstado.Location = new System.Drawing.Point(24, 434);
+            this.lEstado.Name = "lEstado";
+            this.lEstado.Size = new System.Drawing.Size(43, 13);
+            this.lEstado.TabIndex = 58;
+            this.lEstado.Text = "Estado:";
+            // 
+            // CIdUsuario
+            // 
+            this.CIdUsuario.HeaderText = "IdUsuario";
+            this.CIdUsuario.Name = "CIdUsuario";
+            this.CIdUsuario.Visible = false;
+            // 
+            // CIdRol
+            // 
+            this.CIdRol.HeaderText = "IdRol";
+            this.CIdRol.Name = "CIdRol";
+            this.CIdRol.Visible = false;
             // 
             // CNombre
             // 
@@ -318,6 +384,12 @@
             this.CContra.Name = "CContra";
             this.CContra.ReadOnly = true;
             // 
+            // CRol
+            // 
+            this.CRol.HeaderText = "Rol";
+            this.CRol.Name = "CRol";
+            this.CRol.ReadOnly = true;
+            // 
             // CFechaNacim
             // 
             this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
@@ -336,59 +408,57 @@
             this.CDomicilio.Name = "CDomicilio";
             this.CDomicilio.ReadOnly = true;
             // 
+            // CEstado
+            // 
+            this.CEstado.HeaderText = "Estado";
+            this.CEstado.Name = "CEstado";
+            this.CEstado.ReadOnly = true;
+            // 
+            // CEstadoValor
+            // 
+            this.CEstadoValor.HeaderText = "EstadoValor";
+            this.CEstadoValor.Name = "CEstadoValor";
+            this.CEstadoValor.ReadOnly = true;
+            this.CEstadoValor.Visible = false;
+            // 
             // Ceditar
             // 
             this.Ceditar.HeaderText = "Editar";
             this.Ceditar.Name = "Ceditar";
             this.Ceditar.ReadOnly = true;
             // 
-            // TContra
+            // CBRol
             // 
-            this.TContra.Location = new System.Drawing.Point(20, 249);
-            this.TContra.Name = "TContra";
-            this.TContra.Size = new System.Drawing.Size(180, 20);
-            this.TContra.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(21, 233);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "Contraseña:";
-            // 
-            // TEstado
-            // 
-            this.TEstado.BackColor = System.Drawing.Color.White;
-            this.TEstado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TEstado.FormattingEnabled = true;
-            this.TEstado.Items.AddRange(new object[] {
+            this.CBRol.BackColor = System.Drawing.Color.White;
+            this.CBRol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBRol.FormattingEnabled = true;
+            this.CBRol.Items.AddRange(new object[] {
             "Activo ",
             "No Activo "});
-            this.TEstado.Location = new System.Drawing.Point(20, 431);
-            this.TEstado.Name = "TEstado";
-            this.TEstado.Size = new System.Drawing.Size(180, 21);
-            this.TEstado.TabIndex = 18;
+            this.CBRol.Location = new System.Drawing.Point(20, 402);
+            this.CBRol.Name = "CBRol";
+            this.CBRol.Size = new System.Drawing.Size(180, 21);
+            this.CBRol.TabIndex = 59;
             // 
-            // lEstado
+            // LRol
             // 
-            this.lEstado.AutoSize = true;
-            this.lEstado.BackColor = System.Drawing.Color.White;
-            this.lEstado.Location = new System.Drawing.Point(24, 415);
-            this.lEstado.Name = "lEstado";
-            this.lEstado.Size = new System.Drawing.Size(43, 13);
-            this.lEstado.TabIndex = 58;
-            this.lEstado.Text = "Estado:";
+            this.LRol.AutoSize = true;
+            this.LRol.BackColor = System.Drawing.Color.White;
+            this.LRol.Location = new System.Drawing.Point(24, 386);
+            this.LRol.Name = "LRol";
+            this.LRol.Size = new System.Drawing.Size(26, 13);
+            this.LRol.TabIndex = 60;
+            this.LRol.Text = "Rol:";
             // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
-            this.Controls.Add(this.TEstado);
+            this.Controls.Add(this.CBRol);
+            this.Controls.Add(this.LRol);
+            this.Controls.Add(this.CBEstado);
             this.Controls.Add(this.lEstado);
             this.Controls.Add(this.TContra);
             this.Controls.Add(this.label5);
@@ -445,16 +515,23 @@
         private System.Windows.Forms.DataGridView DGUsuarios;
         private System.Windows.Forms.TextBox TContra;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox TEstado;
+        private System.Windows.Forms.ComboBox CBEstado;
         private System.Windows.Forms.Label lEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn CContra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFechaNacim;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDomicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoValor;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
+        private System.Windows.Forms.ComboBox CBRol;
+        private System.Windows.Forms.Label LRol;
     }
 }
