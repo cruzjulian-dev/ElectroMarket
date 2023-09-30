@@ -79,7 +79,7 @@ namespace CapaPresentacion
 
         private void VistaSuper_Load(object sender, EventArgs e)
         {
-
+            LUsuario.Text = usuarioActual.Nombre + " " + usuarioActual.Apellido;
         }
     }
 }

@@ -40,10 +40,10 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.LBievenido = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LUsuario = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.MenuVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -184,49 +184,49 @@
             this.label3.Size = new System.Drawing.Size(0, 25);
             this.label3.TabIndex = 12;
             // 
-            // label4
+            // label5
             // 
-            this.label4.BackColor = System.Drawing.SystemColors.Window;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(900, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 30);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "Vendedor";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.BackColor = System.Drawing.SystemColors.Window;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1036, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 21);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "nombreUsuario";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // label6
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(840, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 30);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Rol:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.BackColor = System.Drawing.SystemColors.Window;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(968, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(159, 30);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "Super Administrador";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // label7
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(840, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 30);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Bienvenido:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.BackColor = System.Drawing.SystemColors.Window;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(931, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 30);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Rol:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // LUsuario
+            // label8
             // 
-            this.LUsuario.AutoSize = true;
-            this.LUsuario.BackColor = System.Drawing.Color.White;
-            this.LUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LUsuario.Location = new System.Drawing.Point(978, 83);
-            this.LUsuario.Name = "LUsuario";
-            this.LUsuario.Size = new System.Drawing.Size(139, 25);
-            this.LUsuario.TabIndex = 42;
-            this.LUsuario.Text = "nombreUser";
+            this.label8.BackColor = System.Drawing.SystemColors.Window;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(931, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(109, 30);
+            this.label8.TabIndex = 43;
+            this.label8.Text = "Bienvenido:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // VistaVendedor
             // 
@@ -234,10 +234,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 698);
             this.ControlBox = false;
-            this.Controls.Add(this.LUsuario);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LBievenido);
             this.Controls.Add(this.pictureBox1);
@@ -272,9 +272,9 @@
         private System.Windows.Forms.ToolStripMenuItem SMdetalleVenta;
         private System.Windows.Forms.Label LBievenido;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LUsuario;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
