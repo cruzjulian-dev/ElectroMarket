@@ -203,7 +203,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(159, 30);
             this.label6.TabIndex = 45;
-            this.label6.Text = "Super Administrador";
+            this.label6.Text = "Vendedor";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
