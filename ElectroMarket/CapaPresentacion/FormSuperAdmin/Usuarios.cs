@@ -8,6 +8,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
+using CapaNegocio;
+using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
 {
@@ -28,6 +31,17 @@ namespace CapaPresentacion
 
         private void BGuardar_Click(object sender, EventArgs e)
         {
+
+            DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
+            ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
+            DTFecha.Text, TTelefono.Text, TDomicilio.Text,
+            ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
+
+            });
+
+            Limpiar();
+
+            /*
             if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -58,6 +72,22 @@ namespace CapaPresentacion
                     editar = false;
                 }
             }
+            */
+        }
+
+        private void Limpiar()
+        {
+            
+            TNombre.Text = "";
+            TApellido.Text = "";
+            TDni.Text = "";
+            TUsuario.Text = "";
+            TContra.Text = "";
+            DTFecha.Text = "";
+            TDomicilio.Text = "";
+            TTelefono.Text = "";
+            CBRol.SelectedIndex = 0;
+            CBEstado.SelectedIndex = 0;
         }
 
         private void BEditar_Click(object sender, EventArgs e)
@@ -72,7 +102,23 @@ namespace CapaPresentacion
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
-            //DGUsuarios.DataSource = bd.Usuarios.ToList();
+            CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
+            CBEstado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
+
+            CBEstado.DisplayMember = "Texto";
+            CBEstado.ValueMember = "Valor";
+            CBEstado.SelectedIndex = 0;
+
+            List<Rol> listaRol = new CN_Rol().Listar();
+
+            foreach (Rol item in listaRol)
+            {
+                CBRol.Items.Add(new OpcionCombo() { Valor = item.IdRol, Texto = item.Descripcion });
+            }
+
+            CBRol.DisplayMember = "Texto";
+            CBRol.ValueMember = "Valor";
+            CBRol.SelectedIndex = 0;
         }
 
         private void TUsuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -87,10 +133,7 @@ namespace CapaPresentacion
 
         private void TNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-            {
-                e.Handled = true;
-            }
+            
 
         }
 

@@ -149,6 +149,7 @@
     <Compile Include="FormVendedor\RegistrarVenta.Designer.cs">
       <DependentUpon>RegistrarVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\OpcionCombo.cs" />
     <Compile Include="VistaAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
