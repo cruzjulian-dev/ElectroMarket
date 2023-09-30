@@ -58,7 +58,7 @@
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CBEstado = new System.Windows.Forms.ComboBox();
             this.lEstado = new System.Windows.Forms.Label();
-            this.TCorreo = new System.Windows.Forms.TextBox();
+            this.Ttel = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.DTFecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
@@ -394,12 +394,13 @@
             this.lEstado.Text = "Estado:";
             this.lEstado.Click += new System.EventHandler(this.lEstado_Click);
             // 
-            // TCorreo
+            // Ttel
             // 
-            this.TCorreo.Location = new System.Drawing.Point(20, 294);
-            this.TCorreo.Name = "TCorreo";
-            this.TCorreo.Size = new System.Drawing.Size(180, 20);
-            this.TCorreo.TabIndex = 14;
+            this.Ttel.Location = new System.Drawing.Point(20, 294);
+            this.Ttel.Name = "Ttel";
+            this.Ttel.Size = new System.Drawing.Size(180, 20);
+            this.Ttel.TabIndex = 14;
+            this.Ttel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Ttel_KeyPress);
             // 
             // LTelefono
             // 
@@ -426,7 +427,7 @@
             this.BackColor = System.Drawing.Color.LightGreen;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.DTFecha);
-            this.Controls.Add(this.TCorreo);
+            this.Controls.Add(this.Ttel);
             this.Controls.Add(this.LTelefono);
             this.Controls.Add(this.CBEstado);
             this.Controls.Add(this.lEstado);
@@ -482,7 +483,7 @@
         private System.Windows.Forms.DataGridView DGClientes;
         private System.Windows.Forms.ComboBox CBEstado;
         private System.Windows.Forms.Label lEstado;
-        private System.Windows.Forms.TextBox TCorreo;
+        private System.Windows.Forms.TextBox Ttel;
         private System.Windows.Forms.Label LTelefono;
         private System.Windows.Forms.DateTimePicker DTFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
