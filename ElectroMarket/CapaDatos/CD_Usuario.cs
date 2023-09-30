@@ -7,6 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 using CapaEntidades;
 using System.Net;
+using System.Reflection;
+using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -20,9 +23,11 @@ namespace CapaDatos
             {
                 try
                 {
-                    string query = "SELECT IdUsuario,Dni,Nombre,Apellido,UsuarioLogin,Clave,IdRol,Estado FROM USUARIOS";
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT u.IdUsuario, u.Dni, u.Nombre, u.Apellido, u.UsuarioLogin, u.Clave, r.IdRol, r.Descripcion, u.FechaNacimiento, u.Telefono, u.Domicilio, u.Estado FROM USUARIOS u");
+                    query.AppendLine("inner join ROLES r on r.IdRol = u.IdRol");
 
-                    SqlCommand cmd = new SqlCommand(query, oConexion);
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
                     cmd.CommandType = CommandType.Text;
 
                     oConexion.Open();
@@ -39,10 +44,12 @@ namespace CapaDatos
                                 Apellido = dr["Apellido"].ToString(),
                                 UsuarioLogin = dr["UsuarioLogin"].ToString(),
                                 Clave = dr["Clave"].ToString(),
-                                IdRol = Convert.ToInt32(dr["IdRol"]),
-                                //IdRol = dr["IdRol"].ToString(),
+                                oRol = new Rol() { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString() },
+                                FechaNacimiento = dr["FechaNacimiento"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Domicilio = dr["Domicilio"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
-                            });
+                            }) ;
                         }
                     }
 

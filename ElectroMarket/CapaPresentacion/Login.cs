@@ -47,7 +47,7 @@ namespace CapaPresentacion
             {
                 if (oUsuario != null)
                 {
-                    switch (oUsuario.IdRol)
+                    switch (oUsuario.oRol.IdRol)
                     {
                         case 1:
                             VistaVendedor vistaVendedor = new VistaVendedor(oUsuario);

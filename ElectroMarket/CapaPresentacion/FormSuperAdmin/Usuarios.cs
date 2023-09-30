@@ -119,6 +119,30 @@ namespace CapaPresentacion
             CBRol.DisplayMember = "Texto";
             CBRol.ValueMember = "Valor";
             CBRol.SelectedIndex = 0;
+
+            foreach (DataGridViewColumn columna in DGUsuarios.Columns)
+            {
+                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Contraseña" && columna.HeaderText != "Domicilio" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
+                {
+                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText});
+                }
+            }
+            CBBusqueda.DisplayMember = "Texto";
+            CBBusqueda.ValueMember = "Valor";
+            CBBusqueda.SelectedIndex = 0;
+
+
+            // Mostrar todos los Usuarios desde la BD
+            List<Usuario> listaUsuario = new CN_Usuario().Listar();
+
+            foreach (Usuario item in listaUsuario)
+            {
+                DGUsuarios.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.UsuarioLogin, item.Clave,
+                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo"
+            });
+
+            }
+
         }
 
         private void TUsuario_KeyPress(object sender, KeyPressEventArgs e)

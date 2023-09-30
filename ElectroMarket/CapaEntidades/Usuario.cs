@@ -14,7 +14,11 @@ namespace CapaEntidades
         public string Apellido { get; set; }
         public string UsuarioLogin { get; set; }
         public string Clave { get; set; }
-        public int IdRol { get; set; } //era Rol oRol
+        //public int IdRol { get; set; } estaba funcionando para login
+        public Rol oRol { get; set; }  
+        public string FechaNacimiento { get; set; }
+        public string Telefono { get; set; }
+        public string Domicilio { get; set; }
         public bool Estado { get; set; }
         public string FechaRegistro { get; set; }
     }
