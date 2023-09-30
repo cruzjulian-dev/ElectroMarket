@@ -114,37 +114,25 @@ namespace CapaPresentacion
             }
             else
             {
-                // Preguntar al usuario si está seguro de editar
-                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas modificar esta categoría?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                string descripcion = TDescripcion.Text;
+                string opcionSeleccionada2 = TEstado.SelectedItem as string;
 
-                if (result == DialogResult.Yes)
-                {
-                    string descripcion = TDescripcion.Text;
-                    string opcionSeleccionada2 = TEstado.SelectedItem as string;
+                // Actualiza la fila seleccionada en el DataGridView
+                DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                selectedRow.Cells["Cdescripcion"].Value = descripcion;
+                selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
 
-                    // Actualiza la fila seleccionada en el DataGridView
-                    DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
-                    selectedRow.Cells["Cdescripcion"].Value = descripcion;
-                    selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
 
-                    // Limpia los controles del formulario
-                    limpiar();
+                // Limpia los controles del formulario
+                limpiar();
+                // Deshabilita el botón "Modificar" nuevamente
+                BEditar.Enabled = false;
 
-                    // Deshabilita el botón "Modificar" nuevamente
-                    BEditar.Enabled = false;
-                    editar = false;
+                editar = false;
 
-                    // Habilita el botón "Agregar" después de editar
-                    BAgregar.Enabled = true;
-                }
-                else if (result == DialogResult.No)
-                {
-                    // Si el usuario elige "No", habilita el botón "Agregar"
-                    BAgregar.Enabled = true;
-                    BEditar.Enabled = false;
-                    limpiar() ; 
-                }
+                BAgregar.Enabled = true;
             }
+
         }
 
 
