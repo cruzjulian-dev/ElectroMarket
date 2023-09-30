@@ -38,50 +38,42 @@ namespace CapaPresentacion
 
             Usuario oUsuario = new CN_Usuario().Listar().Where(x => x.UsuarioLogin == TUser.Text && x.Clave == TContra.Text).FirstOrDefault();
 
-            if (oUsuario != null)
+            if ((TUser.Text.Trim() == "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() != "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() == "" && TContra.Text.Trim() != ""))
             {
-                VistaSuper vistaSuper = new VistaSuper(oUsuario);
-
-
-                vistaSuper.Show();
-                this.Close();
-            }
-            /*
-            if (TUser.Text.Trim() == "" || TContra.Text.Trim() == "")
-            {
-                MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe completar todos los campos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TUser.Text = "";
+                TContra.Text = "";
             } else
             {
-                if ((TUser.Text.Trim() == "admin" && TContra.Text.Trim() == "123") || (TUser.Text.Trim() == "vendedor" && TContra.Text.Trim() == "123") || (TUser.Text.Trim() == "super" && TContra.Text.Trim() == "123"))
+                if (oUsuario != null)
                 {
-                    if (TUser.Text.Trim() == "admin" && TContra.Text.Trim() == "123")
+                    switch (oUsuario.IdRol)
                     {
-                        VistaAdmin vistaAdmin = new VistaAdmin();
-                        vistaAdmin.Show();
-                        this.Close();
+                        case 1:
+                            VistaVendedor vistaVendedor = new VistaVendedor(oUsuario);
+                            vistaVendedor.Show();
+                            break;
+
+                        case 2:
+                            VistaAdmin vistaAdmin = new VistaAdmin(oUsuario);
+                            vistaAdmin.Show();
+                            break;
+                        case 3:
+                            VistaSuper vistaSuper = new VistaSuper(oUsuario);
+                            vistaSuper.Show();
+                            break;
+
                     }
-                    if (TUser.Text.Trim() == "vendedor" && TContra.Text.Trim() == "123")
-                    {
-                        VistaVendedor vistaVendedor = new VistaVendedor();
-                        vistaVendedor.Show();
-                        this.Close();
-                    }
-                    if (TUser.Text.Trim() == "super" && TContra.Text.Trim() == "123")
-                    {
-                        VistaSuper vistaSuper = new VistaSuper();
-                        vistaSuper.Show();
-                        this.Close();
-                    }
-                } else
+                    this.Close();
+
+                }
+                else
                 {
                     MessageBox.Show("Usuario o contraseña incorrecto/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TUser.Text = "";
                     TContra.Text = "";
                 }
-
             }
-
-            */
 
         }
 

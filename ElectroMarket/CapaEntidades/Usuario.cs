@@ -14,7 +14,7 @@ namespace CapaEntidades
         public string Apellido { get; set; }
         public string UsuarioLogin { get; set; }
         public string Clave { get; set; }
-        public Rol oRol { get; set; }
+        public int IdRol { get; set; } //era Rol oRol
         public bool Estado { get; set; }
         public string FechaRegistro { get; set; }
     }
