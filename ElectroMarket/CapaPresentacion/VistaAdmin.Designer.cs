@@ -38,7 +38,7 @@
             this.PContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LUsuario = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -167,22 +167,22 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // label2
+            // LUsuario
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1048, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 21);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "nombreUsuario";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.LUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUsuario.Location = new System.Drawing.Point(975, 91);
+            this.LUsuario.Name = "LUsuario";
+            this.LUsuario.Size = new System.Drawing.Size(124, 21);
+            this.LUsuario.TabIndex = 46;
+            this.LUsuario.Text = "nombreUsuario";
+            this.LUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.SystemColors.Window;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(985, 107);
+            this.label5.Location = new System.Drawing.Point(914, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(159, 30);
             this.label5.TabIndex = 45;
@@ -193,7 +193,7 @@
             // 
             this.label6.BackColor = System.Drawing.SystemColors.Window;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(948, 107);
+            this.label6.Location = new System.Drawing.Point(878, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 30);
             this.label6.TabIndex = 44;
@@ -204,7 +204,7 @@
             // 
             this.label7.BackColor = System.Drawing.SystemColors.Window;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(948, 86);
+            this.label7.Location = new System.Drawing.Point(878, 86);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 30);
             this.label7.TabIndex = 43;
@@ -217,7 +217,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 698);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LUsuario);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -252,7 +252,7 @@
         private System.Windows.Forms.ToolStripMenuItem SMCategoria;
         private System.Windows.Forms.ToolStripMenuItem SMProductos;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LUsuario;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

@@ -32,7 +32,7 @@ namespace CapaPresentacion
 
         private void VistaAdmin_Load(object sender, EventArgs e)
         {
-
+            LUsuario.Text = usuarioActual.Nombre + " " + usuarioActual.Apellido;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

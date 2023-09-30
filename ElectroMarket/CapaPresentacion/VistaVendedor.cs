@@ -108,7 +108,7 @@ namespace CapaPresentacion
 
         private void VistaVendedor_Load(object sender, EventArgs e)
         {
-
+            LUsuario.Text = usuarioActual.Nombre + " " + usuarioActual.Apellido;
         }
     }
 }
