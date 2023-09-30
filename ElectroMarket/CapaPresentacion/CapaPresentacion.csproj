@@ -57,28 +57,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackupBD.cs">
+    <Compile Include="FormSuperAdmin\BackupBD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BackupBD.Designer.cs">
+    <Compile Include="FormSuperAdmin\BackupBD.Designer.cs">
       <DependentUpon>BackupBD.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientesAdmin.cs">
+    <Compile Include="FormAdmin\ClientesAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientesAdmin.Designer.cs">
+    <Compile Include="FormAdmin\ClientesAdmin.Designer.cs">
       <DependentUpon>ClientesAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMisVentas.cs">
+    <Compile Include="FormVendedor\frmMisVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMisVentas.Designer.cs">
+    <Compile Include="FormVendedor\frmMisVentas.Designer.cs">
       <DependentUpon>frmMisVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetalleVenta.cs">
+    <Compile Include="FormVendedor\DetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetalleVenta.Designer.cs">
+    <Compile Include="FormVendedor\DetalleVenta.Designer.cs">
       <DependentUpon>DetalleVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\mdProductos.cs">
@@ -95,22 +95,22 @@
     </Compile>
     <Compile Include="Modales\Producto.cs" />
     <Compile Include="Modales\Proveedor.cs" />
-    <Compile Include="ProductosAdmin.cs">
+    <Compile Include="FormAdmin\ProductosAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductosAdmin.designer.cs">
+    <Compile Include="FormAdmin\ProductosAdmin.designer.cs">
       <DependentUpon>ProductosAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Categorias.cs">
+    <Compile Include="FormAdmin\Categorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Categorias.Designer.cs">
+    <Compile Include="FormAdmin\Categorias.Designer.cs">
       <DependentUpon>Categorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientesVendedor.cs">
+    <Compile Include="FormVendedor\ClientesVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientesVendedor.Designer.cs">
+    <Compile Include="FormVendedor\ClientesVendedor.Designer.cs">
       <DependentUpon>ClientesVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -119,34 +119,34 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductosVendedor.cs">
+    <Compile Include="FormVendedor\ProductosVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductosVendedor.Designer.cs">
+    <Compile Include="FormVendedor\ProductosVendedor.Designer.cs">
       <DependentUpon>ProductosVendedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes.cs">
+    <Compile Include="FormAdmin\Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes.Designer.cs">
+    <Compile Include="FormAdmin\Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="RestaurarBD.cs">
+    <Compile Include="FormSuperAdmin\RestaurarBD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RestaurarBD.Designer.cs">
+    <Compile Include="FormSuperAdmin\RestaurarBD.Designer.cs">
       <DependentUpon>RestaurarBD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios.cs">
+    <Compile Include="FormSuperAdmin\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuarios.Designer.cs">
+    <Compile Include="FormSuperAdmin\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarVenta.cs">
+    <Compile Include="FormVendedor\RegistrarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrarVenta.Designer.cs">
+    <Compile Include="FormVendedor\RegistrarVenta.Designer.cs">
       <DependentUpon>RegistrarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaAdmin.cs">
@@ -169,19 +169,19 @@
     <Compile Include="VistaVendedor.Designer.cs">
       <DependentUpon>VistaVendedor.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BackupBD.resx">
+    <EmbeddedResource Include="FormSuperAdmin\BackupBD.resx">
       <DependentUpon>BackupBD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Categorias.resx">
+    <EmbeddedResource Include="FormAdmin\Categorias.resx">
       <DependentUpon>Categorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientesAdmin.resx">
+    <EmbeddedResource Include="FormAdmin\ClientesAdmin.resx">
       <DependentUpon>ClientesAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMisVentas.resx">
+    <EmbeddedResource Include="FormVendedor\frmMisVentas.resx">
       <DependentUpon>frmMisVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetalleVenta.resx">
+    <EmbeddedResource Include="FormVendedor\DetalleVenta.resx">
       <DependentUpon>DetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdProductos.resx">
@@ -190,28 +190,28 @@
     <EmbeddedResource Include="Modales\mdClientes.resx">
       <DependentUpon>mdClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductosAdmin.resx">
+    <EmbeddedResource Include="FormAdmin\ProductosAdmin.resx">
       <DependentUpon>ProductosAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientesVendedor.resx">
+    <EmbeddedResource Include="FormVendedor\ClientesVendedor.resx">
       <DependentUpon>ClientesVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductosVendedor.resx">
+    <EmbeddedResource Include="FormVendedor\ProductosVendedor.resx">
       <DependentUpon>ProductosVendedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes.resx">
+    <EmbeddedResource Include="FormAdmin\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RestaurarBD.resx">
+    <EmbeddedResource Include="FormSuperAdmin\RestaurarBD.resx">
       <DependentUpon>RestaurarBD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuarios.resx">
+    <EmbeddedResource Include="FormSuperAdmin\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegistrarVenta.resx">
+    <EmbeddedResource Include="FormVendedor\RegistrarVenta.resx">
       <DependentUpon>RegistrarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaAdmin.resx">
@@ -253,5 +253,16 @@
   <ItemGroup>
     <None Include="Resources\logo-electromarket.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
+      <Project>{351b3476-3e2d-43da-92f2-b5dd2d86cd20}</Project>
+      <Name>CapaEntidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{d0cfebf7-150b-4bb0-80a6-1b3b6c3b9b4b}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

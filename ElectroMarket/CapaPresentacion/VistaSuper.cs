@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
@@ -15,8 +16,10 @@ namespace CapaPresentacion
     {
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
-        public VistaSuper()
+        private static Usuario usuarioActual;
+        public VistaSuper(Usuario objUsuario)
         {
+            usuarioActual = objUsuario;
             InitializeComponent();
         }
 
@@ -70,6 +73,11 @@ namespace CapaPresentacion
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VistaSuper_Load(object sender, EventArgs e)
         {
 
         }

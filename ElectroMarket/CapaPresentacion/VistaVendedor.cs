@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
@@ -15,8 +16,10 @@ namespace CapaPresentacion
     {
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
-        public VistaVendedor()
+        private static Usuario usuarioActual;
+        public VistaVendedor(Usuario objUsuario)
         {
+            usuarioActual = objUsuario;
             InitializeComponent();
         }
         private void AbrirFormulario(IconMenuItem menu, Form formulario)
@@ -99,6 +102,11 @@ namespace CapaPresentacion
         }
 
         private void MenuVendedor_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void VistaVendedor_Load(object sender, EventArgs e)
         {
 
         }

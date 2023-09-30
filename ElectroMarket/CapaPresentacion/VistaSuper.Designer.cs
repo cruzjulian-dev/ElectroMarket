@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.LUsuario = new System.Windows.Forms.Label();
             this.MenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -147,8 +148,8 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.SystemColors.Window;
-            this.label3.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(981, 111);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(929, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 30);
             this.label3.TabIndex = 41;
@@ -158,8 +159,8 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.SystemColors.Window;
-            this.label5.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(930, 111);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(878, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 30);
             this.label5.TabIndex = 40;
@@ -169,13 +170,24 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.Window;
-            this.label6.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(930, 81);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(878, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 30);
             this.label6.TabIndex = 39;
-            this.label6.Text = "Bienvenido";
+            this.label6.Text = "Bienvenido:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LUsuario
+            // 
+            this.LUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.LUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUsuario.Location = new System.Drawing.Point(1013, 76);
+            this.LUsuario.Name = "LUsuario";
+            this.LUsuario.Size = new System.Drawing.Size(62, 30);
+            this.LUsuario.TabIndex = 42;
+            this.LUsuario.Text = "nombreUsuario";
+            this.LUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // VistaSuper
             // 
@@ -183,6 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 698);
             this.ControlBox = false;
+            this.Controls.Add(this.LUsuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -195,6 +208,7 @@
             this.Name = "VistaSuper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VistaSuper";
+            this.Load += new System.EventHandler(this.VistaSuper_Load);
             this.MenuAdmin.ResumeLayout(false);
             this.MenuAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -216,5 +230,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LUsuario;
     }
 }

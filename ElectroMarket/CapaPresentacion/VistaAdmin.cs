@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 using FontAwesome.Sharp;
 
 namespace CapaPresentacion
@@ -16,9 +17,10 @@ namespace CapaPresentacion
 
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
-
-        public VistaAdmin()
+        private static Usuario usuarioActual;
+        public VistaAdmin(Usuario objUsuario)
         {
+            usuarioActual = objUsuario;
             InitializeComponent();
         }
 

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using CapaEntidades;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -31,6 +33,20 @@ namespace CapaPresentacion
 
         private void BIngresar_Click(object sender, EventArgs e)
         {
+
+            List<Usuario> TEST = new CN_Usuario().Listar();
+
+            Usuario oUsuario = new CN_Usuario().Listar().Where(x => x.UsuarioLogin == TUser.Text && x.Clave == TContra.Text).FirstOrDefault();
+
+            if (oUsuario != null)
+            {
+                VistaSuper vistaSuper = new VistaSuper(oUsuario);
+
+
+                vistaSuper.Show();
+                this.Close();
+            }
+            /*
             if (TUser.Text.Trim() == "" || TContra.Text.Trim() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,7 +81,7 @@ namespace CapaPresentacion
 
             }
 
-            
+            */
 
         }
 
