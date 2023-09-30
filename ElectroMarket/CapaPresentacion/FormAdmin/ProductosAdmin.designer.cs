@@ -28,31 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lNombre = new System.Windows.Forms.Label();
             this.codigoProd = new System.Windows.Forms.Label();
             this.lDescrip = new System.Windows.Forms.Label();
             this.lCategoria = new System.Windows.Forms.Label();
             this.lEstado = new System.Windows.Forms.Label();
-            this.textBoxCodprod = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.comboBox1Cate = new System.Windows.Forms.ComboBox();
-            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+            this.TCodProd = new System.Windows.Forms.TextBox();
+            this.TNombre = new System.Windows.Forms.TextBox();
+            this.TDescripcion = new System.Windows.Forms.TextBox();
+            this.CBCategoria = new System.Windows.Forms.ComboBox();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.datagridProd = new System.Windows.Forms.DataGridView();
-            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
@@ -61,10 +51,20 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.TPrecio = new System.Windows.Forms.TextBox();
             this.Precio = new System.Windows.Forms.Label();
-            this.textBoxStock = new System.Windows.Forms.TextBox();
+            this.TStock = new System.Windows.Forms.TextBox();
             this.lblStock = new System.Windows.Forms.Label();
+            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             // 
             this.lNombre.AutoSize = true;
             this.lNombre.BackColor = System.Drawing.Color.White;
-            this.lNombre.Location = new System.Drawing.Point(34, 120);
+            this.lNombre.Location = new System.Drawing.Point(34, 125);
             this.lNombre.Name = "lNombre";
             this.lNombre.Size = new System.Drawing.Size(50, 13);
             this.lNombre.TabIndex = 0;
@@ -83,7 +83,7 @@
             this.codigoProd.AutoSize = true;
             this.codigoProd.BackColor = System.Drawing.Color.White;
             this.codigoProd.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.codigoProd.Location = new System.Drawing.Point(29, 81);
+            this.codigoProd.Location = new System.Drawing.Point(34, 81);
             this.codigoProd.Name = "codigoProd";
             this.codigoProd.Size = new System.Drawing.Size(89, 13);
             this.codigoProd.TabIndex = 1;
@@ -93,7 +93,7 @@
             // 
             this.lDescrip.AutoSize = true;
             this.lDescrip.BackColor = System.Drawing.Color.White;
-            this.lDescrip.Location = new System.Drawing.Point(29, 159);
+            this.lDescrip.Location = new System.Drawing.Point(34, 172);
             this.lDescrip.Name = "lDescrip";
             this.lDescrip.Size = new System.Drawing.Size(66, 13);
             this.lDescrip.TabIndex = 2;
@@ -103,7 +103,7 @@
             // 
             this.lCategoria.AutoSize = true;
             this.lCategoria.BackColor = System.Drawing.Color.White;
-            this.lCategoria.Location = new System.Drawing.Point(29, 275);
+            this.lCategoria.Location = new System.Drawing.Point(39, 309);
             this.lCategoria.Name = "lCategoria";
             this.lCategoria.Size = new System.Drawing.Size(55, 13);
             this.lCategoria.TabIndex = 3;
@@ -113,69 +113,69 @@
             // 
             this.lEstado.AutoSize = true;
             this.lEstado.BackColor = System.Drawing.Color.White;
-            this.lEstado.Location = new System.Drawing.Point(36, 315);
+            this.lEstado.Location = new System.Drawing.Point(39, 356);
             this.lEstado.Name = "lEstado";
             this.lEstado.Size = new System.Drawing.Size(43, 13);
             this.lEstado.TabIndex = 4;
             this.lEstado.Text = "Estado:";
             // 
-            // textBoxCodprod
+            // TCodProd
             // 
-            this.textBoxCodprod.BackColor = System.Drawing.Color.White;
-            this.textBoxCodprod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCodprod.Location = new System.Drawing.Point(32, 97);
-            this.textBoxCodprod.Name = "textBoxCodprod";
-            this.textBoxCodprod.Size = new System.Drawing.Size(180, 20);
-            this.textBoxCodprod.TabIndex = 5;
-            this.textBoxCodprod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodprod_KeyPress);
+            this.TCodProd.BackColor = System.Drawing.Color.White;
+            this.TCodProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TCodProd.Location = new System.Drawing.Point(32, 97);
+            this.TCodProd.Name = "TCodProd";
+            this.TCodProd.Size = new System.Drawing.Size(180, 20);
+            this.TCodProd.TabIndex = 10;
+            this.TCodProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodprod_KeyPress);
             // 
-            // txtNombre
+            // TNombre
             // 
-            this.txtNombre.BackColor = System.Drawing.Color.White;
-            this.txtNombre.Location = new System.Drawing.Point(32, 136);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(180, 20);
-            this.txtNombre.TabIndex = 6;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            this.TNombre.BackColor = System.Drawing.Color.White;
+            this.TNombre.Location = new System.Drawing.Point(32, 141);
+            this.TNombre.Name = "TNombre";
+            this.TNombre.Size = new System.Drawing.Size(180, 20);
+            this.TNombre.TabIndex = 11;
+            this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
-            // txtDescripcion
+            // TDescripcion
             // 
-            this.txtDescripcion.BackColor = System.Drawing.Color.White;
-            this.txtDescripcion.Location = new System.Drawing.Point(32, 175);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(180, 20);
-            this.txtDescripcion.TabIndex = 7;
-            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
+            this.TDescripcion.BackColor = System.Drawing.Color.White;
+            this.TDescripcion.Location = new System.Drawing.Point(32, 188);
+            this.TDescripcion.Name = "TDescripcion";
+            this.TDescripcion.Size = new System.Drawing.Size(180, 20);
+            this.TDescripcion.TabIndex = 12;
+            this.TDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
-            // comboBox1Cate
+            // CBCategoria
             // 
-            this.comboBox1Cate.BackColor = System.Drawing.Color.White;
-            this.comboBox1Cate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1Cate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1Cate.FormattingEnabled = true;
-            this.comboBox1Cate.Items.AddRange(new object[] {
+            this.CBCategoria.BackColor = System.Drawing.Color.White;
+            this.CBCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBCategoria.FormattingEnabled = true;
+            this.CBCategoria.Items.AddRange(new object[] {
             "categoria11",
             "categoria22",
             "categoria33"});
-            this.comboBox1Cate.Location = new System.Drawing.Point(32, 291);
-            this.comboBox1Cate.Name = "comboBox1Cate";
-            this.comboBox1Cate.Size = new System.Drawing.Size(180, 21);
-            this.comboBox1Cate.TabIndex = 11;
+            this.CBCategoria.Location = new System.Drawing.Point(32, 325);
+            this.CBCategoria.Name = "CBCategoria";
+            this.CBCategoria.Size = new System.Drawing.Size(180, 21);
+            this.CBCategoria.TabIndex = 15;
             // 
-            // comboBoxEstado
+            // CBEstado
             // 
-            this.comboBoxEstado.BackColor = System.Drawing.Color.White;
-            this.comboBoxEstado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEstado.FormattingEnabled = true;
-            this.comboBoxEstado.Items.AddRange(new object[] {
+            this.CBEstado.BackColor = System.Drawing.Color.White;
+            this.CBEstado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBEstado.FormattingEnabled = true;
+            this.CBEstado.Items.AddRange(new object[] {
             "Activo ",
             "No Activo "});
-            this.comboBoxEstado.Location = new System.Drawing.Point(32, 331);
-            this.comboBoxEstado.Name = "comboBoxEstado";
-            this.comboBoxEstado.Size = new System.Drawing.Size(180, 21);
-            this.comboBoxEstado.TabIndex = 12;
-            this.comboBoxEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
+            this.CBEstado.Location = new System.Drawing.Point(32, 372);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(180, 21);
+            this.CBEstado.TabIndex = 16;
+            this.CBEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -206,106 +206,40 @@
             this.Ccodigo,
             this.Cnombre,
             this.Cdescripcion,
+            this.cprecio,
+            this.ColStock,
             this.idCat,
             this.Ccategoria,
-            this.ColStock,
-            this.cprecio,
             this.Cestado,
             this.CestadoVAlor,
             this.Ceditar});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle1;
             this.datagridProd.Location = new System.Drawing.Point(298, 117);
             this.datagridProd.MultiSelect = false;
             this.datagridProd.Name = "datagridProd";
             this.datagridProd.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datagridProd.RowTemplate.Height = 28;
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridProd.Size = new System.Drawing.Size(842, 390);
-            this.datagridProd.TabIndex = 18;
+            this.datagridProd.TabIndex = 23;
             this.datagridProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             this.datagridProd.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.datagridProd_RowPrePaint);
-            // 
-            // Ccodigo
-            // 
-            this.Ccodigo.HeaderText = "Codigo";
-            this.Ccodigo.Name = "Ccodigo";
-            this.Ccodigo.ReadOnly = true;
-            this.Ccodigo.Width = 70;
-            // 
-            // Cnombre
-            // 
-            this.Cnombre.HeaderText = "Nombre";
-            this.Cnombre.Name = "Cnombre";
-            this.Cnombre.ReadOnly = true;
-            // 
-            // Cdescripcion
-            // 
-            this.Cdescripcion.HeaderText = "Descripcion";
-            this.Cdescripcion.Name = "Cdescripcion";
-            this.Cdescripcion.ReadOnly = true;
-            // 
-            // idCat
-            // 
-            this.idCat.HeaderText = "idCategoria";
-            this.idCat.Name = "idCat";
-            this.idCat.ReadOnly = true;
-            this.idCat.Visible = false;
-            // 
-            // Ccategoria
-            // 
-            this.Ccategoria.HeaderText = "Categoria";
-            this.Ccategoria.Name = "Ccategoria";
-            this.Ccategoria.ReadOnly = true;
-            // 
-            // ColStock
-            // 
-            this.ColStock.HeaderText = "Stock";
-            this.ColStock.Name = "ColStock";
-            this.ColStock.ReadOnly = true;
-            this.ColStock.Width = 80;
-            // 
-            // cprecio
-            // 
-            this.cprecio.HeaderText = "Precio ";
-            this.cprecio.Name = "cprecio";
-            this.cprecio.ReadOnly = true;
-            // 
-            // Cestado
-            // 
-            this.Cestado.HeaderText = "Estado";
-            this.Cestado.Name = "Cestado";
-            this.Cestado.ReadOnly = true;
-            this.Cestado.Width = 80;
-            // 
-            // CestadoVAlor
-            // 
-            this.CestadoVAlor.HeaderText = "EstadoValor";
-            this.CestadoVAlor.Name = "CestadoVAlor";
-            this.CestadoVAlor.ReadOnly = true;
-            this.CestadoVAlor.Visible = false;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
-            this.Ceditar.Width = 75;
             // 
             // label3
             // 
@@ -330,10 +264,10 @@
             this.btnEditar.IconColor = System.Drawing.Color.White;
             this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditar.IconSize = 23;
-            this.btnEditar.Location = new System.Drawing.Point(32, 435);
+            this.btnEditar.Location = new System.Drawing.Point(32, 474);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(180, 33);
-            this.btnEditar.TabIndex = 16;
+            this.btnEditar.TabIndex = 18;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -351,10 +285,10 @@
             this.btnGuardar.IconColor = System.Drawing.Color.White;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Regular;
             this.btnGuardar.IconSize = 23;
-            this.btnGuardar.Location = new System.Drawing.Point(32, 396);
+            this.btnGuardar.Location = new System.Drawing.Point(32, 435);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(180, 33);
-            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.TabIndex = 17;
             this.btnGuardar.Text = "Agregar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -380,7 +314,7 @@
             this.cboBusqueda.Location = new System.Drawing.Point(635, 42);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
-            this.cboBusqueda.TabIndex = 22;
+            this.cboBusqueda.TabIndex = 19;
             // 
             // textBox4
             // 
@@ -388,7 +322,7 @@
             this.textBox4.Location = new System.Drawing.Point(727, 43);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 23;
+            this.textBox4.TabIndex = 20;
             // 
             // icoBtnLimpiar
             // 
@@ -404,7 +338,7 @@
             this.icoBtnLimpiar.Location = new System.Drawing.Point(874, 35);
             this.icoBtnLimpiar.Name = "icoBtnLimpiar";
             this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 25;
+            this.icoBtnLimpiar.TabIndex = 22;
             this.icoBtnLimpiar.UseVisualStyleBackColor = false;
             // 
             // icoBtnBuscar
@@ -421,49 +355,115 @@
             this.icoBtnBuscar.Location = new System.Drawing.Point(833, 35);
             this.icoBtnBuscar.Name = "icoBtnBuscar";
             this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 26;
+            this.icoBtnBuscar.TabIndex = 21;
             this.icoBtnBuscar.UseVisualStyleBackColor = false;
             // 
-            // txtPrecio
+            // TPrecio
             // 
-            this.txtPrecio.BackColor = System.Drawing.Color.White;
-            this.txtPrecio.Location = new System.Drawing.Point(32, 215);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(180, 20);
-            this.txtPrecio.TabIndex = 28;
-            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            this.TPrecio.BackColor = System.Drawing.Color.White;
+            this.TPrecio.Location = new System.Drawing.Point(32, 233);
+            this.TPrecio.Name = "TPrecio";
+            this.TPrecio.Size = new System.Drawing.Size(180, 20);
+            this.TPrecio.TabIndex = 13;
+            this.TPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
+            this.TPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // Precio
             // 
             this.Precio.AutoSize = true;
             this.Precio.BackColor = System.Drawing.Color.White;
-            this.Precio.Location = new System.Drawing.Point(34, 199);
+            this.Precio.Location = new System.Drawing.Point(39, 217);
             this.Precio.Name = "Precio";
             this.Precio.Size = new System.Drawing.Size(40, 13);
             this.Precio.TabIndex = 27;
             this.Precio.Text = "Precio:";
             // 
-            // textBoxStock
+            // TStock
             // 
-            this.textBoxStock.BackColor = System.Drawing.Color.White;
-            this.textBoxStock.Location = new System.Drawing.Point(32, 254);
-            this.textBoxStock.Name = "textBoxStock";
-            this.textBoxStock.Size = new System.Drawing.Size(180, 20);
-            this.textBoxStock.TabIndex = 30;
-            this.textBoxStock.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBoxStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStock_KeyPress);
+            this.TStock.BackColor = System.Drawing.Color.White;
+            this.TStock.Location = new System.Drawing.Point(32, 279);
+            this.TStock.Name = "TStock";
+            this.TStock.Size = new System.Drawing.Size(180, 20);
+            this.TStock.TabIndex = 14;
+            this.TStock.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStock_KeyPress);
             // 
             // lblStock
             // 
             this.lblStock.AutoSize = true;
             this.lblStock.BackColor = System.Drawing.Color.White;
-            this.lblStock.Location = new System.Drawing.Point(34, 238);
+            this.lblStock.Location = new System.Drawing.Point(39, 263);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(38, 13);
             this.lblStock.TabIndex = 29;
             this.lblStock.Text = "Stock:";
             this.lblStock.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // Ccodigo
+            // 
+            this.Ccodigo.HeaderText = "Codigo";
+            this.Ccodigo.Name = "Ccodigo";
+            this.Ccodigo.ReadOnly = true;
+            this.Ccodigo.Width = 70;
+            // 
+            // Cnombre
+            // 
+            this.Cnombre.HeaderText = "Nombre";
+            this.Cnombre.Name = "Cnombre";
+            this.Cnombre.ReadOnly = true;
+            // 
+            // Cdescripcion
+            // 
+            this.Cdescripcion.HeaderText = "Descripcion";
+            this.Cdescripcion.Name = "Cdescripcion";
+            this.Cdescripcion.ReadOnly = true;
+            // 
+            // cprecio
+            // 
+            this.cprecio.HeaderText = "Precio ";
+            this.cprecio.Name = "cprecio";
+            this.cprecio.ReadOnly = true;
+            // 
+            // ColStock
+            // 
+            this.ColStock.HeaderText = "Stock";
+            this.ColStock.Name = "ColStock";
+            this.ColStock.ReadOnly = true;
+            this.ColStock.Width = 80;
+            // 
+            // idCat
+            // 
+            this.idCat.HeaderText = "idCategoria";
+            this.idCat.Name = "idCat";
+            this.idCat.ReadOnly = true;
+            this.idCat.Visible = false;
+            // 
+            // Ccategoria
+            // 
+            this.Ccategoria.HeaderText = "Categoria";
+            this.Ccategoria.Name = "Ccategoria";
+            this.Ccategoria.ReadOnly = true;
+            // 
+            // Cestado
+            // 
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
+            this.Cestado.Width = 80;
+            // 
+            // CestadoVAlor
+            // 
+            this.CestadoVAlor.HeaderText = "EstadoValor";
+            this.CestadoVAlor.Name = "CestadoVAlor";
+            this.CestadoVAlor.ReadOnly = true;
+            this.CestadoVAlor.Visible = false;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            this.Ceditar.Width = 75;
             // 
             // ProductosAdmin
             // 
@@ -471,9 +471,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1184, 561);
-            this.Controls.Add(this.textBoxStock);
+            this.Controls.Add(this.TStock);
             this.Controls.Add(this.lblStock);
-            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.TPrecio);
             this.Controls.Add(this.Precio);
             this.Controls.Add(this.icoBtnBuscar);
             this.Controls.Add(this.icoBtnLimpiar);
@@ -485,11 +485,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.comboBoxEstado);
-            this.Controls.Add(this.comboBox1Cate);
-            this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.textBoxCodprod);
+            this.Controls.Add(this.CBEstado);
+            this.Controls.Add(this.CBCategoria);
+            this.Controls.Add(this.TDescripcion);
+            this.Controls.Add(this.TNombre);
+            this.Controls.Add(this.TCodProd);
             this.Controls.Add(this.lEstado);
             this.Controls.Add(this.lCategoria);
             this.Controls.Add(this.lDescrip);
@@ -513,11 +513,11 @@
         private System.Windows.Forms.Label lDescrip;
         private System.Windows.Forms.Label lCategoria;
         private System.Windows.Forms.Label lEstado;
-        private System.Windows.Forms.TextBox textBoxCodprod;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.ComboBox comboBox1Cate;
-        private System.Windows.Forms.ComboBox comboBoxEstado;
+        private System.Windows.Forms.TextBox TCodProd;
+        private System.Windows.Forms.TextBox TNombre;
+        private System.Windows.Forms.TextBox TDescripcion;
+        private System.Windows.Forms.ComboBox CBCategoria;
+        private System.Windows.Forms.ComboBox CBEstado;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private FontAwesome.Sharp.IconButton btnEditar;
@@ -529,17 +529,17 @@
         private System.Windows.Forms.TextBox textBox4;
         private FontAwesome.Sharp.IconButton icoBtnLimpiar;
         private FontAwesome.Sharp.IconButton icoBtnBuscar;
-        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.TextBox TPrecio;
         private System.Windows.Forms.Label Precio;
-        private System.Windows.Forms.TextBox textBoxStock;
+        private System.Windows.Forms.TextBox TStock;
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cnombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cdescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cprecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cprecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cestado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CestadoVAlor;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;

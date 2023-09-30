@@ -53,7 +53,7 @@
             this.txtBusqueda.Location = new System.Drawing.Point(297, 80);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(100, 20);
-            this.txtBusqueda.TabIndex = 43;
+            this.txtBusqueda.TabIndex = 2;
             // 
             // cboBusqueda
             // 
@@ -68,7 +68,7 @@
             this.cboBusqueda.Location = new System.Drawing.Point(205, 79);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
-            this.cboBusqueda.TabIndex = 42;
+            this.cboBusqueda.TabIndex = 1;
             // 
             // lblBuscar
             // 
@@ -118,7 +118,7 @@
             this.datagridProd.RowTemplate.Height = 28;
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridProd.Size = new System.Drawing.Size(461, 209);
-            this.datagridProd.TabIndex = 39;
+            this.datagridProd.TabIndex = 5;
             this.datagridProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             // 
             // id
@@ -181,7 +181,7 @@
             this.icoBtnBuscar.Location = new System.Drawing.Point(403, 72);
             this.icoBtnBuscar.Name = "icoBtnBuscar";
             this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 45;
+            this.icoBtnBuscar.TabIndex = 3;
             this.icoBtnBuscar.UseVisualStyleBackColor = false;
             // 
             // icoBtnLimpiar
@@ -198,7 +198,7 @@
             this.icoBtnLimpiar.Location = new System.Drawing.Point(444, 72);
             this.icoBtnLimpiar.Name = "icoBtnLimpiar";
             this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 44;
+            this.icoBtnLimpiar.TabIndex = 4;
             this.icoBtnLimpiar.UseVisualStyleBackColor = false;
             // 
             // label3

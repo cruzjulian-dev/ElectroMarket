@@ -40,13 +40,13 @@ namespace CapaPresentacion
         {
             if (ValidarCampos())
             {
-                string codProducto = textBoxCodprod.Text;
-                string nombre = txtNombre.Text;
-                string opcionSeleccionada = comboBox1Cate.SelectedItem as string;
-                string stock = textBoxStock.Text;
-                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
-                string descripcion = txtDescripcion.Text;
-                string precio = txtPrecio.Text;
+                string codProducto = TCodProd.Text;
+                string nombre = TNombre.Text;
+                string opcionSeleccionada = CBCategoria.SelectedItem as string;
+                string stock = TStock.Text;
+                string opcionSeleccionada2 = CBEstado.SelectedItem as string;
+                string descripcion = TDescripcion.Text;
+                string precio = TPrecio.Text;
 
                 // Agregar fila al DataGridView
                 int rowIndex = datagridProd.Rows.Count;
@@ -73,14 +73,14 @@ namespace CapaPresentacion
         void limpiar()
         {
             //limpiar todo
-            textBoxCodprod.Clear();
-            txtNombre.Clear();
-            txtDescripcion.Clear();
-            textBoxStock.Clear();
-            txtPrecio.Clear();
+            TCodProd.Clear();
+            TNombre.Clear();
+            TDescripcion.Clear();
+            TStock.Clear();
+            TPrecio.Clear();
             // Limpia la selección en el ComboBox para que aparezca vacío
-            comboBox1Cate.SelectedIndex = -1;
-            comboBoxEstado.SelectedIndex = -1;
+            CBCategoria.SelectedIndex = -1;
+            CBEstado.SelectedIndex = -1;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -94,13 +94,13 @@ namespace CapaPresentacion
             {
 
                 // Obtén los valores de las celdas seleccionadas y realiza la edición
-                string codProducto = textBoxCodprod.Text;
-                string nombre = txtNombre.Text;
-                string opcionSeleccionada = comboBox1Cate.SelectedItem as string;
-                string stock = textBoxStock.Text;
-                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
-                string descripcion = txtDescripcion.Text;
-                string precio = txtPrecio.Text;
+                string codProducto = TCodProd.Text;
+                string nombre = TNombre.Text;
+                string opcionSeleccionada = CBCategoria.SelectedItem as string;
+                string stock = TStock.Text;
+                string opcionSeleccionada2 = CBEstado.SelectedItem as string;
+                string descripcion = TDescripcion.Text;
+                string precio = TPrecio.Text;
 
                 // Actualiza la fila seleccionada en el DataGridView
                 DataGridViewRow selectedRow = datagridProd.Rows[datagridProd.CurrentCell.RowIndex];
@@ -128,11 +128,11 @@ namespace CapaPresentacion
         private bool ValidarCampos()
         {
             // Verificar si los TextBox están vacíos
-            if (string.IsNullOrWhiteSpace(textBoxCodprod.Text) ||
-                string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(textBoxStock.Text) ||
-                string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
-                string.IsNullOrWhiteSpace(txtPrecio.Text))
+            if (string.IsNullOrWhiteSpace(TCodProd.Text) ||
+                string.IsNullOrWhiteSpace(TNombre.Text) ||
+                string.IsNullOrWhiteSpace(TStock.Text) ||
+                string.IsNullOrWhiteSpace(TDescripcion.Text) ||
+                string.IsNullOrWhiteSpace(TPrecio.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -140,13 +140,13 @@ namespace CapaPresentacion
             }
 
             // Verificar si se ha seleccionado una opción en los ComboBox
-          if (comboBox1Cate.SelectedIndex == -1)
+          if (CBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleccione una categoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (comboBoxEstado.SelectedIndex == -1)
+            if (CBEstado.SelectedIndex == -1)
             {
           
                 MessageBox.Show("Por favor, seleccione un estado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -210,13 +210,13 @@ namespace CapaPresentacion
                     
                     // Obtén los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = datagridProd.Rows[e.RowIndex];
-                    textBoxCodprod.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
-                    txtNombre.Text = selectedRow.Cells["Cnombre"].Value.ToString();
-                    comboBox1Cate.SelectedItem = selectedRow.Cells["Ccategoria"].Value.ToString();
-                    comboBoxEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
-                    txtDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
-                    txtPrecio.Text = selectedRow.Cells["cprecio"].Value.ToString();
-                    textBoxStock.Text = selectedRow.Cells["ColStock"].Value.ToString();
+                    TCodProd.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
+                    TNombre.Text = selectedRow.Cells["Cnombre"].Value.ToString();
+                    CBCategoria.SelectedItem = selectedRow.Cells["Ccategoria"].Value.ToString();
+                    CBEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
+                    TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
+                    TPrecio.Text = selectedRow.Cells["cprecio"].Value.ToString();
+                    TStock.Text = selectedRow.Cells["ColStock"].Value.ToString();
 
 
                     // Habilita el botón "Editar" para guardar los cambios después de la edición

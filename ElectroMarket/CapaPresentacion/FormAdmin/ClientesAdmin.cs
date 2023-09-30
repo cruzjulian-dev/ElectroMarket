@@ -28,7 +28,7 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TCorreo.Text.Trim() == "" || comboBoxEstado.SelectedItem.ToString() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TCorreo.Text.Trim() == "" || CBEstado.SelectedItem.ToString() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -38,18 +38,17 @@ namespace CapaPresentacion
                 {
 
                     // Agregar nueva fila
-                    DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), TFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim(), comboBoxEstado.SelectedItem.ToString());
+                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim(), CBEstado.SelectedItem.ToString());
 
 
                     foreach (DataGridViewRow row in DGClientes.Rows)
                     {
                         row.Cells["Ceditar"].Value = "Editar";
                     }
-                    TId.Text = "";
                     TNombre.Text = "";
                     TApellido.Text = "";
                     TDni.Text = "";
-                    TFecha.Text = "";
+                    DTFecha.Text = "";
                     TDomicilio.Text = "";
                     TCorreo.Text = "";
 
@@ -210,17 +209,8 @@ namespace CapaPresentacion
         }
 
         private void TFecha_Validating(object sender, CancelEventArgs e)
-        {
-            DateTime fecha;
-            if (!DateTime.TryParse(TFecha.Text, out fecha))
-            {
-                // La fecha ingresada no es válida
-                MessageBox.Show("Por favor, ingrese una fecha válida en formato dd/mm/aaaa.", "Fecha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        { }
 
-                // Evita que el foco cambie al siguiente control
-                e.Cancel = true;
-            }
-        }
 
         private void TDomicilio_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -230,6 +220,16 @@ namespace CapaPresentacion
                 // Si no es válido, marca el evento como manejado para evitar que se ingrese
                 e.Handled = true;
             }
+        }
+
+        private void comboBoxEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lEstado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

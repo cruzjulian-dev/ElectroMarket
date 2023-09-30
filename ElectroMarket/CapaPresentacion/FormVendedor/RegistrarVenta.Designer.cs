@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,7 +39,6 @@
             this.LFecha = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.txtIDCLIE = new System.Windows.Forms.TextBox();
             this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.lnombrecom = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,19 +51,11 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.lprecio = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.txtIDPROD = new System.Windows.Forms.TextBox();
             this.btnBuscarProduc = new FontAwesome.Sharp.IconButton();
             this.lproducto = new System.Windows.Forms.Label();
             this.Lcodprod = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.datagridProd = new System.Windows.Forms.DataGridView();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cpreciocompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cprecioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btneliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -73,6 +64,11 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.iconButtonVenta = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -94,7 +90,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(125, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(191, 30);
@@ -122,7 +118,7 @@
             this.DTFecha.Location = new System.Drawing.Point(19, 62);
             this.DTFecha.Name = "DTFecha";
             this.DTFecha.Size = new System.Drawing.Size(100, 20);
-            this.DTFecha.TabIndex = 25;
+            this.DTFecha.TabIndex = 1;
             // 
             // Ltipodoc
             // 
@@ -140,7 +136,7 @@
             this.comboBox1.Location = new System.Drawing.Point(128, 61);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
+            this.comboBox1.TabIndex = 2;
             // 
             // LFecha
             // 
@@ -156,7 +152,6 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.txtIDCLIE);
             this.groupBox2.Controls.Add(this.icoBtnBuscar);
             this.groupBox2.Controls.Add(this.lnombrecom);
             this.groupBox2.Controls.Add(this.label4);
@@ -173,15 +168,7 @@
             this.textBox7.Location = new System.Drawing.Point(157, 60);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(134, 20);
-            this.textBox7.TabIndex = 39;
-            // 
-            // txtIDCLIE
-            // 
-            this.txtIDCLIE.Location = new System.Drawing.Point(264, 35);
-            this.txtIDCLIE.Name = "txtIDCLIE";
-            this.txtIDCLIE.Size = new System.Drawing.Size(27, 20);
-            this.txtIDCLIE.TabIndex = 24;
-            this.txtIDCLIE.Visible = false;
+            this.textBox7.TabIndex = 5;
             // 
             // icoBtnBuscar
             // 
@@ -197,7 +184,7 @@
             this.icoBtnBuscar.Location = new System.Drawing.Point(111, 56);
             this.icoBtnBuscar.Name = "icoBtnBuscar";
             this.icoBtnBuscar.Size = new System.Drawing.Size(35, 26);
-            this.icoBtnBuscar.TabIndex = 27;
+            this.icoBtnBuscar.TabIndex = 4;
             this.icoBtnBuscar.UseVisualStyleBackColor = false;
             this.icoBtnBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
             // 
@@ -226,7 +213,7 @@
             this.textBox2.Location = new System.Drawing.Point(6, 62);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 39;
+            this.textBox2.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -238,7 +225,6 @@
             this.groupBox3.Controls.Add(this.textBox6);
             this.groupBox3.Controls.Add(this.lprecio);
             this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.txtIDPROD);
             this.groupBox3.Controls.Add(this.btnBuscarProduc);
             this.groupBox3.Controls.Add(this.lproducto);
             this.groupBox3.Controls.Add(this.Lcodprod);
@@ -255,7 +241,7 @@
             this.numericUpDown1.Location = new System.Drawing.Point(533, 63);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(82, 20);
-            this.numericUpDown1.TabIndex = 35;
+            this.numericUpDown1.TabIndex = 11;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
             0,
@@ -267,7 +253,7 @@
             this.textBox8.Location = new System.Drawing.Point(174, 61);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(166, 20);
-            this.textBox8.TabIndex = 34;
+            this.textBox8.TabIndex = 8;
             // 
             // LCantidad
             // 
@@ -296,7 +282,7 @@
             this.textBox6.Location = new System.Drawing.Point(434, 62);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(82, 20);
-            this.textBox6.TabIndex = 30;
+            this.textBox6.TabIndex = 10;
             // 
             // lprecio
             // 
@@ -313,15 +299,7 @@
             this.textBox5.Location = new System.Drawing.Point(346, 62);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(82, 20);
-            this.textBox5.TabIndex = 28;
-            // 
-            // txtIDPROD
-            // 
-            this.txtIDPROD.Location = new System.Drawing.Point(100, 40);
-            this.txtIDPROD.Name = "txtIDPROD";
-            this.txtIDPROD.Size = new System.Drawing.Size(27, 20);
-            this.txtIDPROD.TabIndex = 24;
-            this.txtIDPROD.Visible = false;
+            this.textBox5.TabIndex = 9;
             // 
             // btnBuscarProduc
             // 
@@ -337,7 +315,7 @@
             this.btnBuscarProduc.Location = new System.Drawing.Point(133, 57);
             this.btnBuscarProduc.Name = "btnBuscarProduc";
             this.btnBuscarProduc.Size = new System.Drawing.Size(35, 26);
-            this.btnBuscarProduc.TabIndex = 27;
+            this.btnBuscarProduc.TabIndex = 7;
             this.btnBuscarProduc.UseVisualStyleBackColor = false;
             this.btnBuscarProduc.Click += new System.EventHandler(this.btnBuscarProduc_Click);
             // 
@@ -366,7 +344,7 @@
             this.textBox4.Location = new System.Drawing.Point(6, 62);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(121, 20);
-            this.textBox4.TabIndex = 0;
+            this.textBox4.TabIndex = 6;
             // 
             // datagridProd
             // 
@@ -375,80 +353,34 @@
             this.datagridProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProducto,
             this.Cproducto,
-            this.Cpreciocompra,
-            this.Cprecioventa,
+            this.CPrecio,
             this.Ccantidad,
-            this.Csubtotal,
-            this.btneliminar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Csubtotal});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle1;
             this.datagridProd.Location = new System.Drawing.Point(129, 265);
             this.datagridProd.MultiSelect = false;
             this.datagridProd.Name = "datagridProd";
             this.datagridProd.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datagridProd.RowTemplate.Height = 28;
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridProd.Size = new System.Drawing.Size(622, 241);
-            this.datagridProd.TabIndex = 25;
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "idProdcuto";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.ReadOnly = true;
-            this.idProducto.Visible = false;
-            // 
-            // Cproducto
-            // 
-            this.Cproducto.HeaderText = "Producto";
-            this.Cproducto.Name = "Cproducto";
-            this.Cproducto.ReadOnly = true;
-            // 
-            // Cpreciocompra
-            // 
-            this.Cpreciocompra.HeaderText = "Precio Compra";
-            this.Cpreciocompra.Name = "Cpreciocompra";
-            this.Cpreciocompra.ReadOnly = true;
-            // 
-            // Cprecioventa
-            // 
-            this.Cprecioventa.HeaderText = "Precio venta";
-            this.Cprecioventa.Name = "Cprecioventa";
-            this.Cprecioventa.ReadOnly = true;
-            this.Cprecioventa.Visible = false;
-            // 
-            // Ccantidad
-            // 
-            this.Ccantidad.HeaderText = "Cantidad";
-            this.Ccantidad.Name = "Ccantidad";
-            this.Ccantidad.ReadOnly = true;
-            // 
-            // Csubtotal
-            // 
-            this.Csubtotal.HeaderText = "Subtotal";
-            this.Csubtotal.Name = "Csubtotal";
-            this.Csubtotal.ReadOnly = true;
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.HeaderText = "";
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.ReadOnly = true;
+            this.datagridProd.TabIndex = 13;
             // 
             // label9
             // 
@@ -466,9 +398,9 @@
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(767, 402);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 28;
-            this.label10.Text = "cambio:";
+            this.label10.Text = "Cambio:";
             // 
             // label11
             // 
@@ -485,21 +417,21 @@
             this.textBox11.Location = new System.Drawing.Point(770, 379);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(86, 20);
-            this.textBox11.TabIndex = 36;
+            this.textBox11.TabIndex = 15;
             // 
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(770, 418);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(86, 20);
-            this.textBox12.TabIndex = 37;
+            this.textBox12.TabIndex = 16;
             // 
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(770, 340);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(86, 20);
-            this.textBox13.TabIndex = 38;
+            this.textBox13.TabIndex = 14;
             this.textBox13.Text = "0";
             // 
             // iconButtonVenta
@@ -515,7 +447,7 @@
             this.iconButtonVenta.Location = new System.Drawing.Point(757, 457);
             this.iconButtonVenta.Name = "iconButtonVenta";
             this.iconButtonVenta.Size = new System.Drawing.Size(109, 49);
-            this.iconButtonVenta.TabIndex = 35;
+            this.iconButtonVenta.TabIndex = 17;
             this.iconButtonVenta.Text = "Crear Venta";
             this.iconButtonVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButtonVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -536,12 +468,43 @@
             this.iconButton1.Location = new System.Drawing.Point(770, 174);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(75, 85);
-            this.iconButton1.TabIndex = 26;
+            this.iconButton1.TabIndex = 12;
             this.iconButton1.Text = "Agregar Producto";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "idProdcuto";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.ReadOnly = true;
+            this.idProducto.Visible = false;
+            // 
+            // Cproducto
+            // 
+            this.Cproducto.HeaderText = "Producto";
+            this.Cproducto.Name = "Cproducto";
+            this.Cproducto.ReadOnly = true;
+            // 
+            // CPrecio
+            // 
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
+            // 
+            // Ccantidad
+            // 
+            this.Ccantidad.HeaderText = "Cantidad";
+            this.Ccantidad.Name = "Ccantidad";
+            this.Ccantidad.ReadOnly = true;
+            // 
+            // Csubtotal
+            // 
+            this.Csubtotal.HeaderText = "Subtotal";
+            this.Csubtotal.Name = "Csubtotal";
+            this.Csubtotal.ReadOnly = true;
             // 
             // RegistrarVenta
             // 
@@ -590,7 +553,6 @@
         private System.Windows.Forms.Label lnombrecom;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtIDCLIE;
         private FontAwesome.Sharp.IconButton icoBtnBuscar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label LCantidad;
@@ -598,7 +560,6 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label lprecio;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox txtIDPROD;
         private FontAwesome.Sharp.IconButton btnBuscarProduc;
         private System.Windows.Forms.Label lproducto;
         private System.Windows.Forms.Label Lcodprod;
@@ -606,13 +567,6 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.DataGridView datagridProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cproducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cpreciocompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cprecioventa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
-        private System.Windows.Forms.DataGridViewButtonColumn btneliminar;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -623,5 +577,10 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.DateTimePicker DTFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cproducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
     }
 }

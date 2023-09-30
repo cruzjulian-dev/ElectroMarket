@@ -100,13 +100,12 @@ namespace CapaPresentacion
                 if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Agregar nueva fila
-                    DGClientes.Rows.Add(TId.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim());
+                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim());
 
                     foreach (DataGridViewRow row in DGClientes.Rows)
                     {
                         row.Cells["Ceditar"].Value = "Editar";
                     }
-                    TId.Text = "";
                     TNombre.Text = "";
                     TApellido.Text = "";
                     TDni.Text = "";
@@ -128,7 +127,6 @@ namespace CapaPresentacion
                     filaSeleccionada = DGClientes.CurrentRow.Index;
                     editar = true;
 
-                    TId.Text = DGClientes.Rows[filaSeleccionada].Cells[0].Value.ToString();
                     TNombre.Text = DGClientes.Rows[filaSeleccionada].Cells[1].Value.ToString();
                     TApellido.Text = DGClientes.Rows[filaSeleccionada].Cells[2].Value.ToString();
                     TDni.Text = DGClientes.Rows[filaSeleccionada].Cells[3].Value.ToString();
@@ -154,7 +152,6 @@ namespace CapaPresentacion
                     MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } else
                 {
-                    DGClientes.Rows[filaSeleccionada].Cells[0].Value = TId.Text.Trim();
                     DGClientes.Rows[filaSeleccionada].Cells[1].Value = TNombre.Text.Trim();
                     DGClientes.Rows[filaSeleccionada].Cells[2].Value = TApellido.Text.Trim();
                     DGClientes.Rows[filaSeleccionada].Cells[3].Value = TDni.Text.Trim();

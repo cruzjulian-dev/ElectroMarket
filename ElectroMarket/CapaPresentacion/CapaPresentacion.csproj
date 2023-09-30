@@ -81,20 +81,20 @@
     <Compile Include="FormVendedor\DetalleVenta.Designer.cs">
       <DependentUpon>DetalleVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\mdProductos.cs">
+    <Compile Include="FormVendedor\Modales\mdProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\mdProductos.Designer.cs">
+    <Compile Include="FormVendedor\Modales\mdProductos.Designer.cs">
       <DependentUpon>mdProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\mdClientes.cs">
+    <Compile Include="FormVendedor\Modales\mdClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\mdClientes.Designer.cs">
+    <Compile Include="FormVendedor\Modales\mdClientes.Designer.cs">
       <DependentUpon>mdClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\Producto.cs" />
-    <Compile Include="Modales\Proveedor.cs" />
+    <Compile Include="FormVendedor\Modales\Producto.cs" />
+    <Compile Include="FormVendedor\Modales\Proveedor.cs" />
     <Compile Include="FormAdmin\ProductosAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,10 +184,10 @@
     <EmbeddedResource Include="FormVendedor\DetalleVenta.resx">
       <DependentUpon>DetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\mdProductos.resx">
+    <EmbeddedResource Include="FormVendedor\Modales\mdProductos.resx">
       <DependentUpon>mdProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\mdClientes.resx">
+    <EmbeddedResource Include="FormVendedor\Modales\mdClientes.resx">
       <DependentUpon>mdClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\ProductosAdmin.resx">

@@ -41,19 +41,20 @@
             this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpreciocom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cprecioven = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.White;
-            this.txtBusqueda.Location = new System.Drawing.Point(281, 71);
+            this.txtBusqueda.Location = new System.Drawing.Point(543, 65);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(100, 20);
-            this.txtBusqueda.TabIndex = 36;
+            this.txtBusqueda.TabIndex = 2;
             // 
             // cboBusqueda
             // 
@@ -64,16 +65,16 @@
             "Nombre",
             "Categoria",
             "Codigo"});
-            this.cboBusqueda.Location = new System.Drawing.Point(189, 70);
+            this.cboBusqueda.Location = new System.Drawing.Point(451, 64);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
-            this.cboBusqueda.TabIndex = 35;
+            this.cboBusqueda.TabIndex = 1;
             // 
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.BackColor = System.Drawing.Color.White;
-            this.lblBuscar.Location = new System.Drawing.Point(121, 73);
+            this.lblBuscar.Location = new System.Drawing.Point(383, 67);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(62, 13);
             this.lblBuscar.TabIndex = 34;
@@ -86,7 +87,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(12, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(461, 77);
+            this.label3.Size = new System.Drawing.Size(729, 77);
             this.label3.TabIndex = 33;
             this.label3.Text = "Lista de Productos:";
             // 
@@ -99,9 +100,10 @@
             this.ccodigo,
             this.cnombre,
             this.ccategoria,
+            this.CDescripcion,
             this.cstock,
-            this.cpreciocom,
-            this.cprecioven});
+            this.cprecioven,
+            this.CEstado});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,7 +129,7 @@
             this.datagridProd.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.datagridProd.RowTemplate.Height = 28;
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridProd.Size = new System.Drawing.Size(461, 209);
+            this.datagridProd.Size = new System.Drawing.Size(729, 209);
             this.datagridProd.TabIndex = 32;
             this.datagridProd.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellDoubleClick);
             // 
@@ -142,10 +144,10 @@
             this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
             this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(387, 63);
+            this.icoBtnBuscar.Location = new System.Drawing.Point(649, 57);
             this.icoBtnBuscar.Name = "icoBtnBuscar";
             this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 38;
+            this.icoBtnBuscar.TabIndex = 3;
             this.icoBtnBuscar.UseVisualStyleBackColor = false;
             this.icoBtnBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
             // 
@@ -160,10 +162,10 @@
             this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
             this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(428, 63);
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(690, 57);
             this.icoBtnLimpiar.Name = "icoBtnLimpiar";
             this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 37;
+            this.icoBtnLimpiar.TabIndex = 4;
             this.icoBtnLimpiar.UseVisualStyleBackColor = false;
             this.icoBtnLimpiar.Click += new System.EventHandler(this.icoBtnLimpiar_Click);
             // 
@@ -192,32 +194,35 @@
             this.ccategoria.Name = "ccategoria";
             this.ccategoria.ReadOnly = true;
             // 
+            // CDescripcion
+            // 
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
+            // 
             // cstock
             // 
             this.cstock.HeaderText = "Stock";
             this.cstock.Name = "cstock";
             this.cstock.ReadOnly = true;
-            this.cstock.Visible = false;
-            // 
-            // cpreciocom
-            // 
-            this.cpreciocom.HeaderText = "Precio Compra";
-            this.cpreciocom.Name = "cpreciocom";
-            this.cpreciocom.ReadOnly = true;
-            this.cpreciocom.Visible = false;
             // 
             // cprecioven
             // 
-            this.cprecioven.HeaderText = "Precio Venta";
+            this.cprecioven.HeaderText = "Precio";
             this.cprecioven.Name = "cprecioven";
             this.cprecioven.ReadOnly = true;
-            this.cprecioven.Visible = false;
+            // 
+            // CEstado
+            // 
+            this.CEstado.HeaderText = "Estado";
+            this.CEstado.Name = "CEstado";
+            this.CEstado.ReadOnly = true;
             // 
             // mdProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 350);
+            this.ClientSize = new System.Drawing.Size(753, 350);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.cboBusqueda);
             this.Controls.Add(this.lblBuscar);
@@ -248,8 +253,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ccategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn cstock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpreciocom;
         private System.Windows.Forms.DataGridViewTextBoxColumn cprecioven;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
     }
 }

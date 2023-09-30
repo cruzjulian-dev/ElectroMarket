@@ -44,6 +44,12 @@
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.lblBuscar = new System.Windows.Forms.Label();
+            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +105,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(31, 235);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(103, 20);
-            this.dateTimePicker2.TabIndex = 9;
+            this.dateTimePicker2.TabIndex = 7;
             // 
             // label4
             // 
@@ -114,10 +120,17 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CVendedor,
+            this.CDniCliente,
+            this.CNombreCliente,
+            this.CApellidoCliente,
+            this.CTotal,
+            this.CFecha});
             this.dataGridView1.Location = new System.Drawing.Point(221, 46);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(935, 389);
-            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.TabIndex = 12;
             // 
             // label8
             // 
@@ -158,7 +171,7 @@
             this.cboBusqueda.Location = new System.Drawing.Point(28, 322);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(113, 21);
-            this.cboBusqueda.TabIndex = 56;
+            this.cboBusqueda.TabIndex = 8;
             // 
             // txtBusqueda
             // 
@@ -166,7 +179,7 @@
             this.txtBusqueda.Location = new System.Drawing.Point(28, 349);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(156, 20);
-            this.txtBusqueda.TabIndex = 53;
+            this.txtBusqueda.TabIndex = 9;
             // 
             // btnBuscar
             // 
@@ -183,7 +196,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(28, 386);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(78, 33);
-            this.btnBuscar.TabIndex = 55;
+            this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -203,7 +216,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(28, 425);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(86, 33);
-            this.btnLimpiar.TabIndex = 54;
+            this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -217,6 +230,42 @@
             this.lblBuscar.Size = new System.Drawing.Size(62, 13);
             this.lblBuscar.TabIndex = 57;
             this.lblBuscar.Text = "Buscar Por:";
+            // 
+            // CVendedor
+            // 
+            this.CVendedor.HeaderText = "Vendedor";
+            this.CVendedor.Name = "CVendedor";
+            this.CVendedor.ReadOnly = true;
+            // 
+            // CDniCliente
+            // 
+            this.CDniCliente.HeaderText = "DNI Cliente";
+            this.CDniCliente.Name = "CDniCliente";
+            this.CDniCliente.ReadOnly = true;
+            // 
+            // CNombreCliente
+            // 
+            this.CNombreCliente.HeaderText = "Nombre Cliente";
+            this.CNombreCliente.Name = "CNombreCliente";
+            this.CNombreCliente.ReadOnly = true;
+            // 
+            // CApellidoCliente
+            // 
+            this.CApellidoCliente.HeaderText = "Apellido Cliente";
+            this.CApellidoCliente.Name = "CApellidoCliente";
+            this.CApellidoCliente.ReadOnly = true;
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Monto Total";
+            this.CTotal.Name = "CTotal";
+            this.CTotal.ReadOnly = true;
+            // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha Venta";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.ReadOnly = true;
             // 
             // frmMisVentas
             // 
@@ -265,5 +314,11 @@
         private FontAwesome.Sharp.IconButton btnBuscar;
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDniCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombreCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CApellidoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
     }
 }

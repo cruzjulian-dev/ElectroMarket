@@ -16,5 +16,15 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void txtnombrecliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelNombreCliente_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

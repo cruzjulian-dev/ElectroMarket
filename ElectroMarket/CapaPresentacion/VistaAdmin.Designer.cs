@@ -69,7 +69,7 @@
             this.MenuUser.IconSize = 46;
             this.MenuUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuUser.Name = "MenuUser";
-            this.MenuUser.Size = new System.Drawing.Size(122, 65);
+            this.MenuUser.Size = new System.Drawing.Size(160, 65);
             this.MenuUser.Text = "Clientes";
             this.MenuUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuUser.Click += new System.EventHandler(this.MenuUser_Click);
@@ -86,7 +86,7 @@
             this.MenuProd.IconSize = 46;
             this.MenuProd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuProd.Name = "MenuProd";
-            this.MenuProd.Size = new System.Drawing.Size(122, 65);
+            this.MenuProd.Size = new System.Drawing.Size(160, 65);
             this.MenuProd.Text = "Mantenedor";
             this.MenuProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuProd.Click += new System.EventHandler(this.MenuProd_Click);
@@ -94,14 +94,14 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(130, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
             this.SMCategoria.Text = "Categorias";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
             // 
             // SMProductos
             // 
             this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(130, 22);
+            this.SMProductos.Size = new System.Drawing.Size(180, 22);
             this.SMProductos.Text = "Productos";
             this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
             // 
@@ -114,7 +114,7 @@
             this.MenuReportes.IconSize = 46;
             this.MenuReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuReportes.Name = "MenuReportes";
-            this.MenuReportes.Size = new System.Drawing.Size(75, 65);
+            this.MenuReportes.Size = new System.Drawing.Size(160, 65);
             this.MenuReportes.Text = "Reportes";
             this.MenuReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuReportes.Click += new System.EventHandler(this.MenuReportes_Click);

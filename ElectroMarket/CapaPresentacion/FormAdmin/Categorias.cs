@@ -36,22 +36,22 @@ namespace CapaPresentacion
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Habilita el botón "Editar"
-                    btnEditar.Enabled = true;
+                    BEditar.Enabled = true;
 
 
                     // Obtén los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
                     
-                    comboBoxEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
-                    txtDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
+                    TEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
+                    TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
                    
 
 
                     // Habilita el botón "Editar" para guardar los cambios después de la edición
-                    btnEditar.Enabled = true;
+                    BEditar.Enabled = true;
                     // btnGuardar.Enabled = false;
                     editar = true;
-                    btnAgregar.Enabled = false; // Deshabilita el botón "Agregar" mientras editas
+                    BAgregar.Enabled = false; // Deshabilita el botón "Agregar" mientras editas
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace CapaPresentacion
         private bool ValidarCampos()
         {
             // Verificar si los TextBox están vacíos
-            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(TDescripcion.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -68,7 +68,7 @@ namespace CapaPresentacion
 
             // Verificar si se ha seleccionado una opción en los ComboBox
             
-              if (comboBoxEstado.SelectedIndex == -1)
+              if (TEstado.SelectedIndex == -1)
               {
                   MessageBox.Show("Por favor, seleccione un estado.");
                   return false;
@@ -83,8 +83,8 @@ namespace CapaPresentacion
 
             if (ValidarCampos())
             {
-                string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
-                string descripcion = txtDescripcion.Text;
+                string opcionSeleccionada2 = TEstado.SelectedItem as string;
+                string descripcion = TDescripcion.Text;
         
 
                 // Agregar fila al DataGridView
@@ -119,8 +119,8 @@ namespace CapaPresentacion
 
                 if (result == DialogResult.Yes)
                 {
-                    string descripcion = txtDescripcion.Text;
-                    string opcionSeleccionada2 = comboBoxEstado.SelectedItem as string;
+                    string descripcion = TDescripcion.Text;
+                    string opcionSeleccionada2 = TEstado.SelectedItem as string;
 
                     // Actualiza la fila seleccionada en el DataGridView
                     DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
@@ -131,17 +131,17 @@ namespace CapaPresentacion
                     limpiar();
 
                     // Deshabilita el botón "Modificar" nuevamente
-                    btnEditar.Enabled = false;
+                    BEditar.Enabled = false;
                     editar = false;
 
                     // Habilita el botón "Agregar" después de editar
-                    btnAgregar.Enabled = true;
+                    BAgregar.Enabled = true;
                 }
                 else if (result == DialogResult.No)
                 {
                     // Si el usuario elige "No", habilita el botón "Agregar"
-                    btnAgregar.Enabled = true;
-                    btnEditar.Enabled = false;
+                    BAgregar.Enabled = true;
+                    BEditar.Enabled = false;
                     limpiar() ; 
                 }
             }
@@ -153,11 +153,11 @@ namespace CapaPresentacion
         {
             //limpiar todo
            
-            txtDescripcion.Clear();
+            TDescripcion.Clear();
             
             // Limpia la selección en el ComboBox para que aparezca vacío
             
-            comboBoxEstado.SelectedIndex = -1;
+            TEstado.SelectedIndex = -1;
         }
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
@@ -173,7 +173,7 @@ namespace CapaPresentacion
         private void CategoriasAdmin_Load(object sender, EventArgs e)
         {
             // Por defecto, deshabilita el botón "Editar"
-            btnEditar.Enabled = false;
+            BEditar.Enabled = false;
         }
     }
 }

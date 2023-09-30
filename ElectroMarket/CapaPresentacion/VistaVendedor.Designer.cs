@@ -82,7 +82,7 @@
             this.MenuUser.IconSize = 46;
             this.MenuUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuUser.Name = "MenuUser";
-            this.MenuUser.Size = new System.Drawing.Size(75, 65);
+            this.MenuUser.Size = new System.Drawing.Size(160, 65);
             this.MenuUser.Text = "Clientes";
             this.MenuUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuUser.Click += new System.EventHandler(this.MenuUser_Click);
@@ -96,7 +96,7 @@
             this.MenuProd.IconSize = 46;
             this.MenuProd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuProd.Name = "MenuProd";
-            this.MenuProd.Size = new System.Drawing.Size(122, 65);
+            this.MenuProd.Size = new System.Drawing.Size(160, 65);
             this.MenuProd.Text = "Ver Productos";
             this.MenuProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuProd.Click += new System.EventHandler(this.MenuProd_Click);
@@ -113,21 +113,21 @@
             this.MenuVentas.IconSize = 46;
             this.MenuVentas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuVentas.Name = "MenuVentas";
-            this.MenuVentas.Size = new System.Drawing.Size(75, 65);
+            this.MenuVentas.Size = new System.Drawing.Size(160, 65);
             this.MenuVentas.Text = "Ventas";
             this.MenuVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(140, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
             this.SMCategoria.Text = "Nueva Venta";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
             // 
             // SMdetalleVenta
             // 
             this.SMdetalleVenta.Name = "SMdetalleVenta";
-            this.SMdetalleVenta.Size = new System.Drawing.Size(140, 22);
+            this.SMdetalleVenta.Size = new System.Drawing.Size(180, 22);
             this.SMdetalleVenta.Text = "Mis Ventas";
             this.SMdetalleVenta.Click += new System.EventHandler(this.SMdetalleVenta_Click);
             // 

@@ -28,7 +28,7 @@ namespace CapaPresentacion
 
         private void BGuardar_Click(object sender, EventArgs e)
         {
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TCorreo.Text.Trim() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -37,7 +37,7 @@ namespace CapaPresentacion
                 if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Agregar nueva fila
-                    DGUsuarios.Rows.Add(1, TUsuario.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TCorreo.Text.Trim());
+                    DGUsuarios.Rows.Add(1, TUsuario.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TTelefono.Text.Trim());
 
                     //Usuario usuario = new Usuario();
                     //bd.Usuarios.Add(usuario);
@@ -53,7 +53,7 @@ namespace CapaPresentacion
                     TDni.Text = "";
                     DTFecha.Text = "";
                     TDomicilio.Text = "";
-                    TCorreo.Text = "";
+                    TTelefono.Text = "";
 
                     editar = false;
                 }
@@ -91,6 +91,31 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void TUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }
