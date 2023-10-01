@@ -24,7 +24,29 @@ namespace CapaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Seguro que quieres restaurar la base de datos?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RestaurarBD_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            if (OPSeleccionarBd.ShowDialog() == DialogResult.OK)
+            {
+                TSeleccionado.Text = OPSeleccionarBd.FileName;
+            }
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seguro que quieres restaurar la base de datos?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 MessageBox.Show("Base de datos restaurada con exito!");
             }

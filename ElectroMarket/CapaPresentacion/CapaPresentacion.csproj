@@ -264,6 +264,11 @@
       <Name>CapaNegocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logo_sql.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restaurar_bd.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
