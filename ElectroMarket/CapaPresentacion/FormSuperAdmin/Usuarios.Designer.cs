@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TTelefono = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.TUsuario = new System.Windows.Forms.TextBox();
@@ -54,6 +55,12 @@
             this.lEstado = new System.Windows.Forms.Label();
             this.CBRol = new System.Windows.Forms.ComboBox();
             this.LRol = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CBBusqueda = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TId = new System.Windows.Forms.TextBox();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,12 +73,8 @@
             this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.CBBusqueda = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -295,18 +298,20 @@
             this.CDomicilio,
             this.CEstadoValor,
             this.CEstado,
+            this.CIdUsuario,
             this.Ceditar});
             this.DGUsuarios.Location = new System.Drawing.Point(317, 113);
             this.DGUsuarios.Name = "DGUsuarios";
             this.DGUsuarios.Size = new System.Drawing.Size(842, 373);
             this.DGUsuarios.TabIndex = 21;
             this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
+            this.DGUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGUsuarios_CellFormatting);
+            this.DGUsuarios.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DGUsuarios_CellPainting);
             // 
             // TContra
             // 
             this.TContra.Location = new System.Drawing.Point(20, 226);
             this.TContra.Name = "TContra";
-            this.TContra.PasswordChar = '*';
             this.TContra.Size = new System.Drawing.Size(180, 20);
             this.TContra.TabIndex = 14;
             // 
@@ -362,6 +367,77 @@
             this.LRol.TabIndex = 60;
             this.LRol.Text = "Rol:";
             // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.White;
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.iconButton2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.White;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 23;
+            this.iconButton2.Location = new System.Drawing.Point(1028, 45);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(35, 33);
+            this.iconButton2.TabIndex = 63;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.White;
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.iconButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 23;
+            this.iconButton1.Location = new System.Drawing.Point(1069, 45);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(35, 33);
+            this.iconButton1.TabIndex = 64;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(922, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 62;
+            // 
+            // CBBusqueda
+            // 
+            this.CBBusqueda.BackColor = System.Drawing.Color.White;
+            this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBBusqueda.FormattingEnabled = true;
+            this.CBBusqueda.Location = new System.Drawing.Point(830, 51);
+            this.CBBusqueda.Name = "CBBusqueda";
+            this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
+            this.CBBusqueda.TabIndex = 61;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(762, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.TabIndex = 65;
+            this.label6.Text = "Buscar Por:";
+            // 
+            // TId
+            // 
+            this.TId.Location = new System.Drawing.Point(220, 51);
+            this.TId.Name = "TId";
+            this.TId.Size = new System.Drawing.Size(33, 20);
+            this.TId.TabIndex = 66;
+            // 
             // CNombre
             // 
             this.CNombre.HeaderText = "Nombre";
@@ -407,6 +483,9 @@
             // 
             // CFechaNacim
             // 
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle1;
             this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
             this.CFechaNacim.Name = "CFechaNacim";
             this.CFechaNacim.ReadOnly = true;
@@ -436,80 +515,24 @@
             this.CEstado.Name = "CEstado";
             this.CEstado.ReadOnly = true;
             // 
+            // CIdUsuario
+            // 
+            this.CIdUsuario.HeaderText = "IdUsuario";
+            this.CIdUsuario.Name = "CIdUsuario";
+            this.CIdUsuario.Visible = false;
+            // 
             // Ceditar
             // 
             this.Ceditar.HeaderText = "Editar";
             this.Ceditar.Name = "Ceditar";
             this.Ceditar.ReadOnly = true;
             // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.White;
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(1028, 45);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(35, 33);
-            this.iconButton2.TabIndex = 63;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 23;
-            this.iconButton1.Location = new System.Drawing.Point(1069, 45);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(35, 33);
-            this.iconButton1.TabIndex = 64;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(922, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 62;
-            // 
-            // CBBusqueda
-            // 
-            this.CBBusqueda.BackColor = System.Drawing.Color.White;
-            this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBBusqueda.FormattingEnabled = true;
-            this.CBBusqueda.Location = new System.Drawing.Point(830, 51);
-            this.CBBusqueda.Name = "CBBusqueda";
-            this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
-            this.CBBusqueda.TabIndex = 61;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(762, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
-            this.label6.TabIndex = 65;
-            this.label6.Text = "Buscar Por:";
-            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.TId);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.textBox1);
@@ -578,6 +601,12 @@
         private System.Windows.Forms.Label lEstado;
         private System.Windows.Forms.ComboBox CBRol;
         private System.Windows.Forms.Label LRol;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox CBBusqueda;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TId;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
@@ -590,11 +619,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CDomicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdUsuario;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox CBBusqueda;
-        private System.Windows.Forms.Label label6;
     }
 }

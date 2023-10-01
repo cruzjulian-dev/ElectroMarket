@@ -136,7 +136,7 @@ namespace CapaPresentacion
         {
             if (editar == false)
             {
-                MessageBox.Show("No seleccionaste ninguna Categoria para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

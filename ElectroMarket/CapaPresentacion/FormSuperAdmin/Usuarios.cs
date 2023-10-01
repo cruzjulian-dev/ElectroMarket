@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
+using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
@@ -31,15 +32,39 @@ namespace CapaPresentacion
 
         private void BGuardar_Click(object sender, EventArgs e)
         {
+            string mensaje = string.Empty;
 
-            DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
-            ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
-            DTFecha.Text, TTelefono.Text, TDomicilio.Text,
-            ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
+            Usuario objUsuario = new Usuario()
+            {
+                Nombre = TNombre.Text.Trim(),
+                Apellido = TApellido.Text.Trim(),
+                Dni = Convert.ToInt32(TDni.Text),
+                UsuarioLogin = TUsuario.Text.Trim(),
+                Clave = TContra.Text.Trim(),
+                FechaNacimiento = DTFecha.Value,
+                Domicilio = TDomicilio.Text.Trim(),
+                Telefono = TTelefono.Text.Trim(),
+                oRol = new Rol() {IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor)},
+                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+            };
+
+            int idUsuarioGenerado = new CN_Usuario().RegistrarUsuario(objUsuario, out mensaje);
+
+            if (idUsuarioGenerado != 0)
+            {
+                DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
+                ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
+                DTFecha.Text, TTelefono.Text, TDomicilio.Text,
+                ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString()
 
             });
+                Limpiar();
+            } else
+            {
+                MessageBox.Show(mensaje);
+            }
 
-            Limpiar();
+            
 
             /*
             if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
@@ -77,7 +102,7 @@ namespace CapaPresentacion
 
         private void Limpiar()
         {
-            
+            // Limpia los campos
             TNombre.Text = "";
             TApellido.Text = "";
             TDni.Text = "";
@@ -92,16 +117,102 @@ namespace CapaPresentacion
 
         private void BEditar_Click(object sender, EventArgs e)
         {
+            string mensaje = string.Empty;
 
+            Usuario objUsuario = new Usuario()
+            {
+                Nombre = TNombre.Text.Trim(),
+                Apellido = TApellido.Text.Trim(),
+                Dni = Convert.ToInt32(TDni.Text),
+                UsuarioLogin = TUsuario.Text.Trim(),
+                Clave = TContra.Text.Trim(),
+                FechaNacimiento = DTFecha.Value,
+                Domicilio = TDomicilio.Text.Trim(),
+                Telefono = TTelefono.Text.Trim(),
+                oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
+                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+            };
+
+            bool resultado = new CN_Usuario().EditarUsuario(objUsuario, out mensaje);
+
+            if (resultado == true)
+            {
+                DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
+                ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
+                DTFecha.Text, TTelefono.Text, TDomicilio.Text,
+                ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
+
+            });
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
         }
 
         private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Click al boton editar en un registro del datagridview
+            if (DGUsuarios.Columns[e.ColumnIndex].Name == "Ceditar")
+            {
+                if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int indice = e.RowIndex;
+                    TId.Text = DGUsuarios.Rows[indice].Cells["CIdUsuario"].Value.ToString(); //guardo en el textbox invisible el id del usuario al que quiero editar
 
+                    // Habilita el botón "Editar"
+                    BEditar.Enabled = true;
+
+                    // Deshabilita el botón "Guardar"
+                    BGuardar.Enabled = false;
+
+                    if (indice >= 0)
+                    {
+                        TNombre.Text = DGUsuarios.Rows[indice].Cells["CNombre"].Value.ToString();
+                        TApellido.Text = DGUsuarios.Rows[indice].Cells["CApellido"].Value.ToString();
+                        TDni.Text = DGUsuarios.Rows[indice].Cells["CDni"].Value.ToString();
+                        TUsuario.Text = DGUsuarios.Rows[indice].Cells["CUsuario"].Value.ToString();
+                        TContra.Text = DGUsuarios.Rows[indice].Cells["CContra"].Value.ToString();
+                        DTFecha.Text = DGUsuarios.Rows[indice].Cells["CFechaNacim"].Value.ToString();
+                        TTelefono.Text = DGUsuarios.Rows[indice].Cells["CTelefono"].Value.ToString();
+                        TDomicilio.Text = DGUsuarios.Rows[indice].Cells["CDomicilio"].Value.ToString();
+
+
+                        foreach (OpcionCombo oc in CBRol.Items)
+                        {
+                            if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGUsuarios.Rows[indice].Cells["CIdRol"].Value))
+                            {
+                                int indice_combo = CBRol.Items.IndexOf(oc);
+                                CBRol.SelectedIndex = indice_combo;
+                                break;
+                            }
+                        }
+
+                        foreach (OpcionCombo oc in CBEstado.Items)
+                        {
+                            if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGUsuarios.Rows[indice].Cells["CEstadoValor"].Value))
+                            {
+                                int indice_combo = CBEstado.Items.IndexOf(oc);
+                                CBEstado.SelectedIndex = indice_combo;
+                                break;
+                            }
+                        }
+
+
+                    }
+                    
+                }
+
+            }
         }
+
+
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
+            BEditar.Enabled = false;
+
             CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
             CBEstado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
 
@@ -137,8 +248,9 @@ namespace CapaPresentacion
 
             foreach (Usuario item in listaUsuario)
             {
+                
                 DGUsuarios.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.UsuarioLogin, item.Clave,
-                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo"
+                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", item.IdUsuario
             });
 
             }
@@ -184,6 +296,34 @@ namespace CapaPresentacion
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DGUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            
+        }
+
+        private void DGUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGUsuarios.Rows)
+            {
+                // Obtén el valor de la columna "Estado" para la fila actual
+                string estado = row.Cells["CEstado"].Value.ToString();
+                
+                // Compara el valor de la columna "Estado" con "No activo"
+                if (estado.Equals("No Activo", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Cambia el color de fondo de la fila a rojo
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+
+            
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }
