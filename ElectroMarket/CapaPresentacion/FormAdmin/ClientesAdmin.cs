@@ -1,9 +1,14 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocio;
+using CapaPresentacion.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -15,7 +20,6 @@ namespace CapaPresentacion
     public partial class ClientesAdmin : Form
     {
 
-        bool editar = false;
         public ClientesAdmin()
         {
             InitializeComponent();
@@ -23,12 +27,32 @@ namespace CapaPresentacion
 
         private void ClientesAdmin_Load(object sender, EventArgs e)
         {
+            BEditar.Enabled = false;
+
+            CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
+            CBEstado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
+
+            CBEstado.DisplayMember = "Texto";
+            CBEstado.ValueMember = "Valor";
+            CBEstado.SelectedIndex = 0;
+
+
+            foreach (DataGridViewColumn columna in DGClientes.Columns)
+            {
+                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
+                {
+                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                }
+            }
+            CBBusqueda.DisplayMember = "Texto";
+            CBBusqueda.ValueMember = "Valor";
+            CBBusqueda.SelectedIndex = 0;
 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || Ttel.Text.Trim() == "" || CBEstado.SelectedItem.ToString() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "" || CBEstado.SelectedItem.ToString() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -38,23 +62,53 @@ namespace CapaPresentacion
                 {
 
                     // Agregar nueva fila
-                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), Ttel.Text.Trim(), TDomicilio.Text.Trim() , CBEstado.SelectedItem.ToString());
+                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim() , ((OpcionCombo)CBEstado.SelectedItem).Texto);
 
 
                     foreach (DataGridViewRow row in DGClientes.Rows)
                     {
                         row.Cells["Ceditar"].Value = "Editar";
                     }
-                    TNombre.Text = "";
-                    TApellido.Text = "";
-                    TDni.Text = "";
-                    DTFecha.Text = "";
-                    TDomicilio.Text = "";
-                    Ttel.Text = "";
 
+                    LimpiarCampos();
                     //editar = false;
                 }
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            // Limpia los campos
+            TNombre.Text = "";
+            TApellido.Text = "";
+            TDni.Text = "";
+            DTFecha.Text = "";
+            TDomicilio.Text = "";
+            TTelefono.Text = "";
+            CBEstado.SelectedIndex = 0;
+        }
+
+        private void ActualizarTabla()
+        {
+
+            foreach (DataGridViewRow row in DGClientes.Rows)
+            {
+                // Obtener el valor de la celda en la columna "CEstado"
+                string estado = row.Cells["CEstado"].Value as string;
+
+                // Verificar si el estado es "No Activo"
+                if (estado == "No Activo")
+                {
+                    
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+
+        }
+
+        private void VaciarTabla()
+        {
+            DGClientes.Rows.Clear();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -134,70 +188,42 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (editar == false)
-            {
-                MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string domicilio = TDomicilio.Text;
-                string nombre = TNombre.Text;
-                string apellido = TApellido.Text;
-                string telefono = Ttel.Text;
-                string dni = TDni.Text;
-                string Estado = CBEstado.SelectedItem as string;
 
+            string domicilio = TDomicilio.Text;
+            string nombre = TNombre.Text;
+            string apellido = TApellido.Text;
+            string telefono = TTelefono.Text;
+            string dni = TDni.Text;
+            string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
+
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
+            {
+                MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
                 // Actualiza la fila seleccionada en el DataGridView
                 DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
                 selectedRow.Cells["CDomicilio"].Value = domicilio;
                 selectedRow.Cells["Cdni"].Value = dni;
                 selectedRow.Cells["CTelefono"].Value = telefono;
-
                 selectedRow.Cells["CNombre"].Value = nombre;
                 selectedRow.Cells["CApellido"].Value = apellido;
-
-
                 selectedRow.Cells["Cestado"].Value = Estado;
-                // Obtiene la fecha seleccionada en el DateTimePicker.
+
                 DateTime nuevaFecha = DTFecha.Value;
-                // Actualiza el valor de la columna "CFechaNacim" en la fila seleccionada.
                 selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
 
-                // Limpia los controles del formulario
-                TNombre.Text = "";
-                TApellido.Text = "";
-                TDni.Text = "";
-                DTFecha.Text = "";
-                TDomicilio.Text = "";
-                Ttel.Text = "";
-                // Deshabilita el botón "Modificar" nuevamente
+                LimpiarCampos();
                 BEditar.Enabled = false;
-
-                editar = false;
-
                 BGuardar.Enabled = true;
             }
+            
 
+            
         }
 
         private void DGClientes_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
-            // Cambiar el color de fondo de la fila en función de alguna condición
-            if (e.RowIndex >= 0)
-            {
-                String estado = Convert.ToString(DGClientes.Rows[e.RowIndex].Cells["Cestado"].Value);
-                DGClientes.DefaultCellStyle.BackColor = Color.White;
-                if (estado == "No Activo")
-                {
-                    // Cambiar el color de fondo de la fila
-                    DGClientes.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                }
-                else
-                {
-                    // Restaurar el color de fondo predeterminado
-                    DGClientes.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                }
-            }
         }
 
         private void DGClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -205,48 +231,26 @@ namespace CapaPresentacion
             if (DGClientes.Columns[e.ColumnIndex].Name == "Ceditar")
             {
 
-                if (editar)
-                {
-                    return;
-                }
-
-
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Habilita el botón "Editar"
                     BEditar.Enabled = true;
+                    BGuardar.Enabled = false;
 
+                    //TId.Text = DGClientes.Rows[e.RowIndex];
+                    TIndice.Text = e.RowIndex.ToString();
 
-                    // Obtén los valores de las celdas de la fila seleccionada
+                    // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGClientes.Rows[e.RowIndex];
 
                     CBEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
                     TNombre.Text = selectedRow.Cells["CNombre"].Value.ToString();
                     TApellido.Text = selectedRow.Cells["CApellido"].Value.ToString();
                     TDni.Text = selectedRow.Cells["Cdni"].Value.ToString();
-
-                    // Obtiene la fecha de la columna "Fecha" de la fila seleccionada.
-                    string fechaString = DGClientes.Rows[e.RowIndex].Cells["CFechaNacim"].Value.ToString();
-
-                    // Convierte la cadena de fecha en un objeto DateTime.
-                    if (DateTime.TryParse(fechaString, out DateTime fecha))
-                    {
-                        // Establece la fecha en el DateTimePicker con el formato corto.
-                        DTFecha.Value = fecha;
-                    }
-                    else
-                    {
-                        // Manejar el caso en el que no se pueda convertir la fecha.
-                        MessageBox.Show("No se pudo obtener la fecha.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Ttel.Text = selectedRow.Cells["CTelefono"].Value.ToString();
+                    DTFecha.Text = selectedRow.Cells["CFechaNacim"].Value.ToString();
+                    TTelefono.Text = selectedRow.Cells["CTelefono"].Value.ToString();
                     TDomicilio.Text = selectedRow.Cells["CDomicilio"].Value.ToString();
 
-                    // Habilita el botón "Editar" para guardar los cambios después de la edición
-                    BEditar.Enabled = true;
-                    // btnGuardar.Enabled = false;
-                    editar = true;
-                    BGuardar.Enabled = false; // Deshabilita el botón "Agregar" mientras editas
                 }
             }
         }
@@ -313,6 +317,57 @@ namespace CapaPresentacion
                 // Si no es un número ni una tecla de borrar, cancela la entrada.
                 e.Handled = true;
             }
+        }
+
+        private void DGClientes_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGClientes.Rows)
+            {
+                // Obtener el valor de la celda en la columna "CEstado"
+                string estado = row.Cells["CEstado"].Value as string;
+
+                // Verificar si el estado es "No Activo"
+                if (estado == "No Activo")
+                {
+
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            BGuardar.Enabled = true;
+            BEditar.Enabled = false;
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
+
+            if (DGClientes.Rows.Count > 0)  // pregunta si hay filas
+            {
+                foreach (DataGridViewRow row in DGClientes.Rows) // recorro cada fila del datagrid
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+
+                }
+            }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
         }
     }
 }
