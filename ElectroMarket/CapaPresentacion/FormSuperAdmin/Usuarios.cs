@@ -58,7 +58,9 @@ namespace CapaPresentacion
                 ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString()
 
             });
-                Limpiar();
+                LimpiarCampos();
+                VaciarTabla();
+                ActualizarTabla();
             } else
             {
                 MessageBox.Show(mensaje);
@@ -100,7 +102,7 @@ namespace CapaPresentacion
             */
         }
 
-        private void Limpiar()
+        private void LimpiarCampos()
         {
             // Limpia los campos
             TNombre.Text = "";
@@ -113,6 +115,26 @@ namespace CapaPresentacion
             TTelefono.Text = "";
             CBRol.SelectedIndex = 0;
             CBEstado.SelectedIndex = 0;
+        }
+
+        private void ActualizarTabla()
+        {
+            // Actualizar la tabla con todos los Usuarios desde la BD
+            List<Usuario> listaUsuario = new CN_Usuario().Listar();
+
+            foreach (Usuario item in listaUsuario)
+            {
+
+                DGUsuarios.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.UsuarioLogin, item.Clave,
+                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", item.IdUsuario
+            });
+
+            }
+        }
+
+        private void VaciarTabla()
+        {
+            DGUsuarios.Rows.Clear();
         }
 
         private void BEditar_Click(object sender, EventArgs e)
@@ -154,15 +176,18 @@ namespace CapaPresentacion
                 row.Cells["CEstado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
                 row.Cells["CIdUsuario"].Value = TIndice.Text;
 
-                Limpiar();
+                LimpiarCampos();
+                VaciarTabla();
+                ActualizarTabla();
 
                 BEditar.Enabled = false;
+                BGuardar.Enabled = true;
             }
             else
             {
                 MessageBox.Show(mensaje);
             }
-            BGuardar.Enabled = true;
+            
         }
 
         private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -274,17 +299,20 @@ namespace CapaPresentacion
 
         private void TUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*
-            if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+            // Permite solo letras
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true;
+                e.Handled = true; // Cancela la entrada del carácter no válido
             }
-            */
         }
 
         private void TNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            // Permite solo letras
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la entrada del carácter no válido
+            }
 
         }
 
@@ -338,7 +366,57 @@ namespace CapaPresentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Limpiar();
+            LimpiarCampos();
+            BGuardar.Enabled = true;
+            BEditar.Enabled = false;
+        }
+
+        private void TApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la entrada del carácter no válido
+            }
+        }
+
+        private void TDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada no es un número o la tecla Backspace (borrar).
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es un número ni una tecla de borrar, cancela la entrada.
+                e.Handled = true;
+            }
+        }
+
+        private void TContra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la entrada del carácter no válido
+            }
+        }
+
+        private void TTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada no es un número o la tecla Backspace (borrar).
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Si no es un número ni una tecla de borrar, cancela la entrada.
+                e.Handled = true;
+            }
+        }
+
+        private void TDomicilio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }

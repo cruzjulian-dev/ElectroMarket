@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TTelefono = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.TUsuario = new System.Windows.Forms.TextBox();
@@ -85,6 +85,8 @@
             this.TTelefono.Name = "TTelefono";
             this.TTelefono.Size = new System.Drawing.Size(180, 20);
             this.TTelefono.TabIndex = 16;
+            this.TTelefono.TextChanged += new System.EventHandler(this.TTelefono_TextChanged);
+            this.TTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTelefono_KeyPress);
             // 
             // LTelefono
             // 
@@ -184,6 +186,7 @@
             this.TDomicilio.Name = "TDomicilio";
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 17;
+            this.TDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDomicilio_KeyPress);
             // 
             // TApellido
             // 
@@ -191,6 +194,7 @@
             this.TApellido.Name = "TApellido";
             this.TApellido.Size = new System.Drawing.Size(180, 20);
             this.TApellido.TabIndex = 11;
+            this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
             // TDni
             // 
@@ -198,6 +202,7 @@
             this.TDni.Name = "TDni";
             this.TDni.Size = new System.Drawing.Size(180, 20);
             this.TDni.TabIndex = 12;
+            this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // TNombre
             // 
@@ -354,9 +359,9 @@
             // 
             // CFechaNacim
             // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Format = "d";
+            dataGridViewCellStyle8.NullValue = null;
+            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle8;
             this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
             this.CFechaNacim.Name = "CFechaNacim";
             this.CFechaNacim.ReadOnly = true;
@@ -404,6 +409,7 @@
             this.TContra.Name = "TContra";
             this.TContra.Size = new System.Drawing.Size(180, 20);
             this.TContra.TabIndex = 14;
+            this.TContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TContra_KeyPress);
             // 
             // label5
             // 
@@ -527,6 +533,7 @@
             this.TId.Name = "TId";
             this.TId.Size = new System.Drawing.Size(33, 20);
             this.TId.TabIndex = 66;
+            this.TId.Visible = false;
             // 
             // TIndice
             // 
@@ -534,6 +541,7 @@
             this.TIndice.Name = "TIndice";
             this.TIndice.Size = new System.Drawing.Size(33, 20);
             this.TIndice.TabIndex = 67;
+            this.TIndice.Visible = false;
             // 
             // Usuarios
             // 
