@@ -47,25 +47,33 @@ namespace CapaPresentacion
             {
                 if (oUsuario != null)
                 {
-                    switch (oUsuario.oRol.IdRol)
+                    if (oUsuario.Estado != false)
                     {
-                        case 1:
-                            VistaVendedor vistaVendedor = new VistaVendedor(oUsuario);
-                            vistaVendedor.Show();
-                            break;
+                        switch (oUsuario.oRol.IdRol)
+                        {
+                            case 1:
+                                VistaVendedor vistaVendedor = new VistaVendedor(oUsuario);
+                                vistaVendedor.Show();
+                                break;
 
-                        case 2:
-                            VistaAdmin vistaAdmin = new VistaAdmin(oUsuario);
-                            vistaAdmin.Show();
-                            break;
-                        case 3:
-                            VistaSuper vistaSuper = new VistaSuper(oUsuario);
-                            vistaSuper.Show();
-                            break;
+                            case 2:
+                                VistaAdmin vistaAdmin = new VistaAdmin(oUsuario);
+                                vistaAdmin.Show();
+                                break;
+                            case 3:
+                                VistaSuper vistaSuper = new VistaSuper(oUsuario);
+                                vistaSuper.Show();
+                                break;
 
+                        }
+                        this.Close();
+
+                    } else
+                    {
+                        MessageBox.Show("Usuario deshabilitado, porfavor contacta al Administrador del sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TUser.Text = "";
+                        TContra.Text = "";
                     }
-                    this.Close();
-
                 }
                 else
                 {

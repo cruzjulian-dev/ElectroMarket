@@ -299,11 +299,7 @@ namespace CapaPresentacion
 
         private void TUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite solo letras
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true; // Cancela la entrada del carácter no válido
-            }
+            
         }
 
         private void TNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -392,11 +388,7 @@ namespace CapaPresentacion
 
         private void TContra_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite solo letras
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true; // Cancela la entrada del carácter no válido
-            }
+            
         }
 
         private void TTelefono_TextChanged(object sender, EventArgs e)
