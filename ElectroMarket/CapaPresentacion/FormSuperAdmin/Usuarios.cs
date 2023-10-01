@@ -121,6 +121,7 @@ namespace CapaPresentacion
 
             Usuario objUsuario = new Usuario()
             {
+                IdUsuario = Convert.ToInt32(TId.Text),
                 Nombre = TNombre.Text.Trim(),
                 Apellido = TApellido.Text.Trim(),
                 Dni = Convert.ToInt32(TDni.Text),
@@ -137,18 +138,31 @@ namespace CapaPresentacion
 
             if (resultado == true)
             {
-                DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
-                ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
-                DTFecha.Text, TTelefono.Text, TDomicilio.Text,
-                ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
+                DataGridViewRow row = DGUsuarios.Rows[Convert.ToInt32(TIndice.Text)];
 
-            });
+                row.Cells["CNombre"].Value = TNombre.Text.Trim();
+                row.Cells["CApellido"].Value = TApellido.Text.Trim();
+                row.Cells["CDni"].Value = Convert.ToInt32(TDni.Text);
+                row.Cells["CUsuario"].Value = TUsuario.Text.Trim();
+                row.Cells["CContra"].Value = TContra.Text.Trim();
+                row.Cells["CIdRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Valor.ToString();
+                row.Cells["CRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Texto.ToString();
+                row.Cells["CFechaNacim"].Value = DTFecha.Value;
+                row.Cells["CTelefono"].Value = TTelefono.Text.Trim();
+                row.Cells["CDomicilio"].Value = TDomicilio.Text.Trim();
+                row.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                row.Cells["CEstado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
+                row.Cells["CIdUsuario"].Value = TIndice.Text;
+
                 Limpiar();
+
+                BEditar.Enabled = false;
             }
             else
             {
                 MessageBox.Show(mensaje);
             }
+            BGuardar.Enabled = true;
         }
 
         private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -158,6 +172,7 @@ namespace CapaPresentacion
             {
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    TIndice.Text = e.RowIndex.ToString();
                     int indice = e.RowIndex;
                     TId.Text = DGUsuarios.Rows[indice].Cells["CIdUsuario"].Value.ToString(); //guardo en el textbox invisible el id del usuario al que quiero editar
 
