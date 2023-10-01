@@ -63,6 +63,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imagen_backup {
+            get {
+                object obj = ResourceManager.GetObject("imagen_backup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_electromarket {
             get {
                 object obj = ResourceManager.GetObject("logo-electromarket", resourceCulture);
@@ -96,6 +106,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap restaurar_bd {
             get {
                 object obj = ResourceManager.GetObject("restaurar_bd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sql_server {
+            get {
+                object obj = ResourceManager.GetObject("sql_server", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -270,5 +270,11 @@
   <ItemGroup>
     <None Include="Resources\restaurar_bd.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sql_server.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen_backup.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,12 +32,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.BBuscar = new FontAwesome.Sharp.IconButton();
             this.TSeleccionado = new System.Windows.Forms.TextBox();
-            this.BRestaurar = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.BRestaurar = new FontAwesome.Sharp.IconButton();
+            this.BBuscar = new FontAwesome.Sharp.IconButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // OPSeleccionarBd
@@ -77,38 +79,23 @@
     "one en Restaurar";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.restaurar_bd;
-            this.pictureBox2.Location = new System.Drawing.Point(473, 87);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(581, 351);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // BBuscar
-            // 
-            this.BBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.BBuscar.IconColor = System.Drawing.Color.Black;
-            this.BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BBuscar.Location = new System.Drawing.Point(91, 223);
-            this.BBuscar.Name = "BBuscar";
-            this.BBuscar.Size = new System.Drawing.Size(129, 54);
-            this.BBuscar.TabIndex = 11;
-            this.BBuscar.Text = "Buscar";
-            this.BBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BBuscar.UseVisualStyleBackColor = true;
-            this.BBuscar.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
             // TSeleccionado
             // 
             this.TSeleccionado.Location = new System.Drawing.Point(12, 359);
             this.TSeleccionado.Name = "TSeleccionado";
             this.TSeleccionado.Size = new System.Drawing.Size(283, 20);
             this.TSeleccionado.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 338);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 18);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Archivo seleccionado:";
             // 
             // BRestaurar
             // 
@@ -126,16 +113,41 @@
             this.BRestaurar.UseVisualStyleBackColor = true;
             this.BRestaurar.Click += new System.EventHandler(this.iconButton2_Click);
             // 
-            // label2
+            // BBuscar
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Control;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 338);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 18);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Archivo seleccionado:";
+            this.BBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.BBuscar.IconColor = System.Drawing.Color.Black;
+            this.BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BBuscar.Location = new System.Drawing.Point(91, 223);
+            this.BBuscar.Name = "BBuscar";
+            this.BBuscar.Size = new System.Drawing.Size(129, 54);
+            this.BBuscar.TabIndex = 11;
+            this.BBuscar.Text = "Buscar";
+            this.BBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BBuscar.UseVisualStyleBackColor = true;
+            this.BBuscar.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.restaurar_bd;
+            this.pictureBox2.Location = new System.Drawing.Point(458, 35);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(595, 367);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.sql_server;
+            this.pictureBox1.Location = new System.Drawing.Point(429, 408);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(662, 141);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // RestaurarBD
             // 
@@ -143,6 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BRestaurar);
             this.Controls.Add(this.TSeleccionado);
@@ -155,6 +168,7 @@
             this.Text = "RestaurarBD";
             this.Load += new System.EventHandler(this.RestaurarBD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +184,6 @@
         private System.Windows.Forms.TextBox TSeleccionado;
         private FontAwesome.Sharp.IconButton BRestaurar;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
