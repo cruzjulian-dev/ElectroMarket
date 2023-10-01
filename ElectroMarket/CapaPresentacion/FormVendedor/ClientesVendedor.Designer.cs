@@ -56,7 +56,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BEditar = new FontAwesome.Sharp.IconButton();
             this.BGuardar = new FontAwesome.Sharp.IconButton();
-            this.TCorreo = new System.Windows.Forms.TextBox();
+            this.Ttel = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
@@ -123,6 +123,7 @@
             this.TNombre.Size = new System.Drawing.Size(180, 20);
             this.TNombre.TabIndex = 10;
             this.TNombre.TextChanged += new System.EventHandler(this.TNombre_TextChanged);
+            this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
             // TDni
             // 
@@ -131,6 +132,7 @@
             this.TDni.Size = new System.Drawing.Size(180, 20);
             this.TDni.TabIndex = 12;
             this.TDni.TextChanged += new System.EventHandler(this.TDni_TextChanged);
+            this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // TApellido
             // 
@@ -139,6 +141,7 @@
             this.TApellido.Size = new System.Drawing.Size(180, 20);
             this.TApellido.TabIndex = 11;
             this.TApellido.TextChanged += new System.EventHandler(this.TApellido_TextChanged);
+            this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
             // TDomicilio
             // 
@@ -147,6 +150,7 @@
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 15;
             this.TDomicilio.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.TDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDomicilio_KeyPress);
             // 
             // DGClientes
             // 
@@ -368,13 +372,14 @@
             this.BGuardar.UseVisualStyleBackColor = false;
             this.BGuardar.Click += new System.EventHandler(this.BGuardar_Click);
             // 
-            // TCorreo
+            // Ttel
             // 
-            this.TCorreo.Location = new System.Drawing.Point(41, 287);
-            this.TCorreo.Name = "TCorreo";
-            this.TCorreo.Size = new System.Drawing.Size(180, 20);
-            this.TCorreo.TabIndex = 14;
-            this.TCorreo.TextChanged += new System.EventHandler(this.TCorreo_TextChanged);
+            this.Ttel.Location = new System.Drawing.Point(41, 287);
+            this.Ttel.Name = "Ttel";
+            this.Ttel.Size = new System.Drawing.Size(180, 20);
+            this.Ttel.TabIndex = 14;
+            this.Ttel.TextChanged += new System.EventHandler(this.TCorreo_TextChanged);
+            this.Ttel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Ttel_KeyPress);
             // 
             // LTelefono
             // 
@@ -393,7 +398,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(1184, 561);
-            this.Controls.Add(this.TCorreo);
+            this.Controls.Add(this.Ttel);
             this.Controls.Add(this.LTelefono);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.iconButton1);
@@ -448,7 +453,7 @@
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton BEditar;
         private FontAwesome.Sharp.IconButton BGuardar;
-        private System.Windows.Forms.TextBox TCorreo;
+        private System.Windows.Forms.TextBox Ttel;
         private System.Windows.Forms.Label LTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;

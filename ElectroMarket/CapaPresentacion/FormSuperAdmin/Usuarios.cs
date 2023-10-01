@@ -67,6 +67,9 @@ namespace CapaPresentacion
                         ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString()
 
                         });
+
+                        
+
                         LimpiarCampos();
                         VaciarTabla();
                         ActualizarTabla();
@@ -400,7 +403,52 @@ namespace CapaPresentacion
 
         private void TDomicilio_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Verifica si el carácter ingresado no es una letra, número, espacio en blanco, coma o cualquier otro carácter permitido,
+            // o si es el carácter de borrado (Retroceso o Suprimir)
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.' && e.KeyChar != ';' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete)
+            {
+                // Si no es válido, marca el evento como manejado para evitar que se ingrese
+                e.Handled = true;
+            }
+        }
 
+        private bool ValidarCampos()
+        {
+            // Verificar si los TextBox están vacíos
+            if (string.IsNullOrWhiteSpace(TNombre.Text) ||
+                string.IsNullOrWhiteSpace(TApellido.Text) ||
+                string.IsNullOrWhiteSpace(TDni.Text) ||
+                string.IsNullOrWhiteSpace(TUsuario.Text) ||
+                string.IsNullOrWhiteSpace(TTelefono.Text) ||
+                string.IsNullOrWhiteSpace(TDomicilio.Text) ||
+                string.IsNullOrWhiteSpace(TContra.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Verificar si se ha seleccionado una opción en los ComboBox
+            if (CBRol.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione una categoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (CBEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un estado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Verificar si se ha seleccionado una fecha en el DateTimePicker
+            if (DTFecha.Value == DateTime.MinValue)
+            {
+                MessageBox.Show("Por favor, seleccione una fecha de nacimiento válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Si todos los campos están completos y se ha seleccionado una opción en los ComboBox, y una fecha en el DateTimePicker, devuelve true
+            return true;
         }
 
         private void BBusqueda_Click(object sender, EventArgs e)

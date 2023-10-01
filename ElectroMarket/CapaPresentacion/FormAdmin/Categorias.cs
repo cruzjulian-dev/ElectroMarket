@@ -150,13 +150,15 @@ namespace CapaPresentacion
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            // Verifica si el carácter ingresado no es una letra, número, espacio en blanco, coma o cualquier otro carácter permitido,
+            // o si es el carácter de borrado (Retroceso o Suprimir)
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.' && e.KeyChar != ';' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete)
             {
-                // Cancela la pulsación de la tecla si no es válida
+                // Si no es válido, marca el evento como manejado para evitar que se ingrese
                 e.Handled = true;
             }
-
         }
+
 
         private void CategoriasAdmin_Load(object sender, EventArgs e)
         {
