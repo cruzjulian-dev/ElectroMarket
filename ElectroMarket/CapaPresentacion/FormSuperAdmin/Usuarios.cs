@@ -32,44 +32,8 @@ namespace CapaPresentacion
 
         private void BGuardar_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
 
-            Usuario objUsuario = new Usuario()
-            {
-                Nombre = TNombre.Text.Trim(),
-                Apellido = TApellido.Text.Trim(),
-                Dni = Convert.ToInt32(TDni.Text),
-                UsuarioLogin = TUsuario.Text.Trim(),
-                Clave = TContra.Text.Trim(),
-                FechaNacimiento = DTFecha.Value,
-                Domicilio = TDomicilio.Text.Trim(),
-                Telefono = TTelefono.Text.Trim(),
-                oRol = new Rol() {IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor)},
-                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
-            };
-
-            int idUsuarioGenerado = new CN_Usuario().RegistrarUsuario(objUsuario, out mensaje);
-
-            if (idUsuarioGenerado != 0)
-            {
-                DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
-                ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
-                DTFecha.Text, TTelefono.Text, TDomicilio.Text,
-                ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString()
-
-            });
-                LimpiarCampos();
-                VaciarTabla();
-                ActualizarTabla();
-            } else
-            {
-                MessageBox.Show(mensaje);
-            }
-
-            
-
-            /*
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TUsuario.Text.Trim() == "" || TContra.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -77,29 +41,43 @@ namespace CapaPresentacion
             {
                 if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Agregar nueva fila
-                    DGUsuarios.Rows.Add(1, TUsuario.Text.Trim(), TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TDomicilio.Text.Trim(), TTelefono.Text.Trim());
+                    string mensaje = string.Empty;
 
-                    //Usuario usuario = new Usuario();
-                    //bd.Usuarios.Add(usuario);
-                    //bd.SaveChanges();
-
-                    foreach (DataGridViewRow row in DGUsuarios.Rows)
+                    Usuario objUsuario = new Usuario()
                     {
-                        row.Cells["Ceditar"].Value = "Editar";
-                    }
-                    TUsuario.Text = "";
-                    TNombre.Text = "";
-                    TApellido.Text = "";
-                    TDni.Text = "";
-                    DTFecha.Text = "";
-                    TDomicilio.Text = "";
-                    TTelefono.Text = "";
+                        Nombre = TNombre.Text.Trim(),
+                        Apellido = TApellido.Text.Trim(),
+                        Dni = Convert.ToInt32(TDni.Text),
+                        UsuarioLogin = TUsuario.Text.Trim(),
+                        Clave = TContra.Text.Trim(),
+                        FechaNacimiento = DTFecha.Value,
+                        Domicilio = TDomicilio.Text.Trim(),
+                        Telefono = TTelefono.Text.Trim(),
+                        oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
+                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                    };
 
-                    editar = false;
+                    int idUsuarioGenerado = new CN_Usuario().RegistrarUsuario(objUsuario, out mensaje);
+
+                    if (idUsuarioGenerado != 0)
+                    {
+                        DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
+                        ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
+                        DTFecha.Text, TTelefono.Text, TDomicilio.Text,
+                        ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString()
+
+                        });
+                        LimpiarCampos();
+                        VaciarTabla();
+                        ActualizarTabla();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
                 }
             }
-            */
+            
         }
 
         private void LimpiarCampos()
@@ -139,54 +117,68 @@ namespace CapaPresentacion
 
         private void BEditar_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
 
-            Usuario objUsuario = new Usuario()
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TUsuario.Text.Trim() == "" || TContra.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
             {
-                IdUsuario = Convert.ToInt32(TId.Text),
-                Nombre = TNombre.Text.Trim(),
-                Apellido = TApellido.Text.Trim(),
-                Dni = Convert.ToInt32(TDni.Text),
-                UsuarioLogin = TUsuario.Text.Trim(),
-                Clave = TContra.Text.Trim(),
-                FechaNacimiento = DTFecha.Value,
-                Domicilio = TDomicilio.Text.Trim(),
-                Telefono = TTelefono.Text.Trim(),
-                oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
-                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
-            };
-
-            bool resultado = new CN_Usuario().EditarUsuario(objUsuario, out mensaje);
-
-            if (resultado == true)
-            {
-                DataGridViewRow row = DGUsuarios.Rows[Convert.ToInt32(TIndice.Text)];
-
-                row.Cells["CNombre"].Value = TNombre.Text.Trim();
-                row.Cells["CApellido"].Value = TApellido.Text.Trim();
-                row.Cells["CDni"].Value = Convert.ToInt32(TDni.Text);
-                row.Cells["CUsuario"].Value = TUsuario.Text.Trim();
-                row.Cells["CContra"].Value = TContra.Text.Trim();
-                row.Cells["CIdRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Valor.ToString();
-                row.Cells["CRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Texto.ToString();
-                row.Cells["CFechaNacim"].Value = DTFecha.Value;
-                row.Cells["CTelefono"].Value = TTelefono.Text.Trim();
-                row.Cells["CDomicilio"].Value = TDomicilio.Text.Trim();
-                row.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
-                row.Cells["CEstado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
-                row.Cells["CIdUsuario"].Value = TIndice.Text;
-
-                LimpiarCampos();
-                VaciarTabla();
-                ActualizarTabla();
-
-                BEditar.Enabled = false;
-                BGuardar.Enabled = true;
+                MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show(mensaje);
+                if (MessageBox.Show("Deseas guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string mensaje = string.Empty;
+
+                    Usuario objUsuario = new Usuario()
+                    {
+                        IdUsuario = Convert.ToInt32(TId.Text),
+                        Nombre = TNombre.Text.Trim(),
+                        Apellido = TApellido.Text.Trim(),
+                        Dni = Convert.ToInt32(TDni.Text),
+                        UsuarioLogin = TUsuario.Text.Trim(),
+                        Clave = TContra.Text.Trim(),
+                        FechaNacimiento = DTFecha.Value,
+                        Domicilio = TDomicilio.Text.Trim(),
+                        Telefono = TTelefono.Text.Trim(),
+                        oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
+                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                    };
+
+                    bool resultado = new CN_Usuario().EditarUsuario(objUsuario, out mensaje);
+
+                    if (resultado == true)
+                    {
+                        DataGridViewRow row = DGUsuarios.Rows[Convert.ToInt32(TIndice.Text)];
+
+                        row.Cells["CNombre"].Value = TNombre.Text.Trim();
+                        row.Cells["CApellido"].Value = TApellido.Text.Trim();
+                        row.Cells["CDni"].Value = Convert.ToInt32(TDni.Text);
+                        row.Cells["CUsuario"].Value = TUsuario.Text.Trim();
+                        row.Cells["CContra"].Value = TContra.Text.Trim();
+                        row.Cells["CIdRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Valor.ToString();
+                        row.Cells["CRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Texto.ToString();
+                        row.Cells["CFechaNacim"].Value = DTFecha.Value;
+                        row.Cells["CTelefono"].Value = TTelefono.Text.Trim();
+                        row.Cells["CDomicilio"].Value = TDomicilio.Text.Trim();
+                        row.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                        row.Cells["CEstado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
+                        row.Cells["CIdUsuario"].Value = TIndice.Text;
+
+                        LimpiarCampos();
+                        VaciarTabla();
+                        ActualizarTabla();
+
+                        BEditar.Enabled = false;
+                        BGuardar.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
+                    }
+                }
             }
+
+
+            
             
         }
 
@@ -273,7 +265,7 @@ namespace CapaPresentacion
 
             foreach (DataGridViewColumn columna in DGUsuarios.Columns)
             {
-                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Contraseña" && columna.HeaderText != "Domicilio" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
+                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Contraseña" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
                 {
                     CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText});
                 }
@@ -409,6 +401,75 @@ namespace CapaPresentacion
         private void TDomicilio_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void BBusqueda_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
+
+            if (DGUsuarios.Rows.Count > 0)  // pregunta si hay filas
+            {
+                foreach (DataGridViewRow row in DGUsuarios.Rows) // recorro cada fila del datagrid
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
+                    {
+                        row.Visible = true;
+                    } else
+                    {
+                        row.Visible = false;
+                    }
+
+                }
+            }
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CBBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBusqueda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BMostrarTodo_MouseHover(object sender, EventArgs e)
+        {
+            // Crear una instancia de ToolTip
+            ToolTip toolTip = new ToolTip();
+
+            // Establecer el texto a mostrar cuando el mouse esté sobre el botón
+            toolTip.SetToolTip(BMostrarTodo, "Mostrar todo");
+        }
+
+        private void iconButton1_MouseHover(object sender, EventArgs e)
+        {
+            // Crear una instancia de ToolTip
+            ToolTip toolTip = new ToolTip();
+
+            // Establecer el texto a mostrar cuando el mouse esté sobre el botón
+            toolTip.SetToolTip(iconButton1, "Limpiar campos");
+        }
+
+        private void BMostrarTodo_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
+        }
+
+        private void TBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                BBusqueda_Click(sender, e);
+            }
         }
     }
 }

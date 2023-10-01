@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TTelefono = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.TUsuario = new System.Windows.Forms.TextBox();
@@ -55,9 +55,9 @@
             this.lEstado = new System.Windows.Forms.Label();
             this.CBRol = new System.Windows.Forms.ComboBox();
             this.LRol = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.BBusqueda = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TBusqueda = new System.Windows.Forms.TextBox();
             this.CBBusqueda = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TId = new System.Windows.Forms.TextBox();
@@ -76,12 +76,13 @@
             this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BMostrarTodo = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // TTelefono
             // 
-            this.TTelefono.Location = new System.Drawing.Point(20, 319);
+            this.TTelefono.Location = new System.Drawing.Point(20, 311);
             this.TTelefono.Name = "TTelefono";
             this.TTelefono.Size = new System.Drawing.Size(180, 20);
             this.TTelefono.TabIndex = 16;
@@ -92,7 +93,7 @@
             // 
             this.LTelefono.AutoSize = true;
             this.LTelefono.BackColor = System.Drawing.Color.White;
-            this.LTelefono.Location = new System.Drawing.Point(21, 303);
+            this.LTelefono.Location = new System.Drawing.Point(21, 295);
             this.LTelefono.Name = "LTelefono";
             this.LTelefono.Size = new System.Drawing.Size(52, 13);
             this.LTelefono.TabIndex = 52;
@@ -121,7 +122,7 @@
             // DTFecha
             // 
             this.DTFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTFecha.Location = new System.Drawing.Point(20, 272);
+            this.DTFecha.Location = new System.Drawing.Point(20, 269);
             this.DTFecha.Name = "DTFecha";
             this.DTFecha.Size = new System.Drawing.Size(180, 20);
             this.DTFecha.TabIndex = 15;
@@ -182,7 +183,7 @@
             // 
             // TDomicilio
             // 
-            this.TDomicilio.Location = new System.Drawing.Point(20, 360);
+            this.TDomicilio.Location = new System.Drawing.Point(20, 354);
             this.TDomicilio.Name = "TDomicilio";
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 17;
@@ -217,7 +218,7 @@
             // 
             this.LFecha.AutoSize = true;
             this.LFecha.BackColor = System.Drawing.Color.White;
-            this.LFecha.Location = new System.Drawing.Point(21, 256);
+            this.LFecha.Location = new System.Drawing.Point(21, 253);
             this.LFecha.Name = "LFecha";
             this.LFecha.Size = new System.Drawing.Size(111, 13);
             this.LFecha.TabIndex = 42;
@@ -227,7 +228,7 @@
             // 
             this.LDomicilio.AutoSize = true;
             this.LDomicilio.BackColor = System.Drawing.Color.White;
-            this.LDomicilio.Location = new System.Drawing.Point(21, 344);
+            this.LDomicilio.Location = new System.Drawing.Point(21, 338);
             this.LDomicilio.Name = "LDomicilio";
             this.LDomicilio.Size = new System.Drawing.Size(52, 13);
             this.LDomicilio.TabIndex = 40;
@@ -278,10 +279,12 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(291, 32);
             this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.label3.Size = new System.Drawing.Size(881, 51);
             this.label3.TabIndex = 55;
             this.label3.Text = "Lista de Usuarios:";
@@ -338,7 +341,7 @@
             this.CBEstado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(20, 450);
+            this.CBEstado.Location = new System.Drawing.Point(20, 437);
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(180, 21);
             this.CBEstado.TabIndex = 18;
@@ -347,7 +350,7 @@
             // 
             this.lEstado.AutoSize = true;
             this.lEstado.BackColor = System.Drawing.Color.White;
-            this.lEstado.Location = new System.Drawing.Point(24, 434);
+            this.lEstado.Location = new System.Drawing.Point(21, 421);
             this.lEstado.Name = "lEstado";
             this.lEstado.Size = new System.Drawing.Size(43, 13);
             this.lEstado.TabIndex = 58;
@@ -359,7 +362,7 @@
             this.CBRol.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBRol.FormattingEnabled = true;
-            this.CBRol.Location = new System.Drawing.Point(20, 402);
+            this.CBRol.Location = new System.Drawing.Point(20, 393);
             this.CBRol.Name = "CBRol";
             this.CBRol.Size = new System.Drawing.Size(180, 21);
             this.CBRol.TabIndex = 59;
@@ -368,28 +371,29 @@
             // 
             this.LRol.AutoSize = true;
             this.LRol.BackColor = System.Drawing.Color.White;
-            this.LRol.Location = new System.Drawing.Point(24, 386);
+            this.LRol.Location = new System.Drawing.Point(21, 377);
             this.LRol.Name = "LRol";
             this.LRol.Size = new System.Drawing.Size(26, 13);
             this.LRol.TabIndex = 60;
             this.LRol.Text = "Rol:";
             // 
-            // iconButton2
+            // BBusqueda
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.White;
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(1118, 45);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(35, 33);
-            this.iconButton2.TabIndex = 63;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.BBusqueda.BackColor = System.Drawing.Color.White;
+            this.BBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBusqueda.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BBusqueda.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBusqueda.ForeColor = System.Drawing.Color.White;
+            this.BBusqueda.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.BBusqueda.IconColor = System.Drawing.Color.Black;
+            this.BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BBusqueda.IconSize = 23;
+            this.BBusqueda.Location = new System.Drawing.Point(1077, 44);
+            this.BBusqueda.Name = "BBusqueda";
+            this.BBusqueda.Size = new System.Drawing.Size(35, 33);
+            this.BBusqueda.TabIndex = 63;
+            this.BBusqueda.UseVisualStyleBackColor = false;
+            this.BBusqueda.Click += new System.EventHandler(this.BBusqueda_Click);
             // 
             // iconButton1
             // 
@@ -410,14 +414,17 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.iconButton1.MouseHover += new System.EventHandler(this.iconButton1_MouseHover);
             // 
-            // textBox1
+            // TBusqueda
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(1012, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 62;
+            this.TBusqueda.BackColor = System.Drawing.Color.White;
+            this.TBusqueda.Location = new System.Drawing.Point(971, 50);
+            this.TBusqueda.Name = "TBusqueda";
+            this.TBusqueda.Size = new System.Drawing.Size(100, 20);
+            this.TBusqueda.TabIndex = 62;
+            this.TBusqueda.TextChanged += new System.EventHandler(this.TBusqueda_TextChanged);
+            this.TBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBusqueda_KeyPress);
             // 
             // CBBusqueda
             // 
@@ -425,20 +432,22 @@
             this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBBusqueda.FormattingEnabled = true;
-            this.CBBusqueda.Location = new System.Drawing.Point(920, 51);
+            this.CBBusqueda.Location = new System.Drawing.Point(879, 50);
             this.CBBusqueda.Name = "CBBusqueda";
             this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
             this.CBBusqueda.TabIndex = 61;
+            this.CBBusqueda.SelectedIndexChanged += new System.EventHandler(this.CBBusqueda_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(852, 55);
+            this.label6.Location = new System.Drawing.Point(811, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 65;
             this.label6.Text = "Buscar Por:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // TId
             // 
@@ -506,9 +515,9 @@
             // 
             // CFechaNacim
             // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle5;
             this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
             this.CFechaNacim.Name = "CFechaNacim";
             this.CFechaNacim.ReadOnly = true;
@@ -555,16 +564,36 @@
             this.Ceditar.ReadOnly = true;
             this.Ceditar.Width = 60;
             // 
+            // BMostrarTodo
+            // 
+            this.BMostrarTodo.BackColor = System.Drawing.Color.White;
+            this.BMostrarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BMostrarTodo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BMostrarTodo.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMostrarTodo.ForeColor = System.Drawing.Color.White;
+            this.BMostrarTodo.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.BMostrarTodo.IconColor = System.Drawing.Color.Black;
+            this.BMostrarTodo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BMostrarTodo.IconSize = 23;
+            this.BMostrarTodo.Location = new System.Drawing.Point(1118, 44);
+            this.BMostrarTodo.Name = "BMostrarTodo";
+            this.BMostrarTodo.Size = new System.Drawing.Size(35, 33);
+            this.BMostrarTodo.TabIndex = 68;
+            this.BMostrarTodo.UseVisualStyleBackColor = false;
+            this.BMostrarTodo.Click += new System.EventHandler(this.BMostrarTodo_Click);
+            this.BMostrarTodo.MouseHover += new System.EventHandler(this.BMostrarTodo_MouseHover);
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.BMostrarTodo);
             this.Controls.Add(this.TIndice);
             this.Controls.Add(this.TId);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.BBusqueda);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TBusqueda);
             this.Controls.Add(this.CBBusqueda);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CBRol);
@@ -630,9 +659,9 @@
         private System.Windows.Forms.Label lEstado;
         private System.Windows.Forms.ComboBox CBRol;
         private System.Windows.Forms.Label LRol;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton BBusqueda;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TBusqueda;
         private System.Windows.Forms.ComboBox CBBusqueda;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TId;
@@ -651,5 +680,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIdUsuario;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
+        private FontAwesome.Sharp.IconButton BMostrarTodo;
     }
 }
