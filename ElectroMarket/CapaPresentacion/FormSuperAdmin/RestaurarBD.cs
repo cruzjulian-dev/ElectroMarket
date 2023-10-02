@@ -51,8 +51,15 @@ namespace CapaPresentacion
         {
             if (MessageBox.Show("Seguro que quieres restaurar la base de datos?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                TSeleccionado.Text = "";
-                MessageBox.Show("Base de datos restaurada con exito!");
+                if (TSeleccionado.Text == "")
+                {
+                    MessageBox.Show("No has seleccionado ninguna base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else
+                {
+                    TSeleccionado.Text = "";
+                    MessageBox.Show("Base de datos restaurada con exito!");
+                }
+                
             }
         }
     }
