@@ -67,47 +67,80 @@ namespace CapaPresentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Seguro que quieres agregar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (TCod.Text == "" || TProd.Text == "" || TPrecio.Text == "" || TStock.Text == "" || TCantidad.Value < 1)
             {
-                string codigo = TCod.Text;
-                string nombre = TProd.Text;
-                decimal precio = 0;
-                int cantidad = 0;
-                decimal subtotal = 0;
-
-                if (!decimal.TryParse(TPrecio.Text, out precio))
+                MessageBox.Show("Debes seleccionar un producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } else
+            {
+                if (MessageBox.Show("Seguro que quieres agregar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Salir del método si el precio no es válido
+                    string codigo = TCod.Text;
+                    string nombre = TProd.Text;
+                    decimal precio = 0;
+                    int cantidad = 0;
+                    decimal subtotal = 0;
+
+                    if (!decimal.TryParse(TPrecio.Text, out precio))
+                    {
+                        MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Salir del método si el precio no es válido
+                    }
+
+                    if (!int.TryParse(TCantidad.Value.ToString(), out cantidad))
+                    {
+                        MessageBox.Show("La cantidad no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Salir del método si la cantidad no es válida
+                    }
+
+                    subtotal = precio * cantidad;
+
+                    // Agregar la fila al DataGridView
+                    DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar");
+
+                    // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
+                    TCod.Clear();
+                    TProd.Clear();
+                    TPrecio.Clear();
+                    TStock.Clear();
+                    TCantidad.Value = 1;
+
+                    //Actualizar precio total
+                    TTotal.Text = (Convert.ToDecimal(TTotal.Text) + precio).ToString();
+
                 }
-
-                if (!int.TryParse(TCantidad.Value.ToString(), out cantidad))
-                {
-                    MessageBox.Show("La cantidad no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Salir del método si la cantidad no es válida
-                }
-
-                subtotal = precio * cantidad;
-
-                // Agregar la fila al DataGridView
-                DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar");
-
-                // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
-                TCod.Clear();
-                TProd.Clear();
-                TPrecio.Clear();
-                TStock.Clear();
-                TCantidad.Value = 1;
-
-                //Actualizar precio total
-                TTotal.Text = (Convert.ToDecimal(TTotal.Text) + precio).ToString();
-
             }
+            
         }
 
         private void iconButtonVenta_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Funcionalidad En Desarrolo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (DGDetalle.RowCount > 0)
+            {
+                if (TTipoDoc.Text == "" || TTipoDoc.Text == "" || TDni.Text == "" || TNomApe.Text == "" || TFecha.Text == "" || TTotal.Text == "" || TPagaCon.Text == "" || TCambio.Text == "")
+                {
+                    MessageBox.Show("Debes completar todos los campos antes de realizar una venta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    decimal pago = Convert.ToDecimal(TPagaCon.Text);
+                    decimal total = Convert.ToDecimal(TTotal.Text);
+                    if (pago <= total)
+                    {
+                        MessageBox.Show("El Monto pagado es menor que el Precio Total!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Venta realizada con exito!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+
+            } else
+            {
+                MessageBox.Show("No has agregado ningun producto al detalle", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+           
+           
 
         }
 

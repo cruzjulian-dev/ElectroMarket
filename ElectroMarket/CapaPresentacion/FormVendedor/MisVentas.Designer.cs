@@ -198,18 +198,21 @@
             // 
             this.CIdVenta.HeaderText = "ID Venta";
             this.CIdVenta.Name = "CIdVenta";
+            this.CIdVenta.Width = 70;
             // 
             // CVendedor
             // 
             this.CVendedor.HeaderText = "Vendedor";
             this.CVendedor.Name = "CVendedor";
             this.CVendedor.ReadOnly = true;
+            this.CVendedor.Width = 125;
             // 
             // CDniCliente
             // 
             this.CDniCliente.HeaderText = "DNI Cliente";
             this.CDniCliente.Name = "CDniCliente";
             this.CDniCliente.ReadOnly = true;
+            this.CDniCliente.Width = 80;
             // 
             // CNombreCliente
             // 
@@ -228,12 +231,14 @@
             this.CTotal.HeaderText = "Monto Total";
             this.CTotal.Name = "CTotal";
             this.CTotal.ReadOnly = true;
+            this.CTotal.Width = 125;
             // 
             // CFecha
             // 
             this.CFecha.HeaderText = "Fecha Venta";
             this.CFecha.Name = "CFecha";
             this.CFecha.ReadOnly = true;
+            this.CFecha.Width = 85;
             // 
             // CDetalle
             // 
@@ -242,6 +247,7 @@
             this.CDetalle.ReadOnly = true;
             this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CDetalle.Width = 70;
             // 
             // MisVentas
             // 

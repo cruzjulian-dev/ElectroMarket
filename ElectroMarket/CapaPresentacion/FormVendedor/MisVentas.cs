@@ -174,7 +174,7 @@ namespace CapaPresentacion
                     montoTotal += detalle.SubTotal;
                 }
 
-                montoPago = montoTotal + 100; // Supongamos que el pago es el monto total más 100 (esto puede variar según tus necesidades)
+                montoPago = montoTotal + 3800; // Supongamos que el pago es el monto total más 100 (esto puede variar según tus necesidades)
                 montoCambio = montoPago - montoTotal;
 
                 // Asignar los montos calculados a la venta
