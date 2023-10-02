@@ -216,5 +216,10 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            VaciarCampos();
+        }
     }
 }

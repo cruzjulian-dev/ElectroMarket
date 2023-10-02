@@ -357,6 +357,7 @@
             // 
             this.CIdCliente.HeaderText = "IdCliente";
             this.CIdCliente.Name = "CIdCliente";
+            this.CIdCliente.Visible = false;
             // 
             // CNombre
             // 
