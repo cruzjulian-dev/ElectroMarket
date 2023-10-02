@@ -190,7 +190,7 @@ namespace CapaPresentacion
         private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Click al boton editar en un registro del datagridview
-            if (DGUsuarios.Columns[e.ColumnIndex].Name == "Ceditar")
+            if (DGUsuarios.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
             {
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {

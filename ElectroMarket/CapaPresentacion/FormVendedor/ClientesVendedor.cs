@@ -122,7 +122,7 @@ namespace CapaPresentacion
 
         private void DGCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DGClientes.Columns[e.ColumnIndex].Name == "Ceditar")
+            if (DGClientes.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
             {
 
                 if (editar)

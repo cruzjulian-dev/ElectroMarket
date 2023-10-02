@@ -75,7 +75,7 @@ namespace CapaPresentacion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && DGMisVentas.Columns[e.ColumnIndex].Name == "CDetalle")
+            if (e.RowIndex >= 0 && DGMisVentas.Columns[e.ColumnIndex].Name == "CDetalle" && e.RowIndex >= 0)
             {
                 FormDetalleVenta detalleForm = new FormDetalleVenta(ventasFicticias[0]);
                 detalleForm.ShowDialog();

@@ -184,7 +184,7 @@ namespace CapaPresentacion
 
         private void datagridProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DGProductos.Columns[e.ColumnIndex].Name == "Ceditar")
+            if (DGProductos.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
             {
 
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

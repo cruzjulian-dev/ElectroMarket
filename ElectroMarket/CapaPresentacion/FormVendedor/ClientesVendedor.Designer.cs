@@ -38,13 +38,6 @@
             this.TApellido = new System.Windows.Forms.TextBox();
             this.TDomicilio = new System.Windows.Forms.TextBox();
             this.DGClientes = new System.Windows.Forms.DataGridView();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.DTFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,6 +51,14 @@
             this.BGuardar = new FontAwesome.Sharp.IconButton();
             this.Ttel = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
+            this.CIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,6 +158,7 @@
             this.DGClientes.AllowUserToAddRows = false;
             this.DGClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIdCliente,
             this.CNombre,
             this.CApellido,
             this.CDni,
@@ -169,48 +171,6 @@
             this.DGClientes.Size = new System.Drawing.Size(843, 373);
             this.DGClientes.TabIndex = 22;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGCliente_CellContentClick);
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Apellido";
-            this.CApellido.Name = "CApellido";
-            this.CApellido.ReadOnly = true;
-            // 
-            // CDni
-            // 
-            this.CDni.HeaderText = "DNI";
-            this.CDni.Name = "CDni";
-            this.CDni.ReadOnly = true;
-            // 
-            // CFechaNacim
-            // 
-            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
-            this.CFechaNacim.Name = "CFechaNacim";
-            this.CFechaNacim.ReadOnly = true;
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Telefono";
-            this.CTelefono.Name = "CTelefono";
-            this.CTelefono.ReadOnly = true;
-            // 
-            // CDomicilio
-            // 
-            this.CDomicilio.HeaderText = "Domicilio";
-            this.CDomicilio.Name = "CDomicilio";
-            this.CDomicilio.ReadOnly = true;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
             // 
             // label2
             // 
@@ -393,6 +353,53 @@
             this.LTelefono.Text = "Telefono:";
             this.LTelefono.Click += new System.EventHandler(this.LCorreo_Click);
             // 
+            // CIdCliente
+            // 
+            this.CIdCliente.HeaderText = "IdCliente";
+            this.CIdCliente.Name = "CIdCliente";
+            // 
+            // CNombre
+            // 
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CApellido
+            // 
+            this.CApellido.HeaderText = "Apellido";
+            this.CApellido.Name = "CApellido";
+            this.CApellido.ReadOnly = true;
+            // 
+            // CDni
+            // 
+            this.CDni.HeaderText = "DNI";
+            this.CDni.Name = "CDni";
+            this.CDni.ReadOnly = true;
+            // 
+            // CFechaNacim
+            // 
+            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
+            this.CFechaNacim.Name = "CFechaNacim";
+            this.CFechaNacim.ReadOnly = true;
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.HeaderText = "Telefono";
+            this.CTelefono.Name = "CTelefono";
+            this.CTelefono.ReadOnly = true;
+            // 
+            // CDomicilio
+            // 
+            this.CDomicilio.HeaderText = "Domicilio";
+            this.CDomicilio.Name = "CDomicilio";
+            this.CDomicilio.ReadOnly = true;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            // 
             // ClientesVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,6 +463,7 @@
         private FontAwesome.Sharp.IconButton BGuardar;
         private System.Windows.Forms.TextBox Ttel;
         private System.Windows.Forms.Label LTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDni;

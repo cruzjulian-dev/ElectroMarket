@@ -24,7 +24,7 @@ namespace CapaPresentacion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "Ceditar")
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
             {
 
                 if (editar)

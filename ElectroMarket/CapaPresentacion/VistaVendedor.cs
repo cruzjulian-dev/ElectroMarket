@@ -41,7 +41,6 @@ namespace CapaPresentacion
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
-            //formulario.BackColor = Color.White;
             PContenedor.Controls.Add(formulario);
             formulario.Show();
         }
@@ -73,7 +72,9 @@ namespace CapaPresentacion
 
         private void MenuProd_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new ListaProductos());
+            ListaProductos listaProd = new ListaProductos();
+            listaProd.FuenteFormulario = "VistaVendedor";
+            AbrirFormulario((IconMenuItem)sender, listaProd);
         }
 
         private void SMCategoria_Click_1(object sender, EventArgs e)

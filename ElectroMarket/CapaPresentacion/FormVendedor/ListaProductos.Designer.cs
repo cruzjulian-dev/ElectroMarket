@@ -33,19 +33,19 @@
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.datagridProd = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGProductos = new System.Windows.Forms.DataGridView();
+            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpreciocom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
+            this.CSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBusqueda
@@ -81,19 +81,19 @@
             this.lblBuscar.TabIndex = 41;
             this.lblBuscar.Text = "Buscar Por:";
             // 
-            // datagridProd
+            // DGProductos
             // 
-            this.datagridProd.AllowUserToAddRows = false;
-            this.datagridProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
+            this.DGProductos.AllowUserToAddRows = false;
+            this.DGProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CId,
             this.ccodigo,
             this.cnombre,
             this.CDescripcion,
             this.ccategoria,
             this.cstock,
-            this.cpreciocom,
-            this.CPrecio});
+            this.CPrecio,
+            this.CSeleccionar});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -102,11 +102,11 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle1;
-            this.datagridProd.Location = new System.Drawing.Point(28, 136);
-            this.datagridProd.MultiSelect = false;
-            this.datagridProd.Name = "datagridProd";
-            this.datagridProd.ReadOnly = true;
+            this.DGProductos.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DGProductos.Location = new System.Drawing.Point(28, 136);
+            this.DGProductos.MultiSelect = false;
+            this.DGProductos.Name = "DGProductos";
+            this.DGProductos.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,64 +114,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.datagridProd.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.datagridProd.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.datagridProd.RowTemplate.Height = 28;
-            this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridProd.Size = new System.Drawing.Size(644, 403);
-            this.datagridProd.TabIndex = 5;
-            this.datagridProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // ccodigo
-            // 
-            this.ccodigo.HeaderText = "Codigo";
-            this.ccodigo.Name = "ccodigo";
-            this.ccodigo.ReadOnly = true;
-            // 
-            // cnombre
-            // 
-            this.cnombre.HeaderText = "Nombre";
-            this.cnombre.Name = "cnombre";
-            this.cnombre.ReadOnly = true;
-            // 
-            // CDescripcion
-            // 
-            this.CDescripcion.HeaderText = "Descripcion";
-            this.CDescripcion.Name = "CDescripcion";
-            this.CDescripcion.ReadOnly = true;
-            // 
-            // ccategoria
-            // 
-            this.ccategoria.HeaderText = "Categoria";
-            this.ccategoria.Name = "ccategoria";
-            this.ccategoria.ReadOnly = true;
-            // 
-            // cstock
-            // 
-            this.cstock.HeaderText = "Stock";
-            this.cstock.Name = "cstock";
-            this.cstock.ReadOnly = true;
-            // 
-            // cpreciocom
-            // 
-            this.cpreciocom.HeaderText = "Precio Compra";
-            this.cpreciocom.Name = "cpreciocom";
-            this.cpreciocom.ReadOnly = true;
-            this.cpreciocom.Visible = false;
-            // 
-            // CPrecio
-            // 
-            this.CPrecio.HeaderText = "Precio";
-            this.CPrecio.Name = "CPrecio";
-            this.CPrecio.ReadOnly = true;
+            this.DGProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGProductos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DGProductos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGProductos.RowTemplate.Height = 28;
+            this.DGProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGProductos.Size = new System.Drawing.Size(743, 403);
+            this.DGProductos.TabIndex = 5;
+            this.DGProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             // 
             // icoBtnBuscar
             // 
@@ -218,22 +168,74 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "Lista de Productos:";
             // 
+            // CId
+            // 
+            this.CId.HeaderText = "IdProd";
+            this.CId.Name = "CId";
+            this.CId.ReadOnly = true;
+            this.CId.Visible = false;
+            // 
+            // ccodigo
+            // 
+            this.ccodigo.HeaderText = "Codigo";
+            this.ccodigo.Name = "ccodigo";
+            this.ccodigo.ReadOnly = true;
+            // 
+            // cnombre
+            // 
+            this.cnombre.HeaderText = "Nombre";
+            this.cnombre.Name = "cnombre";
+            this.cnombre.ReadOnly = true;
+            // 
+            // CDescripcion
+            // 
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
+            // 
+            // ccategoria
+            // 
+            this.ccategoria.HeaderText = "Categoria";
+            this.ccategoria.Name = "ccategoria";
+            this.ccategoria.ReadOnly = true;
+            // 
+            // cstock
+            // 
+            this.cstock.HeaderText = "Stock";
+            this.cstock.Name = "cstock";
+            this.cstock.ReadOnly = true;
+            // 
+            // CPrecio
+            // 
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
+            // 
+            // CSeleccionar
+            // 
+            this.CSeleccionar.HeaderText = "Seleccionar";
+            this.CSeleccionar.Name = "CSeleccionar";
+            this.CSeleccionar.ReadOnly = true;
+            this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.ClientSize = new System.Drawing.Size(856, 561);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.cboBusqueda);
             this.Controls.Add(this.lblBuscar);
-            this.Controls.Add(this.datagridProd);
+            this.Controls.Add(this.DGProductos);
             this.Controls.Add(this.icoBtnBuscar);
             this.Controls.Add(this.icoBtnLimpiar);
             this.Controls.Add(this.label3);
             this.Name = "ListaProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductosVendedor";
             this.Load += new System.EventHandler(this.ListaProductos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,17 +246,17 @@
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.ComboBox cboBusqueda;
         private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.DataGridView datagridProd;
+        private System.Windows.Forms.DataGridView DGProductos;
         private FontAwesome.Sharp.IconButton icoBtnBuscar;
         private FontAwesome.Sharp.IconButton icoBtnLimpiar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ccategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cstock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpreciocom;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
+        private System.Windows.Forms.DataGridViewButtonColumn CSeleccionar;
     }
 }
