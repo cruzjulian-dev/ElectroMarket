@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class DetalleVenta
+    partial class FormDetalleVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -33,18 +33,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.TVendedor = new System.Windows.Forms.TextBox();
             this.labelusuario = new System.Windows.Forms.Label();
-            this.txttipodocumento = new System.Windows.Forms.TextBox();
+            this.TFecha = new System.Windows.Forms.TextBox();
             this.Ltipodoc = new System.Windows.Forms.Label();
             this.LFecha = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.TextBox();
+            this.TIdVenta = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtnombrecliente = new System.Windows.Forms.TextBox();
+            this.TDocumento = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TApellido = new System.Windows.Forms.TextBox();
             this.labelNombreCliente = new System.Windows.Forms.Label();
             this.labeldocucliente = new System.Windows.Forms.Label();
-            this.txtdocucliente = new System.Windows.Forms.TextBox();
-            this.datagridProd = new System.Windows.Forms.DataGridView();
+            this.TNombre = new System.Windows.Forms.TextBox();
+            this.DGDetalle = new System.Windows.Forms.DataGridView();
             this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cprecioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,15 +54,13 @@
             this.labmontocambio = new System.Windows.Forms.Label();
             this.labmontopago = new System.Windows.Forms.Label();
             this.labmontototal = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TCambio = new System.Windows.Forms.TextBox();
+            this.TPago = new System.Windows.Forms.TextBox();
+            this.TTotal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -87,12 +87,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.txtusuario);
+            this.groupBox1.Controls.Add(this.TVendedor);
             this.groupBox1.Controls.Add(this.labelusuario);
-            this.groupBox1.Controls.Add(this.txttipodocumento);
+            this.groupBox1.Controls.Add(this.TFecha);
             this.groupBox1.Controls.Add(this.Ltipodoc);
             this.groupBox1.Controls.Add(this.LFecha);
-            this.groupBox1.Controls.Add(this.txtFecha);
+            this.groupBox1.Controls.Add(this.TIdVenta);
             this.groupBox1.Location = new System.Drawing.Point(99, 83);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(654, 90);
@@ -100,12 +100,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion Venta";
             // 
-            // txtusuario
+            // TVendedor
             // 
-            this.txtusuario.Location = new System.Drawing.Point(389, 60);
-            this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(178, 20);
-            this.txtusuario.TabIndex = 3;
+            this.TVendedor.Location = new System.Drawing.Point(389, 60);
+            this.TVendedor.Name = "TVendedor";
+            this.TVendedor.Size = new System.Drawing.Size(178, 20);
+            this.TVendedor.TabIndex = 3;
             // 
             // labelusuario
             // 
@@ -117,12 +117,12 @@
             this.labelusuario.TabIndex = 26;
             this.labelusuario.Text = "Vendedor:";
             // 
-            // txttipodocumento
+            // TFecha
             // 
-            this.txttipodocumento.Location = new System.Drawing.Point(184, 60);
-            this.txttipodocumento.Name = "txttipodocumento";
-            this.txttipodocumento.Size = new System.Drawing.Size(181, 20);
-            this.txttipodocumento.TabIndex = 2;
+            this.TFecha.Location = new System.Drawing.Point(184, 60);
+            this.TFecha.Name = "TFecha";
+            this.TFecha.Size = new System.Drawing.Size(181, 20);
+            this.TFecha.TabIndex = 2;
             // 
             // Ltipodoc
             // 
@@ -144,22 +144,22 @@
             this.LFecha.TabIndex = 23;
             this.LFecha.Text = "ID Venta:";
             // 
-            // txtFecha
+            // TIdVenta
             // 
-            this.txtFecha.Location = new System.Drawing.Point(6, 60);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(162, 20);
-            this.txtFecha.TabIndex = 1;
+            this.TIdVenta.Location = new System.Drawing.Point(6, 60);
+            this.TIdVenta.Name = "TIdVenta";
+            this.TIdVenta.Size = new System.Drawing.Size(162, 20);
+            this.TIdVenta.TabIndex = 1;
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.TDocumento);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.txtnombrecliente);
+            this.groupBox2.Controls.Add(this.TApellido);
             this.groupBox2.Controls.Add(this.labelNombreCliente);
             this.groupBox2.Controls.Add(this.labeldocucliente);
-            this.groupBox2.Controls.Add(this.txtdocucliente);
+            this.groupBox2.Controls.Add(this.TNombre);
             this.groupBox2.Location = new System.Drawing.Point(99, 179);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(654, 86);
@@ -167,13 +167,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informacion Cliente";
             // 
-            // txtnombrecliente
+            // TDocumento
             // 
-            this.txtnombrecliente.Location = new System.Drawing.Point(186, 58);
-            this.txtnombrecliente.Name = "txtnombrecliente";
-            this.txtnombrecliente.Size = new System.Drawing.Size(179, 20);
-            this.txtnombrecliente.TabIndex = 5;
-            this.txtnombrecliente.TextChanged += new System.EventHandler(this.txtnombrecliente_TextChanged);
+            this.TDocumento.Location = new System.Drawing.Point(389, 58);
+            this.TDocumento.Name = "TDocumento";
+            this.TDocumento.Size = new System.Drawing.Size(191, 20);
+            this.TDocumento.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(390, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Documento:";
+            // 
+            // TApellido
+            // 
+            this.TApellido.Location = new System.Drawing.Point(186, 58);
+            this.TApellido.Name = "TApellido";
+            this.TApellido.Size = new System.Drawing.Size(179, 20);
+            this.TApellido.TabIndex = 5;
+            this.TApellido.TextChanged += new System.EventHandler(this.txtnombrecliente_TextChanged);
             // 
             // labelNombreCliente
             // 
@@ -196,18 +213,18 @@
             this.labeldocucliente.TabIndex = 23;
             this.labeldocucliente.Text = "Nombre:";
             // 
-            // txtdocucliente
+            // TNombre
             // 
-            this.txtdocucliente.Location = new System.Drawing.Point(6, 58);
-            this.txtdocucliente.Name = "txtdocucliente";
-            this.txtdocucliente.Size = new System.Drawing.Size(162, 20);
-            this.txtdocucliente.TabIndex = 4;
+            this.TNombre.Location = new System.Drawing.Point(6, 58);
+            this.TNombre.Name = "TNombre";
+            this.TNombre.Size = new System.Drawing.Size(162, 20);
+            this.TNombre.TabIndex = 4;
             // 
-            // datagridProd
+            // DGDetalle
             // 
-            this.datagridProd.AllowUserToAddRows = false;
-            this.datagridProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGDetalle.AllowUserToAddRows = false;
+            this.DGDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cproducto,
             this.Cprecioventa,
             this.Ccantidad,
@@ -220,11 +237,11 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle1;
-            this.datagridProd.Location = new System.Drawing.Point(99, 271);
-            this.datagridProd.MultiSelect = false;
-            this.datagridProd.Name = "datagridProd";
-            this.datagridProd.ReadOnly = true;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DGDetalle.Location = new System.Drawing.Point(99, 271);
+            this.DGDetalle.MultiSelect = false;
+            this.DGDetalle.Name = "DGDetalle";
+            this.DGDetalle.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -232,11 +249,11 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.datagridProd.RowTemplate.Height = 28;
-            this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridProd.Size = new System.Drawing.Size(654, 223);
-            this.datagridProd.TabIndex = 8;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGDetalle.RowTemplate.Height = 28;
+            this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGDetalle.Size = new System.Drawing.Size(654, 223);
+            this.DGDetalle.TabIndex = 8;
             // 
             // Cproducto
             // 
@@ -293,26 +310,26 @@
             this.labmontototal.TabIndex = 49;
             this.labmontototal.Text = "Monto Total:";
             // 
-            // textBox1
+            // TCambio
             // 
-            this.textBox1.Location = new System.Drawing.Point(515, 499);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(46, 20);
-            this.textBox1.TabIndex = 11;
+            this.TCambio.Location = new System.Drawing.Point(515, 499);
+            this.TCambio.Name = "TCambio";
+            this.TCambio.Size = new System.Drawing.Size(46, 20);
+            this.TCambio.TabIndex = 11;
             // 
-            // textBox2
+            // TPago
             // 
-            this.textBox2.Location = new System.Drawing.Point(354, 499);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(46, 20);
-            this.textBox2.TabIndex = 10;
+            this.TPago.Location = new System.Drawing.Point(354, 499);
+            this.TPago.Name = "TPago";
+            this.TPago.Size = new System.Drawing.Size(46, 20);
+            this.TPago.TabIndex = 10;
             // 
-            // textBox3
+            // TTotal
             // 
-            this.textBox3.Location = new System.Drawing.Point(189, 499);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(46, 20);
-            this.textBox3.TabIndex = 9;
+            this.TTotal.Location = new System.Drawing.Point(189, 499);
+            this.TTotal.Name = "TTotal";
+            this.TTotal.Size = new System.Drawing.Size(46, 20);
+            this.TTotal.TabIndex = 9;
             // 
             // iconButton1
             // 
@@ -334,47 +351,31 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(389, 58);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 20);
-            this.textBox4.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(390, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Documento:";
-            // 
-            // DetalleVenta
+            // FormDetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TCambio);
+            this.Controls.Add(this.TPago);
+            this.Controls.Add(this.TTotal);
             this.Controls.Add(this.labmontototal);
             this.Controls.Add(this.labmontopago);
             this.Controls.Add(this.labmontocambio);
-            this.Controls.Add(this.datagridProd);
+            this.Controls.Add(this.DGDetalle);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Name = "DetalleVenta";
+            this.Name = "FormDetalleVenta";
             this.Text = "Detalle Venta";
+            this.Load += new System.EventHandler(this.DetalleVenta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,30 +386,30 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtusuario;
+        private System.Windows.Forms.TextBox TVendedor;
         private System.Windows.Forms.Label labelusuario;
-        private System.Windows.Forms.TextBox txttipodocumento;
+        private System.Windows.Forms.TextBox TFecha;
         private System.Windows.Forms.Label Ltipodoc;
         private System.Windows.Forms.Label LFecha;
-        private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.TextBox TIdVenta;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtnombrecliente;
+        private System.Windows.Forms.TextBox TApellido;
         private System.Windows.Forms.Label labelNombreCliente;
         private System.Windows.Forms.Label labeldocucliente;
-        private System.Windows.Forms.TextBox txtdocucliente;
-        private System.Windows.Forms.DataGridView datagridProd;
+        private System.Windows.Forms.TextBox TNombre;
+        private System.Windows.Forms.DataGridView DGDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cprecioventa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TPago;
+        private System.Windows.Forms.TextBox TCambio;
         private System.Windows.Forms.Label labmontocambio;
         private System.Windows.Forms.Label labmontopago;
         private System.Windows.Forms.Label labmontototal;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TTotal;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TDocumento;
         private System.Windows.Forms.Label label1;
     }
 }

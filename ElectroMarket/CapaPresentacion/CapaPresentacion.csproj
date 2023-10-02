@@ -75,11 +75,11 @@
     <Compile Include="FormVendedor\MisVentas.Designer.cs">
       <DependentUpon>MisVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVendedor\DetalleVenta.cs">
+    <Compile Include="FormVendedor\FormDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVendedor\DetalleVenta.Designer.cs">
-      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    <Compile Include="FormVendedor\FormDetalleVenta.Designer.cs">
+      <DependentUpon>FormDetalleVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVendedor\ListaClientes.cs">
       <SubType>Form</SubType>
@@ -174,8 +174,8 @@
     <EmbeddedResource Include="FormVendedor\MisVentas.resx">
       <DependentUpon>MisVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVendedor\DetalleVenta.resx">
-      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    <EmbeddedResource Include="FormVendedor\FormDetalleVenta.resx">
+      <DependentUpon>FormDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVendedor\ListaClientes.resx">
       <DependentUpon>ListaClientes.cs</DependentUpon>
