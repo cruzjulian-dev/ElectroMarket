@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class Reportes : Form
     {
-        public Form1()
+        public Reportes()
         {
             InitializeComponent();
         }
 
-        private void iconMenuItem1_Click(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
