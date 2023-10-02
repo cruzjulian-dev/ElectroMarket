@@ -42,10 +42,8 @@ namespace CapaPresentacion
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)
         {
-            using (var modal = new ListaClientes())
-            {
-                var result = modal.ShowDialog();
-            }
+            ListaClientes listaClientes = new ListaClientes();
+            listaClientes.ShowDialog();
         }
 
         private void btnBuscarProduc_Click(object sender, EventArgs e)

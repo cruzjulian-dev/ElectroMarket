@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TFecha = new System.Windows.Forms.TextBox();
             this.Ltipodoc = new System.Windows.Forms.Label();
             this.TTipoDoc = new System.Windows.Forms.ComboBox();
             this.LFecha = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.TTotal = new System.Windows.Forms.TextBox();
             this.BVender = new FontAwesome.Sharp.IconButton();
             this.BAgregar = new FontAwesome.Sharp.IconButton();
-            this.TFecha = new System.Windows.Forms.TextBox();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +81,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(94, 9);
@@ -113,6 +114,14 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion Venta";
+            // 
+            // TFecha
+            // 
+            this.TFecha.Location = new System.Drawing.Point(6, 62);
+            this.TFecha.Name = "TFecha";
+            this.TFecha.ReadOnly = true;
+            this.TFecha.Size = new System.Drawing.Size(116, 20);
+            this.TFecha.TabIndex = 25;
             // 
             // Ltipodoc
             // 
@@ -360,27 +369,27 @@
             this.Ccantidad,
             this.Csubtotal,
             this.CEliminar});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGDetalle.Location = new System.Drawing.Point(129, 265);
             this.DGDetalle.MultiSelect = false;
             this.DGDetalle.Name = "DGDetalle";
             this.DGDetalle.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DGDetalle.RowTemplate.Height = 28;
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(622, 241);
@@ -484,14 +493,6 @@
             this.BAgregar.UseVisualStyleBackColor = false;
             this.BAgregar.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // TFecha
-            // 
-            this.TFecha.Location = new System.Drawing.Point(6, 62);
-            this.TFecha.Name = "TFecha";
-            this.TFecha.ReadOnly = true;
-            this.TFecha.Size = new System.Drawing.Size(116, 20);
-            this.TFecha.TabIndex = 25;
-            // 
             // idProducto
             // 
             this.idProducto.HeaderText = "idProdcuto";
@@ -504,7 +505,7 @@
             this.CCod.HeaderText = "Codigo";
             this.CCod.Name = "CCod";
             this.CCod.ReadOnly = true;
-            this.CCod.Width = 30;
+            this.CCod.Width = 60;
             // 
             // Cproducto
             // 
@@ -524,7 +525,7 @@
             this.Ccantidad.HeaderText = "Cantidad";
             this.Ccantidad.Name = "Ccantidad";
             this.Ccantidad.ReadOnly = true;
-            this.Ccantidad.Width = 30;
+            this.Ccantidad.Width = 60;
             // 
             // Csubtotal
             // 
@@ -545,7 +546,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.ClientSize = new System.Drawing.Size(982, 539);
             this.Controls.Add(this.TTotal);
             this.Controls.Add(this.TCambio);
             this.Controls.Add(this.TPagaCon);

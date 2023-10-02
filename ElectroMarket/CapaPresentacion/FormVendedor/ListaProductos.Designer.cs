@@ -51,7 +51,7 @@
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.White;
-            this.txtBusqueda.Location = new System.Drawing.Point(477, 76);
+            this.txtBusqueda.Location = new System.Drawing.Point(575, 75);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(100, 20);
             this.txtBusqueda.TabIndex = 2;
@@ -66,7 +66,7 @@
             "Nombre",
             "Categoria",
             "Codigo"});
-            this.cboBusqueda.Location = new System.Drawing.Point(385, 75);
+            this.cboBusqueda.Location = new System.Drawing.Point(483, 74);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
             this.cboBusqueda.TabIndex = 1;
@@ -75,7 +75,7 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.BackColor = System.Drawing.Color.White;
-            this.lblBuscar.Location = new System.Drawing.Point(317, 78);
+            this.lblBuscar.Location = new System.Drawing.Point(415, 77);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(62, 13);
             this.lblBuscar.TabIndex = 41;
@@ -134,7 +134,7 @@
             this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
             this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(583, 68);
+            this.icoBtnBuscar.Location = new System.Drawing.Point(681, 67);
             this.icoBtnBuscar.Name = "icoBtnBuscar";
             this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
             this.icoBtnBuscar.TabIndex = 3;
@@ -151,7 +151,7 @@
             this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
             this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(624, 68);
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(722, 67);
             this.icoBtnLimpiar.Name = "icoBtnLimpiar";
             this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
             this.icoBtnLimpiar.TabIndex = 4;
@@ -160,11 +160,12 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(28, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(644, 77);
+            this.label3.Size = new System.Drawing.Size(743, 77);
             this.label3.TabIndex = 40;
             this.label3.Text = "Lista de Productos:";
             // 
@@ -180,36 +181,42 @@
             this.ccodigo.HeaderText = "Codigo";
             this.ccodigo.Name = "ccodigo";
             this.ccodigo.ReadOnly = true;
+            this.ccodigo.Width = 60;
             // 
             // cnombre
             // 
             this.cnombre.HeaderText = "Nombre";
             this.cnombre.Name = "cnombre";
             this.cnombre.ReadOnly = true;
+            this.cnombre.Width = 130;
             // 
             // CDescripcion
             // 
             this.CDescripcion.HeaderText = "Descripcion";
             this.CDescripcion.Name = "CDescripcion";
             this.CDescripcion.ReadOnly = true;
+            this.CDescripcion.Width = 130;
             // 
             // ccategoria
             // 
             this.ccategoria.HeaderText = "Categoria";
             this.ccategoria.Name = "ccategoria";
             this.ccategoria.ReadOnly = true;
+            this.ccategoria.Width = 120;
             // 
             // cstock
             // 
             this.cstock.HeaderText = "Stock";
             this.cstock.Name = "cstock";
             this.cstock.ReadOnly = true;
+            this.cstock.Width = 65;
             // 
             // CPrecio
             // 
             this.CPrecio.HeaderText = "Precio";
             this.CPrecio.Name = "CPrecio";
             this.CPrecio.ReadOnly = true;
+            this.CPrecio.Width = 120;
             // 
             // CSeleccionar
             // 
@@ -218,12 +225,13 @@
             this.CSeleccionar.ReadOnly = true;
             this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CSeleccionar.Width = 75;
             // 
             // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 561);
+            this.ClientSize = new System.Drawing.Size(805, 561);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.cboBusqueda);
             this.Controls.Add(this.lblBuscar);
