@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TTelefono = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.TUsuario = new System.Windows.Forms.TextBox();
@@ -49,19 +49,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DGUsuarios = new System.Windows.Forms.DataGridView();
-            this.TContra = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CBEstado = new System.Windows.Forms.ComboBox();
-            this.lEstado = new System.Windows.Forms.Label();
-            this.CBRol = new System.Windows.Forms.ComboBox();
-            this.LRol = new System.Windows.Forms.Label();
-            this.BBusqueda = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.TBusqueda = new System.Windows.Forms.TextBox();
-            this.CBBusqueda = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TId = new System.Windows.Forms.TextBox();
-            this.TIndice = new System.Windows.Forms.TextBox();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +63,19 @@
             this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TContra = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
+            this.lEstado = new System.Windows.Forms.Label();
+            this.CBRol = new System.Windows.Forms.ComboBox();
+            this.LRol = new System.Windows.Forms.Label();
+            this.BBusqueda = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.TBusqueda = new System.Windows.Forms.TextBox();
+            this.CBBusqueda = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TId = new System.Windows.Forms.TextBox();
+            this.TIndice = new System.Windows.Forms.TextBox();
             this.BMostrarTodo = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -284,7 +284,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(291, 32);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.label3.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.label3.Size = new System.Drawing.Size(881, 51);
             this.label3.TabIndex = 55;
             this.label3.Text = "Lista de Usuarios:";
@@ -316,6 +316,105 @@
             this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
             this.DGUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGUsuarios_CellFormatting);
             this.DGUsuarios.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DGUsuarios_CellPainting);
+            // 
+            // CNombre
+            // 
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            this.CNombre.Width = 90;
+            // 
+            // CApellido
+            // 
+            this.CApellido.HeaderText = "Apellido";
+            this.CApellido.Name = "CApellido";
+            this.CApellido.ReadOnly = true;
+            this.CApellido.Width = 90;
+            // 
+            // CDni
+            // 
+            this.CDni.HeaderText = "DNI";
+            this.CDni.Name = "CDni";
+            this.CDni.ReadOnly = true;
+            this.CDni.Width = 70;
+            // 
+            // CUsuario
+            // 
+            this.CUsuario.HeaderText = "Usuario";
+            this.CUsuario.Name = "CUsuario";
+            this.CUsuario.ReadOnly = true;
+            this.CUsuario.Width = 75;
+            // 
+            // CContra
+            // 
+            this.CContra.HeaderText = "Contraseña";
+            this.CContra.Name = "CContra";
+            this.CContra.ReadOnly = true;
+            this.CContra.Width = 75;
+            // 
+            // CIdRol
+            // 
+            this.CIdRol.HeaderText = "IdRol";
+            this.CIdRol.Name = "CIdRol";
+            this.CIdRol.Visible = false;
+            // 
+            // CRol
+            // 
+            this.CRol.HeaderText = "Rol";
+            this.CRol.Name = "CRol";
+            this.CRol.ReadOnly = true;
+            this.CRol.Width = 80;
+            // 
+            // CFechaNacim
+            // 
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
+            this.CFechaNacim.Name = "CFechaNacim";
+            this.CFechaNacim.ReadOnly = true;
+            this.CFechaNacim.Width = 75;
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.HeaderText = "Telefono";
+            this.CTelefono.Name = "CTelefono";
+            this.CTelefono.ReadOnly = true;
+            this.CTelefono.Width = 75;
+            // 
+            // CDomicilio
+            // 
+            this.CDomicilio.HeaderText = "Domicilio";
+            this.CDomicilio.Name = "CDomicilio";
+            this.CDomicilio.ReadOnly = true;
+            this.CDomicilio.Width = 90;
+            // 
+            // CEstadoValor
+            // 
+            this.CEstadoValor.HeaderText = "EstadoValor";
+            this.CEstadoValor.Name = "CEstadoValor";
+            this.CEstadoValor.ReadOnly = true;
+            this.CEstadoValor.Visible = false;
+            // 
+            // CEstado
+            // 
+            this.CEstado.HeaderText = "Estado";
+            this.CEstado.Name = "CEstado";
+            this.CEstado.ReadOnly = true;
+            this.CEstado.Width = 57;
+            // 
+            // CIdUsuario
+            // 
+            this.CIdUsuario.HeaderText = "IdUsuario";
+            this.CIdUsuario.Name = "CIdUsuario";
+            this.CIdUsuario.Visible = false;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            this.Ceditar.Width = 60;
             // 
             // TContra
             // 
@@ -464,105 +563,6 @@
             this.TIndice.Size = new System.Drawing.Size(33, 20);
             this.TIndice.TabIndex = 67;
             this.TIndice.Visible = false;
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            this.CNombre.Width = 90;
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Apellido";
-            this.CApellido.Name = "CApellido";
-            this.CApellido.ReadOnly = true;
-            this.CApellido.Width = 90;
-            // 
-            // CDni
-            // 
-            this.CDni.HeaderText = "DNI";
-            this.CDni.Name = "CDni";
-            this.CDni.ReadOnly = true;
-            this.CDni.Width = 70;
-            // 
-            // CUsuario
-            // 
-            this.CUsuario.HeaderText = "Usuario";
-            this.CUsuario.Name = "CUsuario";
-            this.CUsuario.ReadOnly = true;
-            this.CUsuario.Width = 75;
-            // 
-            // CContra
-            // 
-            this.CContra.HeaderText = "Contraseña";
-            this.CContra.Name = "CContra";
-            this.CContra.ReadOnly = true;
-            this.CContra.Width = 75;
-            // 
-            // CIdRol
-            // 
-            this.CIdRol.HeaderText = "IdRol";
-            this.CIdRol.Name = "CIdRol";
-            this.CIdRol.Visible = false;
-            // 
-            // CRol
-            // 
-            this.CRol.HeaderText = "Rol";
-            this.CRol.Name = "CRol";
-            this.CRol.ReadOnly = true;
-            this.CRol.Width = 80;
-            // 
-            // CFechaNacim
-            // 
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle5;
-            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
-            this.CFechaNacim.Name = "CFechaNacim";
-            this.CFechaNacim.ReadOnly = true;
-            this.CFechaNacim.Width = 75;
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Telefono";
-            this.CTelefono.Name = "CTelefono";
-            this.CTelefono.ReadOnly = true;
-            this.CTelefono.Width = 75;
-            // 
-            // CDomicilio
-            // 
-            this.CDomicilio.HeaderText = "Domicilio";
-            this.CDomicilio.Name = "CDomicilio";
-            this.CDomicilio.ReadOnly = true;
-            this.CDomicilio.Width = 90;
-            // 
-            // CEstadoValor
-            // 
-            this.CEstadoValor.HeaderText = "EstadoValor";
-            this.CEstadoValor.Name = "CEstadoValor";
-            this.CEstadoValor.ReadOnly = true;
-            this.CEstadoValor.Visible = false;
-            // 
-            // CEstado
-            // 
-            this.CEstado.HeaderText = "Estado";
-            this.CEstado.Name = "CEstado";
-            this.CEstado.ReadOnly = true;
-            this.CEstado.Width = 57;
-            // 
-            // CIdUsuario
-            // 
-            this.CIdUsuario.HeaderText = "IdUsuario";
-            this.CIdUsuario.Name = "CIdUsuario";
-            this.CIdUsuario.Visible = false;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
-            this.Ceditar.Width = 60;
             // 
             // BMostrarTodo
             // 

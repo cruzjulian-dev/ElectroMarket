@@ -53,6 +53,9 @@
             this.TTelefono = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.DTFecha = new System.Windows.Forms.DateTimePicker();
+            this.TIndice = new System.Windows.Forms.TextBox();
+            this.TId = new System.Windows.Forms.TextBox();
+            this.BLimpiar = new FontAwesome.Sharp.IconButton();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cdni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,11 +63,9 @@
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIndice = new System.Windows.Forms.TextBox();
-            this.TId = new System.Windows.Forms.TextBox();
-            this.BLimpiar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,11 +217,11 @@
             // 
             this.Cliente.BackColor = System.Drawing.Color.White;
             this.Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cliente.Location = new System.Drawing.Point(61, 18);
+            this.Cliente.Location = new System.Drawing.Point(21, 18);
             this.Cliente.Name = "Cliente";
-            this.Cliente.Size = new System.Drawing.Size(96, 30);
+            this.Cliente.Size = new System.Drawing.Size(217, 30);
             this.Cliente.TabIndex = 38;
-            this.Cliente.Text = "Clientes";
+            this.Cliente.Text = "Gestion de Clientes";
             this.Cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Cliente.Click += new System.EventHandler(this.Cliente_Click);
             // 
@@ -235,7 +236,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(987, 57);
+            this.iconButton2.Location = new System.Drawing.Point(1064, 57);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(35, 33);
             this.iconButton2.TabIndex = 21;
@@ -253,7 +254,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 23;
-            this.iconButton1.Location = new System.Drawing.Point(1028, 57);
+            this.iconButton1.Location = new System.Drawing.Point(1105, 57);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(35, 33);
             this.iconButton1.TabIndex = 22;
@@ -263,10 +264,11 @@
             // TBusqueda
             // 
             this.TBusqueda.BackColor = System.Drawing.Color.White;
-            this.TBusqueda.Location = new System.Drawing.Point(881, 63);
+            this.TBusqueda.Location = new System.Drawing.Point(958, 63);
             this.TBusqueda.Name = "TBusqueda";
             this.TBusqueda.Size = new System.Drawing.Size(100, 20);
             this.TBusqueda.TabIndex = 20;
+            this.TBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBusqueda_KeyPress);
             // 
             // CBBusqueda
             // 
@@ -274,7 +276,7 @@
             this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBBusqueda.FormattingEnabled = true;
-            this.CBBusqueda.Location = new System.Drawing.Point(789, 63);
+            this.CBBusqueda.Location = new System.Drawing.Point(866, 63);
             this.CBBusqueda.Name = "CBBusqueda";
             this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
             this.CBBusqueda.TabIndex = 19;
@@ -283,7 +285,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(721, 67);
+            this.label5.Location = new System.Drawing.Point(798, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 41;
@@ -296,7 +298,8 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(295, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(777, 51);
+            this.label3.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.label3.Size = new System.Drawing.Size(866, 51);
             this.label3.TabIndex = 40;
             this.label3.Text = "Lista de Clientes:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -313,6 +316,7 @@
             this.CTelefono,
             this.CDomicilio,
             this.Cestado,
+            this.CEstadoValor,
             this.Ceditar,
             this.CIdCliente});
             this.DGClientes.Location = new System.Drawing.Point(300, 137);
@@ -372,6 +376,43 @@
             this.DTFecha.Size = new System.Drawing.Size(136, 20);
             this.DTFecha.TabIndex = 13;
             // 
+            // TIndice
+            // 
+            this.TIndice.Location = new System.Drawing.Point(210, 18);
+            this.TIndice.Name = "TIndice";
+            this.TIndice.Size = new System.Drawing.Size(28, 20);
+            this.TIndice.TabIndex = 52;
+            this.TIndice.Visible = false;
+            // 
+            // TId
+            // 
+            this.TId.Location = new System.Drawing.Point(210, 44);
+            this.TId.Name = "TId";
+            this.TId.Size = new System.Drawing.Size(28, 20);
+            this.TId.TabIndex = 53;
+            this.TId.Visible = false;
+            // 
+            // BLimpiar
+            // 
+            this.BLimpiar.BackColor = System.Drawing.Color.White;
+            this.BLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.BLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.BLimpiar.IconColor = System.Drawing.Color.Black;
+            this.BLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BLimpiar.IconSize = 23;
+            this.BLimpiar.Location = new System.Drawing.Point(21, 498);
+            this.BLimpiar.Name = "BLimpiar";
+            this.BLimpiar.Size = new System.Drawing.Size(180, 33);
+            this.BLimpiar.TabIndex = 65;
+            this.BLimpiar.Text = "Limpiar";
+            this.BLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BLimpiar.UseVisualStyleBackColor = false;
+            this.BLimpiar.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
             // CNombre
             // 
             this.CNombre.HeaderText = "Nombre";
@@ -414,6 +455,12 @@
             this.Cestado.Name = "Cestado";
             this.Cestado.ReadOnly = true;
             // 
+            // CEstadoValor
+            // 
+            this.CEstadoValor.HeaderText = "EstadoValor";
+            this.CEstadoValor.Name = "CEstadoValor";
+            this.CEstadoValor.Visible = false;
+            // 
             // Ceditar
             // 
             this.Ceditar.HeaderText = "Editar";
@@ -426,48 +473,11 @@
             this.CIdCliente.Name = "CIdCliente";
             this.CIdCliente.Visible = false;
             // 
-            // TIndice
-            // 
-            this.TIndice.Location = new System.Drawing.Point(210, 18);
-            this.TIndice.Name = "TIndice";
-            this.TIndice.Size = new System.Drawing.Size(28, 20);
-            this.TIndice.TabIndex = 52;
-            this.TIndice.Visible = false;
-            // 
-            // TId
-            // 
-            this.TId.Location = new System.Drawing.Point(210, 44);
-            this.TId.Name = "TId";
-            this.TId.Size = new System.Drawing.Size(28, 20);
-            this.TId.TabIndex = 53;
-            this.TId.Visible = false;
-            // 
-            // BLimpiar
-            // 
-            this.BLimpiar.BackColor = System.Drawing.Color.White;
-            this.BLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.BLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.BLimpiar.IconColor = System.Drawing.Color.Black;
-            this.BLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BLimpiar.IconSize = 23;
-            this.BLimpiar.Location = new System.Drawing.Point(21, 498);
-            this.BLimpiar.Name = "BLimpiar";
-            this.BLimpiar.Size = new System.Drawing.Size(180, 33);
-            this.BLimpiar.TabIndex = 65;
-            this.BLimpiar.Text = "Limpiar";
-            this.BLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BLimpiar.UseVisualStyleBackColor = false;
-            this.BLimpiar.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
             // ClientesAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGreen;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.BLimpiar);
             this.Controls.Add(this.TId);
@@ -532,6 +542,9 @@
         private System.Windows.Forms.TextBox TTelefono;
         private System.Windows.Forms.Label LTelefono;
         private System.Windows.Forms.DateTimePicker DTFecha;
+        private System.Windows.Forms.TextBox TIndice;
+        private System.Windows.Forms.TextBox TId;
+        private FontAwesome.Sharp.IconButton BLimpiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cdni;
@@ -539,10 +552,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDomicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cestado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoValor;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIdCliente;
-        private System.Windows.Forms.TextBox TIndice;
-        private System.Windows.Forms.TextBox TId;
-        private FontAwesome.Sharp.IconButton BLimpiar;
     }
 }

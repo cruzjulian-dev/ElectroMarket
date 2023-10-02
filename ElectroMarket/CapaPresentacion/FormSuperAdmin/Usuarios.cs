@@ -64,7 +64,8 @@ namespace CapaPresentacion
                         DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
                         ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
                         DTFecha.Text, TTelefono.Text, TDomicilio.Text,
-                        ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString()
+                        ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
+                        idUsuarioGenerado, "Editar"
 
                         });
 
@@ -107,7 +108,7 @@ namespace CapaPresentacion
             {
 
                 DGUsuarios.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.UsuarioLogin, item.Clave,
-                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", item.IdUsuario
+                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", item.IdUsuario, "Editar"
             });
 
             }
@@ -165,6 +166,7 @@ namespace CapaPresentacion
                         row.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
                         row.Cells["CEstado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
                         row.Cells["CIdUsuario"].Value = TIndice.Text;
+                        row.Cells["Ceditar"].Value = "Editar";
 
                         LimpiarCampos();
                         VaciarTabla();
@@ -285,7 +287,7 @@ namespace CapaPresentacion
             {
                 
                 DGUsuarios.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.UsuarioLogin, item.Clave,
-                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", item.IdUsuario
+                item.oRol.IdRol, item.oRol.Descripcion, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", item.IdUsuario, "Editar"
             });
 
             }

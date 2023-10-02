@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
@@ -62,16 +63,9 @@ namespace CapaPresentacion
                 {
 
                     // Agregar nueva fila
-                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim() , ((OpcionCombo)CBEstado.SelectedItem).Texto);
-
-
-                    foreach (DataGridViewRow row in DGClientes.Rows)
-                    {
-                        row.Cells["Ceditar"].Value = "Editar";
-                    }
+                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
 
                     LimpiarCampos();
-                    //editar = false;
                 }
             }
         }
@@ -209,9 +203,28 @@ namespace CapaPresentacion
                 selectedRow.Cells["CNombre"].Value = nombre;
                 selectedRow.Cells["CApellido"].Value = apellido;
                 selectedRow.Cells["Cestado"].Value = Estado;
+                selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
+
 
                 DateTime nuevaFecha = DTFecha.Value;
                 selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
+
+                foreach (DataGridViewRow row in DGClientes.Rows)
+                {
+                    // Obtener el valor de la celda en la columna "CEstado"
+                    string estado = row.Cells["CEstado"].Value as string;
+
+                    // Verificar si el estado es "No Activo"
+                    if (estado == "No Activo")
+                    {
+
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
 
                 LimpiarCampos();
                 BEditar.Enabled = false;
@@ -239,6 +252,7 @@ namespace CapaPresentacion
 
                     //TId.Text = DGClientes.Rows[e.RowIndex];
                     TIndice.Text = e.RowIndex.ToString();
+                    int indice = e.RowIndex;
 
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGClientes.Rows[e.RowIndex];
@@ -251,6 +265,15 @@ namespace CapaPresentacion
                     TTelefono.Text = selectedRow.Cells["CTelefono"].Value.ToString();
                     TDomicilio.Text = selectedRow.Cells["CDomicilio"].Value.ToString();
 
+                    foreach (OpcionCombo oc in CBEstado.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGClientes.Rows[indice].Cells["CEstadoValor"].Value))
+                        {
+                            int indice_combo = CBEstado.Items.IndexOf(oc);
+                            CBEstado.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -331,6 +354,9 @@ namespace CapaPresentacion
                 {
 
                     row.DefaultCellStyle.BackColor = Color.Red;
+                } else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
                 }
             }
         }
@@ -368,6 +394,15 @@ namespace CapaPresentacion
             TBusqueda.Text = "";
             VaciarTabla();
             ActualizarTabla();
+        }
+
+        private void TBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                iconButton2_Click(sender, e);
+            }
+         
         }
     }
 }
