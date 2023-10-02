@@ -81,17 +81,11 @@
     <Compile Include="FormVendedor\DetalleVenta.Designer.cs">
       <DependentUpon>DetalleVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVendedor\Modales\mdProductos.cs">
+    <Compile Include="FormVendedor\ListaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVendedor\Modales\mdProductos.Designer.cs">
-      <DependentUpon>mdProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormVendedor\Modales\mdClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormVendedor\Modales\mdClientes.Designer.cs">
-      <DependentUpon>mdClientes.cs</DependentUpon>
+    <Compile Include="FormVendedor\ListaClientes.Designer.cs">
+      <DependentUpon>ListaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin\ProductosAdmin.cs">
       <SubType>Form</SubType>
@@ -117,11 +111,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVendedor\ProductosVendedor.cs">
+    <Compile Include="FormVendedor\ListaProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVendedor\ProductosVendedor.Designer.cs">
-      <DependentUpon>ProductosVendedor.cs</DependentUpon>
+    <Compile Include="FormVendedor\ListaProductos.Designer.cs">
+      <DependentUpon>ListaProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdmin\Reportes.cs">
       <SubType>Form</SubType>
@@ -183,11 +177,8 @@
     <EmbeddedResource Include="FormVendedor\DetalleVenta.resx">
       <DependentUpon>DetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVendedor\Modales\mdProductos.resx">
-      <DependentUpon>mdProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormVendedor\Modales\mdClientes.resx">
-      <DependentUpon>mdClientes.cs</DependentUpon>
+    <EmbeddedResource Include="FormVendedor\ListaClientes.resx">
+      <DependentUpon>ListaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\ProductosAdmin.resx">
       <DependentUpon>ProductosAdmin.cs</DependentUpon>
@@ -198,8 +189,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVendedor\ProductosVendedor.resx">
-      <DependentUpon>ProductosVendedor.cs</DependentUpon>
+    <EmbeddedResource Include="FormVendedor\ListaProductos.resx">
+      <DependentUpon>ListaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>

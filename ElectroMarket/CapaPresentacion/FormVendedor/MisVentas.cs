@@ -21,5 +21,15 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void MisVentas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

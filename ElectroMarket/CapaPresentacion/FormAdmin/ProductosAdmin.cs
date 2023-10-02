@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
@@ -30,7 +31,7 @@ namespace CapaPresentacion
             BEditar.Enabled = false;
             TIndice.Text = "0";
             CBCategoria.SelectedIndex = 0;
-            TCodProd.BackColor = Color.Gray;
+            TCodProd.BackColor = Color.Yellow;
 
             // combobox estado
             CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
@@ -71,10 +72,10 @@ namespace CapaPresentacion
             {
                 if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    TIndice.Text = TIndice.Text + 1;
+                    TIndice.Text = (Convert.ToInt32(TIndice.Text) + 1).ToString();
 
                     // Agregar nueva fila
-                    DGProductos.Rows.Add(TIndice.Text.Trim(), TNombre.Text.Trim(), TDescripcion.Text.Trim(), TPrecio.Text.Trim(), TStock.Text.Trim(), "", CBCategoria.SelectedItem.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto, "", "Editar");
+                    DGProductos.Rows.Add(TIndice.Text.Trim(), TNombre.Text.Trim(), TDescripcion.Text.Trim(), TPrecio.Text.Trim(), TStock.Text.Trim(), "", CBCategoria.SelectedItem.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto, ((OpcionCombo)CBEstado.SelectedItem).Valor, "Editar");
 
                     LimpiarCampos();
                 }
@@ -89,46 +90,59 @@ namespace CapaPresentacion
             TDescripcion.Clear();
             TStock.Clear();
             TPrecio.Clear();
+            CBCategoria.SelectedIndex = 0;
+            CBEstado.SelectedIndex = 0;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            string codProducto = TCodProd.Text;
+            string nombre = TNombre.Text;
+            string descripcion = TDescripcion.Text;
+            string stock = TStock.Text;
+            string precio = TPrecio.Text;
+            string categoria = CBCategoria.SelectedItem.ToString();
+            string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
 
-            if (editar == false)
+            if (TCodProd.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TStock.Text.Trim() == "" || TPrecio.Text.Trim() == "")
             {
-                MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-
-                // Obtén los valores de las celdas seleccionadas y realiza la edición
-                string codProducto = TCodProd.Text;
-                string nombre = TNombre.Text;
-                string opcionSeleccionada = CBCategoria.SelectedItem as string;
-                string stock = TStock.Text;
-                string opcionSeleccionada2 = CBEstado.SelectedItem as string;
-                string descripcion = TDescripcion.Text;
-                string precio = TPrecio.Text;
-
                 // Actualiza la fila seleccionada en el DataGridView
                 DataGridViewRow selectedRow = DGProductos.Rows[DGProductos.CurrentCell.RowIndex];
+
                 selectedRow.Cells["Ccodigo"].Value = codProducto;
                 selectedRow.Cells["Cnombre"].Value = nombre;
-                selectedRow.Cells["ColStock"].Value = stock;
+                selectedRow.Cells["CStock"].Value = stock;
                 selectedRow.Cells["Cdescripcion"].Value = descripcion;
                 selectedRow.Cells["cprecio"].Value = precio;
-                selectedRow.Cells["Ccategoria"].Value = opcionSeleccionada;
-                selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
+                selectedRow.Cells["Ccategoria"].Value = categoria;
+                selectedRow.Cells["Cestado"].Value = Estado;
+                selectedRow.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
 
-                // Limpia los controles del formulario
+                foreach (DataGridViewRow row in DGProductos.Rows)
+                {
+                    // Obtener el valor de la celda en la columna "CEstado"
+                    string estado = row.Cells["Cestado"].Value as string;
+
+                    // Verificar si el estado es "No Activo"
+                    if (estado == "No Activo")
+                    {
+
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+
                 LimpiarCampos();
-
-                // Deshabilita el botón "Modificar" nuevamente
                 BEditar.Enabled = false;
-
-                editar = false;
-
                 BGuardar.Enabled = true;
+            
             }
            
         }
@@ -175,12 +189,12 @@ namespace CapaPresentacion
 
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Habilita el botón "Editar"
                     BEditar.Enabled = true;
                     BGuardar.Enabled = false;
 
                     //TId.Text = DGClientes.Rows[e.RowIndex];
                     TIndice.Text = e.RowIndex.ToString();
+                    int indice = e.RowIndex;
 
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGProductos.Rows[e.RowIndex];
@@ -188,11 +202,19 @@ namespace CapaPresentacion
                     TCodProd.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
                     TNombre.Text = selectedRow.Cells["Cnombre"].Value.ToString();
                     CBCategoria.SelectedItem = selectedRow.Cells["Ccategoria"].Value.ToString();
-                    CBEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
                     TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
                     TPrecio.Text = selectedRow.Cells["cprecio"].Value.ToString();
-                    TStock.Text = selectedRow.Cells["ColStock"].Value.ToString();
+                    TStock.Text = selectedRow.Cells["CStock"].Value.ToString();
 
+                    foreach (OpcionCombo oc in CBEstado.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGProductos.Rows[indice].Cells["CestadoVAlor"].Value))
+                        {
+                            int indice_combo = CBEstado.Items.IndexOf(oc);
+                            CBEstado.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -232,6 +254,47 @@ namespace CapaPresentacion
             if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true; // Cancela la entrada del carácter no válido
+            }
+        }
+
+        private void BBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
+
+            if (DGProductos.Rows.Count > 0)  // pregunta si hay filas
+            {
+                foreach (DataGridViewRow row in DGProductos.Rows) // recorro cada fila del datagrid
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+
+                }
+            }
+        }
+
+        private void DGProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGProductos.Rows)
+            {
+                // Obtener el valor de la celda en la columna "CEstado"
+                string estado = row.Cells["Cestado"].Value as string;
+
+                // Verificar si el estado es "No Activo"
+                if (estado == "No Activo")
+                {
+
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
             }
         }
     }

@@ -47,10 +47,7 @@ namespace CapaPresentacion
 
         private void btnBuscarProduc_Click(object sender, EventArgs e)
         {
-            using (var modal = new mdProductos())
-            {
-                var result = modal.ShowDialog();
-            }
+
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

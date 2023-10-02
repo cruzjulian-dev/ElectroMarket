@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class ProductosVendedor
+    partial class ListaProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -34,9 +34,6 @@
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.datagridProd = new System.Windows.Forms.DataGridView();
-            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +42,9 @@
             this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpreciocom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,51 +123,6 @@
             this.datagridProd.TabIndex = 5;
             this.datagridProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             // 
-            // icoBtnBuscar
-            // 
-            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(583, 68);
-            this.icoBtnBuscar.Name = "icoBtnBuscar";
-            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 3;
-            this.icoBtnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // icoBtnLimpiar
-            // 
-            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(624, 68);
-            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
-            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 4;
-            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(28, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(644, 77);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Lista de Productos:";
-            // 
             // id
             // 
             this.id.HeaderText = "id";
@@ -218,7 +173,52 @@
             this.CPrecio.Name = "CPrecio";
             this.CPrecio.ReadOnly = true;
             // 
-            // ProductosVendedor
+            // icoBtnBuscar
+            // 
+            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnBuscar.IconSize = 23;
+            this.icoBtnBuscar.Location = new System.Drawing.Point(583, 68);
+            this.icoBtnBuscar.Name = "icoBtnBuscar";
+            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnBuscar.TabIndex = 3;
+            this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // icoBtnLimpiar
+            // 
+            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnLimpiar.IconSize = 23;
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(624, 68);
+            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
+            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnLimpiar.TabIndex = 4;
+            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(28, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(644, 77);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Lista de Productos:";
+            // 
+            // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -230,8 +230,9 @@
             this.Controls.Add(this.icoBtnBuscar);
             this.Controls.Add(this.icoBtnLimpiar);
             this.Controls.Add(this.label3);
-            this.Name = "ProductosVendedor";
+            this.Name = "ListaProductos";
             this.Text = "ProductosVendedor";
+            this.Load += new System.EventHandler(this.ListaProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

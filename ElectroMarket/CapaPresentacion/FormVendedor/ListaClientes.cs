@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Modales
 {
-    public partial class mdClientes : Form
+    public partial class ListaClientes : Form
     {
-        public mdClientes()
+        public ListaClientes()
         {
             InitializeComponent();
         }

@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class ProductosVendedor : Form
+    public partial class ListaProductos : Form
     {
-        public ProductosVendedor()
+        public ListaProductos()
         {
             InitializeComponent();
         }
 
         private void datagridProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ListaProductos_Load(object sender, EventArgs e)
         {
 
         }

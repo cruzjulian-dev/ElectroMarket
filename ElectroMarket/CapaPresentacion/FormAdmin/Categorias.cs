@@ -123,6 +123,7 @@ namespace CapaPresentacion
                 selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
 
 
+
                 // Limpia los controles del formulario
                 limpiar();
                 // Deshabilita el botón "Modificar" nuevamente

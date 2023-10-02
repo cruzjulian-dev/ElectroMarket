@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Modales
 {
-    partial class mdClientes
+    partial class ListaClientes
     {
         /// <summary>
         /// Required designer variable.
