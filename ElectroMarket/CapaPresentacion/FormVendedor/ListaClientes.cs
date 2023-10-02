@@ -12,7 +12,6 @@ namespace CapaPresentacion.Modales
 {
     public partial class mdClientes : Form
     {
-        public Proveedor _Proveedor { get; set; }
         public mdClientes()
         {
             InitializeComponent();

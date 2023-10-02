@@ -34,23 +34,24 @@
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.datagridProd = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpreciocom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cprecioven = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpreciocom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.White;
-            this.txtBusqueda.Location = new System.Drawing.Point(297, 80);
+            this.txtBusqueda.Location = new System.Drawing.Point(477, 76);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(100, 20);
             this.txtBusqueda.TabIndex = 2;
@@ -65,7 +66,7 @@
             "Nombre",
             "Categoria",
             "Codigo"});
-            this.cboBusqueda.Location = new System.Drawing.Point(205, 79);
+            this.cboBusqueda.Location = new System.Drawing.Point(385, 75);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
             this.cboBusqueda.TabIndex = 1;
@@ -74,7 +75,7 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.BackColor = System.Drawing.Color.White;
-            this.lblBuscar.Location = new System.Drawing.Point(137, 82);
+            this.lblBuscar.Location = new System.Drawing.Point(317, 78);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(62, 13);
             this.lblBuscar.TabIndex = 41;
@@ -88,10 +89,11 @@
             this.id,
             this.ccodigo,
             this.cnombre,
+            this.CDescripcion,
             this.ccategoria,
             this.cstock,
             this.cpreciocom,
-            this.cprecioven});
+            this.CPrecio});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,9 +119,54 @@
             this.datagridProd.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.datagridProd.RowTemplate.Height = 28;
             this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridProd.Size = new System.Drawing.Size(461, 209);
+            this.datagridProd.Size = new System.Drawing.Size(644, 403);
             this.datagridProd.TabIndex = 5;
             this.datagridProd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
+            // 
+            // icoBtnBuscar
+            // 
+            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnBuscar.IconSize = 23;
+            this.icoBtnBuscar.Location = new System.Drawing.Point(583, 68);
+            this.icoBtnBuscar.Name = "icoBtnBuscar";
+            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnBuscar.TabIndex = 3;
+            this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // icoBtnLimpiar
+            // 
+            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnLimpiar.IconSize = 23;
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(624, 68);
+            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
+            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnLimpiar.TabIndex = 4;
+            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(28, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(644, 77);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Lista de Productos:";
             // 
             // id
             // 
@@ -140,6 +187,12 @@
             this.cnombre.Name = "cnombre";
             this.cnombre.ReadOnly = true;
             // 
+            // CDescripcion
+            // 
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
+            // 
             // ccategoria
             // 
             this.ccategoria.HeaderText = "Categoria";
@@ -151,7 +204,6 @@
             this.cstock.HeaderText = "Stock";
             this.cstock.Name = "cstock";
             this.cstock.ReadOnly = true;
-            this.cstock.Visible = false;
             // 
             // cpreciocom
             // 
@@ -160,57 +212,11 @@
             this.cpreciocom.ReadOnly = true;
             this.cpreciocom.Visible = false;
             // 
-            // cprecioven
+            // CPrecio
             // 
-            this.cprecioven.HeaderText = "Precio Venta";
-            this.cprecioven.Name = "cprecioven";
-            this.cprecioven.ReadOnly = true;
-            this.cprecioven.Visible = false;
-            // 
-            // icoBtnBuscar
-            // 
-            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(403, 72);
-            this.icoBtnBuscar.Name = "icoBtnBuscar";
-            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 3;
-            this.icoBtnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // icoBtnLimpiar
-            // 
-            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(444, 72);
-            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
-            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 4;
-            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(28, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(461, 77);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Lista de Productos:";
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
             // 
             // ProductosVendedor
             // 
@@ -238,15 +244,16 @@
         private System.Windows.Forms.ComboBox cboBusqueda;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.DataGridView datagridProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ccodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cnombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ccategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cstock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpreciocom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cprecioven;
         private FontAwesome.Sharp.IconButton icoBtnBuscar;
         private FontAwesome.Sharp.IconButton icoBtnLimpiar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ccodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ccategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cstock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpreciocom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
     }
 }

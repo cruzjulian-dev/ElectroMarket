@@ -69,11 +69,11 @@
     <Compile Include="FormAdmin\ClientesAdmin.Designer.cs">
       <DependentUpon>ClientesAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVendedor\frmMisVentas.cs">
+    <Compile Include="FormVendedor\MisVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVendedor\frmMisVentas.Designer.cs">
-      <DependentUpon>frmMisVentas.cs</DependentUpon>
+    <Compile Include="FormVendedor\MisVentas.Designer.cs">
+      <DependentUpon>MisVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVendedor\DetalleVenta.cs">
       <SubType>Form</SubType>
@@ -93,8 +93,6 @@
     <Compile Include="FormVendedor\Modales\mdClientes.Designer.cs">
       <DependentUpon>mdClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVendedor\Modales\Producto.cs" />
-    <Compile Include="FormVendedor\Modales\Proveedor.cs" />
     <Compile Include="FormAdmin\ProductosAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,8 +177,8 @@
     <EmbeddedResource Include="FormAdmin\ClientesAdmin.resx">
       <DependentUpon>ClientesAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVendedor\frmMisVentas.resx">
-      <DependentUpon>frmMisVentas.cs</DependentUpon>
+    <EmbeddedResource Include="FormVendedor\MisVentas.resx">
+      <DependentUpon>MisVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVendedor\DetalleVenta.resx">
       <DependentUpon>DetalleVenta.cs</DependentUpon>
