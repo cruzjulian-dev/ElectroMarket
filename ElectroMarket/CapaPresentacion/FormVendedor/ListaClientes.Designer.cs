@@ -44,7 +44,7 @@
             this.CFechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSeleccionar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(689, 77);
+            this.label3.Size = new System.Drawing.Size(733, 77);
             this.label3.TabIndex = 21;
             this.label3.Text = "Lista de Clientes:";
             // 
@@ -98,7 +98,7 @@
             this.DGClientes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DGClientes.RowTemplate.Height = 28;
             this.DGClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGClientes.Size = new System.Drawing.Size(689, 209);
+            this.DGClientes.Size = new System.Drawing.Size(733, 209);
             this.DGClientes.TabIndex = 5;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
             this.DGClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellDoubleClick);
@@ -106,7 +106,7 @@
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(483, 55);
+            this.textBox4.Location = new System.Drawing.Point(550, 54);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 2;
@@ -121,7 +121,7 @@
             "DNI",
             "Nombre",
             "Apellido"});
-            this.cboBusqueda.Location = new System.Drawing.Point(391, 54);
+            this.cboBusqueda.Location = new System.Drawing.Point(458, 53);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
             this.cboBusqueda.TabIndex = 1;
@@ -130,7 +130,7 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.BackColor = System.Drawing.Color.White;
-            this.lblBuscar.Location = new System.Drawing.Point(323, 57);
+            this.lblBuscar.Location = new System.Drawing.Point(390, 56);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(62, 13);
             this.lblBuscar.TabIndex = 27;
@@ -147,7 +147,7 @@
             this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
             this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(589, 47);
+            this.icoBtnBuscar.Location = new System.Drawing.Point(656, 46);
             this.icoBtnBuscar.Name = "icoBtnBuscar";
             this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
             this.icoBtnBuscar.TabIndex = 3;
@@ -164,7 +164,7 @@
             this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
             this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(630, 47);
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(697, 46);
             this.icoBtnLimpiar.Name = "icoBtnLimpiar";
             this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
             this.icoBtnLimpiar.TabIndex = 4;
@@ -218,12 +218,15 @@
             this.CSeleccionar.HeaderText = "Seleccionar";
             this.CSeleccionar.Name = "CSeleccionar";
             this.CSeleccionar.ReadOnly = true;
+            this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CSeleccionar.Width = 90;
             // 
             // ListaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 333);
+            this.ClientSize = new System.Drawing.Size(764, 333);
             this.Controls.Add(this.icoBtnBuscar);
             this.Controls.Add(this.icoBtnLimpiar);
             this.Controls.Add(this.textBox4);
@@ -257,6 +260,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CFechaNacim;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDomicilio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CSeleccionar;
+        private System.Windows.Forms.DataGridViewButtonColumn CSeleccionar;
     }
 }

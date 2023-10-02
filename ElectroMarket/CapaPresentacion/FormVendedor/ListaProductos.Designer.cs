@@ -188,7 +188,7 @@
             this.cnombre.HeaderText = "Nombre";
             this.cnombre.Name = "cnombre";
             this.cnombre.ReadOnly = true;
-            this.cnombre.Width = 130;
+            this.cnombre.Width = 125;
             // 
             // CDescripcion
             // 
@@ -225,7 +225,7 @@
             this.CSeleccionar.ReadOnly = true;
             this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CSeleccionar.Width = 75;
+            this.CSeleccionar.Width = 80;
             // 
             // ListaProductos
             // 

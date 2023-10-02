@@ -47,13 +47,6 @@
             this.labeldocucliente = new System.Windows.Forms.Label();
             this.TNombre = new System.Windows.Forms.TextBox();
             this.DGDetalle = new System.Windows.Forms.DataGridView();
-            this.labmontocambio = new System.Windows.Forms.Label();
-            this.labmontopago = new System.Windows.Forms.Label();
-            this.labmontototal = new System.Windows.Forms.Label();
-            this.TCambio = new System.Windows.Forms.TextBox();
-            this.TPago = new System.Windows.Forms.TextBox();
-            this.TTotal = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.CIdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +54,13 @@
             this.Cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labmontocambio = new System.Windows.Forms.Label();
+            this.labmontopago = new System.Windows.Forms.Label();
+            this.labmontototal = new System.Windows.Forms.Label();
+            this.TCambio = new System.Windows.Forms.TextBox();
+            this.TPago = new System.Windows.Forms.TextBox();
+            this.TTotal = new System.Windows.Forms.TextBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle)).BeginInit();
@@ -73,7 +73,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(83, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(686, 517);
+            this.label3.Size = new System.Drawing.Size(686, 526);
             this.label3.TabIndex = 34;
             // 
             // label2
@@ -267,80 +267,6 @@
             this.DGDetalle.Size = new System.Drawing.Size(654, 223);
             this.DGDetalle.TabIndex = 8;
             // 
-            // labmontocambio
-            // 
-            this.labmontocambio.AutoSize = true;
-            this.labmontocambio.BackColor = System.Drawing.Color.White;
-            this.labmontocambio.Location = new System.Drawing.Point(434, 502);
-            this.labmontocambio.Name = "labmontocambio";
-            this.labmontocambio.Size = new System.Drawing.Size(78, 13);
-            this.labmontocambio.TabIndex = 47;
-            this.labmontocambio.Text = "Monto Cambio:";
-            // 
-            // labmontopago
-            // 
-            this.labmontopago.AutoSize = true;
-            this.labmontopago.BackColor = System.Drawing.Color.White;
-            this.labmontopago.Location = new System.Drawing.Point(282, 502);
-            this.labmontopago.Name = "labmontopago";
-            this.labmontopago.Size = new System.Drawing.Size(68, 13);
-            this.labmontopago.TabIndex = 48;
-            this.labmontopago.Text = "Monto Pago:";
-            // 
-            // labmontototal
-            // 
-            this.labmontototal.AutoSize = true;
-            this.labmontototal.BackColor = System.Drawing.Color.White;
-            this.labmontototal.Location = new System.Drawing.Point(118, 502);
-            this.labmontototal.Name = "labmontototal";
-            this.labmontototal.Size = new System.Drawing.Size(67, 13);
-            this.labmontototal.TabIndex = 49;
-            this.labmontototal.Text = "Monto Total:";
-            // 
-            // TCambio
-            // 
-            this.TCambio.Location = new System.Drawing.Point(515, 499);
-            this.TCambio.Name = "TCambio";
-            this.TCambio.ReadOnly = true;
-            this.TCambio.Size = new System.Drawing.Size(83, 20);
-            this.TCambio.TabIndex = 11;
-            // 
-            // TPago
-            // 
-            this.TPago.Location = new System.Drawing.Point(354, 499);
-            this.TPago.Name = "TPago";
-            this.TPago.ReadOnly = true;
-            this.TPago.Size = new System.Drawing.Size(74, 20);
-            this.TPago.TabIndex = 10;
-            // 
-            // TTotal
-            // 
-            this.TTotal.Location = new System.Drawing.Point(189, 499);
-            this.TTotal.Name = "TTotal";
-            this.TTotal.ReadOnly = true;
-            this.TTotal.Size = new System.Drawing.Size(78, 20);
-            this.TTotal.TabIndex = 9;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Black;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 23;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(604, 496);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(149, 32);
-            this.iconButton1.TabIndex = 12;
-            this.iconButton1.Text = "Descargar en Pdf";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
             // CIdProd
             // 
             this.CIdProd.HeaderText = "ID";
@@ -387,6 +313,80 @@
             this.Csubtotal.HeaderText = "Subtotal";
             this.Csubtotal.Name = "Csubtotal";
             this.Csubtotal.ReadOnly = true;
+            // 
+            // labmontocambio
+            // 
+            this.labmontocambio.AutoSize = true;
+            this.labmontocambio.BackColor = System.Drawing.Color.White;
+            this.labmontocambio.Location = new System.Drawing.Point(434, 510);
+            this.labmontocambio.Name = "labmontocambio";
+            this.labmontocambio.Size = new System.Drawing.Size(78, 13);
+            this.labmontocambio.TabIndex = 47;
+            this.labmontocambio.Text = "Monto Cambio:";
+            // 
+            // labmontopago
+            // 
+            this.labmontopago.AutoSize = true;
+            this.labmontopago.BackColor = System.Drawing.Color.White;
+            this.labmontopago.Location = new System.Drawing.Point(282, 510);
+            this.labmontopago.Name = "labmontopago";
+            this.labmontopago.Size = new System.Drawing.Size(68, 13);
+            this.labmontopago.TabIndex = 48;
+            this.labmontopago.Text = "Monto Pago:";
+            // 
+            // labmontototal
+            // 
+            this.labmontototal.AutoSize = true;
+            this.labmontototal.BackColor = System.Drawing.Color.White;
+            this.labmontototal.Location = new System.Drawing.Point(118, 510);
+            this.labmontototal.Name = "labmontototal";
+            this.labmontototal.Size = new System.Drawing.Size(67, 13);
+            this.labmontototal.TabIndex = 49;
+            this.labmontototal.Text = "Monto Total:";
+            // 
+            // TCambio
+            // 
+            this.TCambio.Location = new System.Drawing.Point(515, 507);
+            this.TCambio.Name = "TCambio";
+            this.TCambio.ReadOnly = true;
+            this.TCambio.Size = new System.Drawing.Size(83, 20);
+            this.TCambio.TabIndex = 11;
+            // 
+            // TPago
+            // 
+            this.TPago.Location = new System.Drawing.Point(354, 507);
+            this.TPago.Name = "TPago";
+            this.TPago.ReadOnly = true;
+            this.TPago.Size = new System.Drawing.Size(74, 20);
+            this.TPago.TabIndex = 10;
+            // 
+            // TTotal
+            // 
+            this.TTotal.Location = new System.Drawing.Point(189, 507);
+            this.TTotal.Name = "TTotal";
+            this.TTotal.ReadOnly = true;
+            this.TTotal.Size = new System.Drawing.Size(78, 20);
+            this.TTotal.TabIndex = 9;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.White;
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.iconButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.Black;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 23;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(604, 500);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(149, 32);
+            this.iconButton1.TabIndex = 12;
+            this.iconButton1.Text = "Descargar en Pdf";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // FormDetalleVenta
             // 
