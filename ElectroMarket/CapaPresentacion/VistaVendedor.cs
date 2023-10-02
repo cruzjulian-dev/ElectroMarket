@@ -16,7 +16,7 @@ namespace CapaPresentacion
     {
         private static IconMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
-        private static Usuario usuarioActual;
+        public static Usuario usuarioActual;
         public VistaVendedor(Usuario objUsuario)
         {
             usuarioActual = objUsuario;

@@ -47,10 +47,6 @@
             this.labeldocucliente = new System.Windows.Forms.Label();
             this.TNombre = new System.Windows.Forms.TextBox();
             this.DGDetalle = new System.Windows.Forms.DataGridView();
-            this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cprecioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labmontocambio = new System.Windows.Forms.Label();
             this.labmontopago = new System.Windows.Forms.Label();
             this.labmontototal = new System.Windows.Forms.Label();
@@ -58,6 +54,13 @@
             this.TPago = new System.Windows.Forms.TextBox();
             this.TTotal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.CIdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle)).BeginInit();
@@ -104,6 +107,7 @@
             // 
             this.TVendedor.Location = new System.Drawing.Point(389, 60);
             this.TVendedor.Name = "TVendedor";
+            this.TVendedor.ReadOnly = true;
             this.TVendedor.Size = new System.Drawing.Size(178, 20);
             this.TVendedor.TabIndex = 3;
             // 
@@ -121,6 +125,7 @@
             // 
             this.TFecha.Location = new System.Drawing.Point(184, 60);
             this.TFecha.Name = "TFecha";
+            this.TFecha.ReadOnly = true;
             this.TFecha.Size = new System.Drawing.Size(181, 20);
             this.TFecha.TabIndex = 2;
             // 
@@ -148,6 +153,7 @@
             // 
             this.TIdVenta.Location = new System.Drawing.Point(6, 60);
             this.TIdVenta.Name = "TIdVenta";
+            this.TIdVenta.ReadOnly = true;
             this.TIdVenta.Size = new System.Drawing.Size(162, 20);
             this.TIdVenta.TabIndex = 1;
             // 
@@ -171,6 +177,7 @@
             // 
             this.TDocumento.Location = new System.Drawing.Point(389, 58);
             this.TDocumento.Name = "TDocumento";
+            this.TDocumento.ReadOnly = true;
             this.TDocumento.Size = new System.Drawing.Size(191, 20);
             this.TDocumento.TabIndex = 6;
             // 
@@ -188,6 +195,7 @@
             // 
             this.TApellido.Location = new System.Drawing.Point(186, 58);
             this.TApellido.Name = "TApellido";
+            this.TApellido.ReadOnly = true;
             this.TApellido.Size = new System.Drawing.Size(179, 20);
             this.TApellido.TabIndex = 5;
             this.TApellido.TextChanged += new System.EventHandler(this.txtnombrecliente_TextChanged);
@@ -217,6 +225,7 @@
             // 
             this.TNombre.Location = new System.Drawing.Point(6, 58);
             this.TNombre.Name = "TNombre";
+            this.TNombre.ReadOnly = true;
             this.TNombre.Size = new System.Drawing.Size(162, 20);
             this.TNombre.TabIndex = 4;
             // 
@@ -225,8 +234,11 @@
             this.DGDetalle.AllowUserToAddRows = false;
             this.DGDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIdProd,
             this.Cproducto,
-            this.Cprecioventa,
+            this.CDescripcion,
+            this.CCategoria,
+            this.Cprecio,
             this.Ccantidad,
             this.Csubtotal});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -254,31 +266,6 @@
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(654, 223);
             this.DGDetalle.TabIndex = 8;
-            // 
-            // Cproducto
-            // 
-            this.Cproducto.HeaderText = "Producto";
-            this.Cproducto.Name = "Cproducto";
-            this.Cproducto.ReadOnly = true;
-            // 
-            // Cprecioventa
-            // 
-            this.Cprecioventa.HeaderText = "Precio venta";
-            this.Cprecioventa.Name = "Cprecioventa";
-            this.Cprecioventa.ReadOnly = true;
-            this.Cprecioventa.Visible = false;
-            // 
-            // Ccantidad
-            // 
-            this.Ccantidad.HeaderText = "Cantidad";
-            this.Ccantidad.Name = "Ccantidad";
-            this.Ccantidad.ReadOnly = true;
-            // 
-            // Csubtotal
-            // 
-            this.Csubtotal.HeaderText = "Subtotal";
-            this.Csubtotal.Name = "Csubtotal";
-            this.Csubtotal.ReadOnly = true;
             // 
             // labmontocambio
             // 
@@ -314,21 +301,24 @@
             // 
             this.TCambio.Location = new System.Drawing.Point(515, 499);
             this.TCambio.Name = "TCambio";
-            this.TCambio.Size = new System.Drawing.Size(46, 20);
+            this.TCambio.ReadOnly = true;
+            this.TCambio.Size = new System.Drawing.Size(83, 20);
             this.TCambio.TabIndex = 11;
             // 
             // TPago
             // 
             this.TPago.Location = new System.Drawing.Point(354, 499);
             this.TPago.Name = "TPago";
-            this.TPago.Size = new System.Drawing.Size(46, 20);
+            this.TPago.ReadOnly = true;
+            this.TPago.Size = new System.Drawing.Size(74, 20);
             this.TPago.TabIndex = 10;
             // 
             // TTotal
             // 
             this.TTotal.Location = new System.Drawing.Point(189, 499);
             this.TTotal.Name = "TTotal";
-            this.TTotal.Size = new System.Drawing.Size(46, 20);
+            this.TTotal.ReadOnly = true;
+            this.TTotal.Size = new System.Drawing.Size(78, 20);
             this.TTotal.TabIndex = 9;
             // 
             // iconButton1
@@ -351,11 +341,58 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
+            // CIdProd
+            // 
+            this.CIdProd.HeaderText = "ID";
+            this.CIdProd.Name = "CIdProd";
+            this.CIdProd.ReadOnly = true;
+            this.CIdProd.Width = 40;
+            // 
+            // Cproducto
+            // 
+            this.Cproducto.HeaderText = "Producto";
+            this.Cproducto.Name = "Cproducto";
+            this.Cproducto.ReadOnly = true;
+            this.Cproducto.Width = 130;
+            // 
+            // CDescripcion
+            // 
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
+            this.CDescripcion.Width = 130;
+            // 
+            // CCategoria
+            // 
+            this.CCategoria.HeaderText = "Categoria";
+            this.CCategoria.Name = "CCategoria";
+            this.CCategoria.ReadOnly = true;
+            this.CCategoria.Width = 80;
+            // 
+            // Cprecio
+            // 
+            this.Cprecio.HeaderText = "Precio";
+            this.Cprecio.Name = "Cprecio";
+            this.Cprecio.ReadOnly = true;
+            // 
+            // Ccantidad
+            // 
+            this.Ccantidad.HeaderText = "Cantidad";
+            this.Ccantidad.Name = "Ccantidad";
+            this.Ccantidad.ReadOnly = true;
+            this.Ccantidad.Width = 60;
+            // 
+            // Csubtotal
+            // 
+            this.Csubtotal.HeaderText = "Subtotal";
+            this.Csubtotal.Name = "Csubtotal";
+            this.Csubtotal.ReadOnly = true;
+            // 
             // FormDetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.ClientSize = new System.Drawing.Size(861, 561);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.TCambio);
             this.Controls.Add(this.TPago);
@@ -398,10 +435,6 @@
         private System.Windows.Forms.Label labeldocucliente;
         private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.DataGridView DGDetalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cproducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cprecioventa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
         private System.Windows.Forms.TextBox TPago;
         private System.Windows.Forms.TextBox TCambio;
         private System.Windows.Forms.Label labmontocambio;
@@ -411,5 +444,12 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.TextBox TDocumento;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cproducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cprecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
     }
 }

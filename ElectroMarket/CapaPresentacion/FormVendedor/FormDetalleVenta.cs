@@ -33,11 +33,37 @@ namespace CapaPresentacion
 
         private void DetalleVenta_Load(object sender, EventArgs e)
         {
+            
+            // Limpia el DataGridView antes de agregar nuevos detalles
+            DGDetalle.Rows.Clear();
+
             TIdVenta.Text = venta.IdVenta.ToString();
             TVendedor.Text = venta.oUsuario.Nombre + " " + venta.oUsuario.Apellido;
             TFecha.Text = venta.FechaRegistro.ToString();
+            TNombre.Text = venta.NombreCliente;
+            TApellido.Text = venta.ApellidoCliente;
+            TDocumento.Text = Convert.ToInt32(venta.DniCliente).ToString();
+            TTotal.Text = venta.MontoTotal.ToString();
+            TCambio.Text = venta.MontoCambio.ToString();
+            TPago.Text = venta.MontoPago.ToString();
 
+            foreach (DetalleVenta detalle in venta.Detalle_Venta)
+            {
+                // Acceder al producto del detalle
+                Producto producto = detalle.oProducto;
 
+                // Agregar una fila al DataGridView con los detalles del producto
+                DGDetalle.Rows.Add(
+                    detalle.IdDetalleVenta,
+                    producto.Nombre,
+                    producto.Descripcion,
+                    producto.oCategoria.Descripcion,
+                    detalle.PrecioVenta,
+                    detalle.Cantidad,
+                    detalle.SubTotal
+                    //detalle.FechaRegistro
+                ) ;
+            }
         }
     }
 }

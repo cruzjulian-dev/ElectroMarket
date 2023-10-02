@@ -96,6 +96,7 @@ namespace CapaPresentacion
             {
                 BIngresar_Click(sender, e);
             }
+
         }
 
         private void TContra_TextChanged(object sender, EventArgs e)
