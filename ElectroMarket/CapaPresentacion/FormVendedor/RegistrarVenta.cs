@@ -44,6 +44,13 @@ namespace CapaPresentacion
         {
             ListaClientes listaClientes = new ListaClientes();
             listaClientes.ShowDialog();
+
+            if (listaClientes.ClienteSeleccionado != null)
+            {
+                Cliente ClienteSeleccionado = listaClientes.ClienteSeleccionado;
+                TDni.Text = ClienteSeleccionado.Dni.ToString();
+                TNomApe.Text = ClienteSeleccionado.Nombre + " " + ClienteSeleccionado.Apellido;
+            }
         }
 
         private void btnBuscarProduc_Click(object sender, EventArgs e)
@@ -114,7 +121,7 @@ namespace CapaPresentacion
         {
             if (DGDetalle.RowCount > 0)
             {
-                if (TTipoDoc.Text == "" || TTipoDoc.Text == "" || TDni.Text == "" || TNomApe.Text == "" || TFecha.Text == "" || TTotal.Text == "" || TPagaCon.Text == "" || TCambio.Text == "")
+                if (TFecha.Text == "" || TTipoDoc.Text == "" || TDni.Text == "" || TNomApe.Text == "" || TTotal.Text == "" || TPagaCon.Text == "" || TCambio.Text == "")
                 {
                     MessageBox.Show("Debes completar todos los campos antes de realizar una venta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -129,17 +136,28 @@ namespace CapaPresentacion
                     else
                     {
                         MessageBox.Show("Venta realizada con exito!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        VaciarCampos();
                     }
-
                 }
 
             } else
             {
                 MessageBox.Show("No has agregado ningun producto al detalle", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-           
-           
+        }
 
+        private void VaciarCampos()
+        {
+            TDni.Text = "";
+            TNomApe.Text = "";
+            TCod.Text = "";
+            TProd.Text = "";
+            TPrecio.Text = "";
+            TStock.Text = "";
+            TTotal.Text = "";
+            TPagaCon.Text = "";
+            TCambio.Text = "";
+            DGDetalle.Rows.Clear();
         }
 
         private void TPagaCon_KeyPress(object sender, KeyPressEventArgs e)

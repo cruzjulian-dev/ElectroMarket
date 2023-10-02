@@ -31,19 +31,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
-            this.datagridProd = new System.Windows.Forms.DataGridView();
-            this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGClientes = new System.Windows.Forms.DataGridView();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).BeginInit();
+            this.CIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFechaNacim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSeleccionar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -58,17 +60,19 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Lista de Clientes:";
             // 
-            // datagridProd
+            // DGClientes
             // 
-            this.datagridProd.AllowUserToAddRows = false;
-            this.datagridProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CDni,
+            this.DGClientes.AllowUserToAddRows = false;
+            this.DGClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIdCliente,
             this.CNombre,
-            this.Apellido,
+            this.CApellido,
+            this.CDni,
+            this.CFechaNacim,
             this.CTelefono,
             this.CDomicilio,
-            this.CFechaNacim});
+            this.CSeleccionar});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,11 +81,11 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridProd.DefaultCellStyle = dataGridViewCellStyle1;
-            this.datagridProd.Location = new System.Drawing.Point(12, 116);
-            this.datagridProd.MultiSelect = false;
-            this.datagridProd.Name = "datagridProd";
-            this.datagridProd.ReadOnly = true;
+            this.DGClientes.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DGClientes.Location = new System.Drawing.Point(12, 116);
+            this.DGClientes.MultiSelect = false;
+            this.DGClientes.Name = "DGClientes";
+            this.DGClientes.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,50 +93,15 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridProd.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.datagridProd.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.datagridProd.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.datagridProd.RowTemplate.Height = 28;
-            this.datagridProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridProd.Size = new System.Drawing.Size(689, 209);
-            this.datagridProd.TabIndex = 5;
-            this.datagridProd.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellDoubleClick);
-            // 
-            // CDni
-            // 
-            this.CDni.HeaderText = "DNI";
-            this.CDni.Name = "CDni";
-            this.CDni.ReadOnly = true;
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Telefono";
-            this.CTelefono.Name = "CTelefono";
-            this.CTelefono.ReadOnly = true;
-            // 
-            // CDomicilio
-            // 
-            this.CDomicilio.HeaderText = "Domicilio";
-            this.CDomicilio.Name = "CDomicilio";
-            this.CDomicilio.ReadOnly = true;
-            // 
-            // CFechaNacim
-            // 
-            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
-            this.CFechaNacim.Name = "CFechaNacim";
-            this.CFechaNacim.ReadOnly = true;
+            this.DGClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGClientes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DGClientes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGClientes.RowTemplate.Height = 28;
+            this.DGClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGClientes.Size = new System.Drawing.Size(689, 209);
+            this.DGClientes.TabIndex = 5;
+            this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
+            this.DGClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellDoubleClick);
             // 
             // textBox4
             // 
@@ -201,6 +170,55 @@
             this.icoBtnLimpiar.TabIndex = 4;
             this.icoBtnLimpiar.UseVisualStyleBackColor = false;
             // 
+            // CIdCliente
+            // 
+            this.CIdCliente.HeaderText = "IDCliente";
+            this.CIdCliente.Name = "CIdCliente";
+            this.CIdCliente.ReadOnly = true;
+            this.CIdCliente.Visible = false;
+            // 
+            // CNombre
+            // 
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CApellido
+            // 
+            this.CApellido.HeaderText = "Apellido";
+            this.CApellido.Name = "CApellido";
+            this.CApellido.ReadOnly = true;
+            // 
+            // CDni
+            // 
+            this.CDni.HeaderText = "DNI";
+            this.CDni.Name = "CDni";
+            this.CDni.ReadOnly = true;
+            // 
+            // CFechaNacim
+            // 
+            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
+            this.CFechaNacim.Name = "CFechaNacim";
+            this.CFechaNacim.ReadOnly = true;
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.HeaderText = "Telefono";
+            this.CTelefono.Name = "CTelefono";
+            this.CTelefono.ReadOnly = true;
+            // 
+            // CDomicilio
+            // 
+            this.CDomicilio.HeaderText = "Domicilio";
+            this.CDomicilio.Name = "CDomicilio";
+            this.CDomicilio.ReadOnly = true;
+            // 
+            // CSeleccionar
+            // 
+            this.CSeleccionar.HeaderText = "Seleccionar";
+            this.CSeleccionar.Name = "CSeleccionar";
+            this.CSeleccionar.ReadOnly = true;
+            // 
             // ListaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,12 +230,12 @@
             this.Controls.Add(this.cboBusqueda);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.datagridProd);
+            this.Controls.Add(this.DGClientes);
             this.Name = "ListaClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
             this.Load += new System.EventHandler(this.mdProveedor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,17 +244,19 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView datagridProd;
+        private System.Windows.Forms.DataGridView DGClientes;
         private FontAwesome.Sharp.IconButton icoBtnBuscar;
         private FontAwesome.Sharp.IconButton icoBtnLimpiar;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ComboBox cboBusqueda;
         private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaNacim;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDomicilio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaNacim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CSeleccionar;
     }
 }
