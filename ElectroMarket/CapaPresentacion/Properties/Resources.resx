@@ -118,22 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="logo_sql" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_sql.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="36978940_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\36978940_m.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a159b4c90b4146133b3313ebce65b0b0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a159b4c90b4146133b3313ebce65b0b0.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sql_server" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sql_server.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ee38e2845c18afc829096dabfe0883be" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ee38e2845c18afc829096dabfe0883be.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="restaurar_bd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restaurar_bd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo-electromarket-blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo-electromarket-blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo-electromarket" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo-electromarket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sql_server" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sql_server.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="restaurar_bd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\restaurar_bd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_sql" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_sql.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ee38e2845c18afc829096dabfe0883be1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ee38e2845c18afc829096dabfe0883be1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imagen_backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imagen_backup.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ee38e2845c18afc829096dabfe0883be2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ee38e2845c18afc829096dabfe0883be2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

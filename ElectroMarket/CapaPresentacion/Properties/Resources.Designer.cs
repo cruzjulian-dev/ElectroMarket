@@ -63,6 +63,56 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _36978940_m {
+            get {
+                object obj = ResourceManager.GetObject("36978940_m", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a159b4c90b4146133b3313ebce65b0b0 {
+            get {
+                object obj = ResourceManager.GetObject("a159b4c90b4146133b3313ebce65b0b0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ee38e2845c18afc829096dabfe0883be {
+            get {
+                object obj = ResourceManager.GetObject("ee38e2845c18afc829096dabfe0883be", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ee38e2845c18afc829096dabfe0883be1 {
+            get {
+                object obj = ResourceManager.GetObject("ee38e2845c18afc829096dabfe0883be1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ee38e2845c18afc829096dabfe0883be2 {
+            get {
+                object obj = ResourceManager.GetObject("ee38e2845c18afc829096dabfe0883be2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imagen_backup {
             get {
                 object obj = ResourceManager.GetObject("imagen_backup", resourceCulture);

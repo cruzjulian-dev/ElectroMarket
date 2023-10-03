@@ -265,5 +265,20 @@
   <ItemGroup>
     <None Include="Resources\imagen_backup.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\36978940_m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ee38e2845c18afc829096dabfe0883be.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a159b4c90b4146133b3313ebce65b0b0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ee38e2845c18afc829096dabfe0883be1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ee38e2845c18afc829096dabfe0883be2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
