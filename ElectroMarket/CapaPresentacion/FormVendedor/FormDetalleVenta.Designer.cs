@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(94, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(191, 30);
@@ -97,6 +97,7 @@
             this.groupBox1.Controls.Add(this.Ltipodoc);
             this.groupBox1.Controls.Add(this.LFecha);
             this.groupBox1.Controls.Add(this.TIdVenta);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(99, 83);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(654, 90);
@@ -109,16 +110,17 @@
             this.TVendedor.Location = new System.Drawing.Point(389, 60);
             this.TVendedor.Name = "TVendedor";
             this.TVendedor.ReadOnly = true;
-            this.TVendedor.Size = new System.Drawing.Size(178, 20);
+            this.TVendedor.Size = new System.Drawing.Size(178, 21);
             this.TVendedor.TabIndex = 3;
             // 
             // labelusuario
             // 
             this.labelusuario.AutoSize = true;
             this.labelusuario.BackColor = System.Drawing.Color.White;
+            this.labelusuario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelusuario.Location = new System.Drawing.Point(390, 44);
             this.labelusuario.Name = "labelusuario";
-            this.labelusuario.Size = new System.Drawing.Size(56, 13);
+            this.labelusuario.Size = new System.Drawing.Size(66, 13);
             this.labelusuario.TabIndex = 26;
             this.labelusuario.Text = "Vendedor:";
             // 
@@ -127,16 +129,17 @@
             this.TFecha.Location = new System.Drawing.Point(184, 60);
             this.TFecha.Name = "TFecha";
             this.TFecha.ReadOnly = true;
-            this.TFecha.Size = new System.Drawing.Size(181, 20);
+            this.TFecha.Size = new System.Drawing.Size(181, 21);
             this.TFecha.TabIndex = 2;
             // 
             // Ltipodoc
             // 
             this.Ltipodoc.AutoSize = true;
             this.Ltipodoc.BackColor = System.Drawing.Color.White;
+            this.Ltipodoc.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ltipodoc.Location = new System.Drawing.Point(181, 44);
             this.Ltipodoc.Name = "Ltipodoc";
-            this.Ltipodoc.Size = new System.Drawing.Size(40, 13);
+            this.Ltipodoc.Size = new System.Drawing.Size(45, 13);
             this.Ltipodoc.TabIndex = 24;
             this.Ltipodoc.Text = "Fecha:";
             // 
@@ -144,9 +147,10 @@
             // 
             this.LFecha.AutoSize = true;
             this.LFecha.BackColor = System.Drawing.Color.White;
+            this.LFecha.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LFecha.Location = new System.Drawing.Point(6, 44);
             this.LFecha.Name = "LFecha";
-            this.LFecha.Size = new System.Drawing.Size(52, 13);
+            this.LFecha.Size = new System.Drawing.Size(62, 13);
             this.LFecha.TabIndex = 23;
             this.LFecha.Text = "ID Venta:";
             // 
@@ -155,7 +159,7 @@
             this.TIdVenta.Location = new System.Drawing.Point(6, 60);
             this.TIdVenta.Name = "TIdVenta";
             this.TIdVenta.ReadOnly = true;
-            this.TIdVenta.Size = new System.Drawing.Size(162, 20);
+            this.TIdVenta.Size = new System.Drawing.Size(162, 21);
             this.TIdVenta.TabIndex = 1;
             // 
             // groupBox2
@@ -167,6 +171,7 @@
             this.groupBox2.Controls.Add(this.labelNombreCliente);
             this.groupBox2.Controls.Add(this.labeldocucliente);
             this.groupBox2.Controls.Add(this.TNombre);
+            this.groupBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(99, 179);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(654, 86);
@@ -179,16 +184,17 @@
             this.TDocumento.Location = new System.Drawing.Point(389, 58);
             this.TDocumento.Name = "TDocumento";
             this.TDocumento.ReadOnly = true;
-            this.TDocumento.Size = new System.Drawing.Size(191, 20);
+            this.TDocumento.Size = new System.Drawing.Size(191, 21);
             this.TDocumento.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(390, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "Documento:";
             // 
@@ -197,16 +203,17 @@
             this.TApellido.Location = new System.Drawing.Point(186, 58);
             this.TApellido.Name = "TApellido";
             this.TApellido.ReadOnly = true;
-            this.TApellido.Size = new System.Drawing.Size(179, 20);
+            this.TApellido.Size = new System.Drawing.Size(179, 21);
             this.TApellido.TabIndex = 5;
             // 
             // labelNombreCliente
             // 
             this.labelNombreCliente.AutoSize = true;
             this.labelNombreCliente.BackColor = System.Drawing.Color.White;
+            this.labelNombreCliente.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreCliente.Location = new System.Drawing.Point(183, 42);
             this.labelNombreCliente.Name = "labelNombreCliente";
-            this.labelNombreCliente.Size = new System.Drawing.Size(47, 13);
+            this.labelNombreCliente.Size = new System.Drawing.Size(57, 13);
             this.labelNombreCliente.TabIndex = 24;
             this.labelNombreCliente.Text = "Apellido:";
             // 
@@ -214,9 +221,10 @@
             // 
             this.labeldocucliente.AutoSize = true;
             this.labeldocucliente.BackColor = System.Drawing.Color.White;
+            this.labeldocucliente.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labeldocucliente.Location = new System.Drawing.Point(6, 42);
             this.labeldocucliente.Name = "labeldocucliente";
-            this.labeldocucliente.Size = new System.Drawing.Size(47, 13);
+            this.labeldocucliente.Size = new System.Drawing.Size(57, 13);
             this.labeldocucliente.TabIndex = 23;
             this.labeldocucliente.Text = "Nombre:";
             // 
@@ -225,7 +233,7 @@
             this.TNombre.Location = new System.Drawing.Point(6, 58);
             this.TNombre.Name = "TNombre";
             this.TNombre.ReadOnly = true;
-            this.TNombre.Size = new System.Drawing.Size(162, 20);
+            this.TNombre.Size = new System.Drawing.Size(162, 21);
             this.TNombre.TabIndex = 4;
             // 
             // DGDetalle
@@ -240,27 +248,27 @@
             this.Cprecio,
             this.Ccantidad,
             this.Csubtotal});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGDetalle.Location = new System.Drawing.Point(99, 271);
             this.DGDetalle.MultiSelect = false;
             this.DGDetalle.Name = "DGDetalle";
             this.DGDetalle.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGDetalle.RowTemplate.Height = 28;
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(654, 223);
@@ -317,9 +325,10 @@
             // 
             this.labmontocambio.AutoSize = true;
             this.labmontocambio.BackColor = System.Drawing.Color.White;
-            this.labmontocambio.Location = new System.Drawing.Point(434, 510);
+            this.labmontocambio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labmontocambio.Location = new System.Drawing.Point(405, 510);
             this.labmontocambio.Name = "labmontocambio";
-            this.labmontocambio.Size = new System.Drawing.Size(78, 13);
+            this.labmontocambio.Size = new System.Drawing.Size(94, 13);
             this.labmontocambio.TabIndex = 47;
             this.labmontocambio.Text = "Monto Cambio:";
             // 
@@ -327,9 +336,10 @@
             // 
             this.labmontopago.AutoSize = true;
             this.labmontopago.BackColor = System.Drawing.Color.White;
-            this.labmontopago.Location = new System.Drawing.Point(282, 510);
+            this.labmontopago.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labmontopago.Location = new System.Drawing.Point(247, 510);
             this.labmontopago.Name = "labmontopago";
-            this.labmontopago.Size = new System.Drawing.Size(68, 13);
+            this.labmontopago.Size = new System.Drawing.Size(78, 13);
             this.labmontopago.TabIndex = 48;
             this.labmontopago.Text = "Monto Pago:";
             // 
@@ -337,15 +347,16 @@
             // 
             this.labmontototal.AutoSize = true;
             this.labmontototal.BackColor = System.Drawing.Color.White;
-            this.labmontototal.Location = new System.Drawing.Point(118, 510);
+            this.labmontototal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labmontototal.Location = new System.Drawing.Point(88, 510);
             this.labmontototal.Name = "labmontototal";
-            this.labmontototal.Size = new System.Drawing.Size(67, 13);
+            this.labmontototal.Size = new System.Drawing.Size(77, 13);
             this.labmontototal.TabIndex = 49;
             this.labmontototal.Text = "Monto Total:";
             // 
             // TCambio
             // 
-            this.TCambio.Location = new System.Drawing.Point(515, 507);
+            this.TCambio.Location = new System.Drawing.Point(497, 507);
             this.TCambio.Name = "TCambio";
             this.TCambio.ReadOnly = true;
             this.TCambio.Size = new System.Drawing.Size(83, 20);
@@ -353,7 +364,7 @@
             // 
             // TPago
             // 
-            this.TPago.Location = new System.Drawing.Point(354, 507);
+            this.TPago.Location = new System.Drawing.Point(325, 507);
             this.TPago.Name = "TPago";
             this.TPago.ReadOnly = true;
             this.TPago.Size = new System.Drawing.Size(74, 20);
@@ -361,7 +372,7 @@
             // 
             // TTotal
             // 
-            this.TTotal.Location = new System.Drawing.Point(189, 507);
+            this.TTotal.Location = new System.Drawing.Point(162, 507);
             this.TTotal.Name = "TTotal";
             this.TTotal.ReadOnly = true;
             this.TTotal.Size = new System.Drawing.Size(78, 20);
@@ -372,16 +383,16 @@
             this.iconButton1.BackColor = System.Drawing.Color.White;
             this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton1.ForeColor = System.Drawing.Color.Black;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 23;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(604, 500);
+            this.iconButton1.Location = new System.Drawing.Point(586, 500);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(149, 32);
+            this.iconButton1.Size = new System.Drawing.Size(167, 32);
             this.iconButton1.TabIndex = 12;
             this.iconButton1.Text = "Descargar en Pdf";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

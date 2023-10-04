@@ -43,7 +43,7 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(306, 100);
@@ -55,10 +55,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 37);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(316, 29);
+            this.label5.Size = new System.Drawing.Size(312, 25);
             this.label5.TabIndex = 16;
             this.label5.Text = "Restaurar Bases de Datos";
             // 
@@ -93,7 +93,7 @@
             // 
             // BRestaurar
             // 
-            this.BRestaurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRestaurar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BRestaurar.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.BRestaurar.IconColor = System.Drawing.Color.Black;
             this.BRestaurar.IconFont = FontAwesome.Sharp.IconFont.Auto;

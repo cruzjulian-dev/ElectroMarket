@@ -63,6 +63,7 @@
             // MenuUser
             // 
             this.MenuUser.AutoSize = false;
+            this.MenuUser.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuUser.IconChar = FontAwesome.Sharp.IconChar.UserTag;
             this.MenuUser.IconColor = System.Drawing.Color.Black;
             this.MenuUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -80,6 +81,7 @@
             this.MenuProd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SMCategoria,
             this.SMProductos});
+            this.MenuProd.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuProd.IconChar = FontAwesome.Sharp.IconChar.Tools;
             this.MenuProd.IconColor = System.Drawing.Color.Black;
             this.MenuProd.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -94,20 +96,21 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(130, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
             this.SMCategoria.Text = "Categorias";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
             // 
             // SMProductos
             // 
             this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(130, 22);
+            this.SMProductos.Size = new System.Drawing.Size(180, 22);
             this.SMProductos.Text = "Productos";
             this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
             // 
             // MenuReportes
             // 
             this.MenuReportes.AutoSize = false;
+            this.MenuReportes.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuReportes.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
             this.MenuReportes.IconColor = System.Drawing.Color.Black;
             this.MenuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -170,7 +173,7 @@
             // LUsuario
             // 
             this.LUsuario.BackColor = System.Drawing.SystemColors.Window;
-            this.LUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUsuario.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LUsuario.Location = new System.Drawing.Point(915, 91);
             this.LUsuario.Name = "LUsuario";
             this.LUsuario.Size = new System.Drawing.Size(257, 21);
@@ -181,8 +184,8 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.SystemColors.Window;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(854, 107);
+            this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(848, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(159, 30);
             this.label5.TabIndex = 45;
@@ -192,8 +195,8 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.Window;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(818, 107);
+            this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(808, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 30);
             this.label6.TabIndex = 44;
@@ -203,10 +206,10 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.SystemColors.Window;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(818, 86);
+            this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(808, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 30);
+            this.label7.Size = new System.Drawing.Size(110, 30);
             this.label7.TabIndex = 43;
             this.label7.Text = "Bienvenido:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

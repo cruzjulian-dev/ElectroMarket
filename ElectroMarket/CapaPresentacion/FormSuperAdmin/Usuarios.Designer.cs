@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TTelefono = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.TUsuario = new System.Windows.Forms.TextBox();
@@ -82,9 +82,10 @@
             // 
             // TTelefono
             // 
+            this.TTelefono.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TTelefono.Location = new System.Drawing.Point(20, 311);
             this.TTelefono.Name = "TTelefono";
-            this.TTelefono.Size = new System.Drawing.Size(180, 20);
+            this.TTelefono.Size = new System.Drawing.Size(180, 21);
             this.TTelefono.TabIndex = 16;
             this.TTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTelefono_KeyPress);
             // 
@@ -92,17 +93,19 @@
             // 
             this.LTelefono.AutoSize = true;
             this.LTelefono.BackColor = System.Drawing.Color.White;
+            this.LTelefono.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTelefono.Location = new System.Drawing.Point(21, 295);
             this.LTelefono.Name = "LTelefono";
-            this.LTelefono.Size = new System.Drawing.Size(52, 13);
+            this.LTelefono.Size = new System.Drawing.Size(60, 13);
             this.LTelefono.TabIndex = 52;
             this.LTelefono.Text = "Telefono:";
             // 
             // TUsuario
             // 
+            this.TUsuario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TUsuario.Location = new System.Drawing.Point(20, 184);
             this.TUsuario.Name = "TUsuario";
-            this.TUsuario.Size = new System.Drawing.Size(180, 20);
+            this.TUsuario.Size = new System.Drawing.Size(180, 21);
             this.TUsuario.TabIndex = 13;
             this.TUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TUsuario_KeyPress);
             // 
@@ -110,27 +113,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 168);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 50;
             this.label1.Text = "Usuario:";
             // 
             // DTFecha
             // 
+            this.DTFecha.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTFecha.Location = new System.Drawing.Point(20, 269);
             this.DTFecha.Name = "DTFecha";
-            this.DTFecha.Size = new System.Drawing.Size(180, 20);
+            this.DTFecha.Size = new System.Drawing.Size(180, 21);
             this.DTFecha.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 26);
+            this.label2.Size = new System.Drawing.Size(241, 26);
             this.label2.TabIndex = 49;
             this.label2.Text = "Gestión de Usuarios";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -140,7 +145,7 @@
             this.BEditar.BackColor = System.Drawing.Color.DarkCyan;
             this.BEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BEditar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BEditar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BEditar.ForeColor = System.Drawing.Color.White;
             this.BEditar.IconChar = FontAwesome.Sharp.IconChar.EarthAmericas;
             this.BEditar.IconColor = System.Drawing.Color.White;
@@ -161,7 +166,7 @@
             this.BGuardar.BackColor = System.Drawing.Color.ForestGreen;
             this.BGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BGuardar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BGuardar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BGuardar.ForeColor = System.Drawing.Color.White;
             this.BGuardar.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.BGuardar.IconColor = System.Drawing.Color.White;
@@ -179,33 +184,37 @@
             // 
             // TDomicilio
             // 
+            this.TDomicilio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDomicilio.Location = new System.Drawing.Point(20, 354);
             this.TDomicilio.Name = "TDomicilio";
-            this.TDomicilio.Size = new System.Drawing.Size(180, 20);
+            this.TDomicilio.Size = new System.Drawing.Size(180, 21);
             this.TDomicilio.TabIndex = 17;
             this.TDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDomicilio_KeyPress);
             // 
             // TApellido
             // 
+            this.TApellido.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TApellido.Location = new System.Drawing.Point(20, 100);
             this.TApellido.Name = "TApellido";
-            this.TApellido.Size = new System.Drawing.Size(180, 20);
+            this.TApellido.Size = new System.Drawing.Size(180, 21);
             this.TApellido.TabIndex = 11;
             this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
             // TDni
             // 
+            this.TDni.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDni.Location = new System.Drawing.Point(20, 141);
             this.TDni.Name = "TDni";
-            this.TDni.Size = new System.Drawing.Size(180, 20);
+            this.TDni.Size = new System.Drawing.Size(180, 21);
             this.TDni.TabIndex = 12;
             this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // TNombre
             // 
+            this.TNombre.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombre.Location = new System.Drawing.Point(20, 59);
             this.TNombre.Name = "TNombre";
-            this.TNombre.Size = new System.Drawing.Size(180, 20);
+            this.TNombre.Size = new System.Drawing.Size(180, 21);
             this.TNombre.TabIndex = 10;
             this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
@@ -213,9 +222,10 @@
             // 
             this.LFecha.AutoSize = true;
             this.LFecha.BackColor = System.Drawing.Color.White;
+            this.LFecha.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LFecha.Location = new System.Drawing.Point(21, 253);
             this.LFecha.Name = "LFecha";
-            this.LFecha.Size = new System.Drawing.Size(111, 13);
+            this.LFecha.Size = new System.Drawing.Size(130, 13);
             this.LFecha.TabIndex = 42;
             this.LFecha.Text = "Fecha de Nacimiento:";
             // 
@@ -223,9 +233,10 @@
             // 
             this.LDomicilio.AutoSize = true;
             this.LDomicilio.BackColor = System.Drawing.Color.White;
+            this.LDomicilio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDomicilio.Location = new System.Drawing.Point(21, 338);
             this.LDomicilio.Name = "LDomicilio";
-            this.LDomicilio.Size = new System.Drawing.Size(52, 13);
+            this.LDomicilio.Size = new System.Drawing.Size(64, 13);
             this.LDomicilio.TabIndex = 40;
             this.LDomicilio.Text = "Domicilio:";
             // 
@@ -233,9 +244,10 @@
             // 
             this.LDni.AutoSize = true;
             this.LDni.BackColor = System.Drawing.Color.White;
+            this.LDni.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDni.Location = new System.Drawing.Point(21, 125);
             this.LDni.Name = "LDni";
-            this.LDni.Size = new System.Drawing.Size(29, 13);
+            this.LDni.Size = new System.Drawing.Size(34, 13);
             this.LDni.TabIndex = 38;
             this.LDni.Text = "DNI:";
             // 
@@ -243,9 +255,10 @@
             // 
             this.LApellido.AutoSize = true;
             this.LApellido.BackColor = System.Drawing.Color.White;
+            this.LApellido.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LApellido.Location = new System.Drawing.Point(21, 84);
             this.LApellido.Name = "LApellido";
-            this.LApellido.Size = new System.Drawing.Size(47, 13);
+            this.LApellido.Size = new System.Drawing.Size(57, 13);
             this.LApellido.TabIndex = 36;
             this.LApellido.Text = "Apellido:";
             // 
@@ -253,9 +266,10 @@
             // 
             this.LNombre.AutoSize = true;
             this.LNombre.BackColor = System.Drawing.Color.White;
+            this.LNombre.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombre.Location = new System.Drawing.Point(21, 43);
             this.LNombre.Name = "LNombre";
-            this.LNombre.Size = new System.Drawing.Size(47, 13);
+            this.LNombre.Size = new System.Drawing.Size(57, 13);
             this.LNombre.TabIndex = 35;
             this.LNombre.Text = "Nombre:";
             // 
@@ -273,7 +287,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(291, 32);
             this.label3.Name = "label3";
@@ -359,9 +373,9 @@
             // 
             // CFechaNacim
             // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.CFechaNacim.DefaultCellStyle = dataGridViewCellStyle2;
             this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
             this.CFechaNacim.Name = "CFechaNacim";
             this.CFechaNacim.ReadOnly = true;
@@ -410,18 +424,20 @@
             // 
             // TContra
             // 
+            this.TContra.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TContra.Location = new System.Drawing.Point(20, 226);
             this.TContra.Name = "TContra";
-            this.TContra.Size = new System.Drawing.Size(180, 20);
+            this.TContra.Size = new System.Drawing.Size(180, 21);
             this.TContra.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(21, 210);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 56;
             this.label5.Text = "Contraseña:";
             // 
@@ -430,6 +446,7 @@
             this.CBEstado.BackColor = System.Drawing.Color.White;
             this.CBEstado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBEstado.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEstado.FormattingEnabled = true;
             this.CBEstado.Location = new System.Drawing.Point(20, 437);
             this.CBEstado.Name = "CBEstado";
@@ -440,9 +457,10 @@
             // 
             this.lEstado.AutoSize = true;
             this.lEstado.BackColor = System.Drawing.Color.White;
+            this.lEstado.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lEstado.Location = new System.Drawing.Point(21, 421);
             this.lEstado.Name = "lEstado";
-            this.lEstado.Size = new System.Drawing.Size(43, 13);
+            this.lEstado.Size = new System.Drawing.Size(50, 13);
             this.lEstado.TabIndex = 58;
             this.lEstado.Text = "Estado:";
             // 
@@ -451,6 +469,7 @@
             this.CBRol.BackColor = System.Drawing.Color.White;
             this.CBRol.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBRol.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBRol.FormattingEnabled = true;
             this.CBRol.Location = new System.Drawing.Point(20, 393);
             this.CBRol.Name = "CBRol";
@@ -461,9 +480,10 @@
             // 
             this.LRol.AutoSize = true;
             this.LRol.BackColor = System.Drawing.Color.White;
+            this.LRol.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LRol.Location = new System.Drawing.Point(21, 377);
             this.LRol.Name = "LRol";
-            this.LRol.Size = new System.Drawing.Size(26, 13);
+            this.LRol.Size = new System.Drawing.Size(30, 13);
             this.LRol.TabIndex = 60;
             this.LRol.Text = "Rol:";
             // 
@@ -509,9 +529,10 @@
             // TBusqueda
             // 
             this.TBusqueda.BackColor = System.Drawing.Color.White;
+            this.TBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBusqueda.Location = new System.Drawing.Point(971, 50);
             this.TBusqueda.Name = "TBusqueda";
-            this.TBusqueda.Size = new System.Drawing.Size(100, 20);
+            this.TBusqueda.Size = new System.Drawing.Size(100, 21);
             this.TBusqueda.TabIndex = 62;
             this.TBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBusqueda_KeyPress);
             // 
@@ -520,6 +541,7 @@
             this.CBBusqueda.BackColor = System.Drawing.Color.White;
             this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBBusqueda.FormattingEnabled = true;
             this.CBBusqueda.Location = new System.Drawing.Point(879, 50);
             this.CBBusqueda.Name = "CBBusqueda";
@@ -530,15 +552,16 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(811, 54);
+            this.label6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(799, 54);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 65;
             this.label6.Text = "Buscar Por:";
             // 
             // TId
             // 
-            this.TId.Location = new System.Drawing.Point(220, 51);
+            this.TId.Location = new System.Drawing.Point(220, 77);
             this.TId.Name = "TId";
             this.TId.Size = new System.Drawing.Size(33, 20);
             this.TId.TabIndex = 66;
@@ -546,7 +569,7 @@
             // 
             // TIndice
             // 
-            this.TIndice.Location = new System.Drawing.Point(220, 25);
+            this.TIndice.Location = new System.Drawing.Point(220, 40);
             this.TIndice.Name = "TIndice";
             this.TIndice.Size = new System.Drawing.Size(33, 20);
             this.TIndice.TabIndex = 67;

@@ -65,20 +65,20 @@
             // LUser
             // 
             this.LUser.AutoSize = true;
-            this.LUser.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUser.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LUser.Location = new System.Drawing.Point(34, 106);
             this.LUser.Name = "LUser";
-            this.LUser.Size = new System.Drawing.Size(57, 17);
+            this.LUser.Size = new System.Drawing.Size(61, 16);
             this.LUser.TabIndex = 3;
             this.LUser.Text = "Usuario:";
             // 
             // LContra
             // 
             this.LContra.AutoSize = true;
-            this.LContra.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LContra.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LContra.Location = new System.Drawing.Point(34, 167);
             this.LContra.Name = "LContra";
-            this.LContra.Size = new System.Drawing.Size(79, 17);
+            this.LContra.Size = new System.Drawing.Size(88, 16);
             this.LContra.TabIndex = 4;
             this.LContra.Text = "Contraseña:";
             // 
@@ -97,7 +97,7 @@
             // 
             this.BSalir.BackColor = System.Drawing.Color.Red;
             this.BSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BSalir.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BSalir.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSalir.ForeColor = System.Drawing.Color.White;
             this.BSalir.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.BSalir.IconColor = System.Drawing.Color.White;
@@ -117,7 +117,7 @@
             // 
             this.BIngresar.BackColor = System.Drawing.Color.ForestGreen;
             this.BIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BIngresar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BIngresar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BIngresar.ForeColor = System.Drawing.Color.White;
             this.BIngresar.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             this.BIngresar.IconColor = System.Drawing.Color.White;

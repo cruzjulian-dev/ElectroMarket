@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.DGMisVentas = new System.Windows.Forms.DataGridView();
+            this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,14 +49,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,130 +69,6 @@
             this.DGMisVentas.Size = new System.Drawing.Size(843, 443);
             this.DGMisVentas.TabIndex = 12;
             this.DGMisVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(892, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Total vendido:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(293, 502);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Cantidad de ventas realizadas:";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 30);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "Mis Ventas";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(264, 561);
-            this.label4.TabIndex = 59;
-            // 
-            // LTotal
-            // 
-            this.LTotal.AutoSize = true;
-            this.LTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTotal.Location = new System.Drawing.Point(1001, 502);
-            this.LTotal.Name = "LTotal";
-            this.LTotal.Size = new System.Drawing.Size(21, 20);
-            this.LTotal.TabIndex = 60;
-            this.LTotal.Text = "...";
-            // 
-            // LVentas
-            // 
-            this.LVentas.AutoSize = true;
-            this.LVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LVentas.Location = new System.Drawing.Point(525, 502);
-            this.LVentas.Name = "LVentas";
-            this.LVentas.Size = new System.Drawing.Size(21, 20);
-            this.LVentas.TabIndex = 61;
-            this.LVentas.Text = "...";
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 97);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 54);
-            this.label5.TabIndex = 62;
-            this.label5.Text = "Seleccione el rango de fechas en el que desea filtrar sus ventas";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(27, 185);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 18);
-            this.label6.TabIndex = 63;
-            this.label6.Text = "Desde:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(27, 284);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 18);
-            this.label7.TabIndex = 64;
-            this.label7.Text = "Hasta:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(30, 216);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 65;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(30, 315);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 66;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(51, 389);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(133, 55);
-            this.iconButton1.TabIndex = 67;
-            this.iconButton1.Text = "Buscar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // CIdVenta
             // 
@@ -248,6 +124,132 @@
             this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CDetalle.Width = 70;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(870, 502);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 18);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Total vendido:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(293, 502);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Cantidad de ventas realizadas:";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(55, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 30);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Mis Ventas";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(264, 561);
+            this.label4.TabIndex = 59;
+            // 
+            // LTotal
+            // 
+            this.LTotal.AutoSize = true;
+            this.LTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTotal.Location = new System.Drawing.Point(1001, 502);
+            this.LTotal.Name = "LTotal";
+            this.LTotal.Size = new System.Drawing.Size(26, 18);
+            this.LTotal.TabIndex = 60;
+            this.LTotal.Text = "...";
+            // 
+            // LVentas
+            // 
+            this.LVentas.AutoSize = true;
+            this.LVentas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVentas.Location = new System.Drawing.Point(564, 502);
+            this.LVentas.Name = "LVentas";
+            this.LVentas.Size = new System.Drawing.Size(26, 18);
+            this.LVentas.TabIndex = 61;
+            this.LVentas.Text = "...";
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 97);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(231, 54);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Seleccione el rango de fechas en el que desea filtrar sus ventas";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(27, 185);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 18);
+            this.label6.TabIndex = 63;
+            this.label6.Text = "Desde:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(27, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 18);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "Hasta:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(30, 216);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 65;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(30, 315);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker2.TabIndex = 66;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(51, 389);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(133, 55);
+            this.iconButton1.TabIndex = 67;
+            this.iconButton1.Text = "Buscar";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // MisVentas
             // 

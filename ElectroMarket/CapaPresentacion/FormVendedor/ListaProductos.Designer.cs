@@ -34,9 +34,6 @@
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.DGProductos = new System.Windows.Forms.DataGridView();
-            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.CId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,15 +42,19 @@
             this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.White;
+            this.txtBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusqueda.Location = new System.Drawing.Point(575, 75);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(100, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(100, 21);
             this.txtBusqueda.TabIndex = 2;
             // 
             // cboBusqueda
@@ -61,6 +62,7 @@
             this.cboBusqueda.BackColor = System.Drawing.Color.White;
             this.cboBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBusqueda.FormattingEnabled = true;
             this.cboBusqueda.Items.AddRange(new object[] {
             "Nombre",
@@ -75,9 +77,10 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.BackColor = System.Drawing.Color.White;
-            this.lblBuscar.Location = new System.Drawing.Point(415, 77);
+            this.lblBuscar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.Location = new System.Drawing.Point(403, 77);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(62, 13);
+            this.lblBuscar.Size = new System.Drawing.Size(74, 13);
             this.lblBuscar.TabIndex = 41;
             this.lblBuscar.Text = "Buscar Por:";
             // 
@@ -122,52 +125,6 @@
             this.DGProductos.Size = new System.Drawing.Size(743, 403);
             this.DGProductos.TabIndex = 5;
             this.DGProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
-            // 
-            // icoBtnBuscar
-            // 
-            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(681, 67);
-            this.icoBtnBuscar.Name = "icoBtnBuscar";
-            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 3;
-            this.icoBtnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // icoBtnLimpiar
-            // 
-            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(722, 67);
-            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
-            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 4;
-            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(28, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(743, 77);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Lista de Productos:";
             // 
             // CId
             // 
@@ -226,6 +183,52 @@
             this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CSeleccionar.Width = 80;
+            // 
+            // icoBtnBuscar
+            // 
+            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnBuscar.IconSize = 23;
+            this.icoBtnBuscar.Location = new System.Drawing.Point(681, 67);
+            this.icoBtnBuscar.Name = "icoBtnBuscar";
+            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnBuscar.TabIndex = 3;
+            this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // icoBtnLimpiar
+            // 
+            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnLimpiar.IconSize = 23;
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(722, 67);
+            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
+            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnLimpiar.TabIndex = 4;
+            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(28, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(743, 77);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Lista de Productos:";
             // 
             // ListaProductos
             // 

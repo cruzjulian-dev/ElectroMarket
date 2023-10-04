@@ -59,10 +59,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(316, 29);
+            this.label5.Size = new System.Drawing.Size(312, 25);
             this.label5.TabIndex = 7;
             this.label5.Text = "Restaurar Bases de Datos";
             // 
@@ -70,42 +70,43 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 124);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 79);
+            this.label1.Size = new System.Drawing.Size(306, 75);
             this.label1.TabIndex = 8;
             this.label1.Text = "Para restaurar una base de datos, seleccione el archivo .bak y continuación presi" +
     "one en Restaurar";
             // 
             // TSeleccionado
             // 
+            this.TSeleccionado.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSeleccionado.Location = new System.Drawing.Point(12, 359);
             this.TSeleccionado.Name = "TSeleccionado";
-            this.TSeleccionado.Size = new System.Drawing.Size(283, 20);
+            this.TSeleccionado.Size = new System.Drawing.Size(283, 21);
             this.TSeleccionado.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Control;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 338);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 18);
+            this.label2.Size = new System.Drawing.Size(170, 18);
             this.label2.TabIndex = 14;
             this.label2.Text = "Archivo seleccionado:";
             // 
             // BRestaurar
             // 
-            this.BRestaurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRestaurar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BRestaurar.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.BRestaurar.IconColor = System.Drawing.Color.Black;
             this.BRestaurar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BRestaurar.Location = new System.Drawing.Point(82, 445);
+            this.BRestaurar.Location = new System.Drawing.Point(75, 445);
             this.BRestaurar.Name = "BRestaurar";
-            this.BRestaurar.Size = new System.Drawing.Size(148, 58);
+            this.BRestaurar.Size = new System.Drawing.Size(155, 58);
             this.BRestaurar.TabIndex = 13;
             this.BRestaurar.Text = "Restaurar";
             this.BRestaurar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,7 +115,7 @@
             // 
             // BBuscar
             // 
-            this.BBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBuscar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             this.BBuscar.IconColor = System.Drawing.Color.Black;
             this.BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;

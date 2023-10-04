@@ -208,5 +208,12 @@ namespace CapaPresentacion
             // Si todos los campos están completos y se ha seleccionado una opción en los ComboBox, y una fecha en el DateTimePicker, devuelve true
             return true;
         }
+
+        private void BLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            BGuardar.Enabled = true;
+            BEditar.Enabled = false;
+        }
     }
 }

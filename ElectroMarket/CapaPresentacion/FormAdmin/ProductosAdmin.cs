@@ -266,5 +266,12 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void BLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            BGuardar.Enabled = true;
+            BEditar.Enabled = false;
+        }
     }
 }

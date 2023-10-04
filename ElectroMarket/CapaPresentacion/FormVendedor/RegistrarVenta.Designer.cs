@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -94,7 +94,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(125, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(191, 30);
@@ -109,6 +109,7 @@
             this.groupBox1.Controls.Add(this.Ltipodoc);
             this.groupBox1.Controls.Add(this.TTipoDoc);
             this.groupBox1.Controls.Add(this.LFecha);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(129, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(267, 100);
@@ -118,24 +119,27 @@
             // 
             // TFecha
             // 
+            this.TFecha.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TFecha.Location = new System.Drawing.Point(6, 62);
             this.TFecha.Name = "TFecha";
             this.TFecha.ReadOnly = true;
-            this.TFecha.Size = new System.Drawing.Size(116, 20);
+            this.TFecha.Size = new System.Drawing.Size(116, 21);
             this.TFecha.TabIndex = 25;
             // 
             // Ltipodoc
             // 
             this.Ltipodoc.AutoSize = true;
             this.Ltipodoc.BackColor = System.Drawing.Color.White;
+            this.Ltipodoc.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ltipodoc.Location = new System.Drawing.Point(125, 45);
             this.Ltipodoc.Name = "Ltipodoc";
-            this.Ltipodoc.Size = new System.Drawing.Size(86, 13);
+            this.Ltipodoc.Size = new System.Drawing.Size(100, 13);
             this.Ltipodoc.TabIndex = 24;
             this.Ltipodoc.Text = "Tipo Documento";
             // 
             // TTipoDoc
             // 
+            this.TTipoDoc.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TTipoDoc.FormattingEnabled = true;
             this.TTipoDoc.Items.AddRange(new object[] {
             "Factura"});
@@ -148,9 +152,10 @@
             // 
             this.LFecha.AutoSize = true;
             this.LFecha.BackColor = System.Drawing.Color.White;
+            this.LFecha.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LFecha.Location = new System.Drawing.Point(16, 46);
             this.LFecha.Name = "LFecha";
-            this.LFecha.Size = new System.Drawing.Size(40, 13);
+            this.LFecha.Size = new System.Drawing.Size(45, 13);
             this.LFecha.TabIndex = 23;
             this.LFecha.Text = "Fecha:";
             // 
@@ -162,6 +167,7 @@
             this.groupBox2.Controls.Add(this.lnombrecom);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.TDni);
+            this.groupBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(453, 53);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(297, 100);
@@ -171,10 +177,11 @@
             // 
             // TNomApe
             // 
+            this.TNomApe.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNomApe.Location = new System.Drawing.Point(157, 60);
             this.TNomApe.Name = "TNomApe";
             this.TNomApe.ReadOnly = true;
-            this.TNomApe.Size = new System.Drawing.Size(134, 20);
+            this.TNomApe.Size = new System.Drawing.Size(134, 21);
             this.TNomApe.TabIndex = 5;
             // 
             // BCliente
@@ -199,9 +206,10 @@
             // 
             this.lnombrecom.AutoSize = true;
             this.lnombrecom.BackColor = System.Drawing.Color.White;
+            this.lnombrecom.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnombrecom.Location = new System.Drawing.Point(152, 45);
             this.lnombrecom.Name = "lnombrecom";
-            this.lnombrecom.Size = new System.Drawing.Size(91, 13);
+            this.lnombrecom.Size = new System.Drawing.Size(111, 13);
             this.lnombrecom.TabIndex = 24;
             this.lnombrecom.Text = "Nombre Completo";
             // 
@@ -209,18 +217,20 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(6, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "Nro Documento:";
             // 
             // TDni
             // 
+            this.TDni.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDni.Location = new System.Drawing.Point(6, 62);
             this.TDni.Name = "TDni";
             this.TDni.ReadOnly = true;
-            this.TDni.Size = new System.Drawing.Size(100, 20);
+            this.TDni.Size = new System.Drawing.Size(100, 21);
             this.TDni.TabIndex = 3;
             // 
             // groupBox3
@@ -237,6 +247,7 @@
             this.groupBox3.Controls.Add(this.lproducto);
             this.groupBox3.Controls.Add(this.Lcodprod);
             this.groupBox3.Controls.Add(this.TCod);
+            this.groupBox3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(129, 159);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(621, 100);
@@ -246,9 +257,10 @@
             // 
             // TCantidad
             // 
+            this.TCantidad.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TCantidad.Location = new System.Drawing.Point(533, 63);
             this.TCantidad.Name = "TCantidad";
-            this.TCantidad.Size = new System.Drawing.Size(82, 20);
+            this.TCantidad.Size = new System.Drawing.Size(82, 21);
             this.TCantidad.TabIndex = 11;
             this.TCantidad.Value = new decimal(new int[] {
             1,
@@ -258,19 +270,21 @@
             // 
             // TProd
             // 
+            this.TProd.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TProd.Location = new System.Drawing.Point(174, 61);
             this.TProd.Name = "TProd";
             this.TProd.ReadOnly = true;
-            this.TProd.Size = new System.Drawing.Size(166, 20);
+            this.TProd.Size = new System.Drawing.Size(166, 21);
             this.TProd.TabIndex = 8;
             // 
             // LCantidad
             // 
             this.LCantidad.AutoSize = true;
             this.LCantidad.BackColor = System.Drawing.Color.White;
+            this.LCantidad.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCantidad.Location = new System.Drawing.Point(530, 47);
             this.LCantidad.Name = "LCantidad";
-            this.LCantidad.Size = new System.Drawing.Size(52, 13);
+            this.LCantidad.Size = new System.Drawing.Size(63, 13);
             this.LCantidad.TabIndex = 33;
             this.LCantidad.Text = "Cantidad:";
             // 
@@ -278,36 +292,40 @@
             // 
             this.lstock.AutoSize = true;
             this.lstock.BackColor = System.Drawing.Color.White;
+            this.lstock.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstock.Location = new System.Drawing.Point(431, 45);
             this.lstock.Name = "lstock";
-            this.lstock.Size = new System.Drawing.Size(38, 13);
+            this.lstock.Size = new System.Drawing.Size(44, 13);
             this.lstock.TabIndex = 31;
             this.lstock.Text = "Stock:";
             // 
             // TStock
             // 
+            this.TStock.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TStock.Location = new System.Drawing.Point(434, 62);
             this.TStock.Name = "TStock";
             this.TStock.ReadOnly = true;
-            this.TStock.Size = new System.Drawing.Size(82, 20);
+            this.TStock.Size = new System.Drawing.Size(82, 21);
             this.TStock.TabIndex = 10;
             // 
             // lprecio
             // 
             this.lprecio.AutoSize = true;
             this.lprecio.BackColor = System.Drawing.Color.White;
+            this.lprecio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lprecio.Location = new System.Drawing.Point(343, 46);
             this.lprecio.Name = "lprecio";
-            this.lprecio.Size = new System.Drawing.Size(40, 13);
+            this.lprecio.Size = new System.Drawing.Size(47, 13);
             this.lprecio.TabIndex = 29;
             this.lprecio.Text = "Precio:";
             // 
             // TPrecio
             // 
+            this.TPrecio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPrecio.Location = new System.Drawing.Point(346, 62);
             this.TPrecio.Name = "TPrecio";
             this.TPrecio.ReadOnly = true;
-            this.TPrecio.Size = new System.Drawing.Size(82, 20);
+            this.TPrecio.Size = new System.Drawing.Size(82, 21);
             this.TPrecio.TabIndex = 9;
             // 
             // BProd
@@ -332,9 +350,10 @@
             // 
             this.lproducto.AutoSize = true;
             this.lproducto.BackColor = System.Drawing.Color.White;
+            this.lproducto.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lproducto.Location = new System.Drawing.Point(179, 43);
             this.lproducto.Name = "lproducto";
-            this.lproducto.Size = new System.Drawing.Size(53, 13);
+            this.lproducto.Size = new System.Drawing.Size(62, 13);
             this.lproducto.TabIndex = 24;
             this.lproducto.Text = "Producto:";
             // 
@@ -342,18 +361,20 @@
             // 
             this.Lcodprod.AutoSize = true;
             this.Lcodprod.BackColor = System.Drawing.Color.White;
+            this.Lcodprod.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lcodprod.Location = new System.Drawing.Point(3, 45);
             this.Lcodprod.Name = "Lcodprod";
-            this.Lcodprod.Size = new System.Drawing.Size(78, 13);
+            this.Lcodprod.Size = new System.Drawing.Size(93, 13);
             this.Lcodprod.TabIndex = 23;
             this.Lcodprod.Text = "Cod. Producto:";
             // 
             // TCod
             // 
+            this.TCod.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TCod.Location = new System.Drawing.Point(6, 62);
             this.TCod.Name = "TCod";
             this.TCod.ReadOnly = true;
-            this.TCod.Size = new System.Drawing.Size(121, 20);
+            this.TCod.Size = new System.Drawing.Size(121, 21);
             this.TCod.TabIndex = 6;
             // 
             // DGDetalle
@@ -368,27 +389,27 @@
             this.Ccantidad,
             this.Csubtotal,
             this.CEliminar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGDetalle.Location = new System.Drawing.Point(129, 265);
             this.DGDetalle.MultiSelect = false;
             this.DGDetalle.Name = "DGDetalle";
             this.DGDetalle.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGDetalle.RowTemplate.Height = 28;
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(622, 241);
@@ -449,9 +470,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(767, 324);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
+            this.label9.Size = new System.Drawing.Size(87, 13);
             this.label9.TabIndex = 27;
             this.label9.Text = "Total a Pagar:";
             // 
@@ -459,9 +481,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(767, 402);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 28;
             this.label10.Text = "Cambio:";
             // 
@@ -469,35 +492,39 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(767, 363);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.Size = new System.Drawing.Size(64, 13);
             this.label11.TabIndex = 29;
             this.label11.Text = "Paga con:";
             // 
             // TPagaCon
             // 
+            this.TPagaCon.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPagaCon.Location = new System.Drawing.Point(770, 379);
             this.TPagaCon.Name = "TPagaCon";
-            this.TPagaCon.Size = new System.Drawing.Size(86, 20);
+            this.TPagaCon.Size = new System.Drawing.Size(86, 21);
             this.TPagaCon.TabIndex = 15;
             this.TPagaCon.TextChanged += new System.EventHandler(this.TPagaCon_TextChanged);
             this.TPagaCon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TPagaCon_KeyPress);
             // 
             // TCambio
             // 
+            this.TCambio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TCambio.Location = new System.Drawing.Point(770, 418);
             this.TCambio.Name = "TCambio";
             this.TCambio.ReadOnly = true;
-            this.TCambio.Size = new System.Drawing.Size(86, 20);
+            this.TCambio.Size = new System.Drawing.Size(86, 21);
             this.TCambio.TabIndex = 16;
             // 
             // TTotal
             // 
+            this.TTotal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TTotal.Location = new System.Drawing.Point(770, 340);
             this.TTotal.Name = "TTotal";
             this.TTotal.ReadOnly = true;
-            this.TTotal.Size = new System.Drawing.Size(86, 20);
+            this.TTotal.Size = new System.Drawing.Size(86, 21);
             this.TTotal.TabIndex = 14;
             this.TTotal.Text = "0";
             // 
@@ -505,7 +532,7 @@
             // 
             this.BVender.BackColor = System.Drawing.Color.DarkCyan;
             this.BVender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BVender.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BVender.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BVender.ForeColor = System.Drawing.Color.White;
             this.BVender.IconChar = FontAwesome.Sharp.IconChar.Tags;
             this.BVender.IconColor = System.Drawing.Color.White;
@@ -526,7 +553,7 @@
             this.BAgregar.BackColor = System.Drawing.Color.ForestGreen;
             this.BAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BAgregar.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
-            this.BAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BAgregar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BAgregar.ForeColor = System.Drawing.Color.White;
             this.BAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.BAgregar.IconColor = System.Drawing.Color.White;
@@ -547,7 +574,7 @@
             this.iconButton1.BackColor = System.Drawing.Color.White;
             this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton1.ForeColor = System.Drawing.Color.Black;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Broom;
             this.iconButton1.IconColor = System.Drawing.Color.Black;

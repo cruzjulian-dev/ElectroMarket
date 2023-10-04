@@ -87,6 +87,7 @@
             // MenuUser
             // 
             this.MenuUser.AutoSize = false;
+            this.MenuUser.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuUser.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             this.MenuUser.IconColor = System.Drawing.Color.Black;
             this.MenuUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -101,6 +102,7 @@
             // MenuProd
             // 
             this.MenuProd.AutoSize = false;
+            this.MenuProd.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuProd.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.MenuProd.IconColor = System.Drawing.Color.Black;
             this.MenuProd.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -115,13 +117,14 @@
             // MenuReportes
             // 
             this.MenuReportes.AutoSize = false;
+            this.MenuReportes.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuReportes.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
             this.MenuReportes.IconColor = System.Drawing.Color.Black;
             this.MenuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MenuReportes.IconSize = 46;
             this.MenuReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuReportes.Name = "MenuReportes";
-            this.MenuReportes.Size = new System.Drawing.Size(160, 65);
+            this.MenuReportes.Size = new System.Drawing.Size(170, 65);
             this.MenuReportes.Text = "Restaurar Base de Datos";
             this.MenuReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuReportes.Click += new System.EventHandler(this.MenuReportes_Click);
@@ -148,10 +151,10 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.SystemColors.Window;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(854, 112);
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(855, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 30);
+            this.label3.Size = new System.Drawing.Size(217, 25);
             this.label3.TabIndex = 41;
             this.label3.Text = "Super Administrador";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,10 +162,10 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.SystemColors.Window;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(818, 112);
+            this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(815, 112);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 30);
+            this.label5.Size = new System.Drawing.Size(72, 30);
             this.label5.TabIndex = 40;
             this.label5.Text = "Rol:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,10 +173,10 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.Window;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(818, 90);
+            this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(815, 90);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 30);
+            this.label6.Size = new System.Drawing.Size(119, 30);
             this.label6.TabIndex = 39;
             this.label6.Text = "Bienvenido:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,7 +184,7 @@
             // LUsuario
             // 
             this.LUsuario.BackColor = System.Drawing.SystemColors.Window;
-            this.LUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUsuario.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LUsuario.Location = new System.Drawing.Point(917, 95);
             this.LUsuario.Name = "LUsuario";
             this.LUsuario.Size = new System.Drawing.Size(255, 21);

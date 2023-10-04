@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.DGClientes = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.cboBusqueda = new System.Windows.Forms.ComboBox();
-            this.lblBuscar = new System.Windows.Forms.Label();
-            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.CIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +40,11 @@
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDomicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cboBusqueda = new System.Windows.Forms.ComboBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
@@ -73,27 +73,27 @@
             this.CTelefono,
             this.CDomicilio,
             this.CSeleccionar});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGClientes.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGClientes.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGClientes.Location = new System.Drawing.Point(12, 116);
             this.DGClientes.MultiSelect = false;
             this.DGClientes.Name = "DGClientes";
             this.DGClientes.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DGClientes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.DGClientes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DGClientes.RowTemplate.Height = 28;
@@ -101,73 +101,6 @@
             this.DGClientes.Size = new System.Drawing.Size(733, 209);
             this.DGClientes.TabIndex = 5;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(550, 54);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 2;
-            // 
-            // cboBusqueda
-            // 
-            this.cboBusqueda.BackColor = System.Drawing.Color.White;
-            this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBusqueda.FormattingEnabled = true;
-            this.cboBusqueda.Items.AddRange(new object[] {
-            "ID",
-            "DNI",
-            "Nombre",
-            "Apellido"});
-            this.cboBusqueda.Location = new System.Drawing.Point(458, 53);
-            this.cboBusqueda.Name = "cboBusqueda";
-            this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
-            this.cboBusqueda.TabIndex = 1;
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.BackColor = System.Drawing.Color.White;
-            this.lblBuscar.Location = new System.Drawing.Point(390, 56);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(62, 13);
-            this.lblBuscar.TabIndex = 27;
-            this.lblBuscar.Text = "Buscar Por:";
-            // 
-            // icoBtnBuscar
-            // 
-            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(656, 46);
-            this.icoBtnBuscar.Name = "icoBtnBuscar";
-            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 3;
-            this.icoBtnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // icoBtnLimpiar
-            // 
-            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(697, 46);
-            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
-            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 4;
-            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
             // 
             // CIdCliente
             // 
@@ -220,6 +153,76 @@
             this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CSeleccionar.Width = 90;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(550, 54);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 21);
+            this.textBox4.TabIndex = 2;
+            // 
+            // cboBusqueda
+            // 
+            this.cboBusqueda.BackColor = System.Drawing.Color.White;
+            this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBusqueda.FormattingEnabled = true;
+            this.cboBusqueda.Items.AddRange(new object[] {
+            "ID",
+            "DNI",
+            "Nombre",
+            "Apellido"});
+            this.cboBusqueda.Location = new System.Drawing.Point(458, 53);
+            this.cboBusqueda.Name = "cboBusqueda";
+            this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
+            this.cboBusqueda.TabIndex = 1;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.BackColor = System.Drawing.Color.White;
+            this.lblBuscar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.Location = new System.Drawing.Point(378, 56);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(74, 13);
+            this.lblBuscar.TabIndex = 27;
+            this.lblBuscar.Text = "Buscar Por:";
+            // 
+            // icoBtnBuscar
+            // 
+            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnBuscar.IconSize = 23;
+            this.icoBtnBuscar.Location = new System.Drawing.Point(656, 46);
+            this.icoBtnBuscar.Name = "icoBtnBuscar";
+            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnBuscar.TabIndex = 3;
+            this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // icoBtnLimpiar
+            // 
+            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnLimpiar.IconSize = 23;
+            this.icoBtnLimpiar.Location = new System.Drawing.Point(697, 46);
+            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
+            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
+            this.icoBtnLimpiar.TabIndex = 4;
+            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
             // 
             // ListaClientes
             // 
