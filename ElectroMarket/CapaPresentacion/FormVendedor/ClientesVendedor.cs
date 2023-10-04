@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +14,6 @@ namespace CapaPresentacion
 {
     public partial class ClientesVendedor : Form
     {
-        int filaSeleccionada;
-        bool editar = false;
         public ClientesVendedor()
         {
             InitializeComponent();
@@ -42,7 +41,7 @@ namespace CapaPresentacion
 
         private void AgregarCliente_Load(object sender, EventArgs e)
         {
-
+            BEditar.Enabled = false;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -92,33 +91,30 @@ namespace CapaPresentacion
 
         private void BGuardar_Click(object sender, EventArgs e)
         {
-            
-            
             if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || Ttel.Text.Trim() == "")
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
-            {
-                if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    // Agregar nueva fila
-                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), Ttel.Text.Trim(), TDomicilio.Text.Trim());
-
-
-                    foreach (DataGridViewRow row in DGClientes.Rows)
-                    {
-                        row.Cells["Ceditar"].Value = "Editar";
-                    }
-                    TNombre.Text = "";
-                    TApellido.Text = "";
-                    TDni.Text = "";
-                    DTFecha.Text = "";
-                    TDomicilio.Text = "";
-                    Ttel.Text = "";
-
-                    editar = false;
-                }
             }
+            else
+            {
+                if (TDni.Text.Trim().Length != 8)
+                {
+                    MessageBox.Show("El DNI debe tener exactamente 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                        // Agregar nueva fila
+                        DGClientes.Rows.Add("", TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), Ttel.Text.Trim(), TDomicilio.Text.Trim(), "Editar");
+
+                        LimpiarCampos();
+                    }
+                }
+
+            }
+           
         }
 
         private void DGCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -126,96 +122,82 @@ namespace CapaPresentacion
             if (DGClientes.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
             {
 
-                if (editar)
-                {
-                    return;
-                }
-
-
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Habilita el botón "Editar"
                     BEditar.Enabled = true;
+                    BGuardar.Enabled = false;
 
+                    //TId.Text = DGClientes.Rows[e.RowIndex];
+                    //TIndice.Text = e.RowIndex.ToString();
+                    int indice = e.RowIndex;
 
-                    // Obtén los valores de las celdas de la fila seleccionada
+                    // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGClientes.Rows[e.RowIndex];
 
-                    
                     TNombre.Text = selectedRow.Cells["CNombre"].Value.ToString();
                     TApellido.Text = selectedRow.Cells["CApellido"].Value.ToString();
                     TDni.Text = selectedRow.Cells["Cdni"].Value.ToString();
+                    DTFecha.Text = selectedRow.Cells["CFechaNacim"].Value.ToString();
                     Ttel.Text = selectedRow.Cells["CTelefono"].Value.ToString();
                     TDomicilio.Text = selectedRow.Cells["CDomicilio"].Value.ToString();
-
-                    // Obtiene la fecha de la columna "Fecha" de la fila seleccionada.
-                    string fechaString = DGClientes.Rows[e.RowIndex].Cells["CFechaNacim"].Value.ToString();
-
-                    // Convierte la cadena de fecha en un objeto DateTime.
-                    if (DateTime.TryParse(fechaString, out DateTime fecha))
-                    {
-                        // Establece la fecha en el DateTimePicker con el formato corto.
-                        DTFecha.Value = fecha;
-                    }
-                    else
-                    {
-                        // Manejar el caso en el que no se pueda convertir la fecha.
-                        MessageBox.Show("No se pudo obtener la fecha.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    
-
-                    // Habilita el botón "Editar" para guardar los cambios después de la edición
-                    BEditar.Enabled = true;
-                    // btnGuardar.Enabled = false;
-                    editar = true;
-                    BGuardar.Enabled = false; // Deshabilita el botón "Agregar" mientras editas
                 }
             }
+
+
         }
 
         private void BEditar_Click(object sender, EventArgs e)
         {
-            if (editar == false)
+            string domicilio = TDomicilio.Text;
+            string nombre = TNombre.Text;
+            string apellido = TApellido.Text;
+            string telefono = Ttel.Text;
+            string dni = TDni.Text;
+
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || Ttel.Text.Trim() == "")
             {
-                MessageBox.Show("No seleccionaste ningun registro para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                string domicilio = TDomicilio.Text;
-                string nombre = TNombre.Text;
-                string apellido = TApellido.Text;
-                string telefono = Ttel.Text;
-                string dni = TDni.Text;
-                
+                if (TDni.Text.Trim().Length != 8)
+                {
+                    MessageBox.Show("El DNI debe tener 8 exactamente 8 digitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Actualiza la fila seleccionada en el DataGridView
+                    DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
+                    selectedRow.Cells["CDomicilio"].Value = domicilio;
+                    selectedRow.Cells["Cdni"].Value = dni;
+                    selectedRow.Cells["CTelefono"].Value = telefono;
+                    selectedRow.Cells["CNombre"].Value = nombre;
+                    selectedRow.Cells["CApellido"].Value = apellido;
 
-                // Actualiza la fila seleccionada en el DataGridView
-                DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
-                selectedRow.Cells["CDomicilio"].Value = domicilio;
-                selectedRow.Cells["Cdni"].Value = dni;
-                selectedRow.Cells["CTelefono"].Value = telefono;
 
-                selectedRow.Cells["CNombre"].Value = nombre;
-                selectedRow.Cells["CApellido"].Value = apellido;
+                    DateTime nuevaFecha = DTFecha.Value;
+                    selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
 
-                // Obtiene la fecha seleccionada en el DateTimePicker.
-                DateTime nuevaFecha = DTFecha.Value;
-                // Actualiza el valor de la columna "CFechaNacim" en la fila seleccionada.
-                selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
+                    LimpiarCampos();
+                    BEditar.Enabled = false;
+                    BGuardar.Enabled = true;
+                }
 
-                // Limpia los controles del formulario
-                TNombre.Text = "";
-                TApellido.Text = "";
-                TDni.Text = "";
-                DTFecha.Text = "";
-                TDomicilio.Text = "";
-                Ttel.Text = "";
-                // Deshabilita el botón "Modificar" nuevamente
-                BEditar.Enabled = false;
-
-                editar = false;
-
-                BGuardar.Enabled = true;
             }
+
+
+        }
+
+        private void LimpiarCampos()
+        {
+            // Limpia los campos
+            TNombre.Text = "";
+            TApellido.Text = "";
+            TDni.Text = "";
+            DTFecha.Text = "";
+            TDomicilio.Text = "";
+            Ttel.Text = "";
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

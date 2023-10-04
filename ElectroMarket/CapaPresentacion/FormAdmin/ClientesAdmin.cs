@@ -59,14 +59,21 @@ namespace CapaPresentacion
             }
             else
             {
-                if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (TDni.Text.Trim().Length != 8)
                 {
+                    MessageBox.Show("El DNI debe tener exactamente 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else
+                {
+                    if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
 
-                    // Agregar nueva fila
-                    DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
+                        // Agregar nueva fila
+                        DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
 
-                    LimpiarCampos();
+                        LimpiarCampos();
+                    }
                 }
+               
             }
         }
 
@@ -195,40 +202,47 @@ namespace CapaPresentacion
                 MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
             {
-                // Actualiza la fila seleccionada en el DataGridView
-                DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
-                selectedRow.Cells["CDomicilio"].Value = domicilio;
-                selectedRow.Cells["Cdni"].Value = dni;
-                selectedRow.Cells["CTelefono"].Value = telefono;
-                selectedRow.Cells["CNombre"].Value = nombre;
-                selectedRow.Cells["CApellido"].Value = apellido;
-                selectedRow.Cells["Cestado"].Value = Estado;
-                selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
-
-
-                DateTime nuevaFecha = DTFecha.Value;
-                selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
-
-                foreach (DataGridViewRow row in DGClientes.Rows)
+                if (TDni.Text.Trim().Length != 8)
                 {
-                    // Obtener el valor de la celda en la columna "CEstado"
-                    string estado = row.Cells["CEstado"].Value as string;
+                    MessageBox.Show("El DNI debe tener 8 exactamente 8 digitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else
+                {
+                    // Actualiza la fila seleccionada en el DataGridView
+                    DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
+                    selectedRow.Cells["CDomicilio"].Value = domicilio;
+                    selectedRow.Cells["Cdni"].Value = dni;
+                    selectedRow.Cells["CTelefono"].Value = telefono;
+                    selectedRow.Cells["CNombre"].Value = nombre;
+                    selectedRow.Cells["CApellido"].Value = apellido;
+                    selectedRow.Cells["Cestado"].Value = Estado;
+                    selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
 
-                    // Verificar si el estado es "No Activo"
-                    if (estado == "No Activo")
-                    {
 
-                        row.DefaultCellStyle.BackColor = Color.Red;
-                    }
-                    else
+                    DateTime nuevaFecha = DTFecha.Value;
+                    selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
+
+                    foreach (DataGridViewRow row in DGClientes.Rows)
                     {
-                        row.DefaultCellStyle.BackColor = Color.White;
+                        // Obtener el valor de la celda en la columna "CEstado"
+                        string estado = row.Cells["CEstado"].Value as string;
+
+                        // Verificar si el estado es "No Activo"
+                        if (estado == "No Activo")
+                        {
+
+                            row.DefaultCellStyle.BackColor = Color.Red;
+                        }
+                        else
+                        {
+                            row.DefaultCellStyle.BackColor = Color.White;
+                        }
                     }
+
+                    LimpiarCampos();
+                    BEditar.Enabled = false;
+                    BGuardar.Enabled = true;
                 }
-
-                LimpiarCampos();
-                BEditar.Enabled = false;
-                BGuardar.Enabled = true;
+                
             }
             
 
