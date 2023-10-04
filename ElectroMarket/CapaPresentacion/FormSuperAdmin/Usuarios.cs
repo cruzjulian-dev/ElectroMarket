@@ -17,17 +17,9 @@ namespace CapaPresentacion
 {
     public partial class Usuarios : Form
     {
-        //SistemaEntidades bd = new SistemaEntidades();
-        int filaSeleccionada;
-        bool editar = false;
         public Usuarios()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void BGuardar_Click(object sender, EventArgs e)
@@ -309,36 +301,6 @@ namespace CapaPresentacion
 
         }
 
-        private void TUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LNombre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DGUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            
-        }
-
         private void DGUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             foreach (DataGridViewRow row in DGUsuarios.Rows)
@@ -381,16 +343,6 @@ namespace CapaPresentacion
                 // Si no es un número ni una tecla de borrar, cancela la entrada.
                 e.Handled = true;
             }
-        }
-
-        private void TContra_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
-        private void TTelefono_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void TTelefono_KeyPress(object sender, KeyPressEventArgs e)
@@ -471,21 +423,6 @@ namespace CapaPresentacion
 
                 }
             }
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CBBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TBusqueda_TextChanged(object sender, EventArgs e)
-        {
 
         }
 

@@ -18,8 +18,6 @@ namespace CapaPresentacion
     public partial class ProductosAdmin : Form
     {
 
-        bool editar = false;
-
         public ProductosAdmin()
         {
             InitializeComponent();
@@ -54,11 +52,6 @@ namespace CapaPresentacion
             CBBusqueda.DisplayMember = "Texto";
             CBBusqueda.ValueMember = "Valor";
             CBBusqueda.SelectedIndex = 0;
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -157,11 +150,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void txtPrecio_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verifica si la tecla presionada no es un número, un punto decimal o la tecla Backspace (borrar).
@@ -170,16 +158,6 @@ namespace CapaPresentacion
                 // Si no es un número, un punto decimal ni una tecla de borrar, cancela la entrada.
                 e.Handled = true;
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void datagridProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -217,15 +195,6 @@ namespace CapaPresentacion
                     }
                 }
             }
-        }
-
-        private void comboBoxEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void datagridProd_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
         }
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)

@@ -20,11 +20,6 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MisVentas_Load(object sender, EventArgs e)
         {
             decimal total = 0.0m;

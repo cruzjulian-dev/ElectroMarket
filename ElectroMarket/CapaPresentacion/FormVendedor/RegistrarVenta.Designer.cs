@@ -273,7 +273,6 @@
             this.LCantidad.Size = new System.Drawing.Size(52, 13);
             this.LCantidad.TabIndex = 33;
             this.LCantidad.Text = "Cantidad:";
-            this.LCantidad.Click += new System.EventHandler(this.label9_Click);
             // 
             // lstock
             // 
@@ -284,7 +283,6 @@
             this.lstock.Size = new System.Drawing.Size(38, 13);
             this.lstock.TabIndex = 31;
             this.lstock.Text = "Stock:";
-            this.lstock.Click += new System.EventHandler(this.label8_Click);
             // 
             // TStock
             // 

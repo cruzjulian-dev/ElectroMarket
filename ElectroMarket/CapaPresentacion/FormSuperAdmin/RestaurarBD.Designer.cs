@@ -77,7 +77,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Para restaurar una base de datos, seleccione el archivo .bak y continuación presi" +
     "one en Restaurar";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // TSeleccionado
             // 
@@ -166,7 +165,6 @@
             this.Controls.Add(this.label4);
             this.Name = "RestaurarBD";
             this.Text = "RestaurarBD";
-            this.Load += new System.EventHandler(this.RestaurarBD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

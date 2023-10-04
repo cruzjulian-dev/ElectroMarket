@@ -199,7 +199,6 @@
             this.TApellido.ReadOnly = true;
             this.TApellido.Size = new System.Drawing.Size(179, 20);
             this.TApellido.TabIndex = 5;
-            this.TApellido.TextChanged += new System.EventHandler(this.txtnombrecliente_TextChanged);
             // 
             // labelNombreCliente
             // 
@@ -210,7 +209,6 @@
             this.labelNombreCliente.Size = new System.Drawing.Size(47, 13);
             this.labelNombreCliente.TabIndex = 24;
             this.labelNombreCliente.Text = "Apellido:";
-            this.labelNombreCliente.Click += new System.EventHandler(this.labelNombreCliente_Click);
             // 
             // labeldocucliente
             // 

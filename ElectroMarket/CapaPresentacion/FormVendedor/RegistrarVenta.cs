@@ -30,16 +30,6 @@ namespace CapaPresentacion
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void icoBtnBuscar_Click(object sender, EventArgs e)
         {
             ListaClientes listaClientes = new ListaClientes();

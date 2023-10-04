@@ -112,81 +112,6 @@ namespace CapaPresentacion
             DGClientes.Rows.Clear();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TDomicilio_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TApellido_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TDni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TFecha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TCorreo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LCorreo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LFecha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LDomicilio_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LDni_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LApellido_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LNombre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
@@ -247,10 +172,6 @@ namespace CapaPresentacion
             
 
             
-        }
-
-        private void DGClientes_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
         }
 
         private void DGClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -333,17 +254,6 @@ namespace CapaPresentacion
                 // Si no es válido, marca el evento como manejado para evitar que se ingrese
                 e.Handled = true;
             }
-        }
-
-
-        private void comboBoxEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lEstado_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Ttel_KeyPress(object sender, KeyPressEventArgs e)

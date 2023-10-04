@@ -87,11 +87,6 @@ namespace CapaPresentacion.Modales
             }
         }
 
-        private void datagridProd_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void DGClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (DGClientes.Columns[e.ColumnIndex].Name == "CSeleccionar" && e.RowIndex >= 0)

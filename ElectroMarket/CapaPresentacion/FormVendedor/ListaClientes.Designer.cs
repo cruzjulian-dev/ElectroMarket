@@ -101,7 +101,6 @@
             this.DGClientes.Size = new System.Drawing.Size(733, 209);
             this.DGClientes.TabIndex = 5;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
-            this.DGClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellDoubleClick);
             // 
             // textBox4
             // 

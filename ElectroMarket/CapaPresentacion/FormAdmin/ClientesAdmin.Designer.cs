@@ -117,7 +117,6 @@
             this.TDomicilio.Name = "TDomicilio";
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 15;
-            this.TDomicilio.TextChanged += new System.EventHandler(this.TDomicilio_TextChanged);
             this.TDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDomicilio_KeyPress);
             // 
             // TApellido
@@ -126,7 +125,6 @@
             this.TApellido.Name = "TApellido";
             this.TApellido.Size = new System.Drawing.Size(180, 20);
             this.TApellido.TabIndex = 11;
-            this.TApellido.TextChanged += new System.EventHandler(this.TApellido_TextChanged);
             this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
             // TDni
@@ -135,7 +133,6 @@
             this.TDni.Name = "TDni";
             this.TDni.Size = new System.Drawing.Size(180, 20);
             this.TDni.TabIndex = 12;
-            this.TDni.TextChanged += new System.EventHandler(this.TDni_TextChanged);
             this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // TNombre
@@ -144,7 +141,6 @@
             this.TNombre.Name = "TNombre";
             this.TNombre.Size = new System.Drawing.Size(180, 20);
             this.TNombre.TabIndex = 10;
-            this.TNombre.TextChanged += new System.EventHandler(this.TNombre_TextChanged);
             this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
             // LFecha
@@ -156,7 +152,6 @@
             this.LFecha.Size = new System.Drawing.Size(108, 13);
             this.LFecha.TabIndex = 25;
             this.LFecha.Text = "Fecha de Nacimiento";
-            this.LFecha.Click += new System.EventHandler(this.LFecha_Click);
             // 
             // LDomicilio
             // 
@@ -167,7 +162,6 @@
             this.LDomicilio.Size = new System.Drawing.Size(49, 13);
             this.LDomicilio.TabIndex = 24;
             this.LDomicilio.Text = "Domicilio";
-            this.LDomicilio.Click += new System.EventHandler(this.LDomicilio_Click);
             // 
             // LDni
             // 
@@ -178,7 +172,6 @@
             this.LDni.Size = new System.Drawing.Size(26, 13);
             this.LDni.TabIndex = 23;
             this.LDni.Text = "DNI";
-            this.LDni.Click += new System.EventHandler(this.LDni_Click);
             // 
             // LApellido
             // 
@@ -189,7 +182,6 @@
             this.LApellido.Size = new System.Drawing.Size(44, 13);
             this.LApellido.TabIndex = 22;
             this.LApellido.Text = "Apellido";
-            this.LApellido.Click += new System.EventHandler(this.LApellido_Click);
             // 
             // LNombre
             // 
@@ -200,7 +192,6 @@
             this.LNombre.Size = new System.Drawing.Size(44, 13);
             this.LNombre.TabIndex = 21;
             this.LNombre.Text = "Nombre";
-            this.LNombre.Click += new System.EventHandler(this.LNombre_Click);
             // 
             // label1
             // 
@@ -211,7 +202,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(264, 561);
             this.label1.TabIndex = 37;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Cliente
             // 
@@ -223,7 +213,6 @@
             this.Cliente.TabIndex = 38;
             this.Cliente.Text = "Gestion de Clientes";
             this.Cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cliente.Click += new System.EventHandler(this.Cliente_Click);
             // 
             // iconButton2
             // 
@@ -326,7 +315,6 @@
             this.DGClientes.TabIndex = 23;
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
             this.DGClientes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGClientes_CellFormatting);
-            this.DGClientes.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.DGClientes_RowPrePaint);
             // 
             // CNombre
             // 
@@ -398,7 +386,6 @@
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(180, 21);
             this.CBEstado.TabIndex = 16;
-            this.CBEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
             // 
             // lEstado
             // 
@@ -409,7 +396,6 @@
             this.lEstado.Size = new System.Drawing.Size(43, 13);
             this.lEstado.TabIndex = 48;
             this.lEstado.Text = "Estado:";
-            this.lEstado.Click += new System.EventHandler(this.lEstado_Click);
             // 
             // TTelefono
             // 

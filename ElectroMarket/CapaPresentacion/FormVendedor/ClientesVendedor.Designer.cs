@@ -71,7 +71,6 @@
             this.LNombre.Size = new System.Drawing.Size(47, 13);
             this.LNombre.TabIndex = 0;
             this.LNombre.Text = "Nombre:";
-            this.LNombre.Click += new System.EventHandler(this.LNombre_Click);
             // 
             // LApellido
             // 
@@ -82,7 +81,6 @@
             this.LApellido.Size = new System.Drawing.Size(47, 13);
             this.LApellido.TabIndex = 1;
             this.LApellido.Text = "Apellido:";
-            this.LApellido.Click += new System.EventHandler(this.LApellido_Click);
             // 
             // LDni
             // 
@@ -93,7 +91,6 @@
             this.LDni.Size = new System.Drawing.Size(29, 13);
             this.LDni.TabIndex = 2;
             this.LDni.Text = "DNI:";
-            this.LDni.Click += new System.EventHandler(this.LDni_Click);
             // 
             // LDomicilio
             // 
@@ -104,7 +101,6 @@
             this.LDomicilio.Size = new System.Drawing.Size(52, 13);
             this.LDomicilio.TabIndex = 3;
             this.LDomicilio.Text = "Domicilio:";
-            this.LDomicilio.Click += new System.EventHandler(this.label4_Click);
             // 
             // LFecha
             // 
@@ -115,7 +111,6 @@
             this.LFecha.Size = new System.Drawing.Size(111, 13);
             this.LFecha.TabIndex = 4;
             this.LFecha.Text = "Fecha de Nacimiento:";
-            this.LFecha.Click += new System.EventHandler(this.label5_Click);
             // 
             // TNombre
             // 
@@ -123,7 +118,6 @@
             this.TNombre.Name = "TNombre";
             this.TNombre.Size = new System.Drawing.Size(180, 20);
             this.TNombre.TabIndex = 10;
-            this.TNombre.TextChanged += new System.EventHandler(this.TNombre_TextChanged);
             this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
             // TDni
@@ -132,7 +126,6 @@
             this.TDni.Name = "TDni";
             this.TDni.Size = new System.Drawing.Size(180, 20);
             this.TDni.TabIndex = 12;
-            this.TDni.TextChanged += new System.EventHandler(this.TDni_TextChanged);
             this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // TApellido
@@ -141,7 +134,6 @@
             this.TApellido.Name = "TApellido";
             this.TApellido.Size = new System.Drawing.Size(180, 20);
             this.TApellido.TabIndex = 11;
-            this.TApellido.TextChanged += new System.EventHandler(this.TApellido_TextChanged);
             this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
             // TDomicilio
@@ -150,7 +142,6 @@
             this.TDomicilio.Name = "TDomicilio";
             this.TDomicilio.Size = new System.Drawing.Size(180, 20);
             this.TDomicilio.TabIndex = 15;
-            this.TDomicilio.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.TDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDomicilio_KeyPress);
             // 
             // DGClientes
@@ -182,7 +173,6 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Gestión de Clientes";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // DTFecha
             // 
@@ -191,7 +181,6 @@
             this.DTFecha.Name = "DTFecha";
             this.DTFecha.Size = new System.Drawing.Size(180, 20);
             this.DTFecha.TabIndex = 13;
-            this.DTFecha.ValueChanged += new System.EventHandler(this.DTFecha_ValueChanged);
             // 
             // label3
             // 
@@ -205,7 +194,6 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Lista de Clientes:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // label5
             // 
@@ -216,7 +204,6 @@
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "Buscar Por:";
-            this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // comboBox1
             // 
@@ -233,7 +220,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(86, 21);
             this.comboBox1.TabIndex = 18;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox1
             // 
@@ -242,7 +228,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 19;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // iconButton1
             // 
@@ -260,7 +245,6 @@
             this.iconButton1.Size = new System.Drawing.Size(35, 33);
             this.iconButton1.TabIndex = 21;
             this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // iconButton2
             // 
@@ -278,7 +262,6 @@
             this.iconButton2.Size = new System.Drawing.Size(35, 33);
             this.iconButton2.TabIndex = 20;
             this.iconButton2.UseVisualStyleBackColor = false;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // label4
             // 
@@ -289,7 +272,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(264, 561);
             this.label4.TabIndex = 33;
-            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // BEditar
             // 
@@ -339,7 +321,6 @@
             this.Ttel.Name = "Ttel";
             this.Ttel.Size = new System.Drawing.Size(180, 20);
             this.Ttel.TabIndex = 14;
-            this.Ttel.TextChanged += new System.EventHandler(this.TCorreo_TextChanged);
             this.Ttel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Ttel_KeyPress);
             // 
             // LTelefono
@@ -351,7 +332,6 @@
             this.LTelefono.Size = new System.Drawing.Size(52, 13);
             this.LTelefono.TabIndex = 34;
             this.LTelefono.Text = "Telefono:";
-            this.LTelefono.Click += new System.EventHandler(this.LCorreo_Click);
             // 
             // CIdCliente
             // 

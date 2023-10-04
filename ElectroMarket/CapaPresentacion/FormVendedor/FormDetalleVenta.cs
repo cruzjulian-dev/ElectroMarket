@@ -21,16 +21,6 @@ namespace CapaPresentacion
             //MostrarDatosVenta(); // Llama a un método para mostrar los datos en los controles
         }
 
-        private void txtnombrecliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelNombreCliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DetalleVenta_Load(object sender, EventArgs e)
         {
             

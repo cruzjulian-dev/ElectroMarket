@@ -18,25 +18,6 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RestaurarBD_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
             OPSeleccionarBd.Filter = "Archivos de Base de Datos (*.bak)|*.bak|Todos los archivos (*.*)|*.*";

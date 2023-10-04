@@ -179,7 +179,6 @@
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(180, 21);
             this.CBEstado.TabIndex = 16;
-            this.CBEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -244,7 +243,6 @@
             this.DGProductos.TabIndex = 23;
             this.DGProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             this.DGProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGProductos_CellFormatting);
-            this.DGProductos.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.datagridProd_RowPrePaint);
             // 
             // Ccodigo
             // 
@@ -439,7 +437,6 @@
             this.TPrecio.Name = "TPrecio";
             this.TPrecio.Size = new System.Drawing.Size(180, 20);
             this.TPrecio.TabIndex = 13;
-            this.TPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             this.TPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // Precio
@@ -459,7 +456,6 @@
             this.TStock.Name = "TStock";
             this.TStock.Size = new System.Drawing.Size(180, 20);
             this.TStock.TabIndex = 14;
-            this.TStock.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.TStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStock_KeyPress);
             // 
             // lblStock
@@ -471,7 +467,6 @@
             this.lblStock.Size = new System.Drawing.Size(38, 13);
             this.lblStock.TabIndex = 29;
             this.lblStock.Text = "Stock:";
-            this.lblStock.Click += new System.EventHandler(this.label4_Click);
             // 
             // TIndice
             // 

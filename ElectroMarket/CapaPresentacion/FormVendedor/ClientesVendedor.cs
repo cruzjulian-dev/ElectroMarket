@@ -19,74 +19,9 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void AgregarCliente_Load(object sender, EventArgs e)
         {
             BEditar.Enabled = false;
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LNombre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TApellido_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LApellido_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TDni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LDni_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void BGuardar_Click(object sender, EventArgs e)
@@ -199,72 +134,6 @@ namespace CapaPresentacion
             TDomicilio.Text = "";
             Ttel.Text = "";
         }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DTFecha_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TCorreo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LCorreo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Permite solo letras

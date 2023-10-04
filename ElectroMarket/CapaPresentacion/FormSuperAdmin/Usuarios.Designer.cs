@@ -86,7 +86,6 @@
             this.TTelefono.Name = "TTelefono";
             this.TTelefono.Size = new System.Drawing.Size(180, 20);
             this.TTelefono.TabIndex = 16;
-            this.TTelefono.TextChanged += new System.EventHandler(this.TTelefono_TextChanged);
             this.TTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTelefono_KeyPress);
             // 
             // LTelefono
@@ -105,7 +104,6 @@
             this.TUsuario.Name = "TUsuario";
             this.TUsuario.Size = new System.Drawing.Size(180, 20);
             this.TUsuario.TabIndex = 13;
-            this.TUsuario.TextChanged += new System.EventHandler(this.TUsuario_TextChanged);
             this.TUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TUsuario_KeyPress);
             // 
             // label1
@@ -117,7 +115,6 @@
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 50;
             this.label1.Text = "Usuario:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // DTFecha
             // 
@@ -137,7 +134,6 @@
             this.label2.TabIndex = 49;
             this.label2.Text = "Gestión de Usuarios";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // BEditar
             // 
@@ -211,7 +207,6 @@
             this.TNombre.Name = "TNombre";
             this.TNombre.Size = new System.Drawing.Size(180, 20);
             this.TNombre.TabIndex = 10;
-            this.TNombre.TextChanged += new System.EventHandler(this.TNombre_TextChanged);
             this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
             // LFecha
@@ -263,7 +258,6 @@
             this.LNombre.Size = new System.Drawing.Size(47, 13);
             this.LNombre.TabIndex = 35;
             this.LNombre.Text = "Nombre:";
-            this.LNombre.Click += new System.EventHandler(this.LNombre_Click);
             // 
             // label4
             // 
@@ -274,7 +268,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(264, 561);
             this.label4.TabIndex = 51;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -315,7 +308,6 @@
             this.DGUsuarios.TabIndex = 21;
             this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
             this.DGUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGUsuarios_CellFormatting);
-            this.DGUsuarios.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DGUsuarios_CellPainting);
             // 
             // CNombre
             // 
@@ -422,7 +414,6 @@
             this.TContra.Name = "TContra";
             this.TContra.Size = new System.Drawing.Size(180, 20);
             this.TContra.TabIndex = 14;
-            this.TContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TContra_KeyPress);
             // 
             // label5
             // 
@@ -522,7 +513,6 @@
             this.TBusqueda.Name = "TBusqueda";
             this.TBusqueda.Size = new System.Drawing.Size(100, 20);
             this.TBusqueda.TabIndex = 62;
-            this.TBusqueda.TextChanged += new System.EventHandler(this.TBusqueda_TextChanged);
             this.TBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBusqueda_KeyPress);
             // 
             // CBBusqueda
@@ -535,7 +525,6 @@
             this.CBBusqueda.Name = "CBBusqueda";
             this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
             this.CBBusqueda.TabIndex = 61;
-            this.CBBusqueda.SelectedIndexChanged += new System.EventHandler(this.CBBusqueda_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -546,7 +535,6 @@
             this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 65;
             this.label6.Text = "Buscar Por:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // TId
             // 
