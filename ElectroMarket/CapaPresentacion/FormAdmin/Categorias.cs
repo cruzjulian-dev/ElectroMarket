@@ -1,9 +1,11 @@
-﻿using System;
+﻿using CapaPresentacion.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -16,7 +18,6 @@ namespace CapaPresentacion
     public partial class CategoriasAdmin : Form
     {
 
-        bool editar = false;
         public CategoriasAdmin()
         {
             InitializeComponent();
@@ -24,114 +25,105 @@ namespace CapaPresentacion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
+
+            if (DGCategoria.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
             {
-
-                if (editar)
-                {
-                    return;
-                }
-
 
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Habilita el botón "Editar"
                     BEditar.Enabled = true;
+                    BGuardar.Enabled = false;
 
+                    //TId.Text = DGClientes.Rows[e.RowIndex];
+                    //TIndice.Text = e.RowIndex.ToString();
+                    int indice = e.RowIndex;
 
-                    // Obtén los valores de las celdas de la fila seleccionada
-                    DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                    
-                    TEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
+                    // Obtengo los valores de las celdas de la fila seleccionada
+                    DataGridViewRow selectedRow = DGCategoria.Rows[e.RowIndex];
+
+                    CBEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
                     TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
-                   
 
-
-                    // Habilita el botón "Editar" para guardar los cambios después de la edición
-                    BEditar.Enabled = true;
-                    // btnGuardar.Enabled = false;
-                    editar = true;
-                    BAgregar.Enabled = false; // Deshabilita el botón "Agregar" mientras editas
+                    foreach (OpcionCombo oc in CBEstado.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGCategoria.Rows[indice].Cells["CestadoVAlor"].Value))
+                        {
+                            int indice_combo = CBEstado.Items.IndexOf(oc);
+                            CBEstado.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
                 }
             }
         }
 
-        private bool ValidarCampos()
-        {
-            // Verificar si los TextBox están vacíos
-            if (string.IsNullOrWhiteSpace(TDescripcion.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-
-            }
-
-            // Verificar si se ha seleccionado una opción en los ComboBox
-            
-              if (TEstado.SelectedIndex == -1)
-              {
-                  MessageBox.Show("Por favor, seleccione un estado.");
-                  return false;
-              }
-
-            // Si todos los campos están completos y se ha seleccionado una opción en los ComboBox, devuelve true
-            return true;
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            if (ValidarCampos())
+            if (TDescripcion.Text.Trim() == "")
             {
-                string opcionSeleccionada2 = TEstado.SelectedItem as string;
-                string descripcion = TDescripcion.Text;
-        
-
-                // Agregar fila al DataGridView
-                int rowIndex = dataGridView1.Rows.Count;
-                dataGridView1.Rows.Add(1);
-
-                dataGridView1.Rows[rowIndex].Cells["Cestado"].Value = opcionSeleccionada2;
-                dataGridView1.Rows[rowIndex].Cells["Cdescripcion"].Value = descripcion;
-
-                dataGridView1.Rows[rowIndex].Cells["Ceditar"].Value = "Editar";
-
-                limpiar();
-
-
+                MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (MessageBox.Show("Seguro que quieres agregar esta categoria?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    // Agregar nueva fila
+                    DGCategoria.Rows.Add("", TDescripcion.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
+
+                    LimpiarCampos();
+                }
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            TDescripcion.Text = "";
+            CBEstado.SelectedIndex = 0;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (editar == false)
+            string descripcion = TDescripcion.Text;
+            string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
+
+            if (TDescripcion.Text.Trim() == "")
             {
-                MessageBox.Show("No seleccionaste ninguna Categoria para editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                string descripcion = TDescripcion.Text;
-                string opcionSeleccionada2 = TEstado.SelectedItem as string;
-
                 // Actualiza la fila seleccionada en el DataGridView
-                DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
+                DataGridViewRow selectedRow = DGCategoria.Rows[DGCategoria.CurrentCell.RowIndex];
+
                 selectedRow.Cells["Cdescripcion"].Value = descripcion;
-                selectedRow.Cells["Cestado"].Value = opcionSeleccionada2;
+                selectedRow.Cells["Cestado"].Value = Estado;
+                selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
 
+                foreach (DataGridViewRow row in DGCategoria.Rows)
+                {
+                    // Obtener el valor de la celda en la columna "CEstado"
+                    string estado = row.Cells["Cestado"].Value as string;
 
+                    // Verificar si el estado es "No Activo"
+                    if (estado == "No Activo")
+                    {
 
-                // Limpia los controles del formulario
-                limpiar();
-                // Deshabilita el botón "Modificar" nuevamente
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+
+                LimpiarCampos();
                 BEditar.Enabled = false;
+                BGuardar.Enabled = true;
 
-                editar = false;
-
-                BAgregar.Enabled = true;
             }
 
         }
@@ -146,7 +138,7 @@ namespace CapaPresentacion
             
             // Limpia la selección en el ComboBox para que aparezca vacío
             
-            TEstado.SelectedIndex = -1;
+            CBEstado.SelectedIndex = -1;
         }
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
@@ -164,6 +156,41 @@ namespace CapaPresentacion
         private void CategoriasAdmin_Load(object sender, EventArgs e)
         {
             // Por defecto, deshabilita el botón "Editar"
+            BEditar.Enabled = false;
+
+            CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
+            CBEstado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
+
+            CBEstado.DisplayMember = "Texto";
+            CBEstado.ValueMember = "Valor";
+            CBEstado.SelectedIndex = 0;
+
+        }
+
+        private void DGCategoria_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGCategoria.Rows)
+            {
+                // Obtener el valor de la celda en la columna "CEstado"
+                string estado = row.Cells["Cestado"].Value as string;
+
+                // Verificar si el estado es "No Activo"
+                if (estado == "No Activo")
+                {
+
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+        }
+
+        private void BLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            BGuardar.Enabled = true;
             BEditar.Enabled = false;
         }
     }
