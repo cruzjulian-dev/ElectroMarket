@@ -1,0 +1,33 @@
+SUPER ADMINISTRADOR:
+
+	Usuario: super
+	Pass: 123
+		
+	Usuario: cruz
+	Pass: 123
+
+----------------------------------------
+
+----------------------------------------
+ADMINISTRADOR:
+
+	Usuario: admin
+	Pass: 123
+		
+	Usuario: blanco
+	Pass: 123
+
+----------------------------------------
+
+----------------------------------------
+VENDEDOR:
+
+	Usuario: vendedor
+	Pass: 123
+		
+	Usuario: davalos
+	Pass: 123
+
+----------------------------------------
+
+	
