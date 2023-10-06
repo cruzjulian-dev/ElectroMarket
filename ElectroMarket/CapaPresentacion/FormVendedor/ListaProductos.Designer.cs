@@ -200,6 +200,7 @@
             this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
             this.icoBtnBuscar.TabIndex = 3;
             this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            this.icoBtnBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
             // 
             // icoBtnLimpiar
             // 

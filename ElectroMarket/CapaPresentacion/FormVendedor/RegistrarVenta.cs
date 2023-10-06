@@ -22,12 +22,13 @@ namespace CapaPresentacion
 
         private void Venta_Load(object sender, EventArgs e)
         {
-            TTipoDoc.SelectedIndex = 0;
+            TTipoDoc.SelectedIndex = -1;
             TCantidad.Minimum = 1;
             TFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             // Ajusta automáticamente el tamaño del encabezado al contenido de las celdas
             DGDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
+            TTotal.Text = Convert.ToDecimal(0).ToString();
+            TCambio.Text = Convert.ToDecimal(0).ToString();
         }
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)
@@ -62,56 +63,64 @@ namespace CapaPresentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if (TCod.Text == "" || TProd.Text == "" || TPrecio.Text == "" || TStock.Text == "" || TCantidad.Value < 1)
+            try
             {
-                MessageBox.Show("Debes seleccionar un producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            } else
-            {
-                if (MessageBox.Show("Seguro que quieres agregar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (TCod.Text == "" || TProd.Text == "" || TPrecio.Text == "" || TStock.Text == "" || TCantidad.Value < 1)
                 {
-                    string codigo = TCod.Text;
-                    string nombre = TProd.Text;
-                    decimal precio = 0;
-                    int cantidad = 0;
-                    decimal subtotal = 0;
-
-                    if (!decimal.TryParse(TPrecio.Text, out precio))
+                    MessageBox.Show("Debes seleccionar un producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    if (MessageBox.Show("Seguro que quieres agregar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Salir del método si el precio no es válido
+                        string codigo = TCod.Text;
+                        string nombre = TProd.Text;
+                        decimal precio = 0.0m; // Inicializado a 0.0m
+                        int cantidad = 0;
+                        decimal subtotal = 0.0m; // Inicializado a 0.0m
+
+                        if (!decimal.TryParse(TPrecio.Text, out precio))
+                        {
+                            MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return; // Salir del método si el precio no es válido
+                        }
+
+                        if (!int.TryParse(TCantidad.Value.ToString(), out cantidad))
+                        {
+                            MessageBox.Show("La cantidad no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return; // Salir del método si la cantidad no es válida
+                        }
+
+                        subtotal = precio * cantidad;
+
+                        // Agregar la fila al DataGridView
+                        DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar");
+
+                        // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
+                        TCod.Clear();
+                        TProd.Clear();
+                        TPrecio.Clear();
+                        TStock.Clear();
+                        TCantidad.Value = 1;
+
+                        // Actualizar precio total
+                        TTotal.Text = (Convert.ToDecimal(TTotal.Text) + precio).ToString();
                     }
-
-                    if (!int.TryParse(TCantidad.Value.ToString(), out cantidad))
-                    {
-                        MessageBox.Show("La cantidad no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Salir del método si la cantidad no es válida
-                    }
-
-                    subtotal = precio * cantidad;
-
-                    // Agregar la fila al DataGridView
-                    DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar");
-
-                    // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
-                    TCod.Clear();
-                    TProd.Clear();
-                    TPrecio.Clear();
-                    TStock.Clear();
-                    TCantidad.Value = 1;
-
-                    //Actualizar precio total
-                    TTotal.Text = (Convert.ToDecimal(TTotal.Text) + precio).ToString();
-
                 }
             }
-            
+            catch (Exception ex)
+            {
+                // Captura cualquier excepción y muestra información de depuración
+                MessageBox.Show("Error: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void iconButtonVenta_Click(object sender, EventArgs e)
         {
             if (DGDetalle.RowCount > 0)
             {
-                if (TFecha.Text == "" || TTipoDoc.Text == "" || TDni.Text == "" || TNomApe.Text == "" || TTotal.Text == "" || TPagaCon.Text == "" || TCambio.Text == "")
+                if (TFecha.Text == "" || TTipoDoc.Text == "" || TDni.Text == "" || TNomApe.Text == "" || TTotal.Text == "" || TPagaCon.Text == "" || TCambio.Text == "" || CBForma.SelectedIndex == -1 || TTipoDoc.SelectedIndex == -1)
                 {
                     MessageBox.Show("Debes completar todos los campos antes de realizar una venta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -144,9 +153,11 @@ namespace CapaPresentacion
             TProd.Text = "";
             TPrecio.Text = "";
             TStock.Text = "";
-            TTotal.Text = "";
+            TTotal.Text = Convert.ToDecimal(0).ToString();
             TPagaCon.Text = "";
-            TCambio.Text = "";
+            TCambio.Text = Convert.ToDecimal(0).ToString();
+            CBForma.SelectedIndex = -1;
+            TTipoDoc.SelectedIndex = -1;
             DGDetalle.Rows.Clear();
         }
 
@@ -211,5 +222,6 @@ namespace CapaPresentacion
         {
             VaciarCampos();
         }
+
     }
 }

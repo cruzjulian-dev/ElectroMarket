@@ -45,29 +45,39 @@ namespace CapaPresentacion
             int stock = Convert.ToInt32(filaSeleccionada.Cells["cstock"].Value);
             string categoriaDescripcion = filaSeleccionada.Cells["ccategoria"].Value.ToString();
             string descripcion = filaSeleccionada.Cells["CDescripcion"].Value.ToString();
-            decimal precio = Convert.ToDecimal(filaSeleccionada.Cells["CPrecio"].Value);
 
-
-            Categoria categoria = new Categoria
+            object valorCelda = filaSeleccionada.Cells["CPrecio"].Value;
+            if (valorCelda != null && decimal.TryParse(valorCelda.ToString(), out decimal precio))
             {
-                IdCategoria = 1,
-                Descripcion = categoriaDescripcion,
-                Estado = true,
-                FechaRegistro = "02/10/2023"
-            };
-    
+                Categoria categoria = new Categoria
+                {
+                    IdCategoria = 1,
+                    Descripcion = categoriaDescripcion,
+                    Estado = true,
+                    FechaRegistro = "02/10/2023"
+                };
 
-            Producto producto = new Producto
+
+                Producto producto = new Producto
+                {
+                    Codigo = codigo,
+                    Nombre = nombre,
+                    Descripcion = descripcion,
+                    oCategoria = categoria,
+                    Stock = stock,
+                    Precio = precio
+                };
+
+                return producto;
+            }
+            else
             {
-                Codigo = codigo,
-                Nombre = nombre,
-                Descripcion = descripcion,
-                oCategoria = categoria,
-                Stock = stock,
-                Precio = precio
-            };
+                // El valor en la celda no es un número decimal válido.
+                MessageBox.Show("El valor en precio no es un decimal válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
 
-            return producto;
+            
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
@@ -114,7 +124,7 @@ namespace CapaPresentacion
                 Descripcion = "No Frost - Capacidad de 443 litros - Con freezer inferior",
                 oCategoria = categoria,
                 Stock = 321,
-                Precio = 856200,
+                Precio = 856199.99m
             };
 
             Producto producto2 = new Producto
@@ -124,7 +134,7 @@ namespace CapaPresentacion
                 Descripcion = "Split Inverter - Capacidad de enfriamiento de 12,000 BTU",
                 oCategoria = categoria2,
                 Stock = 200,
-                Precio = 689999,
+                Precio = 689999.50m
             };
 
             Producto producto3 = new Producto
@@ -134,7 +144,7 @@ namespace CapaPresentacion
                 Descripcion = "Smart TV LED de 55 pulgadas - Resolución 4K Ultra HD",
                 oCategoria = categoria3,
                 Stock = 177,
-                Precio = 849500,
+                Precio = 849499.99m
             };
 
             Producto producto4 = new Producto
@@ -144,7 +154,7 @@ namespace CapaPresentacion
                 Descripcion = "Carga frontal - Capacidad de 8 kg - 1400 RPM",
                 oCategoria = categoria4,
                 Stock = 432,
-                Precio = 586000, 
+                Precio = 586000.00m
             };
 
             listaProductos.Add(producto1);
@@ -171,6 +181,11 @@ namespace CapaPresentacion
                 }
             }
             
+        }
+
+        private void icoBtnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
