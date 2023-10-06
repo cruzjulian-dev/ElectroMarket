@@ -29,6 +29,7 @@ namespace CapaPresentacion
 
             TIdVenta.Text = venta.IdVenta.ToString();
             TVendedor.Text = venta.oUsuario.Nombre + " " + venta.oUsuario.Apellido;
+            TFormaPago.Text = venta.oFormaPago.Descripcion;
             TFecha.Text = venta.FechaRegistro.ToString();
             TNombre.Text = venta.NombreCliente;
             TApellido.Text = venta.ApellidoCliente;

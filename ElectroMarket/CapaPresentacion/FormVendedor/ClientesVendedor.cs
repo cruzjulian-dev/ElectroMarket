@@ -38,13 +38,25 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    // Obtener la fecha de nacimiento del DateTimePicker
+                    DateTime fechaNacimiento = DTFecha.Value;
+
+                    // Calcular la edad actual
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+                    if (edad < 18)
                     {
+                        MessageBox.Show("El cliente debe ser mayor de 18 años", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } else
+                    {
+                        if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
 
-                        // Agregar nueva fila
-                        DGClientes.Rows.Add("", TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), Ttel.Text.Trim(), TDomicilio.Text.Trim(), "Editar");
+                            // Agregar nueva fila
+                            DGClientes.Rows.Add("", TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), Ttel.Text.Trim(), TDomicilio.Text.Trim(), "Editar");
 
-                        LimpiarCampos();
+                            LimpiarCampos();
+                        }
                     }
                 }
 
@@ -102,21 +114,35 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    // Actualiza la fila seleccionada en el DataGridView
-                    DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
-                    selectedRow.Cells["CDomicilio"].Value = domicilio;
-                    selectedRow.Cells["Cdni"].Value = dni;
-                    selectedRow.Cells["CTelefono"].Value = telefono;
-                    selectedRow.Cells["CNombre"].Value = nombre;
-                    selectedRow.Cells["CApellido"].Value = apellido;
+                    // Obtener la fecha de nacimiento del DateTimePicker
+                    DateTime fechaNacimiento = DTFecha.Value;
+
+                    // Calcular la edad actual
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+                    if (edad < 18)
+                    {
+                        MessageBox.Show("El cliente debe ser mayor de 18 años", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // Actualiza la fila seleccionada en el DataGridView
+                        DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
+                        selectedRow.Cells["CDomicilio"].Value = domicilio;
+                        selectedRow.Cells["Cdni"].Value = dni;
+                        selectedRow.Cells["CTelefono"].Value = telefono;
+                        selectedRow.Cells["CNombre"].Value = nombre;
+                        selectedRow.Cells["CApellido"].Value = apellido;
 
 
-                    DateTime nuevaFecha = DTFecha.Value;
-                    selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
+                        DateTime nuevaFecha = DTFecha.Value;
+                        selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
 
-                    LimpiarCampos();
-                    BEditar.Enabled = false;
-                    BGuardar.Enabled = true;
+                        LimpiarCampos();
+                        BEditar.Enabled = false;
+                        BGuardar.Enabled = true;
+                    }
+                        
                 }
 
             }

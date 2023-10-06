@@ -101,14 +101,36 @@ namespace CapaPresentacion
                 Precio = 586000,
             };
 
+            // FORMAS DE PAGO DE EJEMPLO
+            FormaPago formaPago = new FormaPago
+            {
+                IdFormaPago = 1,
+                Descripcion = "Efectivo",
+                FechaRegistro = "02/10/2023"
+            };
 
+            FormaPago formaPago2 = new FormaPago
+            {
+                IdFormaPago = 1,
+                Descripcion = "Tarjeta",
+                FechaRegistro = "02/10/2023"
+            };
 
+            FormaPago formaPago3 = new FormaPago
+            {
+                IdFormaPago = 1,
+                Descripcion = "Mercado Pago",
+                FechaRegistro = "02/10/2023"
+            };
+
+            // VENTAS DE EJEMPLO
             for (int i = 1; i <= 5; i++)
             {
                 Venta venta = new Venta
                 {
                     IdVenta = i,
                     oUsuario = new Usuario { Nombre = nombre, Apellido = apellido },
+                    oFormaPago = new FormaPago { Descripcion = formaPago.Descripcion },
                     DniCliente = 23765432 + i,
                     NombreCliente = "Cliente " + i,
                     ApellidoCliente = "Apellido " + i,
@@ -118,6 +140,23 @@ namespace CapaPresentacion
                     FechaRegistro = DateTime.Now.ToString("d"),
                     Detalle_Venta = new List<DetalleVenta>()
                 };
+
+                if (i >= 1 && i <= 2)
+                {
+                    // Asignar forma de pago "Efectivo" a las ventas 1 y 2
+                    venta.oFormaPago = new FormaPago { Descripcion = formaPago.Descripcion };
+                }
+                else if (i >= 3 && i <= 4)
+                {
+                    // Asignar forma de pago "Mercado Pago" a las ventas 3 y 4
+                    venta.oFormaPago = new FormaPago { Descripcion = formaPago3.Descripcion };
+                }
+                else if (i == 5)
+                {
+                    // Asignar forma de pago "Tarjeta" a la quinta venta
+                    venta.oFormaPago = new FormaPago { Descripcion = formaPago2.Descripcion };
+                }
+
 
                 Random random = new Random();
 
@@ -182,7 +221,7 @@ namespace CapaPresentacion
 
             foreach (Venta venta in ventasFicticias)
             {
-                DGMisVentas.Rows.Add(venta.IdVenta, venta.oUsuario.Nombre + " " + venta.oUsuario.Apellido, venta.DniCliente, venta.NombreCliente, venta.ApellidoCliente, venta.MontoTotal, venta.FechaRegistro, "Ver detalle");
+                DGMisVentas.Rows.Add(venta.IdVenta, venta.oUsuario.Nombre + " " + venta.oUsuario.Apellido, venta.DniCliente, venta.NombreCliente, venta.ApellidoCliente, venta.MontoTotal, venta.oFormaPago.Descripcion, venta.FechaRegistro, "Ver detalle");
 
 
                 total += venta.MontoTotal;
@@ -200,15 +239,10 @@ namespace CapaPresentacion
         {
             if (e.RowIndex >= 0 && DGMisVentas.Columns[e.ColumnIndex].Name == "CDetalle")
             {
-                // Verifica que el índice de fila sea válido y que se hizo clic en la columna "CDetalle"
-
-                // Obtén la venta seleccionada en función del índice de fila
                 if (e.RowIndex < ventasFicticias.Count)
                 {
                     Venta ventaSeleccionada = ventasFicticias[e.RowIndex];
 
-                    // Ahora puedes utilizar la ventaSeleccionada como desees
-                    // Por ejemplo, puedes abrir un formulario de detalle y pasarle la venta
                     FormDetalleVenta detalleForm = new FormDetalleVenta(ventaSeleccionada);
                     detalleForm.ShowDialog();
                 }

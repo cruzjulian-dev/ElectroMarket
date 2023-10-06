@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.DGMisVentas = new System.Windows.Forms.DataGridView();
-            this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +41,15 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             this.CNombreCliente,
             this.CApellidoCliente,
             this.CTotal,
+            this.CForma,
             this.CFecha,
             this.CDetalle});
             this.DGMisVentas.Location = new System.Drawing.Point(297, 46);
@@ -69,61 +71,6 @@
             this.DGMisVentas.Size = new System.Drawing.Size(843, 443);
             this.DGMisVentas.TabIndex = 12;
             this.DGMisVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // CIdVenta
-            // 
-            this.CIdVenta.HeaderText = "ID Venta";
-            this.CIdVenta.Name = "CIdVenta";
-            this.CIdVenta.Width = 70;
-            // 
-            // CVendedor
-            // 
-            this.CVendedor.HeaderText = "Vendedor";
-            this.CVendedor.Name = "CVendedor";
-            this.CVendedor.ReadOnly = true;
-            this.CVendedor.Width = 125;
-            // 
-            // CDniCliente
-            // 
-            this.CDniCliente.HeaderText = "DNI Cliente";
-            this.CDniCliente.Name = "CDniCliente";
-            this.CDniCliente.ReadOnly = true;
-            this.CDniCliente.Width = 80;
-            // 
-            // CNombreCliente
-            // 
-            this.CNombreCliente.HeaderText = "Nombre Cliente";
-            this.CNombreCliente.Name = "CNombreCliente";
-            this.CNombreCliente.ReadOnly = true;
-            // 
-            // CApellidoCliente
-            // 
-            this.CApellidoCliente.HeaderText = "Apellido Cliente";
-            this.CApellidoCliente.Name = "CApellidoCliente";
-            this.CApellidoCliente.ReadOnly = true;
-            // 
-            // CTotal
-            // 
-            this.CTotal.HeaderText = "Monto Total";
-            this.CTotal.Name = "CTotal";
-            this.CTotal.ReadOnly = true;
-            this.CTotal.Width = 125;
-            // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha Venta";
-            this.CFecha.Name = "CFecha";
-            this.CFecha.ReadOnly = true;
-            this.CFecha.Width = 85;
-            // 
-            // CDetalle
-            // 
-            this.CDetalle.HeaderText = "Ver detalle";
-            this.CDetalle.Name = "CDetalle";
-            this.CDetalle.ReadOnly = true;
-            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CDetalle.Width = 70;
             // 
             // label3
             // 
@@ -251,6 +198,67 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
+            // CIdVenta
+            // 
+            this.CIdVenta.HeaderText = "ID Venta";
+            this.CIdVenta.Name = "CIdVenta";
+            this.CIdVenta.Width = 50;
+            // 
+            // CVendedor
+            // 
+            this.CVendedor.HeaderText = "Vendedor";
+            this.CVendedor.Name = "CVendedor";
+            this.CVendedor.ReadOnly = true;
+            this.CVendedor.Width = 125;
+            // 
+            // CDniCliente
+            // 
+            this.CDniCliente.HeaderText = "DNI Cliente";
+            this.CDniCliente.Name = "CDniCliente";
+            this.CDniCliente.ReadOnly = true;
+            this.CDniCliente.Width = 80;
+            // 
+            // CNombreCliente
+            // 
+            this.CNombreCliente.HeaderText = "Nombre Cliente";
+            this.CNombreCliente.Name = "CNombreCliente";
+            this.CNombreCliente.ReadOnly = true;
+            // 
+            // CApellidoCliente
+            // 
+            this.CApellidoCliente.HeaderText = "Apellido Cliente";
+            this.CApellidoCliente.Name = "CApellidoCliente";
+            this.CApellidoCliente.ReadOnly = true;
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Monto Total";
+            this.CTotal.Name = "CTotal";
+            this.CTotal.ReadOnly = true;
+            // 
+            // CForma
+            // 
+            this.CForma.HeaderText = "Forma de Pago";
+            this.CForma.Name = "CForma";
+            this.CForma.ReadOnly = true;
+            this.CForma.Width = 90;
+            // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha Venta";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.ReadOnly = true;
+            this.CFecha.Width = 85;
+            // 
+            // CDetalle
+            // 
+            this.CDetalle.HeaderText = "Ver detalle";
+            this.CDetalle.Name = "CDetalle";
+            this.CDetalle.ReadOnly = true;
+            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CDetalle.Width = 70;
+            // 
             // MisVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +306,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CApellidoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CForma;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewButtonColumn CDetalle;
     }

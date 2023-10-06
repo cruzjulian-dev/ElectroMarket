@@ -76,11 +76,19 @@ FechaRegistro datetime default getdate() NOT NULL
 
 GO
 
+CREATE TABLE FORMA_PAGO(
+IdFormaPago int primary key identity NOT NULL,
+Descripcion varchar(200) NOT NULL,
+FechaRegistro datetime default getdate() NOT NULL
+);
+
+GO
 
 
 CREATE TABLE VENTAS(
 IdVenta int primary key identity NOT NULL,
 IdUsuario int references USUARIOS(IdUsuario),
+IdFormaPago int references FORMA_PAGO(IdFormaPago),
 DniCliente int NOT NULL,
 NombreCliente varchar(100) NOT NULL,
 ApellidoCliente varchar(100) NOT NULL,
@@ -101,7 +109,6 @@ Cantidad int,
 SubTotal decimal(10,2),
 FechaRegistro datetime default getdate() NOT NULL
 )
-
 
 GO
 ------------------------------------- FIN DE CREACION DE BASE DE DATOS Y TABLAS -------------------------------------
@@ -227,6 +234,23 @@ INSERT INTO ROLES (Descripcion)
 VALUES ('Super Administrador')
 
 GO
+
+INSERT INTO FORMA_PAGO(Descripcion)
+VALUES ('Efectivo')
+
+GO
+
+INSERT INTO FORMA_PAGO(Descripcion)
+VALUES ('Tarjeta')
+
+GO
+
+INSERT INTO FORMA_PAGO(Descripcion)
+VALUES ('Mercado Pago')
+
+
+GO
+
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Julian', 'Cruz', '40982522', 'cruz', '123', GETDATE(), 3795012213, 'San Martin 2412', 3, 1)

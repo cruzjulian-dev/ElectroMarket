@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,6 +61,8 @@
             this.TPago = new System.Windows.Forms.TextBox();
             this.TTotal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TFormaPago = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle)).BeginInit();
@@ -91,6 +93,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.TFormaPago);
             this.groupBox1.Controls.Add(this.TVendedor);
             this.groupBox1.Controls.Add(this.labelusuario);
             this.groupBox1.Controls.Add(this.TFecha);
@@ -107,7 +111,7 @@
             // 
             // TVendedor
             // 
-            this.TVendedor.Location = new System.Drawing.Point(389, 60);
+            this.TVendedor.Location = new System.Drawing.Point(303, 60);
             this.TVendedor.Name = "TVendedor";
             this.TVendedor.ReadOnly = true;
             this.TVendedor.Size = new System.Drawing.Size(178, 21);
@@ -118,7 +122,7 @@
             this.labelusuario.AutoSize = true;
             this.labelusuario.BackColor = System.Drawing.Color.White;
             this.labelusuario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelusuario.Location = new System.Drawing.Point(390, 44);
+            this.labelusuario.Location = new System.Drawing.Point(306, 44);
             this.labelusuario.Name = "labelusuario";
             this.labelusuario.Size = new System.Drawing.Size(66, 13);
             this.labelusuario.TabIndex = 26;
@@ -126,10 +130,10 @@
             // 
             // TFecha
             // 
-            this.TFecha.Location = new System.Drawing.Point(184, 60);
+            this.TFecha.Location = new System.Drawing.Point(126, 60);
             this.TFecha.Name = "TFecha";
             this.TFecha.ReadOnly = true;
-            this.TFecha.Size = new System.Drawing.Size(181, 21);
+            this.TFecha.Size = new System.Drawing.Size(148, 21);
             this.TFecha.TabIndex = 2;
             // 
             // Ltipodoc
@@ -137,7 +141,7 @@
             this.Ltipodoc.AutoSize = true;
             this.Ltipodoc.BackColor = System.Drawing.Color.White;
             this.Ltipodoc.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ltipodoc.Location = new System.Drawing.Point(181, 44);
+            this.Ltipodoc.Location = new System.Drawing.Point(132, 44);
             this.Ltipodoc.Name = "Ltipodoc";
             this.Ltipodoc.Size = new System.Drawing.Size(45, 13);
             this.Ltipodoc.TabIndex = 24;
@@ -159,7 +163,7 @@
             this.TIdVenta.Location = new System.Drawing.Point(6, 60);
             this.TIdVenta.Name = "TIdVenta";
             this.TIdVenta.ReadOnly = true;
-            this.TIdVenta.Size = new System.Drawing.Size(162, 21);
+            this.TIdVenta.Size = new System.Drawing.Size(101, 21);
             this.TIdVenta.TabIndex = 1;
             // 
             // groupBox2
@@ -248,27 +252,27 @@
             this.Cprecio,
             this.Ccantidad,
             this.Csubtotal});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGDetalle.Location = new System.Drawing.Point(99, 271);
             this.DGDetalle.MultiSelect = false;
             this.DGDetalle.Name = "DGDetalle";
             this.DGDetalle.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DGDetalle.RowTemplate.Height = 28;
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(654, 223);
@@ -398,6 +402,25 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(501, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Forma de Pago:";
+            // 
+            // TFormaPago
+            // 
+            this.TFormaPago.Location = new System.Drawing.Point(501, 60);
+            this.TFormaPago.Name = "TFormaPago";
+            this.TFormaPago.ReadOnly = true;
+            this.TFormaPago.Size = new System.Drawing.Size(147, 21);
+            this.TFormaPago.TabIndex = 27;
+            // 
             // FormDetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,6 +439,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Name = "FormDetalleVenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle Venta";
             this.Load += new System.EventHandler(this.DetalleVenta_Load);
             this.groupBox1.ResumeLayout(false);
@@ -461,5 +485,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cprecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TFormaPago;
     }
 }

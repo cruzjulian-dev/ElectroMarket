@@ -134,8 +134,12 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        MessageBox.Show("Venta realizada con exito!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        VaciarCampos();
+                        if (MessageBox.Show("Seguro que quieres realizar la venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            MessageBox.Show("Venta realizada con exito!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            VaciarCampos();
+                        }
+                        
                     }
                 }
 
