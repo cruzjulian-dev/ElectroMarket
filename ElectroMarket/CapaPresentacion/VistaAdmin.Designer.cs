@@ -31,8 +31,6 @@
             this.MenuAdmin = new System.Windows.Forms.MenuStrip();
             this.MenuUser = new FontAwesome.Sharp.IconMenuItem();
             this.MenuProd = new FontAwesome.Sharp.IconMenuItem();
-            this.SMCategoria = new System.Windows.Forms.ToolStripMenuItem();
-            this.SMProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.MenuLogo = new System.Windows.Forms.MenuStrip();
             this.PContenedor = new System.Windows.Forms.Panel();
@@ -42,6 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             this.MenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +51,7 @@
             this.MenuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuUser,
             this.MenuProd,
+            this.iconMenuItem1,
             this.MenuReportes});
             this.MenuAdmin.Location = new System.Drawing.Point(0, 76);
             this.MenuAdmin.Name = "MenuAdmin";
@@ -78,34 +78,17 @@
             // MenuProd
             // 
             this.MenuProd.AutoSize = false;
-            this.MenuProd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SMCategoria,
-            this.SMProductos});
             this.MenuProd.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuProd.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.MenuProd.IconChar = FontAwesome.Sharp.IconChar.FolderTree;
             this.MenuProd.IconColor = System.Drawing.Color.Black;
             this.MenuProd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MenuProd.IconSize = 46;
             this.MenuProd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuProd.Name = "MenuProd";
             this.MenuProd.Size = new System.Drawing.Size(160, 65);
-            this.MenuProd.Text = "Mantenedor";
+            this.MenuProd.Text = "Categorias";
             this.MenuProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuProd.Click += new System.EventHandler(this.MenuProd_Click);
-            // 
-            // SMCategoria
-            // 
-            this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
-            this.SMCategoria.Text = "Categorias";
-            this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
-            // 
-            // SMProductos
-            // 
-            this.SMProductos.Name = "SMProductos";
-            this.SMProductos.Size = new System.Drawing.Size(180, 22);
-            this.SMProductos.Text = "Productos";
-            this.SMProductos.Click += new System.EventHandler(this.SMProductos_Click);
             // 
             // MenuReportes
             // 
@@ -214,6 +197,21 @@
             this.label7.Text = "Bienvenido:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.AutoSize = false;
+            this.iconMenuItem1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.IconSize = 46;
+            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(160, 65);
+            this.iconMenuItem1.Text = "Productos";
+            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItem1.Click += new System.EventHandler(this.iconMenuItem1_Click_1);
+            // 
             // VistaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,13 +250,12 @@
         private FontAwesome.Sharp.IconMenuItem MenuReportes;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Panel PContenedor;
-        private System.Windows.Forms.ToolStripMenuItem SMCategoria;
-        private System.Windows.Forms.ToolStripMenuItem SMProductos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label LUsuario;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
     }
 }
 
