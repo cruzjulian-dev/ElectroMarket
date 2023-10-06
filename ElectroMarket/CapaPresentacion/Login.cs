@@ -111,5 +111,31 @@ namespace CapaPresentacion
                 BIngresar_Click(sender, e);
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+            timer1.Start();
+            // Obtener la fecha actual del sistema
+            DateTime fechaActual = DateTime.Now;
+
+            // Actualizar el texto del Label con la fecha actual en el formato deseado
+            Lfechahoy.Text = fechaActual.ToString("dd/MM/yyyy");
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Obtener la hora, los minutos y los segundos actuales
+            DateTime horaActual = DateTime.Now;
+            int horas = horaActual.Hour;
+            int minutos = horaActual.Minute;
+            int segundos = horaActual.Second;
+
+            // Formatear la hora, minutos y segundos en un formato legible
+            string horaMinutosSegundos = $"{horas:D2}:{minutos:D2}:{segundos:D2}";
+
+            Lhora.Text = horaMinutosSegundos;
+        }
     }
 }

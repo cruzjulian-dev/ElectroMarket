@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.TUser = new System.Windows.Forms.TextBox();
             this.TContra = new System.Windows.Forms.TextBox();
@@ -37,6 +38,9 @@
             this.BSalir = new FontAwesome.Sharp.IconButton();
             this.BIngresar = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Lhora = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Lfechahoy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,12 +149,40 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // Lhora
+            // 
+            this.Lhora.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lhora.ForeColor = System.Drawing.Color.Chocolate;
+            this.Lhora.Location = new System.Drawing.Point(276, 99);
+            this.Lhora.Name = "Lhora";
+            this.Lhora.Size = new System.Drawing.Size(64, 18);
+            this.Lhora.TabIndex = 10;
+            this.Lhora.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Lfechahoy
+            // 
+            this.Lfechahoy.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lfechahoy.ForeColor = System.Drawing.Color.Chocolate;
+            this.Lfechahoy.Location = new System.Drawing.Point(253, 84);
+            this.Lfechahoy.Name = "Lfechahoy";
+            this.Lfechahoy.Size = new System.Drawing.Size(87, 18);
+            this.Lfechahoy.TabIndex = 11;
+            this.Lfechahoy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 288);
             this.ControlBox = false;
+            this.Controls.Add(this.Lfechahoy);
+            this.Controls.Add(this.Lhora);
             this.Controls.Add(this.BSalir);
             this.Controls.Add(this.BIngresar);
             this.Controls.Add(this.LContra);
@@ -165,6 +197,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login - ElectroMarket";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -181,5 +214,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private FontAwesome.Sharp.IconButton BIngresar;
         private FontAwesome.Sharp.IconButton BSalir;
+        private System.Windows.Forms.Label Lhora;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label Lfechahoy;
     }
 }
