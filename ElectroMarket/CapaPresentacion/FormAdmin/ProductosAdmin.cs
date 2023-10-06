@@ -28,7 +28,7 @@ namespace CapaPresentacion
         {
             BEditar.Enabled = false;
             TIndice.Text = "0";
-            CBCategoria.SelectedIndex = 0;
+            CBCategoria.SelectedIndex = -1;
             TCodProd.BackColor = Color.Yellow;
 
             // combobox estado
@@ -37,7 +37,7 @@ namespace CapaPresentacion
 
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
-            CBEstado.SelectedIndex = 0;
+            CBEstado.SelectedIndex = -1;
 
 
             //combobox filtros de busqueda
@@ -57,7 +57,7 @@ namespace CapaPresentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            if (TIndice.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TPrecio.Text.Trim() == "" || TStock.Text.Trim() == "")
+            if (TIndice.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TPrecio.Text.Trim() == "" || TStock.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -83,8 +83,8 @@ namespace CapaPresentacion
             TDescripcion.Clear();
             TStock.Clear();
             TPrecio.Clear();
-            CBCategoria.SelectedIndex = 0;
-            CBEstado.SelectedIndex = 0;
+            CBCategoria.SelectedIndex = -1;
+            CBEstado.SelectedIndex = -1;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace CapaPresentacion
             string categoria = CBCategoria.SelectedItem.ToString();
             string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
 
-            if (TCodProd.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TStock.Text.Trim() == "" || TPrecio.Text.Trim() == "")
+            if (TCodProd.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TStock.Text.Trim() == "" || TPrecio.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

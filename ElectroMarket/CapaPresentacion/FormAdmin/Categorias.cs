@@ -62,7 +62,7 @@ namespace CapaPresentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            if (TDescripcion.Text.Trim() == "")
+            if (TDescripcion.Text.Trim() == "" || CBEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -82,7 +82,7 @@ namespace CapaPresentacion
         private void LimpiarCampos()
         {
             TDescripcion.Text = "";
-            CBEstado.SelectedIndex = 0;
+            CBEstado.SelectedIndex = -1;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace CapaPresentacion
             string descripcion = TDescripcion.Text;
             string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
 
-            if (TDescripcion.Text.Trim() == "")
+            if (TDescripcion.Text.Trim() == "" || CBEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -163,7 +163,7 @@ namespace CapaPresentacion
 
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
-            CBEstado.SelectedIndex = 0;
+            CBEstado.SelectedIndex = -1;
 
         }
 
