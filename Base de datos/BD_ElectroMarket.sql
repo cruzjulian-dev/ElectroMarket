@@ -253,32 +253,32 @@ GO
 
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
-VALUES ('Julian', 'Cruz', '40982522', 'cruz', '123', GETDATE(), 3795012213, 'San Martin 2412', 3, 1)
+VALUES ('Julian', 'Cruz', '40982522', 'cruz', '123', '1998-02-17', 3795012213, 'San Martin 2412', 3, 1)
 
 GO
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
-VALUES ('Fabricio', 'Blanco', '20952532', 'blanco', '123', GETDATE(), 3453324645, 'Bolivar 1432', 2, 1)
+VALUES ('Fabricio', 'Blanco', '20952532', 'blanco', '123', '1992-04-24', 3453324645, 'Bolivar 1432', 2, 1)
 
 GO
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
-VALUES ('Yamila', 'Davalos', '43912552', 'davalos', '123', GETDATE(), 3794042215, 'Sarmiento 412', 1, 0)
+VALUES ('Yamila', 'Davalos', '43912552', 'davalos', '123', '1978-03-07', 3794042215, 'Sarmiento 412', 1, 0)
 
 GO
 
 INSERT INTO USUARIOS (Nombre,Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
-VALUES ('Vendedor', 'ApeVendedor', '12345678', 'vendedor', '123', GETDATE(), 364042215, 'Calle 412', 1, 1)
+VALUES ('Vendedor', 'ApeVendedor', '12345678', 'vendedor', '123', '1999-09-27', 364042215, 'Calle 412', 1, 1)
 
 GO
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
-VALUES ('Admin', 'ApeAdmin', '32345678', 'admin', '123', GETDATE(), 335042215, 'Calle 512', 2, 1)
+VALUES ('Admin', 'ApeAdmin', '32345678', 'admin', '123', '2001-12-12', 335042215, 'Calle 512', 2, 1)
 
 GO
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
-VALUES ('Super', 'ApeSuper', '22345678', 'super', '123', GETDATE(), 364012215, 'Calle 712', 3, 1)
+VALUES ('Super', 'ApeSuper', '22345678', 'super', '123', '1994-01-13', 364012215, 'Calle 712', 3, 1)
 
 GO
 

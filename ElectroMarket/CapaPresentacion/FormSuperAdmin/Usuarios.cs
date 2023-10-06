@@ -25,53 +25,74 @@ namespace CapaPresentacion
         private void BGuardar_Click(object sender, EventArgs e)
         {
 
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TUsuario.Text.Trim() == "" || TContra.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TUsuario.Text.Trim() == "" || TContra.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBRol.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (TDni.Text.Trim().Length != 8)
                 {
-                    string mensaje = string.Empty;
+                    MessageBox.Show("El DNI debe tener exactamente 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Obtener la fecha de nacimiento del DateTimePicker
+                    DateTime fechaNacimiento = DTFecha.Value;
 
-                    Usuario objUsuario = new Usuario()
+                    // Calcular la edad actual
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+                    if (edad < 18)
                     {
-                        Nombre = TNombre.Text.Trim(),
-                        Apellido = TApellido.Text.Trim(),
-                        Dni = Convert.ToInt32(TDni.Text),
-                        UsuarioLogin = TUsuario.Text.Trim(),
-                        Clave = TContra.Text.Trim(),
-                        FechaNacimiento = DTFecha.Value,
-                        Domicilio = TDomicilio.Text.Trim(),
-                        Telefono = TTelefono.Text.Trim(),
-                        oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
-                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
-                    };
-
-                    int idUsuarioGenerado = new CN_Usuario().RegistrarUsuario(objUsuario, out mensaje);
-
-                    if (idUsuarioGenerado != 0)
-                    {
-                        DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
-                        ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
-                        DTFecha.Text, TTelefono.Text, TDomicilio.Text,
-                        ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
-                        idUsuarioGenerado, "Editar"
-
-                        });
-
-                        
-
-                        LimpiarCampos();
-                        VaciarTabla();
-                        ActualizarTabla();
+                        MessageBox.Show("El usuario debe ser mayor de 18 años", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show(mensaje);
+                        if (MessageBox.Show("Seguro que quieres guardar el usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string mensaje = string.Empty;
+
+                            Usuario objUsuario = new Usuario()
+                            {
+                                Nombre = TNombre.Text.Trim(),
+                                Apellido = TApellido.Text.Trim(),
+                                Dni = Convert.ToInt32(TDni.Text),
+                                UsuarioLogin = TUsuario.Text.Trim(),
+                                Clave = TContra.Text.Trim(),
+                                FechaNacimiento = DTFecha.Value,
+                                Domicilio = TDomicilio.Text.Trim(),
+                                Telefono = TTelefono.Text.Trim(),
+                                oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
+                                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                            };
+
+                            int idUsuarioGenerado = new CN_Usuario().RegistrarUsuario(objUsuario, out mensaje);
+
+                            if (idUsuarioGenerado != 0)
+                            {
+                                DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
+                                ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
+                                DTFecha.Text, TTelefono.Text, TDomicilio.Text,
+                                ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
+                                idUsuarioGenerado, "Editar"
+
+                                });
+
+
+
+                                LimpiarCampos();
+                                VaciarTabla();
+                                ActualizarTabla();
+                            }
+                            else
+                            {
+                                MessageBox.Show(mensaje);
+                            }
+                        }
                     }
                 }
+   
             }
             
         }
@@ -87,8 +108,8 @@ namespace CapaPresentacion
             DTFecha.Text = "";
             TDomicilio.Text = "";
             TTelefono.Text = "";
-            CBRol.SelectedIndex = 0;
-            CBEstado.SelectedIndex = 0;
+            CBRol.SelectedIndex = -1;
+            CBEstado.SelectedIndex = -1;
         }
 
         private void ActualizarTabla()
@@ -114,69 +135,89 @@ namespace CapaPresentacion
         private void BEditar_Click(object sender, EventArgs e)
         {
 
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TUsuario.Text.Trim() == "" || TContra.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TUsuario.Text.Trim() == "" || TContra.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBRol.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (MessageBox.Show("Deseas guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (TDni.Text.Trim().Length != 8)
                 {
-                    string mensaje = string.Empty;
+                    MessageBox.Show("El DNI debe tener exactamente 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Obtener la fecha de nacimiento del DateTimePicker
+                    DateTime fechaNacimiento = DTFecha.Value;
 
-                    Usuario objUsuario = new Usuario()
+                    // Calcular la edad actual
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+                    if (edad < 18)
                     {
-                        IdUsuario = Convert.ToInt32(TId.Text),
-                        Nombre = TNombre.Text.Trim(),
-                        Apellido = TApellido.Text.Trim(),
-                        Dni = Convert.ToInt32(TDni.Text),
-                        UsuarioLogin = TUsuario.Text.Trim(),
-                        Clave = TContra.Text.Trim(),
-                        FechaNacimiento = DTFecha.Value,
-                        Domicilio = TDomicilio.Text.Trim(),
-                        Telefono = TTelefono.Text.Trim(),
-                        oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
-                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
-                    };
-
-                    bool resultado = new CN_Usuario().EditarUsuario(objUsuario, out mensaje);
-
-                    if (resultado == true)
-                    {
-                        DataGridViewRow row = DGUsuarios.Rows[Convert.ToInt32(TIndice.Text)];
-
-                        row.Cells["CNombre"].Value = TNombre.Text.Trim();
-                        row.Cells["CApellido"].Value = TApellido.Text.Trim();
-                        row.Cells["CDni"].Value = Convert.ToInt32(TDni.Text);
-                        row.Cells["CUsuario"].Value = TUsuario.Text.Trim();
-                        row.Cells["CContra"].Value = TContra.Text.Trim();
-                        row.Cells["CIdRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Valor.ToString();
-                        row.Cells["CRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Texto.ToString();
-                        row.Cells["CFechaNacim"].Value = DTFecha.Value;
-                        row.Cells["CTelefono"].Value = TTelefono.Text.Trim();
-                        row.Cells["CDomicilio"].Value = TDomicilio.Text.Trim();
-                        row.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
-                        row.Cells["CEstado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
-                        row.Cells["CIdUsuario"].Value = TIndice.Text;
-                        row.Cells["Ceditar"].Value = "Editar";
-
-                        LimpiarCampos();
-                        VaciarTabla();
-                        ActualizarTabla();
-
-                        BEditar.Enabled = false;
-                        BGuardar.Enabled = true;
+                        MessageBox.Show("El usuario debe ser mayor de 18 años", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show(mensaje);
+                        if (MessageBox.Show("Deseas guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string mensaje = string.Empty;
+
+                            Usuario objUsuario = new Usuario()
+                            {
+                                IdUsuario = Convert.ToInt32(TId.Text),
+                                Nombre = TNombre.Text.Trim(),
+                                Apellido = TApellido.Text.Trim(),
+                                Dni = Convert.ToInt32(TDni.Text),
+                                UsuarioLogin = TUsuario.Text.Trim(),
+                                Clave = TContra.Text.Trim(),
+                                FechaNacimiento = DTFecha.Value,
+                                Domicilio = TDomicilio.Text.Trim(),
+                                Telefono = TTelefono.Text.Trim(),
+                                oRol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)CBRol.SelectedItem).Valor) },
+                                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                            };
+
+                            bool resultado = new CN_Usuario().EditarUsuario(objUsuario, out mensaje);
+
+                            if (resultado == true)
+                            {
+                                DataGridViewRow row = DGUsuarios.Rows[Convert.ToInt32(TIndice.Text)];
+
+                                row.Cells["CNombre"].Value = TNombre.Text.Trim();
+                                row.Cells["CApellido"].Value = TApellido.Text.Trim();
+                                row.Cells["CDni"].Value = Convert.ToInt32(TDni.Text);
+                                row.Cells["CUsuario"].Value = TUsuario.Text.Trim();
+                                row.Cells["CContra"].Value = TContra.Text.Trim();
+                                row.Cells["CIdRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Valor.ToString();
+                                row.Cells["CRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Texto.ToString();
+                                row.Cells["CFechaNacim"].Value = DTFecha.Value;
+                                row.Cells["CTelefono"].Value = TTelefono.Text.Trim();
+                                row.Cells["CDomicilio"].Value = TDomicilio.Text.Trim();
+                                row.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                                row.Cells["CEstado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
+                                row.Cells["CIdUsuario"].Value = TIndice.Text;
+                                row.Cells["Ceditar"].Value = "Editar";
+
+                                LimpiarCampos();
+                                VaciarTabla();
+                                ActualizarTabla();
+
+                                BEditar.Enabled = false;
+                                BGuardar.Enabled = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show(mensaje);
+                            }
+                        }
                     }
+
                 }
+
+                
             }
-
-
-            
-            
+ 
         }
 
         private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -247,7 +288,7 @@ namespace CapaPresentacion
 
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
-            CBEstado.SelectedIndex = 0;
+            CBEstado.SelectedIndex = -1;
 
             List<Rol> listaRol = new CN_Rol().Listar();
 
@@ -258,7 +299,7 @@ namespace CapaPresentacion
 
             CBRol.DisplayMember = "Texto";
             CBRol.ValueMember = "Valor";
-            CBRol.SelectedIndex = 0;
+            CBRol.SelectedIndex = -1;
 
             foreach (DataGridViewColumn columna in DGUsuarios.Columns)
             {
@@ -284,11 +325,6 @@ namespace CapaPresentacion
 
             }
 
-        }
-
-        private void TUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
         }
 
         private void TNombre_KeyPress(object sender, KeyPressEventArgs e)

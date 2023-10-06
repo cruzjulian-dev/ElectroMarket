@@ -35,7 +35,7 @@ namespace CapaPresentacion
 
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
-            CBEstado.SelectedIndex = 0;
+            CBEstado.SelectedIndex = -1;
 
 
             foreach (DataGridViewColumn columna in DGClientes.Columns)
@@ -53,7 +53,7 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "" || CBEstado.SelectedItem.ToString() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "" || CBEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -62,15 +62,29 @@ namespace CapaPresentacion
                 if (TDni.Text.Trim().Length != 8)
                 {
                     MessageBox.Show("El DNI debe tener exactamente 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else
+                }
+                else
                 {
-                    if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    // Obtener la fecha de nacimiento del DateTimePicker
+                    DateTime fechaNacimiento = DTFecha.Value;
+
+                    // Calcular la edad actual
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+                    if (edad < 18)
                     {
+                        MessageBox.Show("El cliente debe ser mayor de 18 años", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
 
-                        // Agregar nueva fila
-                        DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
+                            // Agregar nueva fila
+                            DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
 
-                        LimpiarCampos();
+                            LimpiarCampos();
+                        }
                     }
                 }
                
@@ -86,7 +100,7 @@ namespace CapaPresentacion
             DTFecha.Text = "";
             TDomicilio.Text = "";
             TTelefono.Text = "";
-            CBEstado.SelectedIndex = 0;
+            CBEstado.SelectedIndex = -1;
         }
 
         private void ActualizarTabla()
@@ -122,7 +136,7 @@ namespace CapaPresentacion
             string dni = TDni.Text;
             string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
 
-            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "")
+            if (TNombre.Text.Trim() == "" || TApellido.Text.Trim() == "" || TDni.Text.Trim() == "" || TDomicilio.Text.Trim() == "" || TTelefono.Text.Trim() == "" || CBEstado.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
@@ -130,42 +144,57 @@ namespace CapaPresentacion
                 if (TDni.Text.Trim().Length != 8)
                 {
                     MessageBox.Show("El DNI debe tener 8 exactamente 8 digitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } else
+                }
+                else
                 {
-                    // Actualiza la fila seleccionada en el DataGridView
-                    DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
-                    selectedRow.Cells["CDomicilio"].Value = domicilio;
-                    selectedRow.Cells["Cdni"].Value = dni;
-                    selectedRow.Cells["CTelefono"].Value = telefono;
-                    selectedRow.Cells["CNombre"].Value = nombre;
-                    selectedRow.Cells["CApellido"].Value = apellido;
-                    selectedRow.Cells["Cestado"].Value = Estado;
-                    selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
 
+                    // Obtener la fecha de nacimiento del DateTimePicker
+                    DateTime fechaNacimiento = DTFecha.Value;
 
-                    DateTime nuevaFecha = DTFecha.Value;
-                    selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
+                    // Calcular la edad actual
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
 
-                    foreach (DataGridViewRow row in DGClientes.Rows)
+                    if (edad < 18)
                     {
-                        // Obtener el valor de la celda en la columna "CEstado"
-                        string estado = row.Cells["CEstado"].Value as string;
-
-                        // Verificar si el estado es "No Activo"
-                        if (estado == "No Activo")
-                        {
-
-                            row.DefaultCellStyle.BackColor = Color.Red;
-                        }
-                        else
-                        {
-                            row.DefaultCellStyle.BackColor = Color.White;
-                        }
+                        MessageBox.Show("El cliente debe ser mayor de 18 años", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else
+                    {
+                        // Actualiza la fila seleccionada en el DataGridView
+                        DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
+                        selectedRow.Cells["CDomicilio"].Value = domicilio;
+                        selectedRow.Cells["Cdni"].Value = dni;
+                        selectedRow.Cells["CTelefono"].Value = telefono;
+                        selectedRow.Cells["CNombre"].Value = nombre;
+                        selectedRow.Cells["CApellido"].Value = apellido;
+                        selectedRow.Cells["Cestado"].Value = Estado;
+                        selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
 
-                    LimpiarCampos();
-                    BEditar.Enabled = false;
-                    BGuardar.Enabled = true;
+
+                        DateTime nuevaFecha = DTFecha.Value;
+                        selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
+
+                        foreach (DataGridViewRow row in DGClientes.Rows)
+                        {
+                            // Obtener el valor de la celda en la columna "CEstado"
+                            string estado = row.Cells["CEstado"].Value as string;
+
+                            // Verificar si el estado es "No Activo"
+                            if (estado == "No Activo")
+                            {
+
+                                row.DefaultCellStyle.BackColor = Color.Red;
+                            }
+                            else
+                            {
+                                row.DefaultCellStyle.BackColor = Color.White;
+                            }
+                        }
+
+                        LimpiarCampos();
+                        BEditar.Enabled = false;
+                        BGuardar.Enabled = true;
+                    }
                 }
                 
             }

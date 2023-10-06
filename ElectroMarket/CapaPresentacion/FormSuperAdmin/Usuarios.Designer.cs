@@ -107,7 +107,6 @@
             this.TUsuario.Name = "TUsuario";
             this.TUsuario.Size = new System.Drawing.Size(180, 21);
             this.TUsuario.TabIndex = 13;
-            this.TUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TUsuario_KeyPress);
             // 
             // label1
             // 
