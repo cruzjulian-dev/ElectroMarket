@@ -83,6 +83,7 @@
             this.TSeleccionado.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSeleccionado.Location = new System.Drawing.Point(12, 359);
             this.TSeleccionado.Name = "TSeleccionado";
+            this.TSeleccionado.ReadOnly = true;
             this.TSeleccionado.Size = new System.Drawing.Size(283, 21);
             this.TSeleccionado.TabIndex = 12;
             // 

@@ -33,7 +33,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BRestaurar = new FontAwesome.Sharp.IconButton();
+            this.BBackup = new FontAwesome.Sharp.IconButton();
             this.SFBackup = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -91,21 +91,21 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // BRestaurar
+            // BBackup
             // 
-            this.BRestaurar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BRestaurar.IconChar = FontAwesome.Sharp.IconChar.Database;
-            this.BRestaurar.IconColor = System.Drawing.Color.Black;
-            this.BRestaurar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BRestaurar.Location = new System.Drawing.Point(86, 255);
-            this.BRestaurar.Name = "BRestaurar";
-            this.BRestaurar.Size = new System.Drawing.Size(148, 58);
-            this.BRestaurar.TabIndex = 20;
-            this.BRestaurar.Text = "BackUp";
-            this.BRestaurar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BRestaurar.UseVisualStyleBackColor = true;
-            this.BRestaurar.Click += new System.EventHandler(this.BRestaurar_Click);
+            this.BBackup.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBackup.IconChar = FontAwesome.Sharp.IconChar.Database;
+            this.BBackup.IconColor = System.Drawing.Color.Black;
+            this.BBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BBackup.Location = new System.Drawing.Point(86, 255);
+            this.BBackup.Name = "BBackup";
+            this.BBackup.Size = new System.Drawing.Size(148, 58);
+            this.BBackup.TabIndex = 20;
+            this.BBackup.Text = "BackUp";
+            this.BBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BBackup.UseVisualStyleBackColor = true;
+            this.BBackup.Click += new System.EventHandler(this.BRestaurar_Click);
             // 
             // BackupBD
             // 
@@ -115,7 +115,7 @@
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.BRestaurar);
+            this.Controls.Add(this.BBackup);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -129,7 +129,7 @@
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton BRestaurar;
+        private FontAwesome.Sharp.IconButton BBackup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

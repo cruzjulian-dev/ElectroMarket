@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using CapaNegocio;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,8 @@ namespace CapaPresentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            OPSeleccionarBd.Filter = "Archivos de Base de Datos (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
+            OPSeleccionarBd.Title = "Seleccionar Archivo de Backup";
+            OPSeleccionarBd.Filter = "Archivo Backup de SQL Server (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
 
             if (OPSeleccionarBd.ShowDialog() == DialogResult.OK)
             {
@@ -37,8 +39,29 @@ namespace CapaPresentacion
                     MessageBox.Show("No has seleccionado ninguna base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } else
                 {
-                    TSeleccionado.Text = "";
-                    MessageBox.Show("Base de datos restaurada con exito!");
+                    if (!TSeleccionado.Text.EndsWith(".bak"))
+                    {
+                        MessageBox.Show("Debes seleccionar un archivo .bak!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } else
+                    {
+                        CN_Restaurar restaurarBD = new CN_Restaurar();
+                        try
+                        {
+                            if (restaurarBD.RestaurarBackup(TSeleccionado.Text))
+                            {
+                                MessageBox.Show("Restauración completada con éxito.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al realizar la restauración.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al realizar la restauración: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    
                 }
                 
             }

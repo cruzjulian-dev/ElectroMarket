@@ -1,20 +1,18 @@
 ﻿using CapaDatos;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class CN_Login
+    public class CN_Backup
     {
-        private Conexion conexion = new Conexion(); 
-
-        public bool Conectar()
+        public bool RealizarBackup(string rutaBackup)
         {
-            return conexion.AbrirConexion(); 
+            CD_Backup backupBD = new CD_Backup();
+            return backupBD.RealizarBackup(rutaBackup);
         }
     }
 }

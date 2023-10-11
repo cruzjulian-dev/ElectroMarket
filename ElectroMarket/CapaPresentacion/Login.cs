@@ -34,9 +34,9 @@ namespace CapaPresentacion
 
         private void BIngresar_Click(object sender, EventArgs e)
         {
-            CN_Login cn_login = new CN_Login();
+            CN_ConexionBD conexion = new CN_ConexionBD();
 
-            if (cn_login.Conectar())
+            if (conexion.Conectar())
             {
                 Usuario oUsuario = new CN_Usuario().Listar().Where(x => x.UsuarioLogin == TUser.Text && x.Clave == TContra.Text).FirstOrDefault();
 

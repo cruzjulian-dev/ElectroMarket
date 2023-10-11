@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -18,25 +19,37 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Deseas realizar un backup a la BD?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                MessageBox.Show("Base de datos restaurada con exito!");
-            }
-        }
-
         private void BRestaurar_Click(object sender, EventArgs e)
         {
-            SFBackup.Title = "ElectroMarket_DB";
+            CN_Backup backupBD = new CN_Backup();
 
-            SFBackup.Filter = "Archivos de texto (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
-
-            if (SFBackup.ShowDialog() == DialogResult.OK)
+            using (SFBackup)
             {
-                MessageBox.Show("Backup completado!");
-            }
-        }
+                SFBackup.Title = "Guardar Backup";
+                SFBackup.Filter = "Archivo Backup de SQL Server (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
 
+                if (SFBackup.ShowDialog() == DialogResult.OK)
+                {
+                    string rutaSeleccionada = SFBackup.FileName;
+
+                    try
+                    {
+                        if (backupBD.RealizarBackup(rutaSeleccionada))
+                        {
+                            MessageBox.Show("Backup completado con éxito.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al realizar el backup.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al realizar el backup: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
     }
 }
