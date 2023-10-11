@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
+using System.Data.SqlClient;
 
 namespace CapaPresentacion
 {
@@ -33,54 +34,62 @@ namespace CapaPresentacion
 
         private void BIngresar_Click(object sender, EventArgs e)
         {
+            CN_Login cn_login = new CN_Login();
 
-            List<Usuario> TEST = new CN_Usuario().Listar();
-
-            Usuario oUsuario = new CN_Usuario().Listar().Where(x => x.UsuarioLogin == TUser.Text && x.Clave == TContra.Text).FirstOrDefault();
-
-            if ((TUser.Text.Trim() == "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() != "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() == "" && TContra.Text.Trim() != ""))
+            if (cn_login.Conectar())
             {
-                MessageBox.Show("Debe completar todos los campos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TUser.Text = "";
-                TContra.Text = "";
-            } else
-            {
-                if (oUsuario != null)
+                Usuario oUsuario = new CN_Usuario().Listar().Where(x => x.UsuarioLogin == TUser.Text && x.Clave == TContra.Text).FirstOrDefault();
+
+                if ((TUser.Text.Trim() == "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() != "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() == "" && TContra.Text.Trim() != ""))
                 {
-                    if (oUsuario.Estado != false)
+                    MessageBox.Show("Debe completar todos los campos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TUser.Text = "";
+                    TContra.Text = "";
+                }
+                else
+                {
+                    if (oUsuario != null)
                     {
-                        switch (oUsuario.oRol.IdRol)
+                        if (oUsuario.Estado != false)
                         {
-                            case 1:
-                                VistaVendedor vistaVendedor = new VistaVendedor(oUsuario);
-                                vistaVendedor.Show();
-                                break;
+                            switch (oUsuario.oRol.IdRol)
+                            {
+                                case 1:
+                                    VistaVendedor vistaVendedor = new VistaVendedor(oUsuario);
+                                    vistaVendedor.Show();
+                                    break;
 
-                            case 2:
-                                VistaAdmin vistaAdmin = new VistaAdmin(oUsuario);
-                                vistaAdmin.Show();
-                                break;
-                            case 3:
-                                VistaSuper vistaSuper = new VistaSuper(oUsuario);
-                                vistaSuper.Show();
-                                break;
+                                case 2:
+                                    VistaAdmin vistaAdmin = new VistaAdmin(oUsuario);
+                                    vistaAdmin.Show();
+                                    break;
+                                case 3:
+                                    VistaSuper vistaSuper = new VistaSuper(oUsuario);
+                                    vistaSuper.Show();
+                                    break;
+
+                            }
+                            this.Close();
 
                         }
-                        this.Close();
-
-                    } else
+                        else
+                        {
+                            MessageBox.Show("Usuario deshabilitado, porfavor contacta al Administrador del sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            TUser.Text = "";
+                            TContra.Text = "";
+                        }
+                    }
+                    else
                     {
-                        MessageBox.Show("Usuario deshabilitado, porfavor contacta al Administrador del sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Usuario o contraseña incorrecto/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TUser.Text = "";
                         TContra.Text = "";
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Usuario o contraseña incorrecto/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TUser.Text = "";
-                    TContra.Text = "";
-                }
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar a la base de datos. Verifique la conexión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
