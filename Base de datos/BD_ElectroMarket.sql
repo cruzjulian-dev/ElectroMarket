@@ -1,6 +1,15 @@
+--------------------- SE COMPRUEBA SI EXISTE LA BASE DE DATOS, EN CASO AFIRMATIVO SE LA ELIMINA --------------------
+IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DB_ElectroMarket')
+BEGIN
+    USE master;
+    ALTER DATABASE DB_ElectroMarket SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE DB_ElectroMarket;
+END
+--------------------- FIN DE COMPROBACIÓN DE EXISTENCIA PREVIA DE LA BASE DE DATOS ------------------------------
+
+GO
+
 ------------------------------------- COMIENZO DE CREACION DE BASE DE DATOS Y TABLAS  -------------------------------------
-
-
 CREATE DATABASE DB_ElectroMarket
 
 GO
@@ -215,7 +224,6 @@ GO
 
 -- CLIENTE --
 CREATE PROC SP_REGISTRARCLIENTE(
-	
 	@Nombre varchar(100),
 	@Apellido varchar(100),
 	@Dni int,
@@ -238,18 +246,19 @@ begin
 		VALUES (@Nombre, @Apellido, @Dni, @FechaNacimiento, @Telefono, @Domicilio, @Estado)
 
 		set @IdClienteResultado = SCOPE_IDENTITY()
+	end
 	else
-		begin
+	begin
 		IF (SELECT Estado FROM CLIENTES WHERE Dni = @Dni) = 0
-			@Mensaje = 'El cliente está dado de baja, contacte al administrador!'
+		begin
+			set @Mensaje = 'El cliente está dado de baja, contacte al Administrador.'
+		end
 		else
-			begin
+		begin
 			set @Mensaje = 'El DNI ya está en uso por otro cliente.'
 		end
 	end
 end
-
-
 
 GO
 
@@ -258,12 +267,9 @@ CREATE PROC SP_EDITARCLIENTE(
 	@Nombre varchar(100),
 	@Apellido varchar(100),
 	@Dni int,
-	@UsuarioLogin varchar(100),
-	@Clave varchar(100),
 	@FechaNacimiento DATE,
 	@Telefono varchar(40),
 	@Domicilio varchar(200),
-	@IdRol int,
 	@Estado bit,
 	@Respuesta bit output,
 	@Mensaje varchar(500) output
@@ -274,32 +280,21 @@ begin
 	set @Mensaje = ''
 
 
-	-- Verifica si el nuevo DNI ya está siendo utilizado por otro cliente
-    IF NOT EXISTS (SELECT * FROM CLIENTES WHERE Dni = @Dni AND IdCliente != @IdCliente)
+	-- Verifica si el DNI no está siendo utilizado por otro usuario
+    if not exists(SELECT * FROM CLIENTES WHERE Dni = @Dni)
     BEGIN
-        -- Verifica si el nuevo UsuarioLogin ya está siendo utilizado por otro usuario
-        IF NOT EXISTS (SELECT * FROM CLIENTES WHERE UsuarioLogin = @UsuarioLogin AND IdCliente != @IdCliente)
-        BEGIN
-            -- Realiza la actualización del usuario
+		-- Realiza la actualización del cliente
             UPDATE USUARIOS SET
                 Nombre = @Nombre,
                 Apellido = @Apellido,
                 Dni = @Dni,
-                UsuarioLogin = @UsuarioLogin,
-                Clave = @Clave,
                 FechaNacimiento = @FechaNacimiento,
                 Telefono = @Telefono,
                 Domicilio = @Domicilio,
-                IdRol = @IdRol,
                 Estado = @Estado
             WHERE IdUsuario = @IdUsuario
 
             SET @Respuesta = 1
-        END
-        ELSE
-        BEGIN
-            SET @Mensaje = 'El nuevo nombre de Usuario ya está en uso por otro usuario.'
-        END
     END
     ELSE
     BEGIN
@@ -310,6 +305,7 @@ END
 
 GO
 ------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
+
 
 
 ------------------------------------- COMIENZO DE CREACION DE DATOS DE PRUEBA -------------------------------------
