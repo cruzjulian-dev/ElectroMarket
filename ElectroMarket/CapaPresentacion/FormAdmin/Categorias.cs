@@ -1,4 +1,6 @@
-﻿using CapaPresentacion.Utilidades;
+﻿using CapaEntidades;
+using CapaNegocio;
+using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -155,7 +157,6 @@ namespace CapaPresentacion
 
         private void CategoriasAdmin_Load(object sender, EventArgs e)
         {
-            // Por defecto, deshabilita el botón "Editar"
             BEditar.Enabled = false;
 
             CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
@@ -164,6 +165,35 @@ namespace CapaPresentacion
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
             CBEstado.SelectedIndex = -1;
+
+
+            foreach (DataGridViewColumn columna in DGCategoria.Columns)
+            {
+                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Contraseña" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
+                {
+                    cboBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                }
+            }
+            cboBusqueda.DisplayMember = "Texto";
+            cboBusqueda.ValueMember = "Valor";
+            cboBusqueda.SelectedIndex = 0;
+
+
+            // Mostrar todos los Usuarios desde la BD
+            List<Categoria> lista = new CN_Categoria().Listar();
+
+            foreach (Categoria item in lista)
+            {
+
+                DGCategoria.Rows.Add(new object[] { item.IdCategoria,
+                    item.Descripcion,
+                    item.Estado == true ? "Activo" : "No Activo",
+                    item.IdCategoria, "Editar"
+            });
+
+            }
+
+
 
         }
 

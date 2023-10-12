@@ -262,6 +262,8 @@ end
 
 GO
 
+
+
 CREATE PROC SP_EDITARCLIENTE(
 	@IdCliente int,
 	@Nombre varchar(100),
@@ -304,6 +306,59 @@ END
 -- FIN CLIENTE --
 
 GO
+
+-- PROCEDIMIENTOS PARA GUARDAR CATEGORIAS --
+CREATE PROC SP_RegistrarCategorias (
+@Descripcion varchar(80),
+@Estado bit,
+@Resultado int output,
+@Mensaje varchar (500) output
+)as
+begin 
+	SET @Resultado = 0
+	set @Mensaje = ''
+	IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE Descripcion = @Descripcion)
+	begin 
+		insert into CATEGORIAS(Descripcion)
+		VALUES (@Descripcion)
+		SET @Resultado = SCOPE_IDENTITY()
+	end
+	ELSE
+		begin
+			set @Mensaje =  'No se puede repetir la descripcion para mas de una categoria.'
+		end
+	end
+
+go
+
+--PROCEDIMIENTOS para modificar categorias --
+CREATE PROC SP_EditarCategorias(
+@IdCategoria int,
+@Descripcion varchar(500),
+@Estado bit,
+@Respuesta bit output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	SET @Respuesta = 1
+	IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE Descripcion = @Descripcion AND IdCategoria != @IdCategoria)
+	begin
+		update CATEGORIAS SET
+		Descripcion = @Descripcion,
+		Estado = @Estado
+		where IdCategoria = @IdCategoria
+		set @Respuesta = 1
+	end
+	ELSE
+	begin
+		set @Mensaje =  'No se puede repetir la descripcion para mas de una categoria.'
+		SET @Respuesta = 0
+	end
+end
+
+go
+
 ------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
 
 
@@ -389,5 +444,15 @@ VALUES ('Luis', 'Barrios', '46958532', '24-09-2004', 3577324645, 'Catamarca 1118
 -- FIN CLIENTES -- 
 
 GO
+
+select * from CATEGORIAS
+select * from USUARIOS
+
+insert into CATEGORIAS(Descripcion,Estado)
+values ('maquina expendedoras',1)
+
+insert into CATEGORIAS(Descripcion,Estado)
+values ('grandes',1)
+
 
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------
