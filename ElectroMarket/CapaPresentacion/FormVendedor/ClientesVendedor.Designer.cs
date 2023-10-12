@@ -50,10 +50,10 @@
             this.DTFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBBusqueda = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.BMostrar = new FontAwesome.Sharp.IconButton();
+            this.BBusqueda = new FontAwesome.Sharp.IconButton();
             this.label4 = new System.Windows.Forms.Label();
             this.BEditar = new FontAwesome.Sharp.IconButton();
             this.BGuardar = new FontAwesome.Sharp.IconButton();
@@ -265,22 +265,22 @@
             this.label5.TabIndex = 28;
             this.label5.Text = "Buscar Por:";
             // 
-            // comboBox1
+            // CBBusqueda
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CBBusqueda.BackColor = System.Drawing.Color.White;
+            this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBBusqueda.FormattingEnabled = true;
+            this.CBBusqueda.Items.AddRange(new object[] {
             "DNI",
             "Apellido",
             "Nombre",
             "ID"});
-            this.comboBox1.Location = new System.Drawing.Point(852, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(86, 21);
-            this.comboBox1.TabIndex = 18;
+            this.CBBusqueda.Location = new System.Drawing.Point(852, 57);
+            this.CBBusqueda.Name = "CBBusqueda";
+            this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
+            this.CBBusqueda.TabIndex = 18;
             // 
             // textBox1
             // 
@@ -291,39 +291,40 @@
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 19;
             // 
-            // iconButton1
+            // BMostrar
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 23;
-            this.iconButton1.Location = new System.Drawing.Point(1091, 51);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(35, 33);
-            this.iconButton1.TabIndex = 21;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.BMostrar.BackColor = System.Drawing.Color.White;
+            this.BMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BMostrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BMostrar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMostrar.ForeColor = System.Drawing.Color.White;
+            this.BMostrar.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.BMostrar.IconColor = System.Drawing.Color.Black;
+            this.BMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BMostrar.IconSize = 23;
+            this.BMostrar.Location = new System.Drawing.Point(1091, 51);
+            this.BMostrar.Name = "BMostrar";
+            this.BMostrar.Size = new System.Drawing.Size(35, 33);
+            this.BMostrar.TabIndex = 21;
+            this.BMostrar.UseVisualStyleBackColor = false;
             // 
-            // iconButton2
+            // BBusqueda
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.White;
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.iconButton2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(1050, 51);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(35, 33);
-            this.iconButton2.TabIndex = 20;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.BBusqueda.BackColor = System.Drawing.Color.White;
+            this.BBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBusqueda.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BBusqueda.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBusqueda.ForeColor = System.Drawing.Color.White;
+            this.BBusqueda.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.BBusqueda.IconColor = System.Drawing.Color.Black;
+            this.BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BBusqueda.IconSize = 23;
+            this.BBusqueda.Location = new System.Drawing.Point(1050, 51);
+            this.BBusqueda.Name = "BBusqueda";
+            this.BBusqueda.Size = new System.Drawing.Size(35, 33);
+            this.BBusqueda.TabIndex = 20;
+            this.BBusqueda.UseVisualStyleBackColor = false;
+            this.BBusqueda.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // label4
             // 
@@ -427,10 +428,10 @@
             this.Controls.Add(this.BLimpiar);
             this.Controls.Add(this.Ttel);
             this.Controls.Add(this.LTelefono);
-            this.Controls.Add(this.iconButton2);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.BBusqueda);
+            this.Controls.Add(this.BMostrar);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CBBusqueda);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DTFecha);
@@ -473,10 +474,10 @@
         private System.Windows.Forms.DateTimePicker DTFecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBBusqueda;
         private System.Windows.Forms.TextBox textBox1;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton BMostrar;
+        private FontAwesome.Sharp.IconButton BBusqueda;
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton BEditar;
         private FontAwesome.Sharp.IconButton BGuardar;
