@@ -119,6 +119,10 @@ namespace CapaPresentacion
                                 VaciarTabla();
                                 ActualizarTabla();
                             }
+                            else
+                            {
+                                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }

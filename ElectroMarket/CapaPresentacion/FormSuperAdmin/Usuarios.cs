@@ -87,7 +87,7 @@ namespace CapaPresentacion
                             }
                             else
                             {
-                                MessageBox.Show(mensaje);
+                                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }

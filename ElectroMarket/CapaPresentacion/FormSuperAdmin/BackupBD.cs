@@ -36,7 +36,7 @@ namespace CapaPresentacion
                     {
                         if (backupBD.RealizarBackup(rutaSeleccionada))
                         {
-                            MessageBox.Show("Backup completado con éxito.");
+                            MessageBox.Show("Backup completado con éxito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {

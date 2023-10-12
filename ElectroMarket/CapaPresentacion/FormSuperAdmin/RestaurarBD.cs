@@ -49,7 +49,7 @@ namespace CapaPresentacion
                         {
                             if (restaurarBD.RestaurarBackup(TSeleccionado.Text))
                             {
-                                MessageBox.Show("Restauración completada con éxito.");
+                                MessageBox.Show("Restauración completada con éxito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
