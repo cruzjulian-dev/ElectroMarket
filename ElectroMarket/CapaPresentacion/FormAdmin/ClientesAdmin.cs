@@ -197,40 +197,53 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        // Actualiza la fila seleccionada en el DataGridView
-                        DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
-                        selectedRow.Cells["CDomicilio"].Value = domicilio;
-                        selectedRow.Cells["Cdni"].Value = dni;
-                        selectedRow.Cells["CTelefono"].Value = telefono;
-                        selectedRow.Cells["CNombre"].Value = nombre;
-                        selectedRow.Cells["CApellido"].Value = apellido;
-                        selectedRow.Cells["Cestado"].Value = Estado;
-                        selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
 
-
-                        DateTime nuevaFecha = DTFecha.Value;
-                        selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
-
-                        foreach (DataGridViewRow row in DGClientes.Rows)
+                        if (MessageBox.Show("Deseas guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            // Obtener el valor de la celda en la columna "CEstado"
-                            string estado = row.Cells["CEstado"].Value as string;
+                            string mensaje = string.Empty;
 
-                            // Verificar si el estado es "No Activo"
-                            if (estado == "No Activo")
+                            Cliente objCliente = new Cliente()
                             {
+                                IdCliente = Convert.ToInt32(TId.Text),
+                                Nombre = TNombre.Text.Trim(),
+                                Apellido = TApellido.Text.Trim(),
+                                Dni = Convert.ToInt32(TDni.Text),
+                                FechaNacimiento = DTFecha.Value,
+                                Domicilio = TDomicilio.Text.Trim(),
+                                Telefono = TTelefono.Text.Trim(),
+                                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                            };
 
-                                row.DefaultCellStyle.BackColor = Color.Red;
+                            bool resultado = new CN_Cliente().EditarCliente(objCliente, out mensaje);
+
+                            if (resultado == true)
+                            {
+                                DataGridViewRow row = DGClientes.Rows[Convert.ToInt32(TIndice.Text)];
+
+                                row.Cells["CNombre"].Value = TNombre.Text.Trim();
+                                row.Cells["CApellido"].Value = TApellido.Text.Trim();
+                                row.Cells["Cdni"].Value = Convert.ToInt32(TDni.Text);
+                                row.Cells["CFechaNacim"].Value = DTFecha.Value;
+                                row.Cells["CTelefono"].Value = TTelefono.Text.Trim();
+                                row.Cells["CDomicilio"].Value = TDomicilio.Text.Trim();
+                                row.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                                row.Cells["Cestado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
+                                row.Cells["Ceditar"].Value = "Editar";
+                                row.Cells["CIdCliente"].Value = TIndice.Text;
+
+                                LimpiarCampos();
+                                VaciarTabla();
+                                ActualizarTabla();
+
+                                BEditar.Enabled = false;
+                                BGuardar.Enabled = true;
                             }
                             else
                             {
-                                row.DefaultCellStyle.BackColor = Color.White;
+                                MessageBox.Show(mensaje);
                             }
                         }
 
-                        LimpiarCampos();
-                        BEditar.Enabled = false;
-                        BGuardar.Enabled = true;
                     }
                 }
                 

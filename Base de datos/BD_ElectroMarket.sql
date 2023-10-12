@@ -263,7 +263,7 @@ end
 GO
 
 CREATE PROC SP_EDITARCLIENTE(
-	@IdUsuario int,
+	@IdCliente int,
 	@Nombre varchar(100),
 	@Apellido varchar(100),
 	@Dni int,
@@ -281,10 +281,10 @@ begin
 
 
 	-- Verifica si el DNI no está siendo utilizado por otro usuario
-    if not exists(SELECT * FROM CLIENTES WHERE Dni = @Dni)
+    if not exists(SELECT * FROM CLIENTES WHERE Dni = @Dni AND IdCliente != @IdCliente)
     BEGIN
 		-- Realiza la actualización del cliente
-            UPDATE USUARIOS SET
+            UPDATE CLIENTES SET
                 Nombre = @Nombre,
                 Apellido = @Apellido,
                 Dni = @Dni,
@@ -292,7 +292,7 @@ begin
                 Telefono = @Telefono,
                 Domicilio = @Domicilio,
                 Estado = @Estado
-            WHERE IdUsuario = @IdUsuario
+            WHERE IdCliente = @IdCliente
 
             SET @Respuesta = 1
     END
