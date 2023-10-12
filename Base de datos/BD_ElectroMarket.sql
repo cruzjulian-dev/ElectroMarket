@@ -115,7 +115,7 @@ GO
 
 
 ------------------------------------- COMIENZO DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
-
+-- USUARIO --
 CREATE PROC SP_REGISTRARUSUARIO(
 	
 	@Nombre varchar(100),
@@ -154,11 +154,7 @@ begin
     set @Mensaje = 'El DNI ya está en uso por otro usuario.'
 end
 
-
-
 GO
-
-
 
 CREATE PROC SP_EDITARUSUARIO(
 	@IdUsuario int,
@@ -213,6 +209,104 @@ begin
         SET @Mensaje = 'El nuevo DNI ya está en uso por otro usuario.'
     END
 END
+-- FIN USUARIO -- 
+
+GO
+
+-- CLIENTE --
+CREATE PROC SP_REGISTRARCLIENTE(
+	
+	@Nombre varchar(100),
+	@Apellido varchar(100),
+	@Dni int,
+	@FechaNacimiento DATE,
+	@Telefono varchar(40),
+	@Domicilio varchar(200),
+	@Estado bit,
+	@IdClienteResultado int output,
+	@Mensaje varchar(500) output
+)
+as
+begin
+	set @IdClienteResultado = 0
+	set @Mensaje = ''
+
+	-- Verifica si el DNI no está siendo utilizado por otro usuario
+	if not exists(SELECT * FROM CLIENTES WHERE Dni = @Dni)
+	begin
+		INSERT INTO CLIENTES(Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
+		VALUES (@Nombre, @Apellido, @Dni, @FechaNacimiento, @Telefono, @Domicilio, @Estado)
+
+		set @IdClienteResultado = SCOPE_IDENTITY()
+	else
+		begin
+		IF (SELECT Estado FROM CLIENTES WHERE Dni = @Dni) = 0
+			@Mensaje = 'El cliente está dado de baja, contacte al administrador!'
+		else
+			begin
+			set @Mensaje = 'El DNI ya está en uso por otro cliente.'
+		end
+	end
+end
+
+
+
+GO
+
+CREATE PROC SP_EDITARCLIENTE(
+	@IdUsuario int,
+	@Nombre varchar(100),
+	@Apellido varchar(100),
+	@Dni int,
+	@UsuarioLogin varchar(100),
+	@Clave varchar(100),
+	@FechaNacimiento DATE,
+	@Telefono varchar(40),
+	@Domicilio varchar(200),
+	@IdRol int,
+	@Estado bit,
+	@Respuesta bit output,
+	@Mensaje varchar(500) output
+)
+as
+begin
+	set @Respuesta = 0
+	set @Mensaje = ''
+
+
+	-- Verifica si el nuevo DNI ya está siendo utilizado por otro cliente
+    IF NOT EXISTS (SELECT * FROM CLIENTES WHERE Dni = @Dni AND IdCliente != @IdCliente)
+    BEGIN
+        -- Verifica si el nuevo UsuarioLogin ya está siendo utilizado por otro usuario
+        IF NOT EXISTS (SELECT * FROM CLIENTES WHERE UsuarioLogin = @UsuarioLogin AND IdCliente != @IdCliente)
+        BEGIN
+            -- Realiza la actualización del usuario
+            UPDATE USUARIOS SET
+                Nombre = @Nombre,
+                Apellido = @Apellido,
+                Dni = @Dni,
+                UsuarioLogin = @UsuarioLogin,
+                Clave = @Clave,
+                FechaNacimiento = @FechaNacimiento,
+                Telefono = @Telefono,
+                Domicilio = @Domicilio,
+                IdRol = @IdRol,
+                Estado = @Estado
+            WHERE IdUsuario = @IdUsuario
+
+            SET @Respuesta = 1
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'El nuevo nombre de Usuario ya está en uso por otro usuario.'
+        END
+    END
+    ELSE
+    BEGIN
+        SET @Mensaje = 'El nuevo DNI ya está en uso por otro usuario.'
+    END
+END
+-- FIN CLIENTE --
 
 GO
 ------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
@@ -251,7 +345,7 @@ VALUES ('Mercado Pago')
 
 GO
 
-
+-- USUARIOS --
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Julian', 'Cruz', '40982522', 'cruz', '123', '1998-02-17', 3795012213, 'San Martin 2412', 3, 1)
 
@@ -279,6 +373,24 @@ GO
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Super', 'ApeSuper', '22345678', 'super', '123', '1994-01-13', 364012215, 'Calle 712', 3, 1)
+-- FIN USUARIOS --
+
+GO
+
+-- CLIENTES--
+INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
+VALUES ('Juan', 'Perez', '25082522', '11-06-1980', 3795012213, 'San Juan 1442', 1)
+
+GO
+
+INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
+VALUES ('Ramon', 'Flores', '16958532', '27-01-1971', 3453324645, 'Cabral 1738', 1)
+
+GO
+
+INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
+VALUES ('Luis', 'Barrios', '46958532', '24-09-2004', 3577324645, 'Catamarca 1118', 1)
+-- FIN CLIENTES -- 
 
 GO
 

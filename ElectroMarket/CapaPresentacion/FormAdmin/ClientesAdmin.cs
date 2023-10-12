@@ -91,11 +91,34 @@ namespace CapaPresentacion
                     {
                         if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
+                            string mensaje = string.Empty;
 
-                            // Agregar nueva fila
-                            DGClientes.Rows.Add(TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), TTelefono.Text.Trim(), TDomicilio.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
+                            Cliente objCliente = new Cliente()
+                            {
+                                Nombre = TNombre.Text.Trim(),
+                                Apellido = TApellido.Text.Trim(),
+                                Dni = Convert.ToInt32(TDni.Text),
+                                FechaNacimiento = DTFecha.Value,
+                                Domicilio = TDomicilio.Text.Trim(),
+                                Telefono = TTelefono.Text.Trim(),
+                                Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                            };
 
-                            LimpiarCampos();
+                            int idClienteGenerado = new CN_Cliente().RegistrarCliente(objCliente, out mensaje);
+
+                            if (idClienteGenerado != 0)
+                            {
+                                DGClientes.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, DTFecha.Text, TTelefono.Text, TDomicilio.Text,
+                                ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
+                                "Editar", idClienteGenerado
+                                });
+
+
+
+                                LimpiarCampos();
+                                VaciarTabla();
+                                ActualizarTabla();
+                            }
                         }
                     }
                 }
@@ -118,17 +141,15 @@ namespace CapaPresentacion
         private void ActualizarTabla()
         {
 
-            foreach (DataGridViewRow row in DGClientes.Rows)
-            {
-                // Obtener el valor de la celda en la columna "CEstado"
-                string estado = row.Cells["CEstado"].Value as string;
+            // Mostrar todos los Clientes desde la BD
+            List<Cliente> listaCliente = new CN_Cliente().Listar();
 
-                // Verificar si el estado es "No Activo"
-                if (estado == "No Activo")
-                {
-                    
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
+            foreach (Cliente item in listaCliente)
+            {
+
+                DGClientes.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar", item.IdCliente
+            });
+
             }
 
         }
@@ -226,9 +247,10 @@ namespace CapaPresentacion
                     BEditar.Enabled = true;
                     BGuardar.Enabled = false;
 
-                    //TId.Text = DGClientes.Rows[e.RowIndex];
-                    TIndice.Text = e.RowIndex.ToString();
                     int indice = e.RowIndex;
+                    TId.Text = DGClientes.Rows[indice].Cells["CIdCliente"].Value.ToString(); ;
+                    TIndice.Text = e.RowIndex.ToString();
+                    
 
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGClientes.Rows[e.RowIndex];

@@ -18,7 +18,7 @@ namespace CapaNegocio
         }
 
 
-        public int RegistrarUsuario(Usuario obj, out string Mensaje)
+        public int RegistrarUsuario(Usuario obj, out string Mensaje) // MOSTRAR MENSAJE DE ERROR SI EL USUARIO ESTA DADO DE BAJA
         {
             Mensaje = string.Empty;
 

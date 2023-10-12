@@ -72,7 +72,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
                     cmd.Parameters.AddWithValue("Domicilio", obj.Domicilio);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
-                    cmd.Parameters.Add("IdClienteGenerado", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
+                    cmd.Parameters.Add("IdClienteResultado", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output; // parametros de salida
 
                     cmd.CommandType = CommandType.StoredProcedure; // comando de tipo procedimiento almacenado
@@ -81,7 +81,7 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
 
-                    idClienteGenerado = Convert.ToInt32(cmd.Parameters["IdClienteGenerado"].Value);
+                    idClienteGenerado = Convert.ToInt32(cmd.Parameters["IdClienteResultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
