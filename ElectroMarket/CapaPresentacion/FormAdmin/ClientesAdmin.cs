@@ -49,6 +49,17 @@ namespace CapaPresentacion
             CBBusqueda.ValueMember = "Valor";
             CBBusqueda.SelectedIndex = 0;
 
+
+            // Mostrar todos los Clientes desde la BD
+            List<Cliente> listaCliente = new CN_Cliente().Listar();
+
+            foreach (Cliente item in listaCliente)
+            {
+
+                DGClientes.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar", item.IdCliente 
+            });
+
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

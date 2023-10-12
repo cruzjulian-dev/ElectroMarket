@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CN_Backup.cs" />
+    <Compile Include="CN_Cliente.cs" />
     <Compile Include="CN_ConexionBD.cs" />
     <Compile Include="CN_Restaurar.cs" />
     <Compile Include="CN_Rol.cs" />
