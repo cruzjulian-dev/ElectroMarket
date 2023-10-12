@@ -1,32 +1,26 @@
-﻿using System;
+﻿using CapaEntidades;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
-using CapaEntidades;
-using System.Net;
-using System.Reflection;
-using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
-using System.Collections;
 
 namespace CapaDatos
 {
-    public class CD_Usuario
+    public class CD_Cliente
     {
-        public List<Usuario> Listar()
+        public List<Cliente> Listar()
         {
-            List<Usuario> lista = new List<Usuario> ();
+            List<Cliente> lista = new List<Cliente>();
 
             using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT u.IdUsuario, u.Dni, u.Nombre, u.Apellido, u.UsuarioLogin, u.Clave, r.IdRol, r.Descripcion, u.FechaNacimiento, u.Telefono, u.Domicilio, u.Estado FROM USUARIOS u");
-                    query.AppendLine("inner join ROLES r on r.IdRol = u.IdRol");
+                    query.AppendLine("SELECT IdCliente, Nombre, Apellido, Dni, FechaNacimineto, Telefono, Domicilio, Estado FROM CLIENTES");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
                     cmd.CommandType = CommandType.Text;
@@ -37,28 +31,23 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new Usuario()
+                            lista.Add(new Cliente()
                             {
-                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
-                                Dni = Convert.ToInt32(dr["Dni"]),
+                                IdCliente = Convert.ToInt32(dr["IdCliente"]),
                                 Nombre = dr["Nombre"].ToString(),
                                 Apellido = dr["Apellido"].ToString(),
-                                UsuarioLogin = dr["UsuarioLogin"].ToString(),
-                                Clave = dr["Clave"].ToString(),
-                                oRol = new Rol() { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString() },
+                                Dni = Convert.ToInt32(dr["Dni"]),
                                 FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]),
-                                //FechaNacimiento = dr["FechaNacimiento"].ToString(),  formato string data problemas con hora minutos y segundos
                                 Telefono = dr["Telefono"].ToString(),
                                 Domicilio = dr["Domicilio"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
-                            }) ;
+                            });
                         }
                     }
-
                 }
                 catch (Exception)
                 {
-                    lista = new List<Usuario>();
+                    lista = new List<Cliente>();
                 }
 
             }
@@ -66,28 +55,24 @@ namespace CapaDatos
             return lista;
         }
 
-
-        public int RegistrarUsuario(Usuario obj, out string Mensaje)
+        public int RegistrarCliente(Cliente obj, out string Mensaje)
         {
-            int idUsuarioGenerado = 0;
+            int idClienteGenerado = 0;
             Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO".ToString(), oConexion);
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARCLIENTE".ToString(), oConexion);
                     cmd.Parameters.AddWithValue("Nombre", obj.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.Apellido);
                     cmd.Parameters.AddWithValue("Dni", obj.Dni);
-                    cmd.Parameters.AddWithValue("UsuarioLogin", obj.UsuarioLogin);
-                    cmd.Parameters.AddWithValue("Clave", obj.Clave);
                     cmd.Parameters.AddWithValue("FechaNacimiento", obj.FechaNacimiento);
                     cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
                     cmd.Parameters.AddWithValue("Domicilio", obj.Domicilio);
-                    cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
-                    cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
+                    cmd.Parameters.Add("IdClienteGenerado", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output; // parametros de salida
 
                     cmd.CommandType = CommandType.StoredProcedure; // comando de tipo procedimiento almacenado
@@ -96,22 +81,22 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
 
-                    idUsuarioGenerado = Convert.ToInt32(cmd.Parameters["IdUsuarioResultado"].Value);
+                    idClienteGenerado = Convert.ToInt32(cmd.Parameters["IdClienteGenerado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
             {
-                idUsuarioGenerado = 0;
+                idClienteGenerado = 0;
                 Mensaje = ex.Message;
             }
 
 
-            return idUsuarioGenerado;
+            return idClienteGenerado;
         }
 
 
-        public bool EditarUsuario(Usuario obj, out string Mensaje)
+        public bool EditarCliente(Cliente obj, out string Mensaje)
         {
             bool respuesta = false;
             Mensaje = string.Empty;
@@ -120,17 +105,14 @@ namespace CapaDatos
             {
                 using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO".ToString(), oConexion);
-                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    SqlCommand cmd = new SqlCommand("SP_EDITARCLIENTE".ToString(), oConexion);
+                    cmd.Parameters.AddWithValue("IdCliente", obj.IdCliente);
                     cmd.Parameters.AddWithValue("Nombre", obj.Nombre);
                     cmd.Parameters.AddWithValue("Apellido", obj.Apellido);
                     cmd.Parameters.AddWithValue("Dni", obj.Dni);
-                    cmd.Parameters.AddWithValue("UsuarioLogin", obj.UsuarioLogin);
-                    cmd.Parameters.AddWithValue("Clave", obj.Clave);
                     cmd.Parameters.AddWithValue("FechaNacimiento", obj.FechaNacimiento);
                     cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
                     cmd.Parameters.AddWithValue("Domicilio", obj.Domicilio);
-                    cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output; // parametros de salida
@@ -154,7 +136,6 @@ namespace CapaDatos
 
             return respuesta;
         }
-
 
     }
 }
