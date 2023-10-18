@@ -217,12 +217,12 @@ namespace CapaPresentacion
             {
                 if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Contraseña" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
                 {
-                    cboBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
                 }
             }
-            cboBusqueda.DisplayMember = "Texto";
-            cboBusqueda.ValueMember = "Valor";
-            cboBusqueda.SelectedIndex = 0;
+            CBBusqueda.DisplayMember = "Texto";
+            CBBusqueda.ValueMember = "Valor";
+            CBBusqueda.SelectedIndex = 0;
 
 
             // Mostrar todos los Usuarios desde la BD
@@ -268,6 +268,34 @@ namespace CapaPresentacion
             LimpiarCampos();
             BGuardar.Enabled = true;
             BEditar.Enabled = false;
+        }
+
+        private void icoBtnBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
+
+            if (DGCategoria.Rows.Count > 0)  // pregunta si hay filas
+            {
+                foreach (DataGridViewRow row in DGCategoria.Rows) // recorro cada fila del datagrid
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+
+                }
+            }
+        }
+
+        private void BMostrar_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
         }
     }
 }

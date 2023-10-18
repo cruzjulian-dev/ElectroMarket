@@ -48,14 +48,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DGClientes = new System.Windows.Forms.DataGridView();
-            this.CBEstado = new System.Windows.Forms.ComboBox();
-            this.lEstado = new System.Windows.Forms.Label();
-            this.TTelefono = new System.Windows.Forms.TextBox();
-            this.LTelefono = new System.Windows.Forms.Label();
-            this.DTFecha = new System.Windows.Forms.DateTimePicker();
-            this.TIndice = new System.Windows.Forms.TextBox();
-            this.TId = new System.Windows.Forms.TextBox();
-            this.BLimpiar = new FontAwesome.Sharp.IconButton();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cdni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +58,14 @@
             this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CIdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
+            this.lEstado = new System.Windows.Forms.Label();
+            this.TTelefono = new System.Windows.Forms.TextBox();
+            this.LTelefono = new System.Windows.Forms.Label();
+            this.DTFecha = new System.Windows.Forms.DateTimePicker();
+            this.TIndice = new System.Windows.Forms.TextBox();
+            this.TId = new System.Windows.Forms.TextBox();
+            this.BLimpiar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -328,6 +328,66 @@
             this.DGClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGClientes_CellContentClick);
             this.DGClientes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGClientes_CellFormatting);
             // 
+            // CNombre
+            // 
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CApellido
+            // 
+            this.CApellido.HeaderText = "Apellido";
+            this.CApellido.Name = "CApellido";
+            this.CApellido.ReadOnly = true;
+            // 
+            // Cdni
+            // 
+            this.Cdni.HeaderText = "DNI";
+            this.Cdni.Name = "Cdni";
+            this.Cdni.ReadOnly = true;
+            // 
+            // CFechaNacim
+            // 
+            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
+            this.CFechaNacim.Name = "CFechaNacim";
+            this.CFechaNacim.ReadOnly = true;
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.HeaderText = "Telefono";
+            this.CTelefono.Name = "CTelefono";
+            this.CTelefono.ReadOnly = true;
+            // 
+            // CDomicilio
+            // 
+            this.CDomicilio.HeaderText = "Domicilio";
+            this.CDomicilio.Name = "CDomicilio";
+            this.CDomicilio.ReadOnly = true;
+            // 
+            // CEstadoValor
+            // 
+            this.CEstadoValor.HeaderText = "EstadoValor";
+            this.CEstadoValor.Name = "CEstadoValor";
+            this.CEstadoValor.Visible = false;
+            // 
+            // Cestado
+            // 
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            // 
+            // CIdCliente
+            // 
+            this.CIdCliente.HeaderText = "IdCliente";
+            this.CIdCliente.Name = "CIdCliente";
+            this.CIdCliente.Visible = false;
+            // 
             // CBEstado
             // 
             this.CBEstado.BackColor = System.Drawing.Color.White;
@@ -416,66 +476,6 @@
             this.BLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BLimpiar.UseVisualStyleBackColor = false;
             this.BLimpiar.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Apellido";
-            this.CApellido.Name = "CApellido";
-            this.CApellido.ReadOnly = true;
-            // 
-            // Cdni
-            // 
-            this.Cdni.HeaderText = "DNI";
-            this.Cdni.Name = "Cdni";
-            this.Cdni.ReadOnly = true;
-            // 
-            // CFechaNacim
-            // 
-            this.CFechaNacim.HeaderText = "Fecha de Nacimiento";
-            this.CFechaNacim.Name = "CFechaNacim";
-            this.CFechaNacim.ReadOnly = true;
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Telefono";
-            this.CTelefono.Name = "CTelefono";
-            this.CTelefono.ReadOnly = true;
-            // 
-            // CDomicilio
-            // 
-            this.CDomicilio.HeaderText = "Domicilio";
-            this.CDomicilio.Name = "CDomicilio";
-            this.CDomicilio.ReadOnly = true;
-            // 
-            // CEstadoValor
-            // 
-            this.CEstadoValor.HeaderText = "EstadoValor";
-            this.CEstadoValor.Name = "CEstadoValor";
-            this.CEstadoValor.Visible = false;
-            // 
-            // Cestado
-            // 
-            this.Cestado.HeaderText = "Estado";
-            this.Cestado.Name = "Cestado";
-            this.Cestado.ReadOnly = true;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
-            // 
-            // CIdCliente
-            // 
-            this.CIdCliente.HeaderText = "IdCliente";
-            this.CIdCliente.Name = "CIdCliente";
-            this.CIdCliente.Visible = false;
             // 
             // ClientesAdmin
             // 

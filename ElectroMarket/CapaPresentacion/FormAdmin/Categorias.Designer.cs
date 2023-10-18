@@ -28,22 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.BMostrar = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.DGCategoria = new System.Windows.Forms.DataGridView();
-            this.CIdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.BEditar = new FontAwesome.Sharp.IconButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.cboBusqueda = new System.Windows.Forms.ComboBox();
+            this.TBusqueda = new System.Windows.Forms.TextBox();
+            this.CBBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.BBuscar = new FontAwesome.Sharp.IconButton();
             this.BGuardar = new FontAwesome.Sharp.IconButton();
             this.CBEstado = new System.Windows.Forms.ComboBox();
             this.TDescripcion = new System.Windows.Forms.TextBox();
@@ -54,25 +49,31 @@
             this.BLimpiar = new FontAwesome.Sharp.IconButton();
             this.TIndice = new System.Windows.Forms.TextBox();
             this.TId = new System.Windows.Forms.TextBox();
+            this.CIdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGCategoria)).BeginInit();
             this.SuspendLayout();
             // 
-            // icoBtnLimpiar
+            // BMostrar
             // 
-            this.icoBtnLimpiar.BackColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.icoBtnLimpiar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnLimpiar.IconSize = 23;
-            this.icoBtnLimpiar.Location = new System.Drawing.Point(880, 54);
-            this.icoBtnLimpiar.Name = "icoBtnLimpiar";
-            this.icoBtnLimpiar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnLimpiar.TabIndex = 48;
-            this.icoBtnLimpiar.UseVisualStyleBackColor = false;
+            this.BMostrar.BackColor = System.Drawing.Color.White;
+            this.BMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BMostrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BMostrar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMostrar.ForeColor = System.Drawing.Color.White;
+            this.BMostrar.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.BMostrar.IconColor = System.Drawing.Color.Black;
+            this.BMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BMostrar.IconSize = 23;
+            this.BMostrar.Location = new System.Drawing.Point(880, 54);
+            this.BMostrar.Name = "BMostrar";
+            this.BMostrar.Size = new System.Drawing.Size(35, 33);
+            this.BMostrar.TabIndex = 48;
+            this.BMostrar.UseVisualStyleBackColor = false;
+            this.BMostrar.Click += new System.EventHandler(this.BMostrar_Click);
             // 
             // label3
             // 
@@ -97,64 +98,32 @@
             this.Cestado,
             this.CestadoVAlor,
             this.Ceditar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGCategoria.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGCategoria.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGCategoria.Location = new System.Drawing.Point(298, 117);
             this.DGCategoria.MultiSelect = false;
             this.DGCategoria.Name = "DGCategoria";
             this.DGCategoria.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGCategoria.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGCategoria.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGCategoria.RowTemplate.Height = 28;
             this.DGCategoria.Size = new System.Drawing.Size(626, 312);
             this.DGCategoria.TabIndex = 42;
             this.DGCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.DGCategoria.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGCategoria_CellFormatting);
-            // 
-            // CIdCategoria
-            // 
-            this.CIdCategoria.HeaderText = "id";
-            this.CIdCategoria.Name = "CIdCategoria";
-            this.CIdCategoria.ReadOnly = true;
-            this.CIdCategoria.Visible = false;
-            // 
-            // Cdescripcion
-            // 
-            this.Cdescripcion.HeaderText = "Descripcion";
-            this.Cdescripcion.Name = "Cdescripcion";
-            this.Cdescripcion.ReadOnly = true;
-            // 
-            // Cestado
-            // 
-            this.Cestado.HeaderText = "Estado";
-            this.Cestado.Name = "Cestado";
-            this.Cestado.ReadOnly = true;
-            // 
-            // CestadoVAlor
-            // 
-            this.CestadoVAlor.HeaderText = "EstadoValor";
-            this.CestadoVAlor.Name = "CestadoVAlor";
-            this.CestadoVAlor.ReadOnly = true;
-            this.CestadoVAlor.Visible = false;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
             // 
             // label2
             // 
@@ -188,26 +157,26 @@
             this.BEditar.UseVisualStyleBackColor = false;
             this.BEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // textBox4
+            // TBusqueda
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(733, 62);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 47;
+            this.TBusqueda.BackColor = System.Drawing.Color.White;
+            this.TBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBusqueda.Location = new System.Drawing.Point(733, 62);
+            this.TBusqueda.Name = "TBusqueda";
+            this.TBusqueda.Size = new System.Drawing.Size(100, 21);
+            this.TBusqueda.TabIndex = 47;
             // 
-            // cboBusqueda
+            // CBBusqueda
             // 
-            this.cboBusqueda.BackColor = System.Drawing.Color.White;
-            this.cboBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboBusqueda.FormattingEnabled = true;
-            this.cboBusqueda.Location = new System.Drawing.Point(641, 61);
-            this.cboBusqueda.Name = "cboBusqueda";
-            this.cboBusqueda.Size = new System.Drawing.Size(86, 21);
-            this.cboBusqueda.TabIndex = 46;
+            this.CBBusqueda.BackColor = System.Drawing.Color.White;
+            this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBBusqueda.FormattingEnabled = true;
+            this.CBBusqueda.Location = new System.Drawing.Point(641, 61);
+            this.CBBusqueda.Name = "CBBusqueda";
+            this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
+            this.CBBusqueda.TabIndex = 46;
             // 
             // lblBuscar
             // 
@@ -220,22 +189,23 @@
             this.lblBuscar.TabIndex = 45;
             this.lblBuscar.Text = "Buscar Por:";
             // 
-            // icoBtnBuscar
+            // BBuscar
             // 
-            this.icoBtnBuscar.BackColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icoBtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.icoBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.icoBtnBuscar.IconColor = System.Drawing.Color.Black;
-            this.icoBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnBuscar.IconSize = 23;
-            this.icoBtnBuscar.Location = new System.Drawing.Point(839, 54);
-            this.icoBtnBuscar.Name = "icoBtnBuscar";
-            this.icoBtnBuscar.Size = new System.Drawing.Size(35, 33);
-            this.icoBtnBuscar.TabIndex = 49;
-            this.icoBtnBuscar.UseVisualStyleBackColor = false;
+            this.BBuscar.BackColor = System.Drawing.Color.White;
+            this.BBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBuscar.ForeColor = System.Drawing.Color.White;
+            this.BBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.BBuscar.IconColor = System.Drawing.Color.Black;
+            this.BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BBuscar.IconSize = 23;
+            this.BBuscar.Location = new System.Drawing.Point(839, 54);
+            this.BBuscar.Name = "BBuscar";
+            this.BBuscar.Size = new System.Drawing.Size(35, 33);
+            this.BBuscar.TabIndex = 49;
+            this.BBuscar.UseVisualStyleBackColor = false;
+            this.BBuscar.Click += new System.EventHandler(this.icoBtnBuscar_Click);
             // 
             // BGuardar
             // 
@@ -351,6 +321,7 @@
             this.TIndice.Name = "TIndice";
             this.TIndice.Size = new System.Drawing.Size(33, 20);
             this.TIndice.TabIndex = 69;
+            this.TIndice.Visible = false;
             // 
             // TId
             // 
@@ -358,24 +329,59 @@
             this.TId.Name = "TId";
             this.TId.Size = new System.Drawing.Size(33, 20);
             this.TId.TabIndex = 68;
+            this.TId.Visible = false;
+            // 
+            // CIdCategoria
+            // 
+            this.CIdCategoria.HeaderText = "id";
+            this.CIdCategoria.Name = "CIdCategoria";
+            this.CIdCategoria.ReadOnly = true;
+            this.CIdCategoria.Visible = false;
+            // 
+            // Cdescripcion
+            // 
+            this.Cdescripcion.HeaderText = "Descripcion";
+            this.Cdescripcion.Name = "Cdescripcion";
+            this.Cdescripcion.ReadOnly = true;
+            this.Cdescripcion.Width = 200;
+            // 
+            // Cestado
+            // 
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
+            this.Cestado.Width = 120;
+            // 
+            // CestadoVAlor
+            // 
+            this.CestadoVAlor.HeaderText = "EstadoValor";
+            this.CestadoVAlor.Name = "CestadoVAlor";
+            this.CestadoVAlor.ReadOnly = true;
+            this.CestadoVAlor.Visible = false;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
             // 
             // CategoriasAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.ClientSize = new System.Drawing.Size(985, 561);
             this.Controls.Add(this.TIndice);
             this.Controls.Add(this.TId);
             this.Controls.Add(this.BLimpiar);
-            this.Controls.Add(this.icoBtnLimpiar);
+            this.Controls.Add(this.BMostrar);
             this.Controls.Add(this.DGCategoria);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BEditar);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.cboBusqueda);
+            this.Controls.Add(this.TBusqueda);
+            this.Controls.Add(this.CBBusqueda);
             this.Controls.Add(this.lblBuscar);
-            this.Controls.Add(this.icoBtnBuscar);
+            this.Controls.Add(this.BBuscar);
             this.Controls.Add(this.BGuardar);
             this.Controls.Add(this.CBEstado);
             this.Controls.Add(this.TDescripcion);
@@ -394,15 +400,15 @@
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton icoBtnLimpiar;
+        private FontAwesome.Sharp.IconButton BMostrar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView DGCategoria;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton BEditar;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox cboBusqueda;
+        private System.Windows.Forms.TextBox TBusqueda;
+        private System.Windows.Forms.ComboBox CBBusqueda;
         private System.Windows.Forms.Label lblBuscar;
-        private FontAwesome.Sharp.IconButton icoBtnBuscar;
+        private FontAwesome.Sharp.IconButton BBuscar;
         private FontAwesome.Sharp.IconButton BGuardar;
         private System.Windows.Forms.ComboBox CBEstado;
         private System.Windows.Forms.TextBox TDescripcion;
