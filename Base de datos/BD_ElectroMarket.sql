@@ -308,7 +308,7 @@ END
 GO
 
 -- PROCEDIMIENTOS PARA GUARDAR CATEGORIAS --
-CREATE PROC SP_RegistrarCategorias (
+CREATE PROC SP_RegistrarCategoria (
 @Descripcion varchar(100),
 @Estado bit,
 @Resultado int output,
@@ -332,7 +332,7 @@ begin
 go
 
 --PROCEDIMIENTOS para modificar categorias --
-CREATE PROC SP_EditarCategorias(
+CREATE PROC SP_EditarCategoria(
 @IdCategoria int,
 @Descripcion varchar(500),
 @Estado bit,

@@ -158,8 +158,8 @@ namespace CapaPresentacion
 
                         row.Cells["CIdCategoria"].Value = TId.Text.Trim();
                         row.Cells["Cdescripcion"].Value = TDescripcion.Text.Trim();
-                        row.Cells["Cestado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
-                        row.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                        row.Cells["Cestado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                        row.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
                         row.Cells["Ceditar"].Value = "Editar";
 
                         LimpiarCampos();
