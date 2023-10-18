@@ -70,13 +70,33 @@ namespace CapaPresentacion
             }
             else
             {
+
                 if (MessageBox.Show("Seguro que quieres agregar esta categoria?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    string mensaje = string.Empty;
 
-                    // Agregar nueva fila
-                    DGCategoria.Rows.Add("", TDescripcion.Text.Trim(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar");
+                    Categoria objCategoria = new Categoria()
+                    {
+                        Descripcion = TDescripcion.Text.Trim(),
+                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                    };
 
-                    LimpiarCampos();
+                    int idCategoriaGenerado = new CN_Categoria().RegistrarCategoria(objCategoria, out mensaje);
+
+                    if (idCategoriaGenerado != 0)
+                    {
+                        DGCategoria.Rows.Add(new object[] { TDescripcion.Text, ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), 
+                        ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), "Editar", idCategoriaGenerado
+                        });
+
+                        LimpiarCampos();
+                        VaciarTabla();
+                        ActualizarTabla();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -85,6 +105,27 @@ namespace CapaPresentacion
         {
             TDescripcion.Text = "";
             CBEstado.SelectedIndex = -1;
+        }
+
+        private void ActualizarTabla()
+        {
+
+            // Mostrar todos las categorias desde la BD
+            List<Categoria> listaCategoria = new CN_Categoria().Listar();
+
+            foreach (Categoria item in listaCategoria)
+            {
+
+                DGCategoria.Rows.Add(new object[] { item.IdCategoria, item.Descripcion, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar"
+            });
+
+            }
+
+        }
+
+        private void VaciarTabla()
+        {
+            DGCategoria.Rows.Clear();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -98,36 +139,42 @@ namespace CapaPresentacion
             }
             else
             {
-                // Actualiza la fila seleccionada en el DataGridView
-                DataGridViewRow selectedRow = DGCategoria.Rows[DGCategoria.CurrentCell.RowIndex];
-
-                selectedRow.Cells["Cdescripcion"].Value = descripcion;
-                selectedRow.Cells["Cestado"].Value = Estado;
-                selectedRow.Cells["CEstadoValor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
-
-                foreach (DataGridViewRow row in DGCategoria.Rows)
+                if (MessageBox.Show("Deseas guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Obtener el valor de la celda en la columna "CEstado"
-                    string estado = row.Cells["Cestado"].Value as string;
+                    string mensaje = string.Empty;
 
-                    // Verificar si el estado es "No Activo"
-                    if (estado == "No Activo")
+                    Categoria objCategoria = new Categoria()
                     {
+                        IdCategoria = Convert.ToInt32(TId.Text),
+                        Descripcion = TDescripcion.Text.Trim(),
+                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                    };
 
-                        row.DefaultCellStyle.BackColor = Color.Red;
+                    bool resultado = new CN_Categoria().EditarCategoria(objCategoria, out mensaje);
+
+                    if (resultado == true)
+                    {
+                        DataGridViewRow row = DGCategoria.Rows[Convert.ToInt32(TIndice.Text)];
+
+                        row.Cells["CIdCategoria"].Value = TId.Text.Trim();
+                        row.Cells["Cdescripcion"].Value = TDescripcion.Text.Trim();
+                        row.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                        row.Cells["Cestado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
+                        row.Cells["Ceditar"].Value = "Editar";
+
+                        LimpiarCampos();
+                        VaciarTabla();
+                        ActualizarTabla();
+
+                        BEditar.Enabled = false;
+                        BGuardar.Enabled = true;
                     }
                     else
                     {
-                        row.DefaultCellStyle.BackColor = Color.White;
+                        MessageBox.Show(mensaje);
                     }
                 }
-
-                LimpiarCampos();
-                BEditar.Enabled = false;
-                BGuardar.Enabled = true;
-
             }
-
         }
 
 

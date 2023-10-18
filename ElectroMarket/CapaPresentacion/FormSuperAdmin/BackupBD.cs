@@ -27,6 +27,8 @@ namespace CapaPresentacion
             {
                 SFBackup.Title = "Guardar Backup";
                 SFBackup.Filter = "Archivo Backup de SQL Server (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
+                SFBackup.FileName = "Backup"; 
+
 
                 if (SFBackup.ShowDialog() == DialogResult.OK)
                 {
