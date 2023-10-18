@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.DGCategoria = new System.Windows.Forms.DataGridView();
+            this.CIdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.BEditar = new FontAwesome.Sharp.IconButton();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -49,11 +54,6 @@
             this.BLimpiar = new FontAwesome.Sharp.IconButton();
             this.TIndice = new System.Windows.Forms.TextBox();
             this.TId = new System.Windows.Forms.TextBox();
-            this.CIdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGCategoria)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,32 +97,64 @@
             this.Cestado,
             this.CestadoVAlor,
             this.Ceditar});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGCategoria.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGCategoria.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGCategoria.Location = new System.Drawing.Point(298, 117);
             this.DGCategoria.MultiSelect = false;
             this.DGCategoria.Name = "DGCategoria";
             this.DGCategoria.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGCategoria.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGCategoria.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DGCategoria.RowTemplate.Height = 28;
             this.DGCategoria.Size = new System.Drawing.Size(626, 312);
             this.DGCategoria.TabIndex = 42;
             this.DGCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.DGCategoria.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGCategoria_CellFormatting);
+            // 
+            // CIdCategoria
+            // 
+            this.CIdCategoria.HeaderText = "id";
+            this.CIdCategoria.Name = "CIdCategoria";
+            this.CIdCategoria.ReadOnly = true;
+            this.CIdCategoria.Visible = false;
+            // 
+            // Cdescripcion
+            // 
+            this.Cdescripcion.HeaderText = "Descripcion";
+            this.Cdescripcion.Name = "Cdescripcion";
+            this.Cdescripcion.ReadOnly = true;
+            // 
+            // Cestado
+            // 
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
+            // 
+            // CestadoVAlor
+            // 
+            this.CestadoVAlor.HeaderText = "EstadoValor";
+            this.CestadoVAlor.Name = "CestadoVAlor";
+            this.CestadoVAlor.ReadOnly = true;
+            this.CestadoVAlor.Visible = false;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
             // 
             // label2
             // 
@@ -319,7 +351,6 @@
             this.TIndice.Name = "TIndice";
             this.TIndice.Size = new System.Drawing.Size(33, 20);
             this.TIndice.TabIndex = 69;
-            this.TIndice.Visible = false;
             // 
             // TId
             // 
@@ -327,39 +358,6 @@
             this.TId.Name = "TId";
             this.TId.Size = new System.Drawing.Size(33, 20);
             this.TId.TabIndex = 68;
-            this.TId.Visible = false;
-            // 
-            // CIdCategoria
-            // 
-            this.CIdCategoria.HeaderText = "id";
-            this.CIdCategoria.Name = "CIdCategoria";
-            this.CIdCategoria.ReadOnly = true;
-            this.CIdCategoria.Visible = false;
-            // 
-            // Cdescripcion
-            // 
-            this.Cdescripcion.HeaderText = "Descripcion";
-            this.Cdescripcion.Name = "Cdescripcion";
-            this.Cdescripcion.ReadOnly = true;
-            // 
-            // Cestado
-            // 
-            this.Cestado.HeaderText = "Estado";
-            this.Cestado.Name = "Cestado";
-            this.Cestado.ReadOnly = true;
-            // 
-            // CestadoVAlor
-            // 
-            this.CestadoVAlor.HeaderText = "EstadoValor";
-            this.CestadoVAlor.Name = "CestadoVAlor";
-            this.CestadoVAlor.ReadOnly = true;
-            this.CestadoVAlor.Visible = false;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
             // 
             // CategoriasAdmin
             // 

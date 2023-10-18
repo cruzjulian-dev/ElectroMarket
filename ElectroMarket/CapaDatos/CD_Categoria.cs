@@ -102,7 +102,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdCategoria", obj.IdCategoria);
                     cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
-                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output; // parametros de salida
                     cmd.CommandType = CommandType.StoredProcedure; // comando de tipo procedimiento almacenado
 
@@ -110,7 +110,7 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }

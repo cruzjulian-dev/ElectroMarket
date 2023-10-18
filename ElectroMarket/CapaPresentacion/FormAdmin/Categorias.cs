@@ -37,8 +37,7 @@ namespace CapaPresentacion
                     BEditar.Enabled = true;
                     BGuardar.Enabled = false;
 
-                    //TIndice.Text = e.RowIndex.ToString();
-                    int indice = e.RowIndex;
+                    TIndice.Text = e.RowIndex.ToString();
 
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGCategoria.Rows[e.RowIndex];
@@ -49,7 +48,7 @@ namespace CapaPresentacion
 
                     foreach (OpcionCombo oc in CBEstado.Items)
                     {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGCategoria.Rows[indice].Cells["CestadoVAlor"].Value))
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGCategoria.Rows[Convert.ToInt32(TIndice.Text)].Cells["CestadoVAlor"].Value))
                         {
                             int indice_combo = CBEstado.Items.IndexOf(oc);
                             CBEstado.SelectedIndex = indice_combo;

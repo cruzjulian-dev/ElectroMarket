@@ -353,7 +353,6 @@ begin
 	ELSE
 	begin
 		set @Mensaje =  'No se puede repetir la descripcion para mas de una categoria.'
-		SET @Respuesta = 0
 	end
 end
 
