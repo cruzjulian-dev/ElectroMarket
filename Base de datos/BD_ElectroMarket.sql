@@ -309,7 +309,7 @@ GO
 
 -- PROCEDIMIENTOS PARA GUARDAR CATEGORIAS --
 CREATE PROC SP_RegistrarCategorias (
-@Descripcion varchar(80),
+@Descripcion varchar(100),
 @Estado bit,
 @Resultado int output,
 @Mensaje varchar (500) output
@@ -319,8 +319,8 @@ begin
 	set @Mensaje = ''
 	IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE Descripcion = @Descripcion)
 	begin 
-		insert into CATEGORIAS(Descripcion)
-		VALUES (@Descripcion)
+		insert into CATEGORIAS(Descripcion, Estado)
+		VALUES (@Descripcion, @Estado)
 		SET @Resultado = SCOPE_IDENTITY()
 	end
 	ELSE
@@ -430,29 +430,28 @@ GO
 
 -- CLIENTES--
 INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
-VALUES ('Juan', 'Perez', '25082522', '11-06-1980', 3795012213, 'San Juan 1442', 1)
+VALUES ('Juan', 'Perez', '25082522', '1980-06-19', 3795012213, 'San Juan 1442', 1)
 
 GO
 
 INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
-VALUES ('Ramon', 'Flores', '16958532', '27-01-1971', 3453324645, 'Cabral 1738', 1)
+VALUES ('Ramon', 'Flores', '16958532', '1971-08-11', 3453324645, 'Cabral 1738', 1)
 
 GO
 
 INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
-VALUES ('Luis', 'Barrios', '46958532', '24-09-2004', 3577324645, 'Catamarca 1118', 1)
+VALUES ('Luis', 'Barrios', '46958532', '2004-09-24', 3577324645, 'Catamarca 1118', 1)
 -- FIN CLIENTES -- 
 
 GO
 
-select * from CATEGORIAS
-select * from USUARIOS
+insert into CATEGORIAS(Descripcion,Estado)
+values ('Televisores',1)
 
 insert into CATEGORIAS(Descripcion,Estado)
-values ('maquina expendedoras',1)
+values ('Heladeras',1)
 
 insert into CATEGORIAS(Descripcion,Estado)
-values ('grandes',1)
-
+values ('Lavarropas',1)
 
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------

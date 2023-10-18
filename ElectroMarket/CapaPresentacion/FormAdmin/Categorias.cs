@@ -85,8 +85,8 @@ namespace CapaPresentacion
 
                     if (idCategoriaGenerado != 0)
                     {
-                        DGCategoria.Rows.Add(new object[] { TDescripcion.Text, ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), 
-                        ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), "Editar", idCategoriaGenerado
+                        DGCategoria.Rows.Add(new object[] { idCategoriaGenerado, TDescripcion.Text, ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), 
+                        ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), "Editar"
                         });
 
                         LimpiarCampos();
@@ -116,7 +116,7 @@ namespace CapaPresentacion
             foreach (Categoria item in listaCategoria)
             {
 
-                DGCategoria.Rows.Add(new object[] { item.IdCategoria, item.Descripcion, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar"
+                DGCategoria.Rows.Add(new object[] { item.IdCategoria, item.Descripcion, item.Estado == true ? "Activo" : "No Activo", item.Estado == true ? 1 : 0,  "Editar"
             });
 
             }
@@ -158,8 +158,8 @@ namespace CapaPresentacion
 
                         row.Cells["CIdCategoria"].Value = TId.Text.Trim();
                         row.Cells["Cdescripcion"].Value = TDescripcion.Text.Trim();
-                        row.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
                         row.Cells["Cestado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
+                        row.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
                         row.Cells["Ceditar"].Value = "Editar";
 
                         LimpiarCampos();
@@ -232,15 +232,15 @@ namespace CapaPresentacion
             foreach (Categoria item in lista)
             {
 
-                DGCategoria.Rows.Add(new object[] { item.IdCategoria,
+                DGCategoria.Rows.Add(new object[] { 
+                    item.IdCategoria,
                     item.Descripcion,
                     item.Estado == true ? "Activo" : "No Activo",
-                    item.IdCategoria, "Editar"
+                    item.Estado,
+                    "Editar"
             });
 
             }
-
-
 
         }
 
