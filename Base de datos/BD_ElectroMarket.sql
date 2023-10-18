@@ -124,7 +124,7 @@ GO
 
 
 ------------------------------------- COMIENZO DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
--- USUARIO --
+-- PROCEDIMIENTOS USUARIO --
 CREATE PROC SP_REGISTRARUSUARIO(
 	
 	@Nombre varchar(100),
@@ -218,11 +218,12 @@ begin
         SET @Mensaje = 'El nuevo DNI ya está en uso por otro usuario.'
     END
 END
--- FIN USUARIO -- 
+-- FIN PROCEDIMIENTOS DE USUARIO -- 
+
 
 GO
 
--- CLIENTE --
+-- PROCEDIMIENTOS CLIENTE --
 CREATE PROC SP_REGISTRARCLIENTE(
 	@Nombre varchar(100),
 	@Apellido varchar(100),
@@ -261,8 +262,6 @@ begin
 end
 
 GO
-
-
 
 CREATE PROC SP_EDITARCLIENTE(
 	@IdCliente int,
@@ -303,11 +302,13 @@ begin
         SET @Mensaje = 'El nuevo DNI ya está en uso por otro usuario.'
     END
 END
--- FIN CLIENTE --
+-- FIN PROCEDIMIENTOS CLIENTE --
+
 
 GO
 
--- PROCEDIMIENTOS PARA GUARDAR CATEGORIAS --
+
+-- PROCEDIMIENTOS CATEGORIAS --
 CREATE PROC SP_RegistrarCategoria (
 @Descripcion varchar(100),
 @Estado bit,
@@ -327,11 +328,10 @@ begin
 		begin
 			set @Mensaje =  'No se puede repetir la descripcion para mas de una categoria.'
 		end
-	end
+end
 
 go
 
---PROCEDIMIENTOS para modificar categorias --
 CREATE PROC SP_EditarCategoria(
 @IdCategoria int,
 @Descripcion varchar(500),
@@ -355,9 +355,83 @@ begin
 		set @Mensaje =  'No se puede repetir la descripcion para mas de una categoria.'
 	end
 end
+-- FIN PROCEDIMIENTOS CATEGORIA --
 
 go
 
+-- PROCEDIMIENTOS PRODUCTOS --
+CREATE PROC SP_RegistrarProducto(
+	@Codigo varchar(50),
+	@Nombre varchar(50),
+	@Descripcion varchar(100),
+	@IdCategoria int,
+	@Stock int,
+	@PrecioVenta decimal(10,2),
+	@Estado bit,
+	@IdProductoResultado int output,
+	@Mensaje varchar(500) output
+)
+as
+begin
+	set @IdProductoResultado = 0
+	set @Mensaje = ''
+
+	-- Verifica si el Codigo de producto no está siendo utilizado por otro producto
+	if not exists(SELECT * FROM PRODUCTOS WHERE Codigo = @Codigo)
+	begin
+		INSERT INTO PRODUCTOS(Codigo, Nombre, Descripcion, IdCategoria, Stock, PrecioVenta, Estado) 
+		VALUES (@Codigo, @Nombre, @Descripcion, @IdCategoria, @Stock, @PrecioVenta, @Estado)
+
+		set @IdProductoResultado = SCOPE_IDENTITY()
+	end
+	else
+	begin
+		set @Mensaje = 'El Codigo ya está siendo usado por otro producto.'
+	end
+end
+
+GO
+
+CREATE PROC SP_EDITARCLIENTE(
+	@IdCliente int,
+	@Nombre varchar(100),
+	@Apellido varchar(100),
+	@Dni int,
+	@FechaNacimiento DATE,
+	@Telefono varchar(40),
+	@Domicilio varchar(200),
+	@Estado bit,
+	@Respuesta bit output,
+	@Mensaje varchar(500) output
+)
+as
+begin
+	set @Respuesta = 0
+	set @Mensaje = ''
+
+
+	-- Verifica si el DNI no está siendo utilizado por otro usuario
+    if not exists(SELECT * FROM CLIENTES WHERE Dni = @Dni AND IdCliente != @IdCliente)
+    BEGIN
+		-- Realiza la actualización del cliente
+            UPDATE CLIENTES SET
+                Nombre = @Nombre,
+                Apellido = @Apellido,
+                Dni = @Dni,
+                FechaNacimiento = @FechaNacimiento,
+                Telefono = @Telefono,
+                Domicilio = @Domicilio,
+                Estado = @Estado
+            WHERE IdCliente = @IdCliente
+
+            SET @Respuesta = 1
+    END
+    ELSE
+    BEGIN
+        SET @Mensaje = 'El nuevo DNI ya está en uso por otro usuario.'
+    END
+END
+-- FIN PROCEDIMIENTOS PRODUCTOS--
 ------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
 
 

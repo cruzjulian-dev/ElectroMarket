@@ -56,7 +56,7 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            // LLAMAR A CAPA DE NEGOCIO, PARA QUE TRAIGA EL PROXIMO IDPRODUCTO PARA LUEGO CONCATENARLO CON LAS 3 PRIMERAS LETRAS DE LA CATEGORIA SELECCIONADA O DEL NOMBRE DEL PRODUCTO
             if (TIndice.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TPrecio.Text.Trim() == "" || TStock.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
