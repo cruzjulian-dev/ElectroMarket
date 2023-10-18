@@ -37,13 +37,13 @@ namespace CapaPresentacion
                     BEditar.Enabled = true;
                     BGuardar.Enabled = false;
 
-                    //TId.Text = DGClientes.Rows[e.RowIndex];
                     //TIndice.Text = e.RowIndex.ToString();
                     int indice = e.RowIndex;
 
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGCategoria.Rows[e.RowIndex];
 
+                    TId.Text = selectedRow.Cells["CIdCategoria"].Value.ToString();
                     CBEstado.SelectedItem = selectedRow.Cells["Cestado"].Value.ToString();
                     TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
 

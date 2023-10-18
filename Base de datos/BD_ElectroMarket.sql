@@ -341,7 +341,7 @@ CREATE PROC SP_EditarCategoria(
 )
 as
 begin
-	SET @Respuesta = 1
+	SET @Respuesta = 0
 	IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE Descripcion = @Descripcion AND IdCategoria != @IdCategoria)
 	begin
 		update CATEGORIAS SET
