@@ -64,7 +64,7 @@ namespace CapaPresentacion
             CBBusqueda.SelectedIndex = 0;
 
 
-            // Mostrar todos los Usuarios desde la BD
+            // Mostrar todos los Productos desde la BD
             List<Producto> lista = new CN_Producto().Listar();
 
             foreach (Producto item in lista)
@@ -334,6 +334,7 @@ namespace CapaPresentacion
 
         private void BBuscar_Click(object sender, EventArgs e)
         {
+
             string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
 
             if (DGProductos.Rows.Count > 0)  // pregunta si hay filas
@@ -378,6 +379,13 @@ namespace CapaPresentacion
             LimpiarCampos();
             BGuardar.Enabled = true;
             BEditar.Enabled = false;
+        }
+
+        private void BMostrar_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,104 +84,27 @@ namespace CapaPresentacion
         private void ListaProductos_Load(object sender, EventArgs e)
         {
 
-            // CATEGORIAS
-            Categoria categoria = new Categoria
-            {
-                IdCategoria = 1,
-                Descripcion = "Heladeras",
-                Estado = true,
-                FechaRegistro = "02/10/2023"
-            };
+            // Mostrar todos los Productos desde la BD
+            List<Producto> lista = new CN_Producto().Listar();
 
-            Categoria categoria2 = new Categoria
+            foreach (Producto item in lista)
             {
-                IdCategoria = 1,
-                Descripcion = "Aires Acondicionados",
-                Estado = true,
-                FechaRegistro = "02/10/2023"
-            };
 
-            Categoria categoria3 = new Categoria
-            {
-                IdCategoria = 1,
-                Descripcion = "Televisores",
-                Estado = true,
-                FechaRegistro = "02/10/2023"
-            };
+                DGProductos.Rows.Add(new object[] {
+                    item.Codigo,
+                    item.Nombre,
+                    item.Descripcion,
+                    item.Precio,
+                    item.Stock,
+                    item.oCategoria.IdCategoria,
+                    item.oCategoria.Descripcion,
+                    item.Estado == true ? "Activo" : "No Activo",
+                    item.Estado == true ? 1 : 0,
+                    "Editar",
+                    item.IdProducto
+            });
 
-            Categoria categoria4 = new Categoria
-            {
-                IdCategoria = 1,
-                Descripcion = "Lavarropas",
-                Estado = true,
-                FechaRegistro = "02/10/2023"
-            };
-
-            // PRODUCTOS
-            Producto producto1 = new Producto
-            {
-                Codigo = "1",
-                Nombre = "Heladera Whirpool",
-                Descripcion = "No Frost - Capacidad de 443 litros - Con freezer inferior",
-                oCategoria = categoria,
-                Stock = 321,
-                Precio = 856199.99m
-            };
-
-            Producto producto2 = new Producto
-            {
-                Codigo = "2",
-                Nombre = "Aire LG L50042",
-                Descripcion = "Split Inverter - Capacidad de enfriamiento de 12,000 BTU",
-                oCategoria = categoria2,
-                Stock = 200,
-                Precio = 689999.50m
-            };
-
-            Producto producto3 = new Producto
-            {
-                Codigo = "3",
-                Nombre = "Smart TV Samsung SM29934",
-                Descripcion = "Smart TV LED de 55 pulgadas - Resolución 4K Ultra HD",
-                oCategoria = categoria3,
-                Stock = 177,
-                Precio = 849499.99m
-            };
-
-            Producto producto4 = new Producto
-            {
-                Codigo = "4",
-                Nombre = "Lavarropas Automatico Drean",
-                Descripcion = "Carga frontal - Capacidad de 8 kg - 1400 RPM",
-                oCategoria = categoria4,
-                Stock = 432,
-                Precio = 586000.00m
-            };
-
-            listaProductos.Add(producto1);
-            listaProductos.Add(producto2);
-            listaProductos.Add(producto3);
-            listaProductos.Add(producto4);
-
-            if (FuenteFormulario == "RegistrarVenta")
-            {
-                foreach (Producto prod in listaProductos)
-                {
-                    DGProductos.Rows.Add("", prod.Codigo, prod.Nombre, prod.Descripcion, prod.oCategoria.Descripcion, prod.Stock, prod.Precio, "Seleccionar");
-                }
             }
-            else if (FuenteFormulario == "VistaVendedor")
-            {
-                foreach (Producto prod in listaProductos)
-                {
-
-                    DGProductos.Rows.Add("", prod.Codigo, prod.Nombre, prod.Descripcion, prod.oCategoria.Descripcion, prod.Stock, prod.Precio, "Seleccionar");
-
-                    DGProductos.Columns["CSeleccionar"].Visible = false;
-
-                }
-            }
-            
         }
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,68 +23,16 @@ namespace CapaPresentacion.Modales
 
         private void mdProveedor_Load(object sender, EventArgs e)
         {
-            // CLIENTES
-            Cliente cliente1 = new Cliente
+            // Mostrar todos los Clientes desde la BD
+            List<Cliente> listaCliente = new CN_Cliente().Listar();
+
+            foreach (Cliente item in listaCliente)
             {
-                IdCliente = 1,
-                Nombre = "Juan",
-                Apellido = "Pérez",
-                Dni = 12345678,
-                FechaNacimiento = new DateTime(1990, 5, 15),
-                Telefono = "555-123456",
-                Domicilio = "Calle 123, Ciudad",
-                Estado = true,
-                FechaRegistro = DateTime.Now.ToShortDateString()
-            };
-
-            Cliente cliente2 = new Cliente
-            {
-                IdCliente = 2,
-                Nombre = "María",
-                Apellido = "González",
-                Dni = 98765432,
-                FechaNacimiento = new DateTime(1985, 8, 25),
-                Telefono = "555-987654",
-                Domicilio = "Avenida 456, Ciudad",
-                Estado = true,
-                FechaRegistro = DateTime.Now.ToShortDateString()
-            };
-
-            Cliente cliente3 = new Cliente
-            {
-                IdCliente = 3,
-                Nombre = "Carlos",
-                Apellido = "López",
-                Dni = 45678901,
-                FechaNacimiento = new DateTime(1995, 3, 10),
-                Telefono = "555-456789",
-                Domicilio = "Plaza 789, Ciudad",
-                Estado = true,
-                FechaRegistro = DateTime.Now.ToShortDateString()
-            };
-
-            Cliente cliente4 = new Cliente
-            {
-                IdCliente = 4,
-                Nombre = "Luisa",
-                Apellido = "Martínez",
-                Dni = 78901234,
-                FechaNacimiento = new DateTime(1980, 7, 8),
-                Telefono = "555-789012",
-                Domicilio = "Calle Principal, Ciudad",
-                Estado = true,
-                FechaRegistro = DateTime.Now.ToShortDateString()
-            };
-
-            listaClientes.Add(cliente1);
-            listaClientes.Add(cliente2);
-            listaClientes.Add(cliente3);
-            listaClientes.Add(cliente4);
-
-
-            foreach (Cliente cliente in listaClientes)
-            {
-                DGClientes.Rows.Add(cliente.IdCliente, cliente.Nombre, cliente.Apellido, cliente.Dni, cliente.FechaNacimiento.ToString("d"), cliente.Telefono, cliente.Domicilio, "Seleccionar");
+                if (item.Estado != false) //trae los clientes activos
+                {
+                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, "Seleccionar"
+                    });
+                }
             }
         }
 
