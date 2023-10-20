@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lNombre = new System.Windows.Forms.Label();
             this.codigoProd = new System.Windows.Forms.Label();
             this.lDescrip = new System.Windows.Forms.Label();
             this.lCategoria = new System.Windows.Forms.Label();
             this.lEstado = new System.Windows.Forms.Label();
-            this.TCodProd = new System.Windows.Forms.TextBox();
+            this.Codigo = new System.Windows.Forms.TextBox();
             this.TNombre = new System.Windows.Forms.TextBox();
             this.TDescripcion = new System.Windows.Forms.TextBox();
             this.CBCategoria = new System.Windows.Forms.ComboBox();
@@ -126,19 +126,19 @@
             this.lEstado.TabIndex = 4;
             this.lEstado.Text = "Estado:";
             // 
-            // TCodProd
+            // Codigo
             // 
-            this.TCodProd.BackColor = System.Drawing.Color.White;
-            this.TCodProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TCodProd.Enabled = false;
-            this.TCodProd.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCodProd.ForeColor = System.Drawing.Color.White;
-            this.TCodProd.Location = new System.Drawing.Point(32, 97);
-            this.TCodProd.Name = "TCodProd";
-            this.TCodProd.ReadOnly = true;
-            this.TCodProd.Size = new System.Drawing.Size(91, 21);
-            this.TCodProd.TabIndex = 10;
-            this.TCodProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodprod_KeyPress);
+            this.Codigo.BackColor = System.Drawing.Color.White;
+            this.Codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Codigo.Enabled = false;
+            this.Codigo.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Codigo.ForeColor = System.Drawing.Color.White;
+            this.Codigo.Location = new System.Drawing.Point(32, 97);
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Size = new System.Drawing.Size(91, 21);
+            this.Codigo.TabIndex = 10;
+            this.Codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodprod_KeyPress);
             // 
             // TNombre
             // 
@@ -227,27 +227,27 @@
             this.Cestado,
             this.CestadoVAlor,
             this.Ceditar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGProductos.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGProductos.Location = new System.Drawing.Point(298, 117);
             this.DGProductos.MultiSelect = false;
             this.DGProductos.Name = "DGProductos";
             this.DGProductos.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGProductos.RowTemplate.Height = 28;
             this.DGProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGProductos.Size = new System.Drawing.Size(842, 390);
@@ -541,7 +541,7 @@
             this.Controls.Add(this.CBCategoria);
             this.Controls.Add(this.TDescripcion);
             this.Controls.Add(this.TNombre);
-            this.Controls.Add(this.TCodProd);
+            this.Controls.Add(this.Codigo);
             this.Controls.Add(this.lEstado);
             this.Controls.Add(this.lCategoria);
             this.Controls.Add(this.lDescrip);
@@ -565,7 +565,7 @@
         private System.Windows.Forms.Label lDescrip;
         private System.Windows.Forms.Label lCategoria;
         private System.Windows.Forms.Label lEstado;
-        private System.Windows.Forms.TextBox TCodProd;
+        private System.Windows.Forms.TextBox Codigo;
         private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.TextBox TDescripcion;
         private System.Windows.Forms.ComboBox CBCategoria;

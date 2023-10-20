@@ -29,7 +29,7 @@ namespace CapaPresentacion
             BEditar.Enabled = false;
             TIndice.Text = "0";
             CBCategoria.SelectedIndex = -1;
-            TCodProd.BackColor = Color.Yellow;
+            Codigo.BackColor = Color.Yellow;
 
             // combobox estado
             CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
@@ -78,7 +78,7 @@ namespace CapaPresentacion
 
         void LimpiarCampos()
         {
-            TCodProd.Clear();
+            Codigo.Clear();
             TNombre.Clear();
             TDescripcion.Clear();
             TStock.Clear();
@@ -89,7 +89,7 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            string codProducto = TCodProd.Text;
+            string codProducto = Codigo.Text;
             string nombre = TNombre.Text;
             string descripcion = TDescripcion.Text;
             string stock = TStock.Text;
@@ -97,7 +97,7 @@ namespace CapaPresentacion
             string categoria = CBCategoria.SelectedItem.ToString();
             string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
 
-            if (TCodProd.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TStock.Text.Trim() == "" || TPrecio.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
+            if (Codigo.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TStock.Text.Trim() == "" || TPrecio.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -177,7 +177,7 @@ namespace CapaPresentacion
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGProductos.Rows[e.RowIndex];
 
-                    TCodProd.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
+                    Codigo.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
                     TNombre.Text = selectedRow.Cells["Cnombre"].Value.ToString();
                     CBCategoria.SelectedItem = selectedRow.Cells["Ccategoria"].Value.ToString();
                     TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();

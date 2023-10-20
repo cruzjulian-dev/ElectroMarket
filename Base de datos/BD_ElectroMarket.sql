@@ -360,13 +360,12 @@ end
 go
 
 -- PROCEDIMIENTOS PRODUCTOS --
+-- no utilizo stock ni precioVenta, porque por default son 0 --
 CREATE PROC SP_RegistrarProducto(
 	@Codigo varchar(50),
 	@Nombre varchar(50),
 	@Descripcion varchar(100),
 	@IdCategoria int,
-	@Stock int,
-	@PrecioVenta decimal(10,2),
 	@Estado bit,
 	@IdProductoResultado int output,
 	@Mensaje varchar(500) output
@@ -379,8 +378,8 @@ begin
 	-- Verifica si el Codigo de producto no está siendo utilizado por otro producto
 	if not exists(SELECT * FROM PRODUCTOS WHERE Codigo = @Codigo)
 	begin
-		INSERT INTO PRODUCTOS(Codigo, Nombre, Descripcion, IdCategoria, Stock, PrecioVenta, Estado) 
-		VALUES (@Codigo, @Nombre, @Descripcion, @IdCategoria, @Stock, @PrecioVenta, @Estado)
+		INSERT INTO PRODUCTOS(Codigo, Nombre, Descripcion, IdCategoria, Estado) 
+		VALUES (@Codigo, @Nombre, @Descripcion, @IdCategoria, @Estado)
 
 		set @IdProductoResultado = SCOPE_IDENTITY()
 	end
@@ -392,43 +391,39 @@ end
 
 GO
 
-CREATE PROC SP_EDITARCLIENTE(
-	@IdCliente int,
-	@Nombre varchar(100),
-	@Apellido varchar(100),
-	@Dni int,
-	@FechaNacimiento DATE,
-	@Telefono varchar(40),
-	@Domicilio varchar(200),
+CREATE PROC SP_EditarProducto(
+	@IdProducto int,
+	@Codigo varchar(50),
+	@Nombre varchar(50),
+	@Descripcion varchar(100),
+	@IdCategoria int,
 	@Estado bit,
 	@Respuesta bit output,
 	@Mensaje varchar(500) output
 )
 as
 begin
-	set @Respuesta = 0
+	set @Respuesta = 1
 	set @Mensaje = ''
 
 
-	-- Verifica si el DNI no está siendo utilizado por otro usuario
-    if not exists(SELECT * FROM CLIENTES WHERE Dni = @Dni AND IdCliente != @IdCliente)
+	-- Verifica si el Codigo no está siendo utilizado por otro producto
+    if not exists(SELECT * FROM PRODUCTOS WHERE Codigo = @Codigo AND IdProducto != @IdProducto)
     BEGIN
-		-- Realiza la actualización del cliente
-            UPDATE CLIENTES SET
+		-- Realiza la actualización del Producto
+            UPDATE PRODUCTOS SET
+                Codigo = @Codigo,
                 Nombre = @Nombre,
-                Apellido = @Apellido,
-                Dni = @Dni,
-                FechaNacimiento = @FechaNacimiento,
-                Telefono = @Telefono,
-                Domicilio = @Domicilio,
+                Descripcion = @Descripcion,
+                IdCategoria = @IdCategoria,
                 Estado = @Estado
-            WHERE IdCliente = @IdCliente
+            WHERE IdProducto = @IdProducto
 
-            SET @Respuesta = 1
     END
     ELSE
     BEGIN
-        SET @Mensaje = 'El nuevo DNI ya está en uso por otro usuario.'
+        SET @Respuesta = 0
+        SET @Mensaje = 'No se puede repetir el Codigo que está siendo utilizado por otro producto.'
     END
 END
 -- FIN PROCEDIMIENTOS PRODUCTOS--
@@ -452,6 +447,8 @@ INSERT INTO ROLES (Descripcion)
 VALUES ('Super Administrador')
 
 GO
+
+
 
 INSERT INTO FORMA_PAGO(Descripcion)
 VALUES ('Efectivo')
@@ -526,5 +523,12 @@ values ('Heladeras',1)
 
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Lavarropas',1)
+
+
+select * from CLIENTES;
+select * from PRODUCTOS;
+
+
+
 
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------

@@ -21,7 +21,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.IdProducto, p.Codigo, p.Nombre, p.Descripcion, p.IdCategoria, p.Stock, p.PrecioVenta, p.Estado FROM PRODUCTOS p");
+                    query.AppendLine("SELECT p.IdProducto, p.Codigo, p.Nombre, p.Descripcion, c.IdCategoria, c.Descripcion[DescripcionCategoria], p.Stock, p.PrecioVenta, p.Estado FROM PRODUCTOS p");
                     query.AppendLine("inner join CATEGORIAS c on c.IdCategoria = p.IdCategoria");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
@@ -39,7 +39,7 @@ namespace CapaDatos
                                 Codigo = dr["Codigo"].ToString(),
                                 Nombre = dr["Nombre"].ToString(),
                                 Descripcion = dr["Descripcion"].ToString(),
-                                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), Descripcion = dr["Descripcion"].ToString(), Estado = Convert.ToBoolean(dr["Estado"]) },
+                                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), Descripcion = dr["DescripcionCategoria"].ToString(), Estado = Convert.ToBoolean(dr["Estado"]) },
                                 Stock = Convert.ToInt32(dr["Stock"]),
                                 Precio = Convert.ToDecimal(dr["PrecioVenta"]),
                                 Estado = Convert.ToBoolean(dr["Estado"])
