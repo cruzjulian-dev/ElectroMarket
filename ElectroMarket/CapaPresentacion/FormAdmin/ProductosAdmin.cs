@@ -319,11 +319,13 @@ namespace CapaPresentacion
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
+            /*
             if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.' && e.KeyChar != ';' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete)
             {
                 // Si no es válido, marca el evento como manejado para evitar que se ingrese
                 e.Handled = true;
             }
+            */
         }
 
 
@@ -339,11 +341,12 @@ namespace CapaPresentacion
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite solo letras
+            /*
             if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true; // Cancela la entrada del carácter no válido
             }
+            */
         }
 
         private void BBuscar_Click(object sender, EventArgs e)

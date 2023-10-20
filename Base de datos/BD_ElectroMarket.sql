@@ -521,27 +521,51 @@ VALUES ('Luis', 'Barrios', '46958532', '2004-09-24', 3577324645, 'Catamarca 1118
 
 GO
 
+-- CATEGORIAS
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Televisores',1)
+
+GO
 
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Heladeras',1)
 
+GO
+
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Lavarropas',1)
 
+GO
+
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Hornos',1)
+-- FIN CATEGORIAS
 
-insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Estado)
-values ('1111','Horno Fuegito','A leña',4,1)
+GO
 
+-- PRODUCTOS
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
+values ('ATMA1500','Horno Electrico Grill Atma','1500w - 40L - 250° - Plateado', 4, 48, 79999.99, 1)
 
-select * from CLIENTES;
-select * from PRODUCTOS;
-select * from CATEGORIAS;
+GO
 
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
+values ('SM65LINV','Lavarropas Samsung Automatico','Carga Frontal - 6.5 Kg - Inverter - 1000 RPM', 3, 22, 559999.99, 1)
 
+GO
 
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
+values ('HGFA282L', 'Heladera Gafa', '282L - Freezer - 220V', 2, 17, 279999.99, 1)
+
+GO
+
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
+values ('NBLX55LD','Smart Tv Noblex','LED - HD - 32" - Android Tv', 1, 65, 125000, 1)
+
+GO
+
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
+values ('HTCH40LD','Smart TV Hitachi','LED - FULL HD - 40" - Android Tv', 1, 37, 174999.99, 1)
+-- FIN PRODUCTOS
 
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------
