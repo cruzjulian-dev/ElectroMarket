@@ -86,9 +86,6 @@ namespace CapaPresentacion
 
             }
 
-          
-
-
             //combobox filtros de busqueda
             foreach (DataGridViewColumn columna in DGProductos.Columns)
             {
@@ -233,7 +230,7 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        MessageBox.Show(mensaje);
+                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             
