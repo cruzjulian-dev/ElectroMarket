@@ -18,6 +18,7 @@ USE DB_ElectroMarket
 
 GO
 
+
 CREATE TABLE ROLES(
 IdRol int primary key identity NOT NULL,
 Descripcion varchar(100) NOT NULL,
@@ -524,9 +525,13 @@ values ('Heladeras',1)
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Lavarropas',1)
 
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Estado)
+values ('1111','horno','a leña',4,1)
+
 
 select * from CLIENTES;
 select * from PRODUCTOS;
+select * from CATEGORIAS;
 
 
 

@@ -1,4 +1,6 @@
-﻿using CapaPresentacion.Modales;
+﻿using CapaEntidades;
+using CapaNegocio;
+using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -38,6 +40,51 @@ namespace CapaPresentacion
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
             CBEstado.SelectedIndex = -1;
+
+            List<Categoria> listaCategoria = new CN_Categoria().Listar();
+
+            foreach (Categoria item in listaCategoria)
+            {
+                CBCategoria.Items.Add(new OpcionCombo() { Valor = item.IdCategoria, Texto = item.Descripcion });
+            }
+
+            CBCategoria.DisplayMember = "Texto";
+            CBCategoria.ValueMember = "Valor";
+            CBCategoria.SelectedIndex = -1;
+
+            foreach (DataGridViewColumn columna in DGProductos.Columns)
+            {
+                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Contraseña" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
+                {
+                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                }
+            }
+            CBBusqueda.DisplayMember = "Texto";
+            CBBusqueda.ValueMember = "Valor";
+            CBBusqueda.SelectedIndex = 0;
+
+
+            // Mostrar todos los Usuarios desde la BD
+            List<Producto> lista = new CN_Producto().Listar();
+
+            foreach (Producto item in lista)
+            {
+
+                DGProductos.Rows.Add(new object[] { item.Codigo,
+                    item.Nombre,
+                    item.Descripcion,
+                    item.Precio,
+                    item.Stock,
+                item.oCategoria.IdCategoria,
+                    item.oCategoria.Descripcion,
+                    item.Estado == true ? "Activo" : "No Activo",
+                    item.Estado == true ? 1 : 0,
+                    "Editar"
+            });
+
+            }
+
+          
 
 
             //combobox filtros de busqueda
