@@ -73,7 +73,7 @@ GO
 
 CREATE TABLE PRODUCTOS(
 IdProducto int primary key identity NOT NULL,
-Codigo varchar(50),
+Codigo varchar(50) UNIQUE,
 Nombre varchar(50),
 Descripcion varchar(100),
 IdCategoria int references CATEGORIAS(IdCategoria),
@@ -361,12 +361,13 @@ end
 go
 
 -- PROCEDIMIENTOS PRODUCTOS --
--- no utilizo stock ni precioVenta, porque por default son 0 --
 CREATE PROC SP_RegistrarProducto(
 	@Codigo varchar(50),
 	@Nombre varchar(50),
 	@Descripcion varchar(100),
 	@IdCategoria int,
+	@Stock int,
+	@PrecioVenta decimal(10,2),
 	@Estado bit,
 	@IdProductoResultado int output,
 	@Mensaje varchar(500) output
@@ -379,8 +380,8 @@ begin
 	-- Verifica si el Codigo de producto no está siendo utilizado por otro producto
 	if not exists(SELECT * FROM PRODUCTOS WHERE Codigo = @Codigo)
 	begin
-		INSERT INTO PRODUCTOS(Codigo, Nombre, Descripcion, IdCategoria, Estado) 
-		VALUES (@Codigo, @Nombre, @Descripcion, @IdCategoria, @Estado)
+		INSERT INTO PRODUCTOS(Codigo, Nombre, Descripcion, IdCategoria, Stock, PrecioVenta, Estado) 
+		VALUES (@Codigo, @Nombre, @Descripcion, @IdCategoria, @Stock, @PrecioVenta, @Estado)
 
 		set @IdProductoResultado = SCOPE_IDENTITY()
 	end
@@ -398,6 +399,8 @@ CREATE PROC SP_EditarProducto(
 	@Nombre varchar(50),
 	@Descripcion varchar(100),
 	@IdCategoria int,
+	@Stock int,
+	@PrecioVenta decimal(10,2),
 	@Estado bit,
 	@Respuesta bit output,
 	@Mensaje varchar(500) output
@@ -417,6 +420,8 @@ begin
                 Nombre = @Nombre,
                 Descripcion = @Descripcion,
                 IdCategoria = @IdCategoria,
+                Stock = @Stock,
+				PrecioVenta = @PrecioVenta,
                 Estado = @Estado
             WHERE IdProducto = @IdProducto
 
@@ -430,7 +435,7 @@ END
 -- FIN PROCEDIMIENTOS PRODUCTOS--
 ------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
 
-
+GO
 
 ------------------------------------- COMIENZO DE CREACION DE DATOS DE PRUEBA -------------------------------------
 
@@ -525,8 +530,11 @@ values ('Heladeras',1)
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Lavarropas',1)
 
+insert into CATEGORIAS(Descripcion,Estado)
+values ('Hornos',1)
+
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Estado)
-values ('1111','horno','a leña',4,1)
+values ('1111','Horno Fuegito','A leña',4,1)
 
 
 select * from CLIENTES;

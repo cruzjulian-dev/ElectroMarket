@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,6 @@ namespace CapaPresentacion
             BEditar.Enabled = false;
             TIndice.Text = "0";
             CBCategoria.SelectedIndex = -1;
-            Codigo.BackColor = Color.Yellow;
 
             // combobox estado
             CBEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
@@ -75,7 +75,7 @@ namespace CapaPresentacion
                     item.Descripcion,
                     item.Precio,
                     item.Stock,
-                item.oCategoria.IdCategoria,
+                    item.oCategoria.IdCategoria,
                     item.oCategoria.Descripcion,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.Estado == true ? 1 : 0,
@@ -103,21 +103,47 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // LLAMAR A CAPA DE NEGOCIO, PARA QUE TRAIGA EL PROXIMO IDPRODUCTO PARA LUEGO CONCATENARLO CON LAS 3 PRIMERAS LETRAS DE LA CATEGORIA SELECCIONADA O DEL NOMBRE DEL PRODUCTO
-            if (TIndice.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TPrecio.Text.Trim() == "" || TStock.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
+            if (TIndice.Text.Trim() == "" || TCodigo.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TPrecio.Text.Trim() == "" || TStock.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Seguro que quieres guardar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    TIndice.Text = (Convert.ToInt32(TIndice.Text) + 1).ToString();
+                    string mensaje = string.Empty;
 
-                    // Agregar nueva fila
-                    DGProductos.Rows.Add(TIndice.Text.Trim(), TNombre.Text.Trim(), TDescripcion.Text.Trim(), TPrecio.Text.Trim(), TStock.Text.Trim(), "", CBCategoria.SelectedItem.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto, ((OpcionCombo)CBEstado.SelectedItem).Valor, "Editar");
+                    Producto objProducto = new Producto()
+                    {
+                        Codigo = TCodigo.Text.Trim(),
+                        Nombre = TNombre.Text.Trim(),
+                        Descripcion = TDescripcion.Text.Trim(),
+                        Precio = Convert.ToDecimal(TPrecio.Text.Trim()),
+                        Stock = Convert.ToInt32(TStock.Text.Trim()),
+                        oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)CBCategoria.SelectedItem).Valor) },
+                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                    };
 
-                    LimpiarCampos();
+                    int idProductoGenerado = new CN_Producto().RegistrarProducto(objProducto, out mensaje);
+
+                    if (idProductoGenerado != 0)
+                    {
+                        DGProductos.Rows.Add(new object[] { TCodigo.Text.Trim(), TNombre.Text.Trim(), TDescripcion.Text.Trim(), TPrecio.Text.Trim(), TStock.Text.Trim(),
+                                ((OpcionCombo)CBCategoria.SelectedItem).Valor.ToString(), ((OpcionCombo)CBCategoria.SelectedItem).Texto.ToString(),
+                                ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(),
+                                "Editar", idProductoGenerado
+                                });
+
+
+
+                        LimpiarCampos();
+                        VaciarTabla();
+                        ActualizarTabla();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 
@@ -125,7 +151,7 @@ namespace CapaPresentacion
 
         void LimpiarCampos()
         {
-            Codigo.Clear();
+            TCodigo.Clear();
             TNombre.Clear();
             TDescripcion.Clear();
             TStock.Clear();
@@ -134,54 +160,79 @@ namespace CapaPresentacion
             CBEstado.SelectedIndex = -1;
         }
 
+        private void ActualizarTabla()
+        {
+            // Actualizar la tabla con todos los Usuarios desde la BD
+            List<Producto> listaProducto = new CN_Producto().Listar();
+
+            foreach (Producto item in listaProducto)
+            {
+
+                DGProductos.Rows.Add(new object[] { item.Codigo, item.Nombre, item.Descripcion, item.Precio, item.Stock,
+                item.oCategoria.IdCategoria, item.oCategoria.Descripcion, item.Estado == true ? "Activo" : "No Activo", item.Estado == true ? 1 : 0, "Editar", item.IdProducto
+            });
+
+            }
+        }
+
+        private void VaciarTabla()
+        {
+            DGProductos.Rows.Clear();
+        }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            string codProducto = Codigo.Text;
-            string nombre = TNombre.Text;
-            string descripcion = TDescripcion.Text;
-            string stock = TStock.Text;
-            string precio = TPrecio.Text;
-            string categoria = CBCategoria.SelectedItem.ToString();
-            string Estado = ((OpcionCombo)CBEstado.SelectedItem).Texto;
-
-            if (Codigo.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TStock.Text.Trim() == "" || TPrecio.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
+            if (TCodigo.Text.Trim() == "" || TNombre.Text.Trim() == "" || TDescripcion.Text.Trim() == "" || TStock.Text.Trim() == "" || TPrecio.Text.Trim() == "" || CBEstado.SelectedIndex == -1 || CBCategoria.SelectedIndex == -1)
             {
                 MessageBox.Show("Debes completar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                // Actualiza la fila seleccionada en el DataGridView
-                DataGridViewRow selectedRow = DGProductos.Rows[DGProductos.CurrentCell.RowIndex];
-
-                selectedRow.Cells["Ccodigo"].Value = codProducto;
-                selectedRow.Cells["Cnombre"].Value = nombre;
-                selectedRow.Cells["CStock"].Value = stock;
-                selectedRow.Cells["Cdescripcion"].Value = descripcion;
-                selectedRow.Cells["cprecio"].Value = precio;
-                selectedRow.Cells["Ccategoria"].Value = categoria;
-                selectedRow.Cells["Cestado"].Value = Estado;
-                selectedRow.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor;
-
-                foreach (DataGridViewRow row in DGProductos.Rows)
+                if (MessageBox.Show("Deseas guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Obtener el valor de la celda en la columna "CEstado"
-                    string estado = row.Cells["Cestado"].Value as string;
+                    string mensaje = string.Empty;
 
-                    // Verificar si el estado es "No Activo"
-                    if (estado == "No Activo")
+                    Producto objProducto = new Producto()
                     {
+                        Codigo = TCodigo.Text.Trim(),
+                        Nombre = TNombre.Text.Trim(),
+                        Descripcion = TDescripcion.Text.Trim(),
+                        Precio = Convert.ToInt32(TPrecio.Text.Trim()),
+                        Stock = Convert.ToInt32(TStock.Text.Trim()),
+                        oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)CBCategoria.SelectedItem).Valor) },
+                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                    };
 
-                        row.DefaultCellStyle.BackColor = Color.Red;
+                    bool resultado = new CN_Producto().EditarProducto(objProducto, out mensaje);
+
+                    if (resultado == true)
+                    {
+                        DataGridViewRow row = DGProductos.Rows[Convert.ToInt32(TIndice.Text)];
+
+                        row.Cells["Ccodigo"].Value = TCodigo.Text.Trim();
+                        row.Cells["Cnombre"].Value = TNombre.Text.Trim();
+                        row.Cells["CStock"].Value = Convert.ToInt32(TStock.Text.Trim());
+                        row.Cells["Cdescripcion"].Value = TDescripcion.Text.Trim();
+                        row.Cells["Cprecio"].Value = TPrecio.Text.Trim();
+                        row.Cells["idCat"].Value = ((OpcionCombo)CBCategoria.SelectedItem).Valor.ToString();
+                        row.Cells["Ccategoria"].Value = ((OpcionCombo)CBCategoria.SelectedItem).Texto.ToString();
+                        row.Cells["Cestado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
+                        row.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
+                        row.Cells["Ceditar"].Value = "Editar";
+                        row.Cells["CIdProducto"].Value = TId.Text.Trim().ToString();
+
+                        LimpiarCampos();
+                        VaciarTabla();
+                        ActualizarTabla();
+
+                        BEditar.Enabled = false;
+                        BGuardar.Enabled = true;
                     }
                     else
                     {
-                        row.DefaultCellStyle.BackColor = Color.White;
+                        MessageBox.Show(mensaje);
                     }
                 }
-
-                LimpiarCampos();
-                BEditar.Enabled = false;
-                BGuardar.Enabled = true;
             
             }
            
@@ -189,12 +240,7 @@ namespace CapaPresentacion
 
         private void textBoxCodprod_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un número o la tecla Backspace (borrar).
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                // Si no es un número ni una tecla de borrar, cancela la entrada.
-                e.Handled = true;
-            }
+
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -224,7 +270,7 @@ namespace CapaPresentacion
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGProductos.Rows[e.RowIndex];
 
-                    Codigo.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
+                    TCodigo.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
                     TNombre.Text = selectedRow.Cells["Cnombre"].Value.ToString();
                     CBCategoria.SelectedItem = selectedRow.Cells["Ccategoria"].Value.ToString();
                     TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();

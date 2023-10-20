@@ -140,5 +140,51 @@ namespace CapaDatos
 
             return respuesta;
         }
+
+        /*
+        public int ProximoIdProducto()
+        {
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT p.IdProducto, p.Codigo, p.Nombre, p.Descripcion, c.IdCategoria, c.Descripcion[DescripcionCategoria], p.Stock, p.PrecioVenta, p.Estado FROM PRODUCTOS p");
+                    query.AppendLine("inner join CATEGORIAS c on c.IdCategoria = p.IdCategoria");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oConexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Producto()
+                            {
+                                IdProducto = Convert.ToInt32(dr["IdProducto"]),
+                                Codigo = dr["Codigo"].ToString(),
+                                Nombre = dr["Nombre"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString(),
+                                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), Descripcion = dr["DescripcionCategoria"].ToString(), Estado = Convert.ToBoolean(dr["Estado"]) },
+                                Stock = Convert.ToInt32(dr["Stock"]),
+                                Precio = Convert.ToDecimal(dr["PrecioVenta"]),
+                                Estado = Convert.ToBoolean(dr["Estado"])
+                            });
+                        }
+                    }
+
+                }
+                catch (Exception)
+                {
+                    lista = new List<Producto>();
+                }
+
+            }
+
+            return lista;
+        }
+        */
     }
 }

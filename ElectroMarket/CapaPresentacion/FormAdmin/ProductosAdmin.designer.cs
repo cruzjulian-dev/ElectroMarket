@@ -35,7 +35,7 @@
             this.lDescrip = new System.Windows.Forms.Label();
             this.lCategoria = new System.Windows.Forms.Label();
             this.lEstado = new System.Windows.Forms.Label();
-            this.Codigo = new System.Windows.Forms.TextBox();
+            this.TCodigo = new System.Windows.Forms.TextBox();
             this.TNombre = new System.Windows.Forms.TextBox();
             this.TDescripcion = new System.Windows.Forms.TextBox();
             this.CBCategoria = new System.Windows.Forms.ComboBox();
@@ -43,16 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DGProductos = new System.Windows.Forms.DataGridView();
-            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.BEditar = new FontAwesome.Sharp.IconButton();
             this.BGuardar = new FontAwesome.Sharp.IconButton();
@@ -67,6 +57,18 @@
             this.lblStock = new System.Windows.Forms.Label();
             this.TIndice = new System.Windows.Forms.TextBox();
             this.BLimpiar = new FontAwesome.Sharp.IconButton();
+            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,19 +128,17 @@
             this.lEstado.TabIndex = 4;
             this.lEstado.Text = "Estado:";
             // 
-            // Codigo
+            // TCodigo
             // 
-            this.Codigo.BackColor = System.Drawing.Color.White;
-            this.Codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Codigo.Enabled = false;
-            this.Codigo.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Codigo.ForeColor = System.Drawing.Color.White;
-            this.Codigo.Location = new System.Drawing.Point(32, 97);
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Size = new System.Drawing.Size(91, 21);
-            this.Codigo.TabIndex = 10;
-            this.Codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodprod_KeyPress);
+            this.TCodigo.BackColor = System.Drawing.Color.White;
+            this.TCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TCodigo.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCodigo.ForeColor = System.Drawing.Color.Black;
+            this.TCodigo.Location = new System.Drawing.Point(32, 97);
+            this.TCodigo.Name = "TCodigo";
+            this.TCodigo.Size = new System.Drawing.Size(91, 21);
+            this.TCodigo.TabIndex = 10;
+            this.TCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodprod_KeyPress);
             // 
             // TNombre
             // 
@@ -167,13 +167,6 @@
             this.CBCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBCategoria.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBCategoria.FormattingEnabled = true;
-            this.CBCategoria.Items.AddRange(new object[] {
-            "Aires Acondicionados",
-            "Heladeras",
-            "Lavarropas",
-            "Televisores",
-            "Hornos",
-            "Microondas"});
             this.CBCategoria.Location = new System.Drawing.Point(32, 325);
             this.CBCategoria.Name = "CBCategoria";
             this.CBCategoria.Size = new System.Drawing.Size(180, 21);
@@ -226,7 +219,8 @@
             this.Ccategoria,
             this.Cestado,
             this.CestadoVAlor,
-            this.Ceditar});
+            this.Ceditar,
+            this.CIdProducto});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -254,72 +248,6 @@
             this.DGProductos.TabIndex = 23;
             this.DGProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             this.DGProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGProductos_CellFormatting);
-            // 
-            // Ccodigo
-            // 
-            this.Ccodigo.HeaderText = "Codigo";
-            this.Ccodigo.Name = "Ccodigo";
-            this.Ccodigo.ReadOnly = true;
-            this.Ccodigo.Width = 70;
-            // 
-            // Cnombre
-            // 
-            this.Cnombre.HeaderText = "Nombre";
-            this.Cnombre.Name = "Cnombre";
-            this.Cnombre.ReadOnly = true;
-            // 
-            // Cdescripcion
-            // 
-            this.Cdescripcion.HeaderText = "Descripcion";
-            this.Cdescripcion.Name = "Cdescripcion";
-            this.Cdescripcion.ReadOnly = true;
-            // 
-            // cprecio
-            // 
-            this.cprecio.HeaderText = "Precio ";
-            this.cprecio.Name = "cprecio";
-            this.cprecio.ReadOnly = true;
-            // 
-            // CStock
-            // 
-            this.CStock.HeaderText = "Stock";
-            this.CStock.Name = "CStock";
-            this.CStock.ReadOnly = true;
-            this.CStock.Width = 80;
-            // 
-            // idCat
-            // 
-            this.idCat.HeaderText = "idCategoria";
-            this.idCat.Name = "idCat";
-            this.idCat.ReadOnly = true;
-            this.idCat.Visible = false;
-            // 
-            // Ccategoria
-            // 
-            this.Ccategoria.HeaderText = "Categoria";
-            this.Ccategoria.Name = "Ccategoria";
-            this.Ccategoria.ReadOnly = true;
-            // 
-            // Cestado
-            // 
-            this.Cestado.HeaderText = "Estado";
-            this.Cestado.Name = "Cestado";
-            this.Cestado.ReadOnly = true;
-            this.Cestado.Width = 80;
-            // 
-            // CestadoVAlor
-            // 
-            this.CestadoVAlor.HeaderText = "EstadoValor";
-            this.CestadoVAlor.Name = "CestadoVAlor";
-            this.CestadoVAlor.ReadOnly = true;
-            this.CestadoVAlor.Visible = false;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
-            this.Ceditar.Width = 75;
             // 
             // label3
             // 
@@ -515,12 +443,94 @@
             this.BLimpiar.UseVisualStyleBackColor = false;
             this.BLimpiar.Click += new System.EventHandler(this.BLimpiar_Click);
             // 
+            // Ccodigo
+            // 
+            this.Ccodigo.HeaderText = "Codigo";
+            this.Ccodigo.Name = "Ccodigo";
+            this.Ccodigo.ReadOnly = true;
+            this.Ccodigo.Width = 70;
+            // 
+            // Cnombre
+            // 
+            this.Cnombre.HeaderText = "Nombre";
+            this.Cnombre.Name = "Cnombre";
+            this.Cnombre.ReadOnly = true;
+            // 
+            // Cdescripcion
+            // 
+            this.Cdescripcion.HeaderText = "Descripcion";
+            this.Cdescripcion.Name = "Cdescripcion";
+            this.Cdescripcion.ReadOnly = true;
+            // 
+            // cprecio
+            // 
+            this.cprecio.HeaderText = "Precio ";
+            this.cprecio.Name = "cprecio";
+            this.cprecio.ReadOnly = true;
+            // 
+            // CStock
+            // 
+            this.CStock.HeaderText = "Stock";
+            this.CStock.Name = "CStock";
+            this.CStock.ReadOnly = true;
+            this.CStock.Width = 80;
+            // 
+            // idCat
+            // 
+            this.idCat.HeaderText = "idCategoria";
+            this.idCat.Name = "idCat";
+            this.idCat.ReadOnly = true;
+            this.idCat.Visible = false;
+            // 
+            // Ccategoria
+            // 
+            this.Ccategoria.HeaderText = "Categoria";
+            this.Ccategoria.Name = "Ccategoria";
+            this.Ccategoria.ReadOnly = true;
+            // 
+            // Cestado
+            // 
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
+            this.Cestado.Width = 80;
+            // 
+            // CestadoVAlor
+            // 
+            this.CestadoVAlor.HeaderText = "EstadoValor";
+            this.CestadoVAlor.Name = "CestadoVAlor";
+            this.CestadoVAlor.ReadOnly = true;
+            this.CestadoVAlor.Visible = false;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            this.Ceditar.Width = 75;
+            // 
+            // CIdProducto
+            // 
+            this.CIdProducto.HeaderText = "IdProducto";
+            this.CIdProducto.Name = "CIdProducto";
+            this.CIdProducto.ReadOnly = true;
+            this.CIdProducto.Visible = false;
+            // 
+            // TId
+            // 
+            this.TId.Location = new System.Drawing.Point(222, 98);
+            this.TId.Name = "TId";
+            this.TId.Size = new System.Drawing.Size(26, 20);
+            this.TId.TabIndex = 67;
+            this.TId.Visible = false;
+            // 
             // ProductosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.TId);
             this.Controls.Add(this.BLimpiar);
             this.Controls.Add(this.TIndice);
             this.Controls.Add(this.TStock);
@@ -541,7 +551,7 @@
             this.Controls.Add(this.CBCategoria);
             this.Controls.Add(this.TDescripcion);
             this.Controls.Add(this.TNombre);
-            this.Controls.Add(this.Codigo);
+            this.Controls.Add(this.TCodigo);
             this.Controls.Add(this.lEstado);
             this.Controls.Add(this.lCategoria);
             this.Controls.Add(this.lDescrip);
@@ -565,7 +575,7 @@
         private System.Windows.Forms.Label lDescrip;
         private System.Windows.Forms.Label lCategoria;
         private System.Windows.Forms.Label lEstado;
-        private System.Windows.Forms.TextBox Codigo;
+        private System.Windows.Forms.TextBox TCodigo;
         private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.TextBox TDescripcion;
         private System.Windows.Forms.ComboBox CBCategoria;
@@ -586,6 +596,7 @@
         private System.Windows.Forms.TextBox TStock;
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.TextBox TIndice;
+        private FontAwesome.Sharp.IconButton BLimpiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cnombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cdescripcion;
@@ -596,6 +607,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cestado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CestadoVAlor;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
-        private FontAwesome.Sharp.IconButton BLimpiar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdProducto;
+        private System.Windows.Forms.TextBox TId;
     }
 }
