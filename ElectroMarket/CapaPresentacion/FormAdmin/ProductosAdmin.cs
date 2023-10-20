@@ -70,7 +70,8 @@ namespace CapaPresentacion
             foreach (Producto item in lista)
             {
 
-                DGProductos.Rows.Add(new object[] { item.Codigo,
+                DGProductos.Rows.Add(new object[] { 
+                    item.Codigo,
                     item.Nombre,
                     item.Descripcion,
                     item.Precio,
@@ -79,7 +80,8 @@ namespace CapaPresentacion
                     item.oCategoria.Descripcion,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.Estado == true ? 1 : 0,
-                    "Editar"
+                    "Editar",
+                    item.IdProducto
             });
 
             }
@@ -197,10 +199,11 @@ namespace CapaPresentacion
                         Codigo = TCodigo.Text.Trim(),
                         Nombre = TNombre.Text.Trim(),
                         Descripcion = TDescripcion.Text.Trim(),
-                        Precio = Convert.ToInt32(TPrecio.Text.Trim()),
+                        Precio = Convert.ToDecimal(TPrecio.Text.Trim()),
                         Stock = Convert.ToInt32(TStock.Text.Trim()),
                         oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)CBCategoria.SelectedItem).Valor) },
-                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false
+                        Estado = Convert.ToInt32(((OpcionCombo)CBEstado.SelectedItem).Valor) == 1 ? true : false,
+                        IdProducto = Convert.ToInt32(TId.Text.Trim())
                     };
 
                     bool resultado = new CN_Producto().EditarProducto(objProducto, out mensaje);
@@ -213,13 +216,13 @@ namespace CapaPresentacion
                         row.Cells["Cnombre"].Value = TNombre.Text.Trim();
                         row.Cells["CStock"].Value = Convert.ToInt32(TStock.Text.Trim());
                         row.Cells["Cdescripcion"].Value = TDescripcion.Text.Trim();
-                        row.Cells["Cprecio"].Value = TPrecio.Text.Trim();
+                        row.Cells["Cprecio"].Value = Convert.ToDecimal(TPrecio.Text.Trim());
                         row.Cells["idCat"].Value = ((OpcionCombo)CBCategoria.SelectedItem).Valor.ToString();
                         row.Cells["Ccategoria"].Value = ((OpcionCombo)CBCategoria.SelectedItem).Texto.ToString();
                         row.Cells["Cestado"].Value = ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString();
                         row.Cells["CestadoVAlor"].Value = ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString();
                         row.Cells["Ceditar"].Value = "Editar";
-                        row.Cells["CIdProducto"].Value = TId.Text.Trim().ToString();
+                        row.Cells["CIdProducto"].Value = Convert.ToInt32(TId.Text.Trim());
 
                         LimpiarCampos();
                         VaciarTabla();
@@ -246,7 +249,7 @@ namespace CapaPresentacion
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verifica si la tecla presionada no es un número, un punto decimal o la tecla Backspace (borrar).
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
             {
                 // Si no es un número, un punto decimal ni una tecla de borrar, cancela la entrada.
                 e.Handled = true;
@@ -257,36 +260,46 @@ namespace CapaPresentacion
         {
             if (DGProductos.Columns[e.ColumnIndex].Name == "Ceditar" && e.RowIndex >= 0)
             {
-
                 if (MessageBox.Show("Seguro que quieres editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    TIndice.Text = e.RowIndex.ToString();
+                    TId.Text = DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["CIdProducto"].Value.ToString(); 
+
+                    // Habilita el botón "Editar"
                     BEditar.Enabled = true;
+
+                    // Deshabilita el botón "Guardar"
                     BGuardar.Enabled = false;
 
-                    //TId.Text = DGClientes.Rows[e.RowIndex];
-                    TIndice.Text = e.RowIndex.ToString();
-                    int indice = e.RowIndex;
-
-                    // Obtengo los valores de las celdas de la fila seleccionada
-                    DataGridViewRow selectedRow = DGProductos.Rows[e.RowIndex];
-
-                    TCodigo.Text = selectedRow.Cells["Ccodigo"].Value.ToString();
-                    TNombre.Text = selectedRow.Cells["Cnombre"].Value.ToString();
-                    CBCategoria.SelectedItem = selectedRow.Cells["Ccategoria"].Value.ToString();
-                    TDescripcion.Text = selectedRow.Cells["Cdescripcion"].Value.ToString();
-                    TPrecio.Text = selectedRow.Cells["cprecio"].Value.ToString();
-                    TStock.Text = selectedRow.Cells["CStock"].Value.ToString();
-
-                    foreach (OpcionCombo oc in CBEstado.Items)
+                    if (Convert.ToInt32(TIndice.Text) >= 0)
                     {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGProductos.Rows[indice].Cells["CestadoVAlor"].Value))
+                        TCodigo.Text = DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["Ccodigo"].Value.ToString();
+                        TNombre.Text = DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["Cnombre"].Value.ToString();
+                        TDescripcion.Text = DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["Cdescripcion"].Value.ToString();
+                        TPrecio.Text = DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["cprecio"].Value.ToString();
+                        TStock.Text = DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["CStock"].Value.ToString();
+
+                        foreach (OpcionCombo oc in CBCategoria.Items)
                         {
-                            int indice_combo = CBEstado.Items.IndexOf(oc);
-                            CBEstado.SelectedIndex = indice_combo;
-                            break;
+                            if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["idCat"].Value))
+                            {
+                                int indice_combo = CBCategoria.Items.IndexOf(oc);
+                                CBCategoria.SelectedIndex = indice_combo;
+                                break;
+                            }
+                        }
+
+                        foreach (OpcionCombo oc in CBEstado.Items)
+                        {
+                            if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DGProductos.Rows[Convert.ToInt32(TIndice.Text)].Cells["CestadoVAlor"].Value))
+                            {
+                                int indice_combo = CBEstado.Items.IndexOf(oc);
+                                CBEstado.SelectedIndex = indice_combo;
+                                break;
+                            }
                         }
                     }
-                }
+                }  
             }
         }
 
