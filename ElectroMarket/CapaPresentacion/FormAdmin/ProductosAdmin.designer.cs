@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lNombre = new System.Windows.Forms.Label();
             this.codigoProd = new System.Windows.Forms.Label();
             this.lDescrip = new System.Windows.Forms.Label();
@@ -43,6 +43,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DGProductos = new System.Windows.Forms.DataGridView();
+            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.BEditar = new FontAwesome.Sharp.IconButton();
             this.BGuardar = new FontAwesome.Sharp.IconButton();
@@ -57,17 +68,6 @@
             this.lblStock = new System.Windows.Forms.Label();
             this.TIndice = new System.Windows.Forms.TextBox();
             this.BLimpiar = new FontAwesome.Sharp.IconButton();
-            this.Ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cestado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CestadoVAlor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ceditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CIdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).BeginInit();
             this.SuspendLayout();
@@ -221,33 +221,106 @@
             this.CestadoVAlor,
             this.Ceditar,
             this.CIdProducto});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGProductos.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGProductos.Location = new System.Drawing.Point(298, 117);
             this.DGProductos.MultiSelect = false;
             this.DGProductos.Name = "DGProductos";
             this.DGProductos.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGProductos.RowTemplate.Height = 28;
             this.DGProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGProductos.Size = new System.Drawing.Size(842, 390);
             this.DGProductos.TabIndex = 23;
             this.DGProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
             this.DGProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGProductos_CellFormatting);
+            // 
+            // Ccodigo
+            // 
+            this.Ccodigo.HeaderText = "Codigo";
+            this.Ccodigo.Name = "Ccodigo";
+            this.Ccodigo.ReadOnly = true;
+            this.Ccodigo.Width = 70;
+            // 
+            // Cnombre
+            // 
+            this.Cnombre.HeaderText = "Nombre";
+            this.Cnombre.Name = "Cnombre";
+            this.Cnombre.ReadOnly = true;
+            // 
+            // Cdescripcion
+            // 
+            this.Cdescripcion.HeaderText = "Descripcion";
+            this.Cdescripcion.Name = "Cdescripcion";
+            this.Cdescripcion.ReadOnly = true;
+            // 
+            // cprecio
+            // 
+            this.cprecio.HeaderText = "Precio ";
+            this.cprecio.Name = "cprecio";
+            this.cprecio.ReadOnly = true;
+            // 
+            // CStock
+            // 
+            this.CStock.HeaderText = "Stock";
+            this.CStock.Name = "CStock";
+            this.CStock.ReadOnly = true;
+            this.CStock.Width = 80;
+            // 
+            // idCat
+            // 
+            this.idCat.HeaderText = "idCategoria";
+            this.idCat.Name = "idCat";
+            this.idCat.ReadOnly = true;
+            this.idCat.Visible = false;
+            // 
+            // Ccategoria
+            // 
+            this.Ccategoria.HeaderText = "Categoria";
+            this.Ccategoria.Name = "Ccategoria";
+            this.Ccategoria.ReadOnly = true;
+            // 
+            // Cestado
+            // 
+            this.Cestado.HeaderText = "Estado";
+            this.Cestado.Name = "Cestado";
+            this.Cestado.ReadOnly = true;
+            this.Cestado.Width = 80;
+            // 
+            // CestadoVAlor
+            // 
+            this.CestadoVAlor.HeaderText = "EstadoValor";
+            this.CestadoVAlor.Name = "CestadoVAlor";
+            this.CestadoVAlor.ReadOnly = true;
+            this.CestadoVAlor.Visible = false;
+            // 
+            // Ceditar
+            // 
+            this.Ceditar.HeaderText = "Editar";
+            this.Ceditar.Name = "Ceditar";
+            this.Ceditar.ReadOnly = true;
+            this.Ceditar.Width = 75;
+            // 
+            // CIdProducto
+            // 
+            this.CIdProducto.HeaderText = "IdProducto";
+            this.CIdProducto.Name = "CIdProducto";
+            this.CIdProducto.ReadOnly = true;
+            this.CIdProducto.Visible = false;
             // 
             // label3
             // 
@@ -382,6 +455,7 @@
             this.TPrecio.Size = new System.Drawing.Size(180, 21);
             this.TPrecio.TabIndex = 13;
             this.TPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            this.TPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.TPrecio_Validating);
             // 
             // Precio
             // 
@@ -443,79 +517,6 @@
             this.BLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BLimpiar.UseVisualStyleBackColor = false;
             this.BLimpiar.Click += new System.EventHandler(this.BLimpiar_Click);
-            // 
-            // Ccodigo
-            // 
-            this.Ccodigo.HeaderText = "Codigo";
-            this.Ccodigo.Name = "Ccodigo";
-            this.Ccodigo.ReadOnly = true;
-            this.Ccodigo.Width = 70;
-            // 
-            // Cnombre
-            // 
-            this.Cnombre.HeaderText = "Nombre";
-            this.Cnombre.Name = "Cnombre";
-            this.Cnombre.ReadOnly = true;
-            // 
-            // Cdescripcion
-            // 
-            this.Cdescripcion.HeaderText = "Descripcion";
-            this.Cdescripcion.Name = "Cdescripcion";
-            this.Cdescripcion.ReadOnly = true;
-            // 
-            // cprecio
-            // 
-            this.cprecio.HeaderText = "Precio ";
-            this.cprecio.Name = "cprecio";
-            this.cprecio.ReadOnly = true;
-            // 
-            // CStock
-            // 
-            this.CStock.HeaderText = "Stock";
-            this.CStock.Name = "CStock";
-            this.CStock.ReadOnly = true;
-            this.CStock.Width = 80;
-            // 
-            // idCat
-            // 
-            this.idCat.HeaderText = "idCategoria";
-            this.idCat.Name = "idCat";
-            this.idCat.ReadOnly = true;
-            this.idCat.Visible = false;
-            // 
-            // Ccategoria
-            // 
-            this.Ccategoria.HeaderText = "Categoria";
-            this.Ccategoria.Name = "Ccategoria";
-            this.Ccategoria.ReadOnly = true;
-            // 
-            // Cestado
-            // 
-            this.Cestado.HeaderText = "Estado";
-            this.Cestado.Name = "Cestado";
-            this.Cestado.ReadOnly = true;
-            this.Cestado.Width = 80;
-            // 
-            // CestadoVAlor
-            // 
-            this.CestadoVAlor.HeaderText = "EstadoValor";
-            this.CestadoVAlor.Name = "CestadoVAlor";
-            this.CestadoVAlor.ReadOnly = true;
-            this.CestadoVAlor.Visible = false;
-            // 
-            // Ceditar
-            // 
-            this.Ceditar.HeaderText = "Editar";
-            this.Ceditar.Name = "Ceditar";
-            this.Ceditar.ReadOnly = true;
-            this.Ceditar.Width = 75;
-            // 
-            // CIdProducto
-            // 
-            this.CIdProducto.HeaderText = "IdProducto";
-            this.CIdProducto.Name = "CIdProducto";
-            this.CIdProducto.ReadOnly = true;
-            this.CIdProducto.Visible = false;
             // 
             // TId
             // 

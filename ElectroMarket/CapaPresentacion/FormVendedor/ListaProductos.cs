@@ -1,5 +1,6 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
+using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,49 +42,25 @@ namespace CapaPresentacion
         {
             DataGridViewRow filaSeleccionada = DGProductos.Rows[indiceSeleccionado];
 
-            string codigo = filaSeleccionada.Cells["ccodigo"].Value.ToString();
-            string nombre = filaSeleccionada.Cells["cnombre"].Value.ToString();
-            int stock = Convert.ToInt32(filaSeleccionada.Cells["cstock"].Value);
-            string categoriaDescripcion = filaSeleccionada.Cells["ccategoria"].Value.ToString();
-            string descripcion = filaSeleccionada.Cells["CDescripcion"].Value.ToString();
-
-            object valorCelda = filaSeleccionada.Cells["CPrecio"].Value;
-            if (valorCelda != null && decimal.TryParse(valorCelda.ToString(), out decimal precio))
+            Producto prod = new Producto()
             {
-                Categoria categoria = new Categoria
-                {
-                    IdCategoria = 1,
-                    Descripcion = categoriaDescripcion,
-                    Estado = true,
-                    FechaRegistro = "02/10/2023"
-                };
+                IdProducto = Convert.ToInt32(filaSeleccionada.Cells["CId"].Value.ToString()),
+                Codigo = filaSeleccionada.Cells["ccodigo"].Value.ToString(),
+                Nombre = filaSeleccionada.Cells["cnombre"].Value.ToString(),
+                Descripcion = filaSeleccionada.Cells["CDescripcion"].Value.ToString(),
+                Precio = Convert.ToDecimal(filaSeleccionada.Cells["CPrecio"].Value),
+                Stock = Convert.ToInt32(filaSeleccionada.Cells["cstock"].Value),
+                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(filaSeleccionada.Cells["CIdCategoria"].Value), Descripcion = filaSeleccionada.Cells["ccategoria"].Value.ToString() },
+                Estado = Convert.ToBoolean(filaSeleccionada.Cells["CEstadoValor"].Value)
+            };
+            
 
-
-                Producto producto = new Producto
-                {
-                    Codigo = codigo,
-                    Nombre = nombre,
-                    Descripcion = descripcion,
-                    oCategoria = categoria,
-                    Stock = stock,
-                    Precio = precio
-                };
-
-                return producto;
-            }
-            else
-            {
-                // El valor en la celda no es un número decimal válido.
-                MessageBox.Show("El valor en precio no es un decimal válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-
+            return prod;
             
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
         {
-
             // Mostrar todos los Productos desde la BD
             List<Producto> lista = new CN_Producto().Listar();
 
@@ -100,11 +77,17 @@ namespace CapaPresentacion
                     item.oCategoria.Descripcion,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.Estado == true ? 1 : 0,
-                    "Editar",
+                    "Seleccionar",
                     item.IdProducto
             });
 
             }
+
+            if (FuenteFormulario == "VistaVendedor")
+            {
+                DGProductos.Columns["CSeleccionar"].Visible = false;
+            }
+
         }
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)

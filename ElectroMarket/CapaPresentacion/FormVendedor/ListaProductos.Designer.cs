@@ -34,17 +34,20 @@
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.DGProductos = new System.Windows.Forms.DataGridView();
-            this.CId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.icoBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.icoBtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.ccodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ccategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,14 +92,17 @@
             this.DGProductos.AllowUserToAddRows = false;
             this.DGProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CId,
             this.ccodigo,
             this.cnombre,
             this.CDescripcion,
-            this.ccategoria,
-            this.cstock,
             this.CPrecio,
-            this.CSeleccionar});
+            this.cstock,
+            this.CIdCategoria,
+            this.ccategoria,
+            this.CEstado,
+            this.CEstadoValor,
+            this.CSeleccionar,
+            this.CId});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,64 +131,6 @@
             this.DGProductos.Size = new System.Drawing.Size(743, 403);
             this.DGProductos.TabIndex = 5;
             this.DGProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridProd_CellContentClick);
-            // 
-            // CId
-            // 
-            this.CId.HeaderText = "IdProd";
-            this.CId.Name = "CId";
-            this.CId.ReadOnly = true;
-            this.CId.Visible = false;
-            // 
-            // ccodigo
-            // 
-            this.ccodigo.HeaderText = "Codigo";
-            this.ccodigo.Name = "ccodigo";
-            this.ccodigo.ReadOnly = true;
-            this.ccodigo.Width = 60;
-            // 
-            // cnombre
-            // 
-            this.cnombre.HeaderText = "Nombre";
-            this.cnombre.Name = "cnombre";
-            this.cnombre.ReadOnly = true;
-            this.cnombre.Width = 125;
-            // 
-            // CDescripcion
-            // 
-            this.CDescripcion.HeaderText = "Descripcion";
-            this.CDescripcion.Name = "CDescripcion";
-            this.CDescripcion.ReadOnly = true;
-            this.CDescripcion.Width = 130;
-            // 
-            // ccategoria
-            // 
-            this.ccategoria.HeaderText = "Categoria";
-            this.ccategoria.Name = "ccategoria";
-            this.ccategoria.ReadOnly = true;
-            this.ccategoria.Width = 120;
-            // 
-            // cstock
-            // 
-            this.cstock.HeaderText = "Stock";
-            this.cstock.Name = "cstock";
-            this.cstock.ReadOnly = true;
-            this.cstock.Width = 65;
-            // 
-            // CPrecio
-            // 
-            this.CPrecio.HeaderText = "Precio";
-            this.CPrecio.Name = "CPrecio";
-            this.CPrecio.ReadOnly = true;
-            this.CPrecio.Width = 120;
-            // 
-            // CSeleccionar
-            // 
-            this.CSeleccionar.HeaderText = "Seleccionar";
-            this.CSeleccionar.Name = "CSeleccionar";
-            this.CSeleccionar.ReadOnly = true;
-            this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CSeleccionar.Width = 80;
             // 
             // icoBtnBuscar
             // 
@@ -231,6 +179,85 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "Lista de Productos:";
             // 
+            // ccodigo
+            // 
+            this.ccodigo.HeaderText = "Codigo";
+            this.ccodigo.Name = "ccodigo";
+            this.ccodigo.ReadOnly = true;
+            this.ccodigo.Width = 60;
+            // 
+            // cnombre
+            // 
+            this.cnombre.HeaderText = "Nombre";
+            this.cnombre.Name = "cnombre";
+            this.cnombre.ReadOnly = true;
+            this.cnombre.Width = 125;
+            // 
+            // CDescripcion
+            // 
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
+            this.CDescripcion.Width = 130;
+            // 
+            // CPrecio
+            // 
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
+            this.CPrecio.Width = 120;
+            // 
+            // cstock
+            // 
+            this.cstock.HeaderText = "Stock";
+            this.cstock.Name = "cstock";
+            this.cstock.ReadOnly = true;
+            this.cstock.Width = 65;
+            // 
+            // CIdCategoria
+            // 
+            this.CIdCategoria.HeaderText = "IdCategoria";
+            this.CIdCategoria.Name = "CIdCategoria";
+            this.CIdCategoria.ReadOnly = true;
+            this.CIdCategoria.Visible = false;
+            // 
+            // ccategoria
+            // 
+            this.ccategoria.HeaderText = "Categoria";
+            this.ccategoria.Name = "ccategoria";
+            this.ccategoria.ReadOnly = true;
+            this.ccategoria.Width = 120;
+            // 
+            // CEstado
+            // 
+            this.CEstado.HeaderText = "Estado";
+            this.CEstado.Name = "CEstado";
+            this.CEstado.ReadOnly = true;
+            this.CEstado.Visible = false;
+            // 
+            // CEstadoValor
+            // 
+            this.CEstadoValor.HeaderText = "EstadoValor";
+            this.CEstadoValor.Name = "CEstadoValor";
+            this.CEstadoValor.ReadOnly = true;
+            this.CEstadoValor.Visible = false;
+            // 
+            // CSeleccionar
+            // 
+            this.CSeleccionar.HeaderText = "Seleccionar";
+            this.CSeleccionar.Name = "CSeleccionar";
+            this.CSeleccionar.ReadOnly = true;
+            this.CSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CSeleccionar.Width = 80;
+            // 
+            // CId
+            // 
+            this.CId.HeaderText = "IdProd";
+            this.CId.Name = "CId";
+            this.CId.ReadOnly = true;
+            this.CId.Visible = false;
+            // 
             // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,13 +289,16 @@
         private FontAwesome.Sharp.IconButton icoBtnBuscar;
         private FontAwesome.Sharp.IconButton icoBtnLimpiar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ccodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ccategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cstock;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cstock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ccategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstadoValor;
         private System.Windows.Forms.DataGridViewButtonColumn CSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CId;
     }
 }

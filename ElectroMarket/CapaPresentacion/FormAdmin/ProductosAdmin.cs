@@ -248,10 +248,27 @@ namespace CapaPresentacion
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un número, un punto decimal o la tecla Backspace (borrar).
+            // Verifica si la tecla presionada no es un número, una coma decimal o la tecla Backspace (borrar).
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
             {
-                // Si no es un número, un punto decimal ni una tecla de borrar, cancela la entrada.
+                e.Handled = true;
+            }
+
+            // Evita múltiples puntos decimales o comas
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.IndexOf(',') > -1)
+            {
+                e.Handled = true;
+            }
+
+            // Evita que se empiece con una coma o un punto
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.Length == 0)
+            {
+                e.Handled = true;
+            }
+
+            // Evita que se ingresen comas o puntos después de un espacio en blanco
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.EndsWith(" "))
+            {
                 e.Handled = true;
             }
         }
@@ -386,6 +403,29 @@ namespace CapaPresentacion
             TBusqueda.Text = "";
             VaciarTabla();
             ActualizarTabla();
+        }
+
+        private void TPrecio_Validating(object sender, CancelEventArgs e)
+        {
+            // Valida que el formato sea adecuado
+            string input = TPrecio.Text;
+            if (!string.IsNullOrEmpty(input))
+            {
+                if (input.Contains(",") && input.Contains("."))
+                {
+                    MessageBox.Show("No se puede tener tanto un punto como una coma decimal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    // Intenta convertir el valor a decimal
+                    if (!decimal.TryParse(input, out _))
+                    {
+                        MessageBox.Show("Formato decimal no válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ namespace CapaPresentacion
         {
             TTipoDoc.SelectedIndex = -1;
             TCantidad.Minimum = 1;
+            TCantidad.Maximum = 999999;
             TFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             // Ajusta automáticamente el tamaño del encabezado al contenido de las celdas
             DGDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -95,6 +96,8 @@ namespace CapaPresentacion
 
                         // Agregar la fila al DataGridView
                         DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar");
+
+
 
                         // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
                         TCod.Clear();
@@ -227,5 +230,18 @@ namespace CapaPresentacion
             VaciarCampos();
         }
 
+        private void TCantidad_ValueChanged(object sender, EventArgs e)
+        {
+            int stockDisponible = 0;
+
+            if (!string.IsNullOrEmpty(TStock.Text) && int.TryParse(TStock.Text, out stockDisponible))
+            {
+                if (TCantidad.Value > stockDisponible)
+                {
+                    // Si la cantidad ingresada es mayor que el stock disponible, establece la cantidad máxima al valor del stock.
+                    TCantidad.Value = stockDisponible;
+                }
+            }
+        }
     }
 }
