@@ -101,7 +101,7 @@ namespace CapaPresentacion
 
                     if (productoExistente)
                     {
-                        MessageBox.Show("El producto ya fue agregado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El producto ya fue agregado anteriormente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -314,9 +314,54 @@ namespace CapaPresentacion
             }
         }
 
+        private void RecalcularPrecioTotal()
+        {
+            decimal precioTotal = 0;
+
+            foreach (DataGridViewRow row in DGDetalle.Rows)
+            {
+                decimal subtotal = decimal.Parse(row.Cells["Csubtotal"].Value.ToString());
+                precioTotal += subtotal;
+            }
+
+            TTotal.Text = precioTotal.ToString();
+        }
+
         private void BEditar_Click(object sender, EventArgs e)
         {
+            // Validar que los campos no estén vacíos
+            if (string.IsNullOrWhiteSpace(TCod.Text) || string.IsNullOrWhiteSpace(TProd.Text) || string.IsNullOrWhiteSpace(TPrecio.Text) || string.IsNullOrWhiteSpace(TStock.Text))
+            {
+                MessageBox.Show("Todos los campos deben estar llenos para editar un producto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
+            // Obtén el índice de la fila seleccionada en el DataGridView
+            int rowIndex = DGDetalle.CurrentCell.RowIndex;
+
+            // Actualiza la fila en el DataGridView con la información editada
+            DGDetalle.Rows[rowIndex].Cells["CCod"].Value = TCod.Text;
+            DGDetalle.Rows[rowIndex].Cells["Cproducto"].Value = TProd.Text;
+            DGDetalle.Rows[rowIndex].Cells["CPrecio"].Value = TPrecio.Text;
+            DGDetalle.Rows[rowIndex].Cells["Ccantidad"].Value = TCantidad.Value;
+
+            // Calcula y actualiza el subtotal
+            decimal precio = decimal.Parse(TPrecio.Text);
+            int cantidad = (int)TCantidad.Value;
+            decimal subtotal = precio * cantidad;
+            DGDetalle.Rows[rowIndex].Cells["Csubtotal"].Value = subtotal;
+
+            // Actualiza el precio total
+            RecalcularPrecioTotal();
+
+            // Limpia los campos TextBox y restablece los botones
+            TCod.Clear();
+            TProd.Clear();
+            TPrecio.Clear();
+            TStock.Clear();
+            TCantidad.Value = 1;
+            BEditar.Enabled = false;
+            BAgregar.Enabled = true;
         }
 
         private void CBForma_SelectedIndexChanged(object sender, EventArgs e)
