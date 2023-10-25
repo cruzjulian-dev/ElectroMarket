@@ -72,42 +72,60 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    if (MessageBox.Show("Seguro que quieres agregar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    string codigo = TCod.Text;
+
+                    // Verifica si el producto ya existe en el DataGridView
+                    bool productoExistente = false;
+
+                    foreach (DataGridViewRow row in DGDetalle.Rows)
                     {
-                        string codigo = TCod.Text;
-                        string nombre = TProd.Text;
-                        decimal precio = 0.0m; // Inicializado a 0.0m
-                        int cantidad = 0;
-                        decimal subtotal = 0.0m; // Inicializado a 0.0m
-
-                        if (!decimal.TryParse(TPrecio.Text, out precio))
+                        if (row.Cells["CCod"].Value != null && row.Cells["CCod"].Value.ToString() == codigo)
                         {
-                            MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return; // Salir del método si el precio no es válido
+                            productoExistente = true;
+                            break;
                         }
+                    }
 
-                        if (!int.TryParse(TCantidad.Value.ToString(), out cantidad))
+                    if (productoExistente)
+                    {
+                        MessageBox.Show("El producto ya ha sido agregado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Seguro que quieres agregar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            MessageBox.Show("La cantidad no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return; // Salir del método si la cantidad no es válida
+                            string nombre = TProd.Text;
+                            decimal precio = 0.0m; // Inicializado a 0.0m
+                            int cantidad = 0;
+                            decimal subtotal = 0.0m; // Inicializado a 0.0m
+
+                            if (!decimal.TryParse(TPrecio.Text, out precio))
+                            {
+                                MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return; // Salir del método si el precio no es válido
+                            }
+
+                            if (!int.TryParse(TCantidad.Value.ToString(), out cantidad))
+                            {
+                                MessageBox.Show("La cantidad no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return; // Salir del método si la cantidad no es válida
+                            }
+
+                            subtotal = precio * cantidad;
+
+                            // Agregar la fila al DataGridView
+                            DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar", "Editar");
+
+                            // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
+                            TCod.Clear();
+                            TProd.Clear();
+                            TPrecio.Clear();
+                            TStock.Clear();
+                            TCantidad.Value = 1;
+
+                            // Actualizar precio total
+                            TTotal.Text = (Convert.ToDecimal(TTotal.Text) + precio).ToString();
                         }
-
-                        subtotal = precio * cantidad;
-
-                        // Agregar la fila al DataGridView
-                        DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar");
-
-
-
-                        // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
-                        TCod.Clear();
-                        TProd.Clear();
-                        TPrecio.Clear();
-                        TStock.Clear();
-                        TCantidad.Value = 1;
-
-                        // Actualizar precio total
-                        TTotal.Text = (Convert.ToDecimal(TTotal.Text) + precio).ToString();
                     }
                 }
             }
@@ -206,21 +224,45 @@ namespace CapaPresentacion
 
         private void DGDetalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DGDetalle.Columns[e.ColumnIndex].Name == "CEliminar" && e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                if (MessageBox.Show("Seguro que quitar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (DGDetalle.Columns[e.ColumnIndex].Name == "CEliminar")
                 {
+                    if (MessageBox.Show("Seguro que quitar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        // Obtén los valores de las celdas de la fila seleccionada
+                        DataGridViewRow selectedRow = DGDetalle.Rows[e.RowIndex];
 
-                    // Obtén los valores de las celdas de la fila seleccionada
-                    DataGridViewRow selectedRow = DGDetalle.Rows[e.RowIndex];
+                        // Actualizar precio total
+                        decimal precioProducto = Convert.ToDecimal(selectedRow.Cells["CPrecio"].Value);
+                        decimal precioTotalActual = Convert.ToDecimal(TTotal.Text);
+                        TTotal.Text = (precioTotalActual - precioProducto).ToString();
 
-                    // Actualizar precio total
-                    decimal precioProducto = Convert.ToDecimal(selectedRow.Cells["CPrecio"].Value);
-                    decimal precioTotalActual = Convert.ToDecimal(TTotal.Text);
-                    TTotal.Text = (precioTotalActual - precioProducto).ToString();
+                        // Eliminar fila seleccionada
+                        DGDetalle.Rows.Remove(selectedRow);
+                    }
+                }
+                else if (DGDetalle.Columns[e.ColumnIndex].Name == "Ceditar")
+                {
+                    if (MessageBox.Show("Seguro que quieres editar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
 
-                    //eliminar fila seleccionada
-                    DGDetalle.Rows.Remove(selectedRow);
+                        // Habilita el botón "Editar"
+                        BEditar.Enabled = true;
+
+                        // Deshabilita el botón "Guardar"
+                        BAgregar.Enabled = false;
+                        // Obtén los valores de las celdas de la fila seleccionada
+                        DataGridViewRow selectedRow = DGDetalle.Rows[e.RowIndex];
+
+                        // Rellenar los TextBox con los valores de la fila seleccionada
+                        TCod.Text = selectedRow.Cells["CCod"].Value.ToString();
+                        TProd.Text = selectedRow.Cells["Cproducto"].Value.ToString();
+                        TPrecio.Text = selectedRow.Cells["CPrecio"].Value.ToString();
+                        TCantidad.Value = Convert.ToInt32(selectedRow.Cells["Ccantidad"].Value);
+
+
+                    }
                 }
             }
         }
@@ -242,6 +284,11 @@ namespace CapaPresentacion
                     TCantidad.Value = stockDisponible;
                 }
             }
+        }
+
+        private void BEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
