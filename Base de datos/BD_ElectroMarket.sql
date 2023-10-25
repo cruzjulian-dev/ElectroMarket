@@ -28,6 +28,7 @@ FechaRegistro datetime default getdate() NOT NULL
 
 GO
 
+
 CREATE TABLE USUARIOS(
 IdUsuario int primary key identity NOT NULL,
 Nombre varchar(100) NOT NULL,
@@ -556,6 +557,11 @@ GO
 
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('HGFA282L', 'Heladera Gafa', '282L - Freezer - 220V', 2, 17, 279999.99, 1)
+
+GO
+
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
+values ('CAF01', 'Cafetera phillips', 'Automatica - 220v - Expresso', 2, 3, 25000.00, 0)
 
 GO
 

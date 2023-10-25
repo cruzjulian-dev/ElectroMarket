@@ -66,21 +66,22 @@ namespace CapaPresentacion
 
             foreach (Producto item in lista)
             {
-
-                DGProductos.Rows.Add(new object[] {
-                    item.Codigo,
-                    item.Nombre,
-                    item.Descripcion,
-                    item.Precio,
-                    item.Stock,
-                    item.oCategoria.IdCategoria,
-                    item.oCategoria.Descripcion,
-                    item.Estado == true ? "Activo" : "No Activo",
-                    item.Estado == true ? 1 : 0,
-                    "Seleccionar",
-                    item.IdProducto
+                if (item.Estado == true) // Solo agrega, muestra productos activos
+                {
+                    DGProductos.Rows.Add(new object[] {
+                item.Codigo,
+                item.Nombre,
+                item.Descripcion,
+                item.Precio,
+                item.Stock,
+                item.oCategoria.IdCategoria,
+                item.oCategoria.Descripcion,
+                "Activo", // Estado
+                1, // EstadoValor
+                "Seleccionar",
+                item.IdProducto
             });
-
+                }
             }
 
             if (FuenteFormulario == "VistaVendedor")
