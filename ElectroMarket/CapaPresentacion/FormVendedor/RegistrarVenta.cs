@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaNegocio;
 using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
 using System;
@@ -15,9 +16,14 @@ namespace CapaPresentacion
 {
     public partial class RegistrarVenta : Form
     {
+        private CN_Producto negocioProducto = new CN_Producto();
+        private List<Producto> listaProductos = new List<Producto>();
+
         public RegistrarVenta()
         {
             InitializeComponent();
+            // Aquí obtienes la lista de productos desde la capa de negocios.
+            listaProductos = negocioProducto.ObtenerListaDeProductos();
         }
 
         private void Venta_Load(object sender, EventArgs e)
@@ -43,6 +49,13 @@ namespace CapaPresentacion
                 TDni.Text = ClienteSeleccionado.Dni.ToString();
                 TNomApe.Text = ClienteSeleccionado.Nombre + " " + ClienteSeleccionado.Apellido;
             }
+        }
+
+        private Producto ObtenerProductoPorCodigo(string codigo)
+        {
+            // Aquí buscas el producto en la lista completa de productos por su código
+            Producto productoEncontrado = listaProductos.FirstOrDefault(producto => producto.Codigo == codigo);
+            return productoEncontrado;
         }
 
         private void btnBuscarProduc_Click(object sender, EventArgs e)
@@ -88,7 +101,7 @@ namespace CapaPresentacion
 
                     if (productoExistente)
                     {
-                        MessageBox.Show("El producto ya ha sido agregado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El producto ya fue agregado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -246,22 +259,37 @@ namespace CapaPresentacion
                 {
                     if (MessageBox.Show("Seguro que quieres editar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-
                         // Habilita el botón "Editar"
                         BEditar.Enabled = true;
 
                         // Deshabilita el botón "Guardar"
                         BAgregar.Enabled = false;
-                        // Obtén los valores de las celdas de la fila seleccionada
-                        DataGridViewRow selectedRow = DGDetalle.Rows[e.RowIndex];
 
-                        // Rellenar los TextBox con los valores de la fila seleccionada
-                        TCod.Text = selectedRow.Cells["CCod"].Value.ToString();
-                        TProd.Text = selectedRow.Cells["Cproducto"].Value.ToString();
-                        TPrecio.Text = selectedRow.Cells["CPrecio"].Value.ToString();
-                        TCantidad.Value = Convert.ToInt32(selectedRow.Cells["Ccantidad"].Value);
+                        // Obtén el código del producto seleccionado en el DataGridView
+                        string codigoProductoSeleccionado = DGDetalle.Rows[e.RowIndex].Cells["CCod"].Value.ToString();
 
+                        // Busca el producto en la lista completa de productos por su código
+                        Producto productoSeleccionado = ObtenerProductoPorCodigo(codigoProductoSeleccionado);
 
+                        if (productoSeleccionado != null)
+                        {
+                            // Rellenar los TextBox con los valores del producto seleccionado
+                            TCod.Text = productoSeleccionado.Codigo;
+                            TProd.Text = productoSeleccionado.Nombre;
+                            TPrecio.Text = productoSeleccionado.Precio.ToString();
+
+                            // Aquí obtén el stock del producto seleccionado
+                            int stock = productoSeleccionado.Stock;
+
+                            // Luego, asigna el stock a tu campo TStock o donde desees mostrarlo
+                            TStock.Text = stock.ToString();
+
+                            TCantidad.Value = Convert.ToInt32(DGDetalle.Rows[e.RowIndex].Cells["Ccantidad"].Value);
+                        }
+                        else
+                        {
+                            MessageBox.Show("El producto no se encontró en la lista de productos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -287,6 +315,16 @@ namespace CapaPresentacion
         }
 
         private void BEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CBForma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

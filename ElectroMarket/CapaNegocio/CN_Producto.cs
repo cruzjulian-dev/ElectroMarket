@@ -80,6 +80,11 @@ namespace CapaNegocio
 
         }
 
+        public List<Producto> ObtenerListaDeProductos()
+        {
+            return objCd_Producto.Listar();
+        }
+
     }
 }
   
