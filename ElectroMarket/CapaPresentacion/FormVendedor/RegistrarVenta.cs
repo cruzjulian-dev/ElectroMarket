@@ -172,7 +172,7 @@ namespace CapaPresentacion
                         {
 
 
-
+                            // REALIZAR VENTA ACA
 
 
                             MessageBox.Show("Venta realizada con exito!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -561,7 +561,7 @@ values ('HGFA282L', 'Heladera Gafa', '282L - Freezer - 220V', 2, 17, 279999.99, 
 GO
 
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
-values ('CAF01', 'Cafetera phillips', 'Automatica - 220v - Expresso', 2, 3, 25000.00, 0)
+values ('HPHI282L', 'Heladera Philips', '323L - Freezer - 2 Puertas', 2, 4, 580500, 0)
 
 GO
 
