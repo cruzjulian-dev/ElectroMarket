@@ -61,27 +61,24 @@ namespace CapaPresentacion
 
         private void ListaProductos_Load(object sender, EventArgs e)
         {
-            // Mostrar todos los Productos desde la BD
-            List<Producto> lista = new CN_Producto().Listar();
+            // Mostrar todos los Productos activos desde la BD
+            List<Producto> lista = new CN_Producto().ListarProductosActivos();
 
             foreach (Producto item in lista)
             {
-                if (item.Estado == true) // Solo agrega, muestra productos activos
-                {
-                    DGProductos.Rows.Add(new object[] {
-                item.Codigo,
-                item.Nombre,
-                item.Descripcion,
-                item.Precio,
-                item.Stock,
-                item.oCategoria.IdCategoria,
-                item.oCategoria.Descripcion,
-                "Activo", // Estado
-                1, // EstadoValor
-                "Seleccionar",
-                item.IdProducto
-            });
-                }
+                DGProductos.Rows.Add(new object[] {
+                    item.Codigo,
+                    item.Nombre,
+                    item.Descripcion,
+                    item.Precio,
+                    item.Stock,
+                    item.oCategoria.IdCategoria,
+                    item.oCategoria.Descripcion,
+                    item.Estado == true ? "Activo" : "No Activo",
+                    item.Estado == true ? 1 : 0,
+                    "Seleccionar",
+                    item.IdProducto
+                });
             }
 
             if (FuenteFormulario == "VistaVendedor")

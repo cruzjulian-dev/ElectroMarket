@@ -13,9 +13,29 @@ namespace CapaNegocio
 
         private CD_Producto objCd_Producto = new CD_Producto();
 
-        public List<Producto> Listar()
+        public List<Producto> ListarProductos()
         {
             return objCd_Producto.Listar();
+        }
+
+        public List<Producto> ListarProductosActivos()
+        {
+            
+
+            List<Producto> productos= new List<Producto>();
+            List<Producto> productosActivos = new List<Producto>();
+
+            productos = objCd_Producto.Listar();
+
+            foreach (Producto prod in productos)
+            {
+                if (prod.Estado == true)
+                {
+                    productosActivos.Add(prod);
+                }
+            }
+
+            return productosActivos;
         }
 
 
@@ -79,12 +99,6 @@ namespace CapaNegocio
             }
 
         }
-
-        public List<Producto> ObtenerListaDeProductos()
-        {
-            return objCd_Producto.Listar();
-        }
-
     }
 }
   

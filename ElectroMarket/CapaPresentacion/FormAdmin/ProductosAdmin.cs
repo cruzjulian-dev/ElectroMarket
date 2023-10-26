@@ -65,7 +65,7 @@ namespace CapaPresentacion
 
 
             // Mostrar todos los Productos desde la BD
-            List<Producto> lista = new CN_Producto().Listar();
+            List<Producto> lista = new CN_Producto().ListarProductos();
 
             foreach (Producto item in lista)
             {
@@ -162,7 +162,7 @@ namespace CapaPresentacion
         private void ActualizarTabla()
         {
             // Actualizar la tabla con todos los Usuarios desde la BD
-            List<Producto> listaProducto = new CN_Producto().Listar();
+            List<Producto> listaProducto = new CN_Producto().ListarProductos();
 
             foreach (Producto item in listaProducto)
             {

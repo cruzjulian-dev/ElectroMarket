@@ -16,14 +16,12 @@ namespace CapaPresentacion
 {
     public partial class RegistrarVenta : Form
     {
-        private CN_Producto negocioProducto = new CN_Producto();
         private List<Producto> listaProductos = new List<Producto>();
 
         public RegistrarVenta()
         {
             InitializeComponent();
-            // Aquí obtienes la lista de productos desde la capa de negocios.
-            listaProductos = negocioProducto.ObtenerListaDeProductos();
+            listaProductos = new CN_Producto().ListarProductos();
         }
 
         private void Venta_Load(object sender, EventArgs e)
@@ -102,7 +100,7 @@ namespace CapaPresentacion
 
                     if (productoExistente)
                     {
-                        MessageBox.Show("El producto ya fue agregado anteriormente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El producto ya fue agregado anteriormente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
@@ -244,6 +242,10 @@ namespace CapaPresentacion
                 {
                     if (MessageBox.Show("Seguro que quitar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        BAgregar.Enabled = true;
+                        BEditar.Enabled = false;
+                        BProd.Enabled = true;
+
                         // Obtén los valores de las celdas de la fila seleccionada
                         DataGridViewRow selectedRow = DGDetalle.Rows[e.RowIndex];
 
