@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -182,7 +182,7 @@
             // TNomApe
             // 
             this.TNomApe.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNomApe.Location = new System.Drawing.Point(157, 60);
+            this.TNomApe.Location = new System.Drawing.Point(157, 62);
             this.TNomApe.Name = "TNomApe";
             this.TNomApe.ReadOnly = true;
             this.TNomApe.Size = new System.Drawing.Size(134, 21);
@@ -199,7 +199,7 @@
             this.BCliente.IconColor = System.Drawing.Color.Black;
             this.BCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BCliente.IconSize = 23;
-            this.BCliente.Location = new System.Drawing.Point(111, 56);
+            this.BCliente.Location = new System.Drawing.Point(115, 59);
             this.BCliente.Name = "BCliente";
             this.BCliente.Size = new System.Drawing.Size(35, 26);
             this.BCliente.TabIndex = 4;
@@ -211,11 +211,11 @@
             this.lnombrecom.AutoSize = true;
             this.lnombrecom.BackColor = System.Drawing.Color.White;
             this.lnombrecom.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnombrecom.Location = new System.Drawing.Point(152, 45);
+            this.lnombrecom.Location = new System.Drawing.Point(155, 46);
             this.lnombrecom.Name = "lnombrecom";
-            this.lnombrecom.Size = new System.Drawing.Size(111, 13);
+            this.lnombrecom.Size = new System.Drawing.Size(116, 13);
             this.lnombrecom.TabIndex = 24;
-            this.lnombrecom.Text = "Nombre Completo";
+            this.lnombrecom.Text = "Nombre Completo:";
             // 
             // label4
             // 
@@ -262,7 +262,7 @@
             // TCantidad
             // 
             this.TCantidad.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCantidad.Location = new System.Drawing.Point(533, 63);
+            this.TCantidad.Location = new System.Drawing.Point(530, 61);
             this.TCantidad.Name = "TCantidad";
             this.TCantidad.Size = new System.Drawing.Size(82, 21);
             this.TCantidad.TabIndex = 11;
@@ -344,7 +344,7 @@
             this.BProd.IconColor = System.Drawing.Color.Black;
             this.BProd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BProd.IconSize = 23;
-            this.BProd.Location = new System.Drawing.Point(133, 57);
+            this.BProd.Location = new System.Drawing.Point(133, 59);
             this.BProd.Name = "BProd";
             this.BProd.Size = new System.Drawing.Size(35, 26);
             this.BProd.TabIndex = 7;
@@ -395,27 +395,27 @@
             this.Csubtotal,
             this.CEliminar,
             this.Ceditar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle15;
             this.DGDetalle.Location = new System.Drawing.Point(129, 265);
             this.DGDetalle.MultiSelect = false;
             this.DGDetalle.Name = "DGDetalle";
             this.DGDetalle.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.DGDetalle.RowTemplate.Height = 28;
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(622, 272);
@@ -550,11 +550,11 @@
             this.BVender.IconColor = System.Drawing.Color.White;
             this.BVender.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BVender.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BVender.Location = new System.Drawing.Point(757, 488);
+            this.BVender.Location = new System.Drawing.Point(759, 488);
             this.BVender.Name = "BVender";
             this.BVender.Size = new System.Drawing.Size(134, 49);
             this.BVender.TabIndex = 17;
-            this.BVender.Text = "Crear Venta";
+            this.BVender.Text = "Registrar Venta";
             this.BVender.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BVender.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BVender.UseVisualStyleBackColor = false;
@@ -571,7 +571,7 @@
             this.BAgregar.IconColor = System.Drawing.Color.White;
             this.BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BAgregar.Location = new System.Drawing.Point(790, 167);
+            this.BAgregar.Location = new System.Drawing.Point(790, 161);
             this.BAgregar.Name = "BAgregar";
             this.BAgregar.Size = new System.Drawing.Size(75, 85);
             this.BAgregar.TabIndex = 12;
@@ -639,13 +639,13 @@
             this.BEditar.IconColor = System.Drawing.Color.White;
             this.BEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BEditar.IconSize = 23;
-            this.BEditar.Location = new System.Drawing.Point(790, 257);
+            this.BEditar.Location = new System.Drawing.Point(790, 252);
             this.BEditar.Name = "BEditar";
-            this.BEditar.Size = new System.Drawing.Size(86, 33);
+            this.BEditar.Size = new System.Drawing.Size(75, 53);
             this.BEditar.TabIndex = 68;
             this.BEditar.Text = "Editar";
-            this.BEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BEditar.UseVisualStyleBackColor = false;
             this.BEditar.Click += new System.EventHandler(this.BEditar_Click);
             // 

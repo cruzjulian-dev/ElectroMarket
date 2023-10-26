@@ -28,6 +28,7 @@ namespace CapaPresentacion
 
         private void Venta_Load(object sender, EventArgs e)
         {
+            BEditar.Enabled = false;
             TTipoDoc.SelectedIndex = -1;
             TCantidad.Minimum = 1;
             TCantidad.Maximum = 999999;
@@ -137,7 +138,7 @@ namespace CapaPresentacion
                             TCantidad.Value = 1;
 
                             // Actualizar precio total
-                            TTotal.Text = (Convert.ToDecimal(TTotal.Text) + precio).ToString();
+                            TTotal.Text = (Convert.ToDecimal(TTotal.Text) + subtotal).ToString();
                         }
                     }
                 }
