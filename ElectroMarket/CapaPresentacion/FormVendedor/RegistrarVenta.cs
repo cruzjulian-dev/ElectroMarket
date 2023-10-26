@@ -260,6 +260,9 @@ namespace CapaPresentacion
                 {
                     if (MessageBox.Show("Seguro que quieres editar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        // Deshabilito el boton buscar producto
+                        BProd.Enabled = false;
+
                         // Habilita el botón "Editar"
                         BEditar.Enabled = true;
 
@@ -363,6 +366,9 @@ namespace CapaPresentacion
             TCantidad.Value = 1;
             BEditar.Enabled = false;
             BAgregar.Enabled = true;
+            BProd.Enabled = true; // Habilito el boton de buscar prodcuto
+            MessageBox.Show("Se ha editado correctamente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void CBForma_SelectedIndexChanged(object sender, EventArgs e)
