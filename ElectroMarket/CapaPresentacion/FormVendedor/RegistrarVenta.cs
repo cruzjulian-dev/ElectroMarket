@@ -62,7 +62,8 @@ namespace CapaPresentacion
             ListaProductos listaProd = new ListaProductos();
             listaProd.FuenteFormulario = "RegistrarVenta";
             listaProd.ShowDialog();
-            
+
+            TCantidad.Value = 1;
 
             if (listaProd.ProductoSeleccionado != null)
             {
@@ -169,6 +170,11 @@ namespace CapaPresentacion
                     {
                         if (MessageBox.Show("Seguro que quieres realizar la venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
+
+
+
+
+
                             MessageBox.Show("Venta realizada con exito!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             VaciarCampos();
                         }
@@ -256,6 +262,13 @@ namespace CapaPresentacion
 
                         // Eliminar fila seleccionada
                         DGDetalle.Rows.Remove(selectedRow);
+
+                        // limpia campos referidos al producto
+                        TCod.Text = "";
+                        TProd.Text = "";
+                        TPrecio.Text = "";
+                        TStock.Text = "";
+                        TCantidad.Value = 1;
                     }
                 }
                 else if (DGDetalle.Columns[e.ColumnIndex].Name == "Ceditar")
