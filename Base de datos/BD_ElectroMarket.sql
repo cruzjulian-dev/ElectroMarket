@@ -433,6 +433,66 @@ begin
         SET @Mensaje = 'No se puede repetir el Codigo que está siendo utilizado por otro producto.'
     END
 END
+
+
+-- PROCEDIMIENTOS VENTA -- 
+
+CREATE TYPE [dbo].[eDetalle_Venta] AS TABLE(
+	[IdProducto] int NULL,
+	[PrecioVenta] decimal(10,2)NULL,
+	[Cantidad] int NULL,
+	[SubTotal] decimal(10,2) NULL
+)
+
+GO
+
+CREATE PROCEDURE SP_RegistrarVenta(
+	@IdUsuario int,
+	@DniCliente int,
+	@IdFormaPago int,
+	@NombreCliente varchar(100),
+	@ApellidoCliente varchar(100),
+	@MontoPago decimal(10,2),
+	@MontoCambio decimal(10,2),
+	@MontoTotal decimal(10,2),
+	@DetalleVenta [eDetalle_Venta] READONLY,
+	@Resultado bit output,
+	@Mensaje varchar(500) output
+)
+as
+	begin
+		
+		begin try
+		
+			DECLARE @IdVenta int = 0
+			SET @RESULTADO = 1
+			SET @Mensaje = ''
+			
+			begin transaction registro
+			
+				INSERT INTO VENTA(IdUsuario, DniCliente, IdFormaPago, NombreCliente, ApellidoCliente, MontoPago, MontoCambio, MontoTotal)
+				VALUES (@IdUsuario, @DniCliente, @IdFormaPago, @NombreCliente, @ApellidoCliente, @MontoPago, @MontoCambio, @MontoTotal)
+			
+				SET @IdVenta = SCOPE_IDENTITY()
+				
+				INSERT INTO DETALLE_VENTA(IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal)
+				SELECT @IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal FROM @DetalleVenta
+			
+			commit transaction
+		
+		end try
+		begin catch
+			
+			SET @Resultado = 0
+			SET @Mensaje = ERROR_MESSAGE()
+			ROLLBACK TRANSACTION registro
+		
+		end catch
+
+	end
+
+
+
 -- FIN PROCEDIMIENTOS PRODUCTOS--
 ------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
 
