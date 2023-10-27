@@ -27,7 +27,7 @@ namespace CapaPresentacion
             // Limpia el DataGridView antes de agregar nuevos detalles
             DGDetalle.Rows.Clear();
 
-            TIdVenta.Text = venta.IdVenta.ToString();
+            TIdVenta.Text = venta.NumeroDocumento.ToString();
             TVendedor.Text = venta.oUsuario.Nombre + " " + venta.oUsuario.Apellido;
             TFormaPago.Text = venta.oFormaPago.Descripcion;
             TFecha.Text = venta.FechaRegistro.ToString();
@@ -45,16 +45,36 @@ namespace CapaPresentacion
 
                 // Agregar una fila al DataGridView con los detalles del producto
                 DGDetalle.Rows.Add(
-                    detalle.IdDetalleVenta,
+                    "",
                     producto.Nombre,
                     producto.Descripcion,
-                    producto.oCategoria.Descripcion,
+                   // producto.oCategoria.Descripcion,
                     detalle.PrecioVenta,
                     detalle.Cantidad,
                     detalle.SubTotal
                     //detalle.FechaRegistro
                 ) ;
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

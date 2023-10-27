@@ -60,6 +60,8 @@
             this.Ttel = new System.Windows.Forms.TextBox();
             this.LTelefono = new System.Windows.Forms.Label();
             this.BLimpiar = new FontAwesome.Sharp.IconButton();
+            this.TIdCliente = new System.Windows.Forms.TextBox();
+            this.TIndice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -419,12 +421,30 @@
             this.BLimpiar.UseVisualStyleBackColor = false;
             this.BLimpiar.Click += new System.EventHandler(this.BLimpiar_Click);
             // 
+            // TIdCliente
+            // 
+            this.TIdCliente.Location = new System.Drawing.Point(160, 85);
+            this.TIdCliente.Name = "TIdCliente";
+            this.TIdCliente.Size = new System.Drawing.Size(33, 20);
+            this.TIdCliente.TabIndex = 67;
+            this.TIdCliente.Visible = false;
+            // 
+            // TIndice
+            // 
+            this.TIndice.Location = new System.Drawing.Point(199, 85);
+            this.TIndice.Name = "TIndice";
+            this.TIndice.Size = new System.Drawing.Size(33, 20);
+            this.TIndice.TabIndex = 68;
+            this.TIndice.Visible = false;
+            // 
             // ClientesVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.TIndice);
+            this.Controls.Add(this.TIdCliente);
             this.Controls.Add(this.BLimpiar);
             this.Controls.Add(this.Ttel);
             this.Controls.Add(this.LTelefono);
@@ -492,5 +512,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CDomicilio;
         private System.Windows.Forms.DataGridViewButtonColumn Ceditar;
         private FontAwesome.Sharp.IconButton BLimpiar;
+        private System.Windows.Forms.TextBox TIdCliente;
+        private System.Windows.Forms.TextBox TIndice;
     }
 }

@@ -22,6 +22,7 @@ namespace CapaPresentacion
 
         private void MisVentas_Load(object sender, EventArgs e)
         {
+
             decimal total = 0.0m;
             int totalVentas = 0;
             string nombre = VistaVendedor.usuarioActual.Nombre;

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -78,10 +79,37 @@ namespace CapaPresentacion
                         if (MessageBox.Show("Seguro que quieres guardar el cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
 
-                            // Agregar nueva fila
-                            DGClientes.Rows.Add("", TNombre.Text.Trim(), TApellido.Text.Trim(), TDni.Text.Trim(), DTFecha.Text.Trim(), Ttel.Text.Trim(), TDomicilio.Text.Trim(), "Editar");
+                            string mensaje = string.Empty;
 
-                            LimpiarCampos();
+                            Cliente objCliente = new Cliente()
+                            {
+                                Nombre = TNombre.Text.Trim(),
+                                Apellido = TApellido.Text.Trim(),
+                                Dni = Convert.ToInt32(TDni.Text),
+                                FechaNacimiento = DTFecha.Value,
+                                Domicilio = TDomicilio.Text.Trim(),
+                                Telefono = Ttel.Text.Trim(),
+                                Estado = true
+                            };
+
+                            int idClienteGenerado = new CN_Cliente().RegistrarCliente(objCliente, out mensaje);
+
+                            if (idClienteGenerado != 0)
+                            {
+                                DGClientes.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, DTFecha.Text, Ttel.Text, TDomicilio.Text,
+                                "Editar", idClienteGenerado
+                                });
+
+
+
+                                LimpiarCampos();
+                                VaciarTabla();
+                                ActualizarTabla();
+                            }
+                            else
+                            {
+                                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
@@ -101,9 +129,10 @@ namespace CapaPresentacion
                     BEditar.Enabled = true;
                     BGuardar.Enabled = false;
 
-                    //TId.Text = DGClientes.Rows[e.RowIndex];
-                    //TIndice.Text = e.RowIndex.ToString();
                     int indice = e.RowIndex;
+                    TIdCliente.Text = DGClientes.Rows[indice].Cells["CIdCliente"].Value.ToString(); ;
+                    TIndice.Text = e.RowIndex.ToString();
+
 
                     // Obtengo los valores de las celdas de la fila seleccionada
                     DataGridViewRow selectedRow = DGClientes.Rows[e.RowIndex];
@@ -140,6 +169,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
+
                     // Obtener la fecha de nacimiento del DateTimePicker
                     DateTime fechaNacimiento = DTFecha.Value;
 
@@ -152,23 +182,52 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        // Actualiza la fila seleccionada en el DataGridView
-                        DataGridViewRow selectedRow = DGClientes.Rows[DGClientes.CurrentCell.RowIndex];
-                        selectedRow.Cells["CDomicilio"].Value = domicilio;
-                        selectedRow.Cells["Cdni"].Value = dni;
-                        selectedRow.Cells["CTelefono"].Value = telefono;
-                        selectedRow.Cells["CNombre"].Value = nombre;
-                        selectedRow.Cells["CApellido"].Value = apellido;
 
+                        if (MessageBox.Show("Deseas guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string mensaje = string.Empty;
 
-                        DateTime nuevaFecha = DTFecha.Value;
-                        selectedRow.Cells["CFechaNacim"].Value = nuevaFecha.ToString("d");
+                            Cliente objCliente = new Cliente()
+                            {
+                                IdCliente = Convert.ToInt32(TIdCliente.Text),
+                                Nombre = TNombre.Text.Trim(),
+                                Apellido = TApellido.Text.Trim(),
+                                Dni = Convert.ToInt32(TDni.Text),
+                                FechaNacimiento = DTFecha.Value,
+                                Domicilio = TDomicilio.Text.Trim(),
+                                Telefono = Ttel.Text.Trim(),
+                                Estado = true
+                            };
 
-                        LimpiarCampos();
-                        BEditar.Enabled = false;
-                        BGuardar.Enabled = true;
+                            bool resultado = new CN_Cliente().EditarCliente(objCliente, out mensaje);
+
+                            if (resultado == true)
+                            {
+                                DataGridViewRow row = DGClientes.Rows[Convert.ToInt32(TIndice.Text)];
+
+                                row.Cells["CNombre"].Value = TNombre.Text.Trim();
+                                row.Cells["CApellido"].Value = TApellido.Text.Trim();
+                                row.Cells["Cdni"].Value = Convert.ToInt32(TDni.Text);
+                                row.Cells["CFechaNacim"].Value = DTFecha.Value;
+                                row.Cells["CTelefono"].Value = Ttel.Text.Trim();
+                                row.Cells["CDomicilio"].Value = TDomicilio.Text.Trim();
+                                row.Cells["Ceditar"].Value = "Editar";
+                                row.Cells["CIdCliente"].Value = TIndice.Text;
+
+                                LimpiarCampos();
+                                VaciarTabla();
+                                ActualizarTabla();
+
+                                BEditar.Enabled = false;
+                                BGuardar.Enabled = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+
                     }
-                        
                 }
 
             }

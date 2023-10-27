@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TFormaPago = new System.Windows.Forms.TextBox();
             this.TVendedor = new System.Windows.Forms.TextBox();
             this.labelusuario = new System.Windows.Forms.Label();
             this.TFecha = new System.Windows.Forms.TextBox();
@@ -47,13 +49,6 @@
             this.labeldocucliente = new System.Windows.Forms.Label();
             this.TNombre = new System.Windows.Forms.TextBox();
             this.DGDetalle = new System.Windows.Forms.DataGridView();
-            this.CIdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labmontocambio = new System.Windows.Forms.Label();
             this.labmontopago = new System.Windows.Forms.Label();
             this.labmontototal = new System.Windows.Forms.Label();
@@ -61,8 +56,13 @@
             this.TPago = new System.Windows.Forms.TextBox();
             this.TTotal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TFormaPago = new System.Windows.Forms.TextBox();
+            this.CIdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle)).BeginInit();
@@ -109,6 +109,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion Venta";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(501, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Forma de Pago:";
+            // 
+            // TFormaPago
+            // 
+            this.TFormaPago.Location = new System.Drawing.Point(501, 60);
+            this.TFormaPago.Name = "TFormaPago";
+            this.TFormaPago.ReadOnly = true;
+            this.TFormaPago.Size = new System.Drawing.Size(147, 21);
+            this.TFormaPago.TabIndex = 27;
+            // 
             // TVendedor
             // 
             this.TVendedor.Location = new System.Drawing.Point(303, 60);
@@ -152,11 +171,11 @@
             this.LFecha.AutoSize = true;
             this.LFecha.BackColor = System.Drawing.Color.White;
             this.LFecha.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LFecha.Location = new System.Drawing.Point(6, 44);
+            this.LFecha.Location = new System.Drawing.Point(5, 44);
             this.LFecha.Name = "LFecha";
-            this.LFecha.Size = new System.Drawing.Size(62, 13);
+            this.LFecha.Size = new System.Drawing.Size(102, 13);
             this.LFecha.TabIndex = 23;
-            this.LFecha.Text = "ID Venta:";
+            this.LFecha.Text = "Numero Factura:";
             // 
             // TIdVenta
             // 
@@ -252,78 +271,31 @@
             this.Cprecio,
             this.Ccantidad,
             this.Csubtotal});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGDetalle.Location = new System.Drawing.Point(99, 271);
             this.DGDetalle.MultiSelect = false;
             this.DGDetalle.Name = "DGDetalle";
             this.DGDetalle.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGDetalle.RowTemplate.Height = 28;
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(654, 223);
             this.DGDetalle.TabIndex = 8;
-            // 
-            // CIdProd
-            // 
-            this.CIdProd.HeaderText = "ID";
-            this.CIdProd.Name = "CIdProd";
-            this.CIdProd.ReadOnly = true;
-            this.CIdProd.Width = 40;
-            // 
-            // Cproducto
-            // 
-            this.Cproducto.HeaderText = "Producto";
-            this.Cproducto.Name = "Cproducto";
-            this.Cproducto.ReadOnly = true;
-            this.Cproducto.Width = 130;
-            // 
-            // CDescripcion
-            // 
-            this.CDescripcion.HeaderText = "Descripcion";
-            this.CDescripcion.Name = "CDescripcion";
-            this.CDescripcion.ReadOnly = true;
-            this.CDescripcion.Width = 130;
-            // 
-            // CCategoria
-            // 
-            this.CCategoria.HeaderText = "Categoria";
-            this.CCategoria.Name = "CCategoria";
-            this.CCategoria.ReadOnly = true;
-            this.CCategoria.Width = 80;
-            // 
-            // Cprecio
-            // 
-            this.Cprecio.HeaderText = "Precio";
-            this.Cprecio.Name = "Cprecio";
-            this.Cprecio.ReadOnly = true;
-            // 
-            // Ccantidad
-            // 
-            this.Ccantidad.HeaderText = "Cantidad";
-            this.Ccantidad.Name = "Ccantidad";
-            this.Ccantidad.ReadOnly = true;
-            this.Ccantidad.Width = 60;
-            // 
-            // Csubtotal
-            // 
-            this.Csubtotal.HeaderText = "Subtotal";
-            this.Csubtotal.Name = "Csubtotal";
-            this.Csubtotal.ReadOnly = true;
             // 
             // labmontocambio
             // 
@@ -402,24 +374,54 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // CIdProd
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(501, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Forma de Pago:";
+            this.CIdProd.HeaderText = "ID";
+            this.CIdProd.Name = "CIdProd";
+            this.CIdProd.ReadOnly = true;
+            this.CIdProd.Visible = false;
+            this.CIdProd.Width = 40;
             // 
-            // TFormaPago
+            // Cproducto
             // 
-            this.TFormaPago.Location = new System.Drawing.Point(501, 60);
-            this.TFormaPago.Name = "TFormaPago";
-            this.TFormaPago.ReadOnly = true;
-            this.TFormaPago.Size = new System.Drawing.Size(147, 21);
-            this.TFormaPago.TabIndex = 27;
+            this.Cproducto.HeaderText = "Producto";
+            this.Cproducto.Name = "Cproducto";
+            this.Cproducto.ReadOnly = true;
+            this.Cproducto.Width = 130;
+            // 
+            // CDescripcion
+            // 
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
+            this.CDescripcion.Width = 130;
+            // 
+            // CCategoria
+            // 
+            this.CCategoria.HeaderText = "Categoria";
+            this.CCategoria.Name = "CCategoria";
+            this.CCategoria.ReadOnly = true;
+            this.CCategoria.Visible = false;
+            this.CCategoria.Width = 80;
+            // 
+            // Cprecio
+            // 
+            this.Cprecio.HeaderText = "Precio";
+            this.Cprecio.Name = "Cprecio";
+            this.Cprecio.ReadOnly = true;
+            // 
+            // Ccantidad
+            // 
+            this.Ccantidad.HeaderText = "Cantidad";
+            this.Ccantidad.Name = "Ccantidad";
+            this.Ccantidad.ReadOnly = true;
+            this.Ccantidad.Width = 60;
+            // 
+            // Csubtotal
+            // 
+            this.Csubtotal.HeaderText = "Subtotal";
+            this.Csubtotal.Name = "Csubtotal";
+            this.Csubtotal.ReadOnly = true;
             // 
             // FormDetalleVenta
             // 
@@ -478,6 +480,8 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.TextBox TDocumento;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TFormaPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIdProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
@@ -485,7 +489,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cprecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TFormaPago;
     }
 }

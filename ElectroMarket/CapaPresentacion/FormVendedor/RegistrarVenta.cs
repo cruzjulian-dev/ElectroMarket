@@ -76,6 +76,7 @@ namespace CapaPresentacion
                 TIdProd.Text = productoSeleccionado.IdProducto.ToString();
                 TCod.Text = productoSeleccionado.Codigo.ToString();
                 TProd.Text = productoSeleccionado.Nombre.ToString();
+                TDescripcion.Text = productoSeleccionado.Descripcion.ToString();
                 TPrecio.Text = productoSeleccionado.Precio.ToString();
                 TStock.Text = productoSeleccionado.Stock.ToString();
             }
@@ -115,6 +116,7 @@ namespace CapaPresentacion
                         {
                             int id = Convert.ToInt32(TIdProd.Text);
                             string nombre = TProd.Text;
+                            string descripcion = TDescripcion.Text;
                             decimal precio = 0.0m; // Inicializado a 0.0m
                             int cantidad = 0;
                             decimal subtotal = 0.0m; // Inicializado a 0.0m
@@ -134,7 +136,7 @@ namespace CapaPresentacion
                             subtotal = precio * cantidad;
 
                             // Agregar la fila al DataGridView
-                            DGDetalle.Rows.Add(id, codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar", "Editar");
+                            DGDetalle.Rows.Add(id, codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar", "Editar", descripcion);
 
                             // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
                             TIdProd.Clear();
@@ -178,6 +180,7 @@ namespace CapaPresentacion
                     {
                         if (MessageBox.Show("Seguro que quieres realizar la venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
+                            List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
 
                             DataTable detalle_venta = new DataTable();
 
@@ -189,6 +192,14 @@ namespace CapaPresentacion
   
                             foreach (DataGridViewRow row in DGDetalle.Rows)
                             {
+                                DetalleVenta detalle = new DetalleVenta();
+                                detalle.oProducto = new Producto() {IdProducto = Convert.ToInt32(row.Cells["idProducto"].Value.ToString()), Nombre = row.Cells["Cproducto"].Value.ToString(), Descripcion = row.Cells["CDescripcion"].Value.ToString()  } ;
+                                detalle.PrecioVenta = Convert.ToDecimal(row.Cells["CPrecio"].Value.ToString());
+                                detalle.Cantidad = Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString());
+                                detalle.SubTotal = Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString());
+
+                                listaDetalle.Add(detalle);
+
                                 detalle_venta.Rows.Add(
                                     new object[]
                                     {
@@ -199,6 +210,7 @@ namespace CapaPresentacion
                                     }
                                 );
                             }
+
 
                             int siguienteId = new CN_Venta().ObtenerSiguienteId();
                             string numeroDocumento = string.Format("{0:00000}", siguienteId);
@@ -224,7 +236,25 @@ namespace CapaPresentacion
 
                             if (respuesta)
                             {
-                                var result = MessageBox.Show("Numero de compra:\n" + numeroDocumento);
+                                Venta ventaRealizada = new Venta()
+                                {
+                                    oUsuario = new Usuario() { IdUsuario = VistaVendedor.usuarioActual.IdUsuario, Nombre = VistaVendedor.usuarioActual.Nombre, Apellido = VistaVendedor.usuarioActual.Apellido },
+                                    DniCliente = Convert.ToInt32(TDni.Text),
+                                    NombreCliente = TNombre.Text.ToString(),
+                                    ApellidoCliente = TApe.Text.ToString(),
+                                    oFormaPago = new FormaPago() { IdFormaPago = CBForma.SelectedIndex, Descripcion = CBForma.SelectedItem.ToString()},
+                                    TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
+                                    NumeroDocumento = numeroDocumento,
+                                    Detalle_Venta = listaDetalle,
+                                    MontoPago = Convert.ToDecimal(TPagaCon.Text),
+                                    MontoCambio = Convert.ToDecimal(TCambio.Text),
+                                    MontoTotal = Convert.ToDecimal(TTotal.Text),
+                                    FechaRegistro = TFecha.Text
+                                };
+
+                                FormDetalleVenta detalle = new FormDetalleVenta(ventaRealizada);
+                                detalle.Show();
+                                
                             } else
                             {
                                 MessageBox.Show(mensaje);
@@ -245,7 +275,10 @@ namespace CapaPresentacion
         private void VaciarCampos()
         {
             TDni.Text = "";
+            TNombre.Text = "";
+            TApe.Text = "";
             TNomApe.Text = "";
+            TIdProd.Text = "";
             TCod.Text = "";
             TProd.Text = "";
             TPrecio.Text = "";
@@ -320,6 +353,7 @@ namespace CapaPresentacion
                         // limpia campos referidos al producto
                         TCod.Text = "";
                         TProd.Text = "";
+                        TDescripcion.Text = "";
                         TPrecio.Text = "";
                         TStock.Text = "";
                         TCantidad.Value = 1;
@@ -349,6 +383,7 @@ namespace CapaPresentacion
                             // Rellenar los TextBox con los valores del producto seleccionado
                             TCod.Text = productoSeleccionado.Codigo;
                             TProd.Text = productoSeleccionado.Nombre;
+                            TDescripcion.Text = productoSeleccionado.Descripcion;
                             TPrecio.Text = productoSeleccionado.Precio.ToString();
 
                             // Aquí obtén el stock del producto seleccionado
@@ -415,6 +450,7 @@ namespace CapaPresentacion
             // Actualiza la fila en el DataGridView con la información editada
             DGDetalle.Rows[rowIndex].Cells["CCod"].Value = TCod.Text;
             DGDetalle.Rows[rowIndex].Cells["Cproducto"].Value = TProd.Text;
+            DGDetalle.Rows[rowIndex].Cells["CDescripcion"].Value = TDescripcion.Text;
             DGDetalle.Rows[rowIndex].Cells["CPrecio"].Value = TPrecio.Text;
             DGDetalle.Rows[rowIndex].Cells["Ccantidad"].Value = TCantidad.Value;
 
@@ -430,6 +466,7 @@ namespace CapaPresentacion
             // Limpia los campos TextBox y restablece los botones
             TCod.Clear();
             TProd.Clear();
+            TDescripcion.Clear();
             TPrecio.Clear();
             TStock.Clear();
             TCantidad.Value = 1;

@@ -28,68 +28,258 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LVentas = new System.Windows.Forms.Label();
+            this.LTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.DGMisVentas = new System.Windows.Forms.DataGridView();
+            this.CNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).BeginInit();
             this.SuspendLayout();
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(73, 389);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(133, 55);
+            this.iconButton1.TabIndex = 80;
+            this.iconButton1.Text = "Buscar";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(52, 315);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker2.TabIndex = 79;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(52, 216);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 78;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(49, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 18);
+            this.label7.TabIndex = 77;
+            this.label7.Text = "Hasta:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(49, 185);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 18);
+            this.label6.TabIndex = 76;
+            this.label6.Text = "Desde:";
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(240, 65);
+            this.label5.TabIndex = 75;
+            this.label5.Text = "Seleccione el rango de fechas en el que desea filtrar las ventas y las estadístic" +
+    "as";
+            // 
+            // LVentas
+            // 
+            this.LVentas.AutoSize = true;
+            this.LVentas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVentas.Location = new System.Drawing.Point(586, 502);
+            this.LVentas.Name = "LVentas";
+            this.LVentas.Size = new System.Drawing.Size(26, 18);
+            this.LVentas.TabIndex = 74;
+            this.LVentas.Text = "...";
+            // 
+            // LTotal
+            // 
+            this.LTotal.AutoSize = true;
+            this.LTotal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTotal.Location = new System.Drawing.Point(1023, 502);
+            this.LTotal.Name = "LTotal";
+            this.LTotal.Size = new System.Drawing.Size(26, 18);
+            this.LTotal.TabIndex = 73;
+            this.LTotal.Text = "...";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 52);
+            this.label1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(52, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 23);
-            this.label1.TabIndex = 0;
+            this.label1.Size = new System.Drawing.Size(154, 30);
+            this.label1.TabIndex = 71;
             this.label1.Text = "Reportes";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // label4
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 163);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(288, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Cantidad de ventas por vendedor:";
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(264, 561);
+            this.label4.TabIndex = 72;
+            // 
+            // DGMisVentas
+            // 
+            this.DGMisVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGMisVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CNumDoc,
+            this.CVendedor,
+            this.CDniCliente,
+            this.CNombreCliente,
+            this.CApellidoCliente,
+            this.CTotal,
+            this.CForma,
+            this.CFecha,
+            this.CDetalle});
+            this.DGMisVentas.Location = new System.Drawing.Point(319, 46);
+            this.DGMisVentas.Name = "DGMisVentas";
+            this.DGMisVentas.Size = new System.Drawing.Size(843, 443);
+            this.DGMisVentas.TabIndex = 70;
+            // 
+            // CNumDoc
+            // 
+            this.CNumDoc.HeaderText = "Num. Documento";
+            this.CNumDoc.Name = "CNumDoc";
+            this.CNumDoc.Width = 70;
+            // 
+            // CVendedor
+            // 
+            this.CVendedor.HeaderText = "Vendedor";
+            this.CVendedor.Name = "CVendedor";
+            this.CVendedor.ReadOnly = true;
+            this.CVendedor.Width = 105;
+            // 
+            // CDniCliente
+            // 
+            this.CDniCliente.HeaderText = "DNI Cliente";
+            this.CDniCliente.Name = "CDniCliente";
+            this.CDniCliente.ReadOnly = true;
+            this.CDniCliente.Width = 80;
+            // 
+            // CNombreCliente
+            // 
+            this.CNombreCliente.HeaderText = "Nombre Cliente";
+            this.CNombreCliente.Name = "CNombreCliente";
+            this.CNombreCliente.ReadOnly = true;
+            // 
+            // CApellidoCliente
+            // 
+            this.CApellidoCliente.HeaderText = "Apellido Cliente";
+            this.CApellidoCliente.Name = "CApellidoCliente";
+            this.CApellidoCliente.ReadOnly = true;
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Monto Total";
+            this.CTotal.Name = "CTotal";
+            this.CTotal.ReadOnly = true;
+            // 
+            // CForma
+            // 
+            this.CForma.HeaderText = "Forma de Pago";
+            this.CForma.Name = "CForma";
+            this.CForma.ReadOnly = true;
+            this.CForma.Width = 90;
+            // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha Venta";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.ReadOnly = true;
+            this.CFecha.Width = 85;
+            // 
+            // CDetalle
+            // 
+            this.CDetalle.HeaderText = "Ver detalle";
+            this.CDetalle.Name = "CDetalle";
+            this.CDetalle.ReadOnly = true;
+            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CDetalle.Width = 70;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 310);
+            this.label3.Location = new System.Drawing.Point(892, 502);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(196, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Producto más vendido:";
+            this.label3.Size = new System.Drawing.Size(125, 18);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "Total vendido:";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 449);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(221, 18);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Cliente con más compras:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(315, 502);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 18);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Cantidad de ventas realizadas:";
             // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CapaPresentacion.Properties.Resources.ee38e2845c18afc829096dabfe0883be2;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.LVentas);
+            this.Controls.Add(this.LTotal);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.DGMisVentas);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "Reportes";
             this.Text = "Reportes";
+            ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,9 +287,27 @@
 
         #endregion
 
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LVentas;
+        private System.Windows.Forms.Label LTotal;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView DGMisVentas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNumDoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDniCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombreCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CApellidoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CForma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
+        private System.Windows.Forms.DataGridViewButtonColumn CDetalle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
