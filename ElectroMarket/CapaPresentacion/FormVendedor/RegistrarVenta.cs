@@ -203,6 +203,8 @@ namespace CapaPresentacion
                             int siguienteId = new CN_Venta().ObtenerSiguienteId();
                             string numeroDocumento = string.Format("{0:00000}", siguienteId);
 
+
+
                             Venta oVenta = new Venta()
                             {
                                 oUsuario = new Usuario() { IdUsuario = VistaVendedor.usuarioActual.IdUsuario },

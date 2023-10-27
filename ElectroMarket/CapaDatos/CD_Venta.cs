@@ -20,7 +20,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT count(*) + 1 from COMPRA");
+                    query.AppendLine("SELECT count(*) + 1 from VENTAS");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
                     cmd.CommandType = CommandType.Text;
