@@ -41,7 +41,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@
             // 
             this.DGMisVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGMisVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CIdVenta,
+            this.CNumDoc,
             this.CVendedor,
             this.CDniCliente,
             this.CNombreCliente,
@@ -198,18 +198,18 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // CIdVenta
+            // CNumDoc
             // 
-            this.CIdVenta.HeaderText = "ID Venta";
-            this.CIdVenta.Name = "CIdVenta";
-            this.CIdVenta.Width = 50;
+            this.CNumDoc.HeaderText = "Num. Documento";
+            this.CNumDoc.Name = "CNumDoc";
+            this.CNumDoc.Width = 70;
             // 
             // CVendedor
             // 
             this.CVendedor.HeaderText = "Vendedor";
             this.CVendedor.Name = "CVendedor";
             this.CVendedor.ReadOnly = true;
-            this.CVendedor.Width = 125;
+            this.CVendedor.Width = 105;
             // 
             // CDniCliente
             // 
@@ -300,7 +300,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CIdVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNumDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDniCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombreCliente;
