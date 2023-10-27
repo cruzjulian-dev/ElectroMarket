@@ -103,6 +103,8 @@ IdFormaPago int references FORMA_PAGO(IdFormaPago),
 DniCliente int NOT NULL,
 NombreCliente varchar(100) NOT NULL,
 ApellidoCliente varchar(100) NOT NULL,
+TipoDocumento varchar(50) NOT NULL,
+NumeroDocumento varchar(50) NOT NULL,
 MontoPago decimal(10,2) NOT NULL default 0,
 MontoCambio decimal(10,2) NOT NULL default 0,
 MontoTotal decimal(10,2) NOT NULL default 0,
@@ -437,6 +439,8 @@ END
 
 -- PROCEDIMIENTOS VENTA -- 
 
+GO
+
 CREATE TYPE [dbo].[eDetalle_Venta] AS TABLE(
 	[IdProducto] int NULL,
 	[PrecioVenta] decimal(10,2)NULL,
@@ -452,6 +456,8 @@ CREATE PROCEDURE SP_RegistrarVenta(
 	@IdFormaPago int,
 	@NombreCliente varchar(100),
 	@ApellidoCliente varchar(100),
+	@TipoDocumento varchar(50),
+	@NumeroDocumento varchar(50),
 	@MontoPago decimal(10,2),
 	@MontoCambio decimal(10,2),
 	@MontoTotal decimal(10,2),
@@ -470,8 +476,8 @@ as
 			
 			begin transaction registro
 			
-				INSERT INTO VENTA(IdUsuario, DniCliente, IdFormaPago, NombreCliente, ApellidoCliente, MontoPago, MontoCambio, MontoTotal)
-				VALUES (@IdUsuario, @DniCliente, @IdFormaPago, @NombreCliente, @ApellidoCliente, @MontoPago, @MontoCambio, @MontoTotal)
+				INSERT INTO VENTAS(IdUsuario, DniCliente, IdFormaPago, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal)
+				VALUES (@IdUsuario, @DniCliente, @IdFormaPago, @NombreCliente, @ApellidoCliente, @TipoDocumento, @NumeroDocumento, @MontoPago, @MontoCambio, @MontoTotal)
 			
 				SET @IdVenta = SCOPE_IDENTITY()
 				

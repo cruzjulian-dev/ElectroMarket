@@ -27,14 +27,17 @@ namespace CapaPresentacion
         private void Venta_Load(object sender, EventArgs e)
         {
             BEditar.Enabled = false;
-            TTipoDoc.SelectedIndex = -1;
             TCantidad.Minimum = 1;
             TCantidad.Maximum = 999999;
             TFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            // Ajusta automáticamente el tamaño del encabezado al contenido de las celdas
-            DGDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             TTotal.Text = Convert.ToDecimal(0).ToString();
             TCambio.Text = Convert.ToDecimal(0).ToString();
+
+            TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Factura", Texto = "Factura"});
+            TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Presupuesto", Texto = "Presupuesto" });
+            TTipoDoc.DisplayMember = "Texto";
+            TTipoDoc.ValueMember = "Valor";
+            TTipoDoc.SelectedIndex = -1;
         }
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)
@@ -45,6 +48,8 @@ namespace CapaPresentacion
             if (listaClientes.ClienteSeleccionado != null)
             {
                 Cliente ClienteSeleccionado = listaClientes.ClienteSeleccionado;
+                TNombre.Text = ClienteSeleccionado.Nombre;
+                TApe.Text = ClienteSeleccionado.Apellido;
                 TDni.Text = ClienteSeleccionado.Dni.ToString();
                 TNomApe.Text = ClienteSeleccionado.Nombre + " " + ClienteSeleccionado.Apellido;
             }
@@ -68,6 +73,7 @@ namespace CapaPresentacion
             if (listaProd.ProductoSeleccionado != null)
             {
                 Producto productoSeleccionado = listaProd.ProductoSeleccionado;
+                TIdProd.Text = productoSeleccionado.IdProducto.ToString();
                 TCod.Text = productoSeleccionado.Codigo.ToString();
                 TProd.Text = productoSeleccionado.Nombre.ToString();
                 TPrecio.Text = productoSeleccionado.Precio.ToString();
@@ -107,6 +113,7 @@ namespace CapaPresentacion
                     {
                         if (MessageBox.Show("Seguro que quieres agregar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
+                            int id = Convert.ToInt32(TIdProd.Text);
                             string nombre = TProd.Text;
                             decimal precio = 0.0m; // Inicializado a 0.0m
                             int cantidad = 0;
@@ -127,9 +134,10 @@ namespace CapaPresentacion
                             subtotal = precio * cantidad;
 
                             // Agregar la fila al DataGridView
-                            DGDetalle.Rows.Add("", codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar", "Editar");
+                            DGDetalle.Rows.Add(id, codigo, nombre, precio.ToString(), cantidad.ToString(), subtotal.ToString(), "Eliminar", "Editar");
 
                             // Limpia los TextBox y el NumericUpDown después de agregar los datos al DataGridView
+                            TIdProd.Clear();
                             TCod.Clear();
                             TProd.Clear();
                             TPrecio.Clear();
@@ -154,7 +162,7 @@ namespace CapaPresentacion
         {
             if (DGDetalle.RowCount > 0)
             {
-                if (TFecha.Text == "" || TTipoDoc.Text == "" || TDni.Text == "" || TNomApe.Text == "" || TTotal.Text == "" || TPagaCon.Text == "" || TCambio.Text == "" || CBForma.SelectedIndex == -1 || TTipoDoc.SelectedIndex == -1)
+                if (TFecha.Text == "" || TDni.Text == "" || TNomApe.Text == "" || TTotal.Text == "" || TPagaCon.Text == "" || TCambio.Text == "" || CBForma.SelectedIndex == -1 || TTipoDoc.SelectedIndex == -1)
                 {
                     MessageBox.Show("Debes completar todos los campos antes de realizar una venta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -171,11 +179,55 @@ namespace CapaPresentacion
                         if (MessageBox.Show("Seguro que quieres realizar la venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
 
+                            DataTable detalle_venta = new DataTable();
 
-                            // REALIZAR VENTA ACA
+                            detalle_venta.Columns.Add("IdProducto", typeof(int));
+                            detalle_venta.Columns.Add("PrecioVenta", typeof(decimal));
+                            detalle_venta.Columns.Add("Cantidad", typeof(int));
+                            detalle_venta.Columns.Add("SubTotal", typeof(decimal));
 
+  
+                            foreach (DataGridViewRow row in DGDetalle.Rows)
+                            {
+                                detalle_venta.Rows.Add(
+                                    new object[]
+                                    {
+                                        Convert.ToInt32(row.Cells["idProducto"].Value.ToString()),
+                                        Convert.ToDecimal(row.Cells["CPrecio"].Value.ToString()),
+                                        Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString()),
+                                        Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString())
+                                    }
+                                );
+                            }
 
-                            MessageBox.Show("Venta realizada con exito!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            int siguienteId = new CN_Venta().ObtenerSiguienteId();
+                            string numeroDocumento = string.Format("{0:00000}", siguienteId);
+
+                            Venta oVenta = new Venta()
+                            {
+                                oUsuario = new Usuario() { IdUsuario = VistaVendedor.usuarioActual.IdUsuario },
+                                DniCliente = Convert.ToInt32(TDni.Text),
+                                NombreCliente = TNombre.Text.ToString(),
+                                ApellidoCliente = TApe.Text.ToString(),
+                                oFormaPago = new FormaPago() { IdFormaPago = CBForma.SelectedIndex },
+                                TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
+                                NumeroDocumento = numeroDocumento,
+                                MontoPago = Convert.ToDecimal(TPagaCon.Text),
+                                MontoCambio = Convert.ToDecimal(TCambio.Text),
+                                MontoTotal = Convert.ToDecimal(TTotal.Text)
+                            };
+
+                            string mensaje = string.Empty;
+                            bool respuesta = new CN_Venta().RegistrarVenta(oVenta, detalle_venta, out mensaje);
+
+                            if (respuesta)
+                            {
+                                var result = MessageBox.Show("Numero de compra:\n" + numeroDocumento);
+                            } else
+                            {
+                                MessageBox.Show(mensaje);
+                            }
+
                             VaciarCampos();
                         }
                         

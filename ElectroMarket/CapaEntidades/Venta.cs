@@ -14,6 +14,8 @@ namespace CapaEntidades
         public int DniCliente { get; set; }
         public string NombreCliente { get; set; }
         public string ApellidoCliente { get; set; }
+        public string TipoDocumento {  get; set; }
+        public string NumeroDocumento { get; set; }
         public decimal MontoPago { get; set; }
         public decimal MontoCambio { get; set; }
         public decimal MontoTotal { get; set; }

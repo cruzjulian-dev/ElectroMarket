@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Venta
     {
-        public int obtenerSiguienteId()
+        public int ObtenerSiguienteId()
         {
             int siguienteId = 0;
 
@@ -56,6 +56,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdFormaPago", objVenta.oFormaPago.IdFormaPago);
                     cmd.Parameters.AddWithValue("NombreCliente", objVenta.NombreCliente);
                     cmd.Parameters.AddWithValue("ApellidoCliente", objVenta.ApellidoCliente);
+                    cmd.Parameters.AddWithValue("TipoDocumento", objVenta.TipoDocumento);
+                    cmd.Parameters.AddWithValue("NumeroDocumento", objVenta.NumeroDocumento);
                     cmd.Parameters.AddWithValue("MontoPago", objVenta.MontoPago);
                     cmd.Parameters.AddWithValue("MontoCambio", objVenta.MontoCambio);
                     cmd.Parameters.AddWithValue("MontoTotal", objVenta.MontoTotal);
@@ -65,9 +67,9 @@ namespace CapaDatos
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.ExecuteNonQuery();
-
                     oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
 
                     Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();

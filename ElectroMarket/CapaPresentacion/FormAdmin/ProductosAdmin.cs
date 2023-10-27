@@ -246,13 +246,13 @@ namespace CapaPresentacion
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verifica si la tecla presionada no es un número, una coma decimal o la tecla Backspace (borrar).
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
 
             // Evita múltiples puntos decimales o comas
-            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.IndexOf(',') > -1)
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
