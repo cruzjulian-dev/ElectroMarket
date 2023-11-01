@@ -33,11 +33,21 @@ namespace CapaPresentacion
             TTotal.Text = Convert.ToDecimal(0).ToString();
             TCambio.Text = Convert.ToDecimal(0).ToString();
 
+            // combo box tipo de documento
             TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Factura", Texto = "Factura"});
-            TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Presupuesto", Texto = "Presupuesto" });
+            //TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Presupuesto", Texto = "Presupuesto" });
             TTipoDoc.DisplayMember = "Texto";
             TTipoDoc.ValueMember = "Valor";
             TTipoDoc.SelectedIndex = -1;
+
+
+            // combo box forma de pago
+            CBForma.Items.Add(new OpcionCombo() { Valor = "1", Texto = "Efectivo" });
+            CBForma.Items.Add(new OpcionCombo() { Valor = "2", Texto = "Tarjeta" });
+            CBForma.Items.Add(new OpcionCombo() { Valor = "3", Texto = "Mercado Pago" });
+            CBForma.DisplayMember = "Texto";
+            CBForma.ValueMember = "Valor";
+            CBForma.SelectedIndex = -1;
         }
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)
@@ -223,7 +233,7 @@ namespace CapaPresentacion
                                 DniCliente = Convert.ToInt32(TDni.Text),
                                 NombreCliente = TNombre.Text.ToString(),
                                 ApellidoCliente = TApe.Text.ToString(),
-                                oFormaPago = new FormaPago() { IdFormaPago = CBForma.SelectedIndex },
+                                oFormaPago = new FormaPago() { IdFormaPago = Convert.ToInt32(((OpcionCombo)CBForma.SelectedItem).Valor)},
                                 TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
                                 NumeroDocumento = numeroDocumento,
                                 MontoPago = Convert.ToDecimal(TPagaCon.Text),
@@ -242,7 +252,7 @@ namespace CapaPresentacion
                                     DniCliente = Convert.ToInt32(TDni.Text),
                                     NombreCliente = TNombre.Text.ToString(),
                                     ApellidoCliente = TApe.Text.ToString(),
-                                    oFormaPago = new FormaPago() { IdFormaPago = CBForma.SelectedIndex, Descripcion = CBForma.SelectedItem.ToString()},
+                                    oFormaPago = new FormaPago() { IdFormaPago = Convert.ToInt32(((OpcionCombo)CBForma.SelectedItem).Valor), Descripcion = ((OpcionCombo)CBForma.SelectedItem).Texto },
                                     TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
                                     NumeroDocumento = numeroDocumento,
                                     Detalle_Venta = listaDetalle,

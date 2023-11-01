@@ -66,7 +66,9 @@ namespace CapaPresentacion
 
             foreach (Producto item in lista)
             {
-                DGProductos.Rows.Add(new object[] {
+                if (item.Stock > 0)
+                {
+                    DGProductos.Rows.Add(new object[] {
                     item.Codigo,
                     item.Nombre,
                     item.Descripcion,
@@ -79,6 +81,8 @@ namespace CapaPresentacion
                     "Seleccionar",
                     item.IdProducto
                 });
+                }
+                
             }
 
             if (FuenteFormulario == "VistaVendedor")
