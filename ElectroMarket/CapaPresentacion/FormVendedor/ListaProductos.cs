@@ -25,7 +25,9 @@ namespace CapaPresentacion
 
         private void datagridProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DGProductos.Columns[e.ColumnIndex].Name == "CSeleccionar" && e.RowIndex >= 0)
+            DataGridViewCell celda = DGProductos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            if (DGProductos.Columns[e.ColumnIndex].Name == "CSeleccionar" && e.RowIndex >= 0 && celda.Value.ToString() == "Seleccionar")
             {
                 int indiceSeleccionado = e.RowIndex;
                 if (indiceSeleccionado >= 0)
@@ -66,9 +68,10 @@ namespace CapaPresentacion
 
             foreach (Producto item in lista)
             {
-                if (item.Stock > 0)
-                {
-                    DGProductos.Rows.Add(new object[] {
+                bool botonHabilitado = item.Stock >= 1;
+                string botonTexto = botonHabilitado ? "Seleccionar" : "Agotado";
+
+                DGProductos.Rows.Add(new object[] {
                     item.Codigo,
                     item.Nombre,
                     item.Descripcion,
@@ -78,21 +81,42 @@ namespace CapaPresentacion
                     item.oCategoria.Descripcion,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.Estado == true ? 1 : 0,
-                    "Seleccionar",
+                    botonTexto,
                     item.IdProducto
-                });
-                }
-                
+                    });
+
             }
 
             if (FuenteFormulario == "VistaVendedor")
             {
                 DGProductos.Columns["CSeleccionar"].Visible = false;
-            }
+            } 
 
         }
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DGProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGProductos.Rows)
+            {
+                if (row.Cells["CSeleccionar"].Value != null && row.Cells["CSeleccionar"].Value.ToString() == "Agotado")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Orange;
+                }
+            }
+
+        }
+
+        private void DGProductos_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+
+        }
+
+        private void DGProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

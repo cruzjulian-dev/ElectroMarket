@@ -377,6 +377,7 @@ namespace CapaPresentacion
             {
                 // Obtener el valor de la celda en la columna "CEstado"
                 string estado = row.Cells["Cestado"].Value as string;
+                int stock = Convert.ToInt32(row.Cells["CStock"].Value.ToString());
 
                 // Verificar si el estado es "No Activo"
                 if (estado == "No Activo")
@@ -384,7 +385,10 @@ namespace CapaPresentacion
 
                     row.DefaultCellStyle.BackColor = Color.Red;
                 }
-                else
+                else if(stock == 0)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Orange;
+                } else
                 {
                     row.DefaultCellStyle.BackColor = Color.White;
                 }
