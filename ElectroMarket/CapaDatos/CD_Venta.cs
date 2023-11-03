@@ -45,7 +45,6 @@ namespace CapaDatos
             bool Respuesta = false;
             Mensaje = string.Empty;
 
-
             using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
             {
                 try
@@ -62,8 +61,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("MontoCambio", objVenta.MontoCambio);
                     cmd.Parameters.AddWithValue("MontoTotal", objVenta.MontoTotal);
                     cmd.Parameters.AddWithValue("DetalleVenta", detalleVenta);
-                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output; // parametros de salida
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output; // parametros de salida
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output; // parámetros de salida
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output; // parámetros de salida
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -74,8 +73,26 @@ namespace CapaDatos
                     Respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
+                    if (Respuesta)
+                    {
+                        // Actualiza el stock de los productos vendidos
+                        foreach (DataRow row in detalleVenta.Rows)
+                        {
+                            int idProducto = Convert.ToInt32(row["IdProducto"]);
+                            int cantidad = Convert.ToInt32(row["Cantidad"]);
+                            // Llama a la función para restar el stock
+                            bool stockActualizado = RestarStock(idProducto, cantidad);
+                            if (!stockActualizado)
+                            {
+                                // Si la actualización del stock falla, muestra un mensaje de error
+                                Mensaje = "Error al restar el stock de los productos.";
+                                Respuesta = false; // Establece la respuesta en false
+                                break; // Sale del bucle
+                            }
+                        }
+                    }
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     Respuesta = false;
                     Mensaje = ex.Message;
@@ -84,6 +101,7 @@ namespace CapaDatos
                 return Respuesta;
             }
         }
+
 
         public Venta buscarVenta(int idVenta)
         {
