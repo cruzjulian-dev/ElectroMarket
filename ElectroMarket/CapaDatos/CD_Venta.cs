@@ -133,5 +133,31 @@ namespace CapaDatos
             return venta;
         }
 
+
+        public bool RestarStock(int idproducto, int cantidad)
+        {
+            bool respuesta = true;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("update productos set stock = stock - @cantidad where idproducto = @idproducto");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                    cmd.Parameters.AddWithValue("@idproducto", idproducto);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+
+                    respuesta = cmd.ExecuteNonQuery() > 0 ? true : false;
+                }
+                catch (Exception ex)
+                {
+                    respuesta=false;
+                }
+            }
+            return respuesta;
+        }
     }
 }

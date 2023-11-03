@@ -640,4 +640,6 @@ insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Es
 values ('HTCH40LD','Smart TV Hitachi','LED - FULL HD - 40" - Android Tv', 1, 37, 174999.99, 1)
 -- FIN PRODUCTOS
 
+
+--update productos set stock = stock  - @cantidad where idproducto = @idproducto
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------

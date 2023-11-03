@@ -6,12 +6,18 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
     public class CN_Venta
     {
         private CD_Venta objCd_Venta = new CD_Venta();
+
+        public bool RestarStock(int idproducto, int cantidad)
+        {
+            return objCd_Venta.RestarStock(idproducto, cantidad);
+        }
 
         public int ObtenerSiguienteId()
         {
