@@ -244,7 +244,7 @@ namespace CapaPresentacion
                 {
                     Venta ventaSeleccionada = ventasFicticias[e.RowIndex];
 
-                    FormDetalleVenta detalleForm = new FormDetalleVenta(ventaSeleccionada);
+                    FormDetalleVenta detalleForm = new FormDetalleVenta(ventaSeleccionada.IdVenta);
                     detalleForm.ShowDialog();
                 }
             }

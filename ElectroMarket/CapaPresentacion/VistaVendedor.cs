@@ -92,11 +92,6 @@ namespace CapaPresentacion
             AbrirFormulario(MenuVentas, new RegistrarVenta());
         }
 
-        private void SMProductos_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(MenuVentas, new FormDetalleVenta(new Venta()));
-        }
-
         private void SMdetalleVenta_Click(object sender, EventArgs e)
         {
             AbrirFormulario(MenuVentas, new MisVentas());

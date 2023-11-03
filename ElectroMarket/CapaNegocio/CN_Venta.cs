@@ -25,6 +25,10 @@ namespace CapaNegocio
 
         }
 
+        public Venta buscarVenta(int idVenta)
+        {
+            return objCd_Venta.buscarVenta(idVenta);
+        }
 
     }
 }

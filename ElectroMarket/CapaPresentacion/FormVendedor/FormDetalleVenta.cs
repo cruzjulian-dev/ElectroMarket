@@ -1,4 +1,5 @@
 ﻿using CapaEntidades;
+using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,48 +14,32 @@ namespace CapaPresentacion
 {
     public partial class FormDetalleVenta : Form
     {
-        private Venta venta;
-        public FormDetalleVenta(Venta venta)
+        public FormDetalleVenta(int idVenta)
         {
             InitializeComponent();
-            this.venta = venta; // Almacena la venta recibida en el campo privado
-            //MostrarDatosVenta(); // Llama a un método para mostrar los datos en los controles
         }
 
         private void DetalleVenta_Load(object sender, EventArgs e)
         {
-            
+            Venta cabeceraVenta = new Venta();
+            DetalleVenta detalleVenta = new DetalleVenta();
+
+            //cabeceraVenta = CN_Venta.buscarVenta(idVenta); no funciona
+
             // Limpia el DataGridView antes de agregar nuevos detalles
             DGDetalle.Rows.Clear();
 
-            TIdVenta.Text = venta.NumeroDocumento.ToString();
-            TVendedor.Text = venta.oUsuario.Nombre + " " + venta.oUsuario.Apellido;
-            TFormaPago.Text = venta.oFormaPago.Descripcion;
-            TFecha.Text = venta.FechaRegistro.ToString();
-            TNombre.Text = venta.NombreCliente;
-            TApellido.Text = venta.ApellidoCliente;
-            TDocumento.Text = Convert.ToInt32(venta.DniCliente).ToString();
-            TTotal.Text = venta.MontoTotal.ToString();
-            TCambio.Text = venta.MontoCambio.ToString();
-            TPago.Text = venta.MontoPago.ToString();
+            TIdVenta.Text = cabeceraVenta.NumeroDocumento.ToString();
+            TVendedor.Text = cabeceraVenta.oUsuario.Nombre + " " + venta.oUsuario.Apellido;
+            TFormaPago.Text = cabeceraVenta.oFormaPago.Descripcion;
+            TFecha.Text = cabeceraVenta.FechaRegistro.ToString();
+            TNombre.Text = cabeceraVenta.NombreCliente;
+            TApellido.Text = cabeceraVenta.ApellidoCliente;
+            TDocumento.Text = Convert.ToInt32(cabeceraVenta.DniCliente).ToString();
+            TTotal.Text = cabeceraVenta.MontoTotal.ToString();
+            TCambio.Text = cabeceraVenta.MontoCambio.ToString();
+            TPago.Text = cabeceraVenta.MontoPago.ToString();
 
-            foreach (DetalleVenta detalle in venta.Detalle_Venta)
-            {
-                // Acceder al producto del detalle
-                Producto producto = detalle.oProducto;
-
-                // Agregar una fila al DataGridView con los detalles del producto
-                DGDetalle.Rows.Add(
-                    "",
-                    producto.Nombre,
-                    producto.Descripcion,
-                   // producto.oCategoria.Descripcion,
-                    detalle.PrecioVenta,
-                    detalle.Cantidad,
-                    detalle.SubTotal
-                    //detalle.FechaRegistro
-                ) ;
-            }
         }
 
         private void label8_Click(object sender, EventArgs e)

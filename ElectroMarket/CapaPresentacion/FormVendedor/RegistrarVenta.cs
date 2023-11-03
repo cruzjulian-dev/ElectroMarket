@@ -67,7 +67,6 @@ namespace CapaPresentacion
 
         private Producto ObtenerProductoPorCodigo(string codigo)
         {
-            // Aquí buscas el producto en la lista completa de productos por su código
             Producto productoEncontrado = listaProductos.FirstOrDefault(producto => producto.Codigo == codigo);
             return productoEncontrado;
         }
@@ -246,23 +245,7 @@ namespace CapaPresentacion
 
                             if (respuesta)
                             {
-                                Venta ventaRealizada = new Venta()
-                                {
-                                    oUsuario = new Usuario() { IdUsuario = VistaVendedor.usuarioActual.IdUsuario, Nombre = VistaVendedor.usuarioActual.Nombre, Apellido = VistaVendedor.usuarioActual.Apellido },
-                                    DniCliente = Convert.ToInt32(TDni.Text),
-                                    NombreCliente = TNombre.Text.ToString(),
-                                    ApellidoCliente = TApe.Text.ToString(),
-                                    oFormaPago = new FormaPago() { IdFormaPago = Convert.ToInt32(((OpcionCombo)CBForma.SelectedItem).Valor), Descripcion = ((OpcionCombo)CBForma.SelectedItem).Texto },
-                                    TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
-                                    NumeroDocumento = numeroDocumento,
-                                    Detalle_Venta = listaDetalle,
-                                    MontoPago = Convert.ToDecimal(TPagaCon.Text),
-                                    MontoCambio = Convert.ToDecimal(TCambio.Text),
-                                    MontoTotal = Convert.ToDecimal(TTotal.Text),
-                                    FechaRegistro = TFecha.Text
-                                };
-
-                                FormDetalleVenta detalle = new FormDetalleVenta(ventaRealizada);
+                                FormDetalleVenta detalle = new FormDetalleVenta(siguienteId);
                                 detalle.Show();
                                 
                             } else
