@@ -30,7 +30,7 @@ namespace CapaPresentacion
             DGDetalle.Rows.Clear();
 
             TIdVenta.Text = cabeceraVenta.NumeroDocumento.ToString();
-            TVendedor.Text = cabeceraVenta.oUsuario.Nombre + " " + venta.oUsuario.Apellido;
+            TVendedor.Text = cabeceraVenta.oUsuario.Nombre + " " + cabeceraVenta.oUsuario.Apellido;
             TFormaPago.Text = cabeceraVenta.oFormaPago.Descripcion;
             TFecha.Text = cabeceraVenta.FechaRegistro.ToString();
             TNombre.Text = cabeceraVenta.NombreCliente;
