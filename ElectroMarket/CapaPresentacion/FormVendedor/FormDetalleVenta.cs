@@ -14,17 +14,21 @@ namespace CapaPresentacion
 {
     public partial class FormDetalleVenta : Form
     {
+        private int idVenta;
         public FormDetalleVenta(int idVenta)
         {
             InitializeComponent();
+            this.idVenta = idVenta;
         }
 
         private void DetalleVenta_Load(object sender, EventArgs e)
         {
-            Venta cabeceraVenta = new Venta();
-            DetalleVenta detalleVenta = new DetalleVenta();
+            CN_Venta cnVenta = new CN_Venta(); 
+            CN_DetalleVenta cnDetalleVenta = new CN_DetalleVenta(); 
 
-            //cabeceraVenta = CN_Venta.buscarVenta(idVenta); no funciona
+            Venta cabeceraVenta = cnVenta.buscarVenta(idVenta);
+            List<DetalleVenta> detalle = cnDetalleVenta.buscarDetalle(idVenta);
+
 
             // Limpia el DataGridView antes de agregar nuevos detalles
             DGDetalle.Rows.Clear();
@@ -39,7 +43,6 @@ namespace CapaPresentacion
             TTotal.Text = cabeceraVenta.MontoTotal.ToString();
             TCambio.Text = cabeceraVenta.MontoCambio.ToString();
             TPago.Text = cabeceraVenta.MontoPago.ToString();
-
         }
 
         private void label8_Click(object sender, EventArgs e)
