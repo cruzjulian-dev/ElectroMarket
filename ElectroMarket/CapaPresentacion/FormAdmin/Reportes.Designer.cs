@@ -39,6 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DGMisVentas = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,8 +51,6 @@
             this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(73, 389);
+            this.iconButton1.Location = new System.Drawing.Point(57, 444);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(133, 55);
             this.iconButton1.TabIndex = 80;
@@ -72,7 +73,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(52, 315);
+            this.dateTimePicker2.Location = new System.Drawing.Point(35, 358);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
             this.dateTimePicker2.TabIndex = 79;
@@ -80,7 +81,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(52, 216);
+            this.dateTimePicker1.Location = new System.Drawing.Point(35, 259);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
             this.dateTimePicker1.TabIndex = 78;
@@ -90,7 +91,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(49, 284);
+            this.label7.Location = new System.Drawing.Point(32, 327);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 18);
             this.label7.TabIndex = 77;
@@ -101,7 +102,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(49, 185);
+            this.label6.Location = new System.Drawing.Point(32, 228);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 18);
             this.label6.TabIndex = 76;
@@ -114,7 +115,7 @@
             this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 68);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(240, 65);
+            this.label5.Size = new System.Drawing.Size(240, 133);
             this.label5.TabIndex = 75;
             this.label5.Text = "Seleccione el rango de fechas en el que desea filtrar las ventas y las estadístic" +
     "as";
@@ -162,8 +163,10 @@
             // 
             // DGMisVentas
             // 
+            this.DGMisVentas.AllowUserToAddRows = false;
             this.DGMisVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGMisVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIdVenta,
             this.CNumDoc,
             this.CVendedor,
             this.CDniCliente,
@@ -177,6 +180,32 @@
             this.DGMisVentas.Name = "DGMisVentas";
             this.DGMisVentas.Size = new System.Drawing.Size(843, 443);
             this.DGMisVentas.TabIndex = 70;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(892, 502);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 18);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "Total vendido:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(315, 502);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 18);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Cantidad de ventas realizadas:";
+            // 
+            // CIdVenta
+            // 
+            this.CIdVenta.HeaderText = "IdVenta";
+            this.CIdVenta.Name = "CIdVenta";
+            this.CIdVenta.Visible = false;
             // 
             // CNumDoc
             // 
@@ -239,26 +268,6 @@
             this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CDetalle.Width = 70;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(892, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 18);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Total vendido:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 502);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 18);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "Cantidad de ventas realizadas:";
-            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +288,7 @@
             this.Controls.Add(this.label2);
             this.Name = "Reportes";
             this.Text = "Reportes";
+            this.Load += new System.EventHandler(this.Reportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -298,6 +308,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView DGMisVentas;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNumDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDniCliente;
@@ -307,7 +320,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CForma;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewButtonColumn CDetalle;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
     }
 }
