@@ -1,5 +1,6 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
+using CapaPresentacion.Modales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,23 @@ namespace CapaPresentacion
 
                 }
             }
+            calcularDatos();
+        }
+
+        private void calcularDatos()
+        {
+            decimal montoTotal = 0;
+
+            foreach (DataGridViewRow row in DGVentas.Rows)
+            {
+                decimal montoVenta = Convert.ToDecimal(row.Cells[6].Value);
+                montoTotal += montoVenta;
+            }
+
+            LTotal.Text = montoTotal.ToString();
+            LVentas.Text = DGVentas.Rows.Count.ToString();
+
+
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -61,6 +79,7 @@ namespace CapaPresentacion
 
                 }
             }
+            calcularDatos();
         }
 
         private void limpiarTabla()

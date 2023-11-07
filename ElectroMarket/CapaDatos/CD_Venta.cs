@@ -192,7 +192,6 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
                     cmd.CommandType = CommandType.Text;
 
-                    // Parámetros para las fechas
                     cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde);
                     cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta);
 
