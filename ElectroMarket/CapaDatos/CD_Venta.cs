@@ -163,6 +163,72 @@ namespace CapaDatos
             return listaVentas;
         }
 
+        public List<Venta> traerVentasFechas(string fechaDesde, string fechaHasta)
+        {
+            List<Venta> listaVentas = new List<Venta>();
+
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT V.IdVenta,");
+                    query.AppendLine("V.NumeroDocumento,");
+                    query.AppendLine("U.Nombre,");
+                    query.AppendLine("U.Apellido,");
+                    query.AppendLine("U.UsuarioLogin,");
+                    query.AppendLine("V.DniCliente,");
+                    query.AppendLine("V.NombreCliente,");
+                    query.AppendLine("V.ApellidoCliente,");
+                    query.AppendLine("V.MontoTotal,");
+                    query.AppendLine("FP.Descripcion,");
+                    query.AppendLine("V.FechaRegistro");
+                    query.AppendLine("FROM VENTAS V");
+                    query.AppendLine("INNER JOIN USUARIOS U ON V.IdUsuario = U.IdUsuario");
+                    query.AppendLine("INNER JOIN FORMA_PAGO FP ON V.IdFormaPago = FP.IdFormaPago");
+                    query.AppendLine("WHERE CONVERT(DATE, V.FechaRegistro,105) >= CONVERT(DATE, @FechaDesde,105) AND CONVERT(DATE, V.FechaRegistro,105) <= CONVERT(DATE, @FechaHasta,105)");
+                    query.AppendLine("ORDER BY FechaRegistro DESC");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    // Parámetros para las fechas
+                    cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta);
+
+                    oConexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Venta venta = new Venta
+                            {
+                                IdVenta = Convert.ToInt32(dr["IdVenta"]),
+                                oUsuario = new Usuario { Nombre = dr["Nombre"].ToString(), Apellido = dr["Apellido"].ToString(), UsuarioLogin = dr["UsuarioLogin"].ToString() },
+                                NombreCliente = dr["NombreCliente"].ToString(),
+                                ApellidoCliente = dr["ApellidoCliente"].ToString(),
+                                DniCliente = Convert.ToInt32(dr["DniCliente"]),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"]),
+                                oFormaPago = new FormaPago { Descripcion = dr["Descripcion"].ToString() },
+                                FechaRegistro = dr["FechaRegistro"].ToString()
+                            };
+                            listaVentas.Add(venta);
+                        }
+                    }
+
+                }
+                catch (Exception)
+                {
+                    listaVentas = null;
+                }
+
+            }
+
+            return listaVentas;
+        }
+
         public Venta buscarVenta(int idVenta)
         {
             Venta venta = null;
@@ -238,7 +304,7 @@ namespace CapaDatos
 
                     respuesta = cmd.ExecuteNonQuery() > 0 ? true : false;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta=false;
                 }

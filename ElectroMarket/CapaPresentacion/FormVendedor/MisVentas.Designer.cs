@@ -48,8 +48,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.DTDesde = new System.Windows.Forms.DateTimePicker();
+            this.DTHasta = new System.Windows.Forms.DateTimePicker();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).BeginInit();
             this.SuspendLayout();
@@ -237,21 +237,21 @@
             this.label7.TabIndex = 64;
             this.label7.Text = "Hasta:";
             // 
-            // dateTimePicker1
+            // DTDesde
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(30, 281);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 65;
+            this.DTDesde.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTDesde.Location = new System.Drawing.Point(30, 281);
+            this.DTDesde.Name = "DTDesde";
+            this.DTDesde.Size = new System.Drawing.Size(200, 21);
+            this.DTDesde.TabIndex = 65;
             // 
-            // dateTimePicker2
+            // DTHasta
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(30, 380);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker2.TabIndex = 66;
+            this.DTHasta.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTHasta.Location = new System.Drawing.Point(30, 380);
+            this.DTHasta.Name = "DTHasta";
+            this.DTHasta.Size = new System.Drawing.Size(200, 21);
+            this.DTHasta.TabIndex = 66;
             // 
             // iconButton1
             // 
@@ -268,6 +268,7 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // MisVentas
             // 
@@ -275,8 +276,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DTHasta);
+            this.Controls.Add(this.DTDesde);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -307,8 +308,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker DTDesde;
+        private System.Windows.Forms.DateTimePicker DTHasta;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIdVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNumDoc;

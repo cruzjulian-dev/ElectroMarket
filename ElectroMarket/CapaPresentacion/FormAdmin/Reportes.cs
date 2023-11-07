@@ -31,12 +31,41 @@ namespace CapaPresentacion
                 // Relleno el datagrid con las ventas
                 foreach (Venta item in listaVentas)
                 {
-                        DGMisVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
+                        DGVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
                     item.MontoTotal, item.oFormaPago.Descripcion, Convert.ToDateTime(item.FechaRegistro).ToString("dd-MM-yyyy"), "Ver Detalle"
                     });
 
                 }
             }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            limpiarTabla();
+            string fechaDesde = DTDesde.Value.ToString("dd-MM-yyyy");
+            string fechaHasta = DTHasta.Value.ToString("dd-MM-yyyy");
+
+            CN_Venta cnVenta = new CN_Venta();
+
+            List<Venta> listaVentas = cnVenta.traerVentasFechas(fechaDesde, fechaHasta);
+
+            // Pregunto si hay ventas
+            if (listaVentas != null)
+            {
+                // Relleno el datagrid con las ventas
+                foreach (Venta item in listaVentas)
+                {
+                    DGVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
+                    item.MontoTotal, item.oFormaPago.Descripcion, Convert.ToDateTime(item.FechaRegistro).ToString("dd-MM-yyyy"), "Ver Detalle"
+                    });
+
+                }
+            }
+        }
+
+        private void limpiarTabla()
+        {
+            DGVentas.Rows.Clear();
         }
     }
 }

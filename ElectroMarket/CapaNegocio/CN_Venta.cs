@@ -36,6 +36,11 @@ namespace CapaNegocio
             return objCd_Venta.traerVentas();
         }
 
+        public List<Venta> traerVentasFechas(string fechaDesde, string fechaHasta)
+        {
+            return objCd_Venta.traerVentasFechas(fechaDesde, fechaHasta);
+        }
+
         public Venta buscarVenta(int idVenta)
         {
             return objCd_Venta.buscarVenta(idVenta);

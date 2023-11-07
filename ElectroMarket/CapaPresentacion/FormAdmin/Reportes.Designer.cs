@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DTHasta = new System.Windows.Forms.DateTimePicker();
+            this.DTDesde = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.LTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.DGMisVentas = new System.Windows.Forms.DataGridView();
+            this.DGVentas = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@
             this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // iconButton1
@@ -69,22 +69,23 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // dateTimePicker2
+            // DTHasta
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(35, 358);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker2.TabIndex = 79;
+            this.DTHasta.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTHasta.Location = new System.Drawing.Point(35, 358);
+            this.DTHasta.Name = "DTHasta";
+            this.DTHasta.Size = new System.Drawing.Size(200, 21);
+            this.DTHasta.TabIndex = 79;
             // 
-            // dateTimePicker1
+            // DTDesde
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(35, 259);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 78;
+            this.DTDesde.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTDesde.Location = new System.Drawing.Point(35, 259);
+            this.DTDesde.Name = "DTDesde";
+            this.DTDesde.Size = new System.Drawing.Size(200, 21);
+            this.DTDesde.TabIndex = 78;
             // 
             // label7
             // 
@@ -161,11 +162,11 @@
             this.label4.Size = new System.Drawing.Size(264, 561);
             this.label4.TabIndex = 72;
             // 
-            // DGMisVentas
+            // DGVentas
             // 
-            this.DGMisVentas.AllowUserToAddRows = false;
-            this.DGMisVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGMisVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVentas.AllowUserToAddRows = false;
+            this.DGVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CIdVenta,
             this.CNumDoc,
             this.CVendedor,
@@ -176,10 +177,10 @@
             this.CForma,
             this.CFecha,
             this.CDetalle});
-            this.DGMisVentas.Location = new System.Drawing.Point(319, 46);
-            this.DGMisVentas.Name = "DGMisVentas";
-            this.DGMisVentas.Size = new System.Drawing.Size(843, 443);
-            this.DGMisVentas.TabIndex = 70;
+            this.DGVentas.Location = new System.Drawing.Point(319, 46);
+            this.DGVentas.Name = "DGVentas";
+            this.DGVentas.Size = new System.Drawing.Size(843, 443);
+            this.DGVentas.TabIndex = 70;
             // 
             // label3
             // 
@@ -274,8 +275,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DTHasta);
+            this.Controls.Add(this.DTDesde);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -283,13 +284,13 @@
             this.Controls.Add(this.LTotal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.DGMisVentas);
+            this.Controls.Add(this.DGVentas);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "Reportes";
             this.Text = "Reportes";
             this.Load += new System.EventHandler(this.Reportes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVentas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,8 +299,8 @@
         #endregion
 
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DTHasta;
+        private System.Windows.Forms.DateTimePicker DTDesde;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -307,7 +308,7 @@
         private System.Windows.Forms.Label LTotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView DGMisVentas;
+        private System.Windows.Forms.DataGridView DGVentas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIdVenta;
