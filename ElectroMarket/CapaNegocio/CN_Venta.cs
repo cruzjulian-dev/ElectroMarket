@@ -31,6 +31,11 @@ namespace CapaNegocio
 
         }
 
+        public List<Venta> traerVentas()
+        {
+            return objCd_Venta.traerVentas();
+        }
+
         public Venta buscarVenta(int idVenta)
         {
             return objCd_Venta.buscarVenta(idVenta);

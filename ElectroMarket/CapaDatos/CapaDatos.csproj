@@ -55,7 +55,6 @@
     <Compile Include="CD_Categoria.cs" />
     <Compile Include="CD_Cliente.cs" />
     <Compile Include="CD_DetalleVenta.cs" />
-    <Compile Include="CD_MisVentas.cs" />
     <Compile Include="CD_Producto.cs" />
     <Compile Include="CD_Restaurar.cs" />
     <Compile Include="CD_Rol.cs" />
