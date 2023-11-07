@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -32,8 +33,8 @@ namespace CapaPresentacion
             foreach (Venta item in listaVentas)
             {
 
-                DGMisVentas.Rows.Add(new object[] { item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
-                    item.MontoTotal, item.oFormaPago.Descripcion, item.FechaRegistro, "Ver Detalle"
+                DGMisVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
+                    item.MontoTotal, item.oFormaPago.Descripcion, Convert.ToDateTime(item.FechaRegistro).ToString("dd-MM-yyyy"), "Ver Detalle"
                 });
             }
         }
@@ -43,7 +44,7 @@ namespace CapaPresentacion
         {
             if (e.RowIndex >= 0 && DGMisVentas.Columns[e.ColumnIndex].Name == "CDetalle")
             {
-                FormDetalleVenta detalleForm = new FormDetalleVenta(e.RowIndex + 1);
+                FormDetalleVenta detalleForm = new FormDetalleVenta(Convert.ToInt32(DGMisVentas.Rows[e.RowIndex].Cells["CIdVenta"].Value.ToString()));
                 detalleForm.ShowDialog();
             }
         }

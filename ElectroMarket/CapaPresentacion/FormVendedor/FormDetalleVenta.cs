@@ -49,7 +49,7 @@ namespace CapaPresentacion
             foreach (DetalleVenta item in detalle)
             {
 
-                DGDetalle.Rows.Add(new object[] { item.oProducto.Nombre, item.oProducto.Descripcion, item.Cantidad, item.PrecioVenta, item.SubTotal,
+                DGDetalle.Rows.Add(new object[] { item.oProducto.Nombre, item.oProducto.Descripcion, item.PrecioVenta, item.Cantidad, item.SubTotal
                 });
             }
         }

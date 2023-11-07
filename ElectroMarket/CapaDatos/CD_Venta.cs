@@ -111,7 +111,8 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT V.NumeroDocumento,");
+                    query.AppendLine("SELECT V.IdVenta,");
+                    query.AppendLine("V.NumeroDocumento,");
                     query.AppendLine("U.Nombre,");
                     query.AppendLine("U.Apellido,");
                     query.AppendLine("V.DniCliente,");
@@ -135,17 +136,13 @@ namespace CapaDatos
                         {
                             Venta venta = new Venta
                             {
-                                //IdVenta = 0,
+                                IdVenta = Convert.ToInt32(dr["IdVenta"]),
                                 oUsuario = new Usuario { Nombre = dr["Nombre"].ToString(), Apellido = dr["Apellido"].ToString() },
                                 NombreCliente = dr["NombreCliente"].ToString(),
                                 ApellidoCliente = dr["ApellidoCliente"].ToString(),
                                 DniCliente = Convert.ToInt32(dr["DniCliente"]),
-                                //Detalle_Venta = null,
-                                //TipoDocumento = null,
                                 NumeroDocumento = dr["NumeroDocumento"].ToString(),
                                 MontoTotal = Convert.ToDecimal(dr["MontoTotal"]),
-                                //MontoPago = 0,
-                                //MontoCambio = 0,
                                 oFormaPago = new FormaPago { Descripcion = dr["Descripcion"].ToString() },
                                 FechaRegistro = dr["FechaRegistro"].ToString()
                             };

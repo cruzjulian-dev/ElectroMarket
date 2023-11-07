@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.DGMisVentas = new System.Windows.Forms.DataGridView();
+            this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,22 +51,15 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.CNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGMisVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // DGMisVentas
             // 
+            this.DGMisVentas.AllowUserToAddRows = false;
             this.DGMisVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGMisVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIdVenta,
             this.CNumDoc,
             this.CVendedor,
             this.CDniCliente,
@@ -71,6 +74,73 @@
             this.DGMisVentas.Size = new System.Drawing.Size(843, 443);
             this.DGMisVentas.TabIndex = 12;
             this.DGMisVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // CIdVenta
+            // 
+            this.CIdVenta.HeaderText = "IdVenta";
+            this.CIdVenta.Name = "CIdVenta";
+            this.CIdVenta.Visible = false;
+            // 
+            // CNumDoc
+            // 
+            this.CNumDoc.HeaderText = "Num. Documento";
+            this.CNumDoc.Name = "CNumDoc";
+            this.CNumDoc.Width = 70;
+            // 
+            // CVendedor
+            // 
+            this.CVendedor.HeaderText = "Vendedor";
+            this.CVendedor.Name = "CVendedor";
+            this.CVendedor.ReadOnly = true;
+            this.CVendedor.Width = 105;
+            // 
+            // CDniCliente
+            // 
+            this.CDniCliente.HeaderText = "DNI Cliente";
+            this.CDniCliente.Name = "CDniCliente";
+            this.CDniCliente.ReadOnly = true;
+            this.CDniCliente.Width = 80;
+            // 
+            // CNombreCliente
+            // 
+            this.CNombreCliente.HeaderText = "Nombre Cliente";
+            this.CNombreCliente.Name = "CNombreCliente";
+            this.CNombreCliente.ReadOnly = true;
+            // 
+            // CApellidoCliente
+            // 
+            this.CApellidoCliente.HeaderText = "Apellido Cliente";
+            this.CApellidoCliente.Name = "CApellidoCliente";
+            this.CApellidoCliente.ReadOnly = true;
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Monto Total";
+            this.CTotal.Name = "CTotal";
+            this.CTotal.ReadOnly = true;
+            // 
+            // CForma
+            // 
+            this.CForma.HeaderText = "Forma de Pago";
+            this.CForma.Name = "CForma";
+            this.CForma.ReadOnly = true;
+            this.CForma.Width = 90;
+            // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha Venta";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.ReadOnly = true;
+            this.CFecha.Width = 85;
+            // 
+            // CDetalle
+            // 
+            this.CDetalle.HeaderText = "Ver detalle";
+            this.CDetalle.Name = "CDetalle";
+            this.CDetalle.ReadOnly = true;
+            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CDetalle.Width = 70;
             // 
             // label3
             // 
@@ -140,16 +210,17 @@
             this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 97);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 54);
+            this.label5.Size = new System.Drawing.Size(231, 122);
             this.label5.TabIndex = 62;
-            this.label5.Text = "Seleccione el rango de fechas en el que desea filtrar sus ventas";
+            this.label5.Text = "Seleccione el rango de fechas en el que desea filtrar sus ventas. Por defecto, la" +
+    "s ventas se cargan desde la más recientes a las más antiguas";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(27, 185);
+            this.label6.Location = new System.Drawing.Point(27, 250);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 18);
             this.label6.TabIndex = 63;
@@ -160,7 +231,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(27, 284);
+            this.label7.Location = new System.Drawing.Point(27, 349);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 18);
             this.label7.TabIndex = 64;
@@ -169,7 +240,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(30, 216);
+            this.dateTimePicker1.Location = new System.Drawing.Point(30, 281);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
             this.dateTimePicker1.TabIndex = 65;
@@ -177,7 +248,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(30, 315);
+            this.dateTimePicker2.Location = new System.Drawing.Point(30, 380);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
             this.dateTimePicker2.TabIndex = 66;
@@ -189,7 +260,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(51, 389);
+            this.iconButton1.Location = new System.Drawing.Point(48, 465);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(133, 55);
             this.iconButton1.TabIndex = 67;
@@ -197,67 +268,6 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // CNumDoc
-            // 
-            this.CNumDoc.HeaderText = "Num. Documento";
-            this.CNumDoc.Name = "CNumDoc";
-            this.CNumDoc.Width = 70;
-            // 
-            // CVendedor
-            // 
-            this.CVendedor.HeaderText = "Vendedor";
-            this.CVendedor.Name = "CVendedor";
-            this.CVendedor.ReadOnly = true;
-            this.CVendedor.Width = 105;
-            // 
-            // CDniCliente
-            // 
-            this.CDniCliente.HeaderText = "DNI Cliente";
-            this.CDniCliente.Name = "CDniCliente";
-            this.CDniCliente.ReadOnly = true;
-            this.CDniCliente.Width = 80;
-            // 
-            // CNombreCliente
-            // 
-            this.CNombreCliente.HeaderText = "Nombre Cliente";
-            this.CNombreCliente.Name = "CNombreCliente";
-            this.CNombreCliente.ReadOnly = true;
-            // 
-            // CApellidoCliente
-            // 
-            this.CApellidoCliente.HeaderText = "Apellido Cliente";
-            this.CApellidoCliente.Name = "CApellidoCliente";
-            this.CApellidoCliente.ReadOnly = true;
-            // 
-            // CTotal
-            // 
-            this.CTotal.HeaderText = "Monto Total";
-            this.CTotal.Name = "CTotal";
-            this.CTotal.ReadOnly = true;
-            // 
-            // CForma
-            // 
-            this.CForma.HeaderText = "Forma de Pago";
-            this.CForma.Name = "CForma";
-            this.CForma.ReadOnly = true;
-            this.CForma.Width = 90;
-            // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha Venta";
-            this.CFecha.Name = "CFecha";
-            this.CFecha.ReadOnly = true;
-            this.CFecha.Width = 85;
-            // 
-            // CDetalle
-            // 
-            this.CDetalle.HeaderText = "Ver detalle";
-            this.CDetalle.Name = "CDetalle";
-            this.CDetalle.ReadOnly = true;
-            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CDetalle.Width = 70;
             // 
             // MisVentas
             // 
@@ -300,6 +310,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNumDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDniCliente;
