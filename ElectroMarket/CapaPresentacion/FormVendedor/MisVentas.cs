@@ -29,14 +29,22 @@ namespace CapaPresentacion
 
             List<Venta> listaVentas = cnVenta.traerVentas();
 
-            // Relleno el datagrid con las ventas
-            foreach (Venta item in listaVentas)
+            // Pregunto si hay ventas
+            if (listaVentas != null)
             {
-
-                DGMisVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
+                // Relleno el datagrid con las ventas
+                foreach (Venta item in listaVentas)
+                {
+                    if (VistaVendedor.usuarioActual.UsuarioLogin == item.oUsuario.UsuarioLogin)
+                    {
+                        DGMisVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
                     item.MontoTotal, item.oFormaPago.Descripcion, Convert.ToDateTime(item.FechaRegistro).ToString("dd-MM-yyyy"), "Ver Detalle"
-                });
+                    });
+                    }
+
+                }
             }
+            
         }
 
 

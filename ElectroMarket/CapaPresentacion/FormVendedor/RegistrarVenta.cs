@@ -181,7 +181,7 @@ namespace CapaPresentacion
                 {
                     decimal pago = Convert.ToDecimal(TPagaCon.Text);
                     decimal total = Convert.ToDecimal(TTotal.Text);
-                    if (pago <= total)
+                    if (pago < total)
                     {
                         MessageBox.Show("El Monto pagado es menor que el Precio Total!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
@@ -286,10 +286,27 @@ namespace CapaPresentacion
 
         private void TPagaCon_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un número o la tecla Backspace (borrar).
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            // Verifica si la tecla presionada no es un número, una coma decimal o la tecla Backspace (borrar).
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
             {
-                // Si no es un número ni una tecla de borrar, cancela la entrada.
+                e.Handled = true;
+            }
+
+            // Evita múltiples puntos decimales o comas
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+
+            // Evita que se empiece con una coma o un punto
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.Length == 0)
+            {
+                e.Handled = true;
+            }
+
+            // Evita que se ingresen comas o puntos después de un espacio en blanco
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).Text.EndsWith(" "))
+            {
                 e.Handled = true;
             }
         }

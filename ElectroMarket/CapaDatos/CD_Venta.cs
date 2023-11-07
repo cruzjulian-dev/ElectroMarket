@@ -115,6 +115,7 @@ namespace CapaDatos
                     query.AppendLine("V.NumeroDocumento,");
                     query.AppendLine("U.Nombre,");
                     query.AppendLine("U.Apellido,");
+                    query.AppendLine("U.UsuarioLogin,");
                     query.AppendLine("V.DniCliente,");
                     query.AppendLine("V.NombreCliente,");
                     query.AppendLine("V.ApellidoCliente,");
@@ -124,6 +125,7 @@ namespace CapaDatos
                     query.AppendLine("FROM VENTAS V");
                     query.AppendLine("INNER JOIN USUARIOS U ON V.IdUsuario = U.IdUsuario");
                     query.AppendLine("INNER JOIN FORMA_PAGO FP ON V.IdFormaPago = FP.IdFormaPago");
+                    query.AppendLine("ORDER BY FechaRegistro DESC");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
                     cmd.CommandType = CommandType.Text;
@@ -137,7 +139,7 @@ namespace CapaDatos
                             Venta venta = new Venta
                             {
                                 IdVenta = Convert.ToInt32(dr["IdVenta"]),
-                                oUsuario = new Usuario { Nombre = dr["Nombre"].ToString(), Apellido = dr["Apellido"].ToString() },
+                                oUsuario = new Usuario { Nombre = dr["Nombre"].ToString(), Apellido = dr["Apellido"].ToString(), UsuarioLogin = dr["UsuarioLogin"].ToString() },
                                 NombreCliente = dr["NombreCliente"].ToString(),
                                 ApellidoCliente = dr["ApellidoCliente"].ToString(),
                                 DniCliente = Convert.ToInt32(dr["DniCliente"]),
