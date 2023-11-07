@@ -105,14 +105,14 @@ namespace CapaDatos
 
         public Venta buscarVenta(int idVenta)
         {
-            Venta venta = new Venta();
+            Venta venta = null;
 
             using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT v.IdVenta, v.FechaRegistro, u.Nombre, u.Apellido, fp.Descripcion, v.NombreCliente, v.ApellidoCliente, v.DniCliente, v.MontoTotal, v.MontoPago, v.MontoCambio");
+                    query.AppendLine("SELECT v.IdVenta, v.FechaRegistro, u.Nombre, u.Apellido, fp.Descripcion, v.NombreCliente, v.ApellidoCliente, v.DniCliente, v.MontoTotal, v.MontoPago, v.MontoCambio, v.NumeroDocumento, v.TipoDocumento");
                     query.AppendLine("FROM VENTAS v");
                     query.AppendLine("INNER JOIN USUARIOS u ON u.IdUsuario = v.IdUsuario");
                     query.AppendLine("INNER JOIN FORMA_PAGO fp ON fp.IdFormaPago = v.IdFormaPago");
@@ -120,30 +120,38 @@ namespace CapaDatos
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
                     cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@IdVenta", idVenta); 
+
 
                     oConexion.Open();
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        while (dr.Read()) // VER SI ES NECESARIO EL WHILE
+                        if (dr.Read())
                         {
-                            venta.IdVenta = Convert.ToInt32(dr["IdVenta"]);
-                            venta.oUsuario = new Usuario() { Nombre = dr["Nombre"].ToString(), Apellido = dr["Apellido"].ToString() };
-                            venta.NombreCliente = dr["NombreCliente"].ToString();
-                            venta.ApellidoCliente = dr["ApellidoCliente"].ToString();
-                            venta.DniCliente = Convert.ToInt32(dr["DniCliente"]);
-                            venta.MontoTotal = Convert.ToDecimal(dr["MontoTotal"]);
-                            venta.MontoPago = Convert.ToInt32(dr["MontoPago"]);
-                            venta.MontoCambio = Convert.ToDecimal(dr["MontoCambio"]);
-                            venta.oFormaPago = new FormaPago() { Descripcion = dr["Descripcion"].ToString() };
-                            venta.FechaRegistro = dr["FechaRegistro"].ToString();
+                            venta = new Venta
+                            {
+                                IdVenta = Convert.ToInt32(dr["IdVenta"]),
+                                oUsuario = new Usuario { Nombre = dr["Nombre"].ToString(), Apellido = dr["Apellido"].ToString() },
+                                NombreCliente = dr["NombreCliente"].ToString(),
+                                ApellidoCliente = dr["ApellidoCliente"].ToString(),
+                                DniCliente = Convert.ToInt32(dr["DniCliente"]),
+                                Detalle_Venta = null,
+                                TipoDocumento = dr["TipoDocumento"].ToString(),
+                                NumeroDocumento = dr["NumeroDocumento"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["MontoTotal"]),
+                                MontoPago = Convert.ToInt32(dr["MontoPago"]),
+                                MontoCambio = Convert.ToDecimal(dr["MontoCambio"]),
+                                oFormaPago = new FormaPago { Descripcion = dr["Descripcion"].ToString() },
+                                FechaRegistro = dr["FechaRegistro"].ToString()
+                            };
                         }
                     }
 
                 }
                 catch (Exception)
                 {
-                    venta = new Venta();
+                    venta = null;
                 }
 
             }

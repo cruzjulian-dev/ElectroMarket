@@ -56,10 +56,8 @@
             this.TPago = new System.Windows.Forms.TextBox();
             this.TTotal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.CIdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -264,10 +262,8 @@
             this.DGDetalle.AllowUserToAddRows = false;
             this.DGDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CIdProd,
             this.Cproducto,
             this.CDescripcion,
-            this.CCategoria,
             this.Cprecio,
             this.Ccantidad,
             this.Csubtotal});
@@ -374,14 +370,6 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // CIdProd
-            // 
-            this.CIdProd.HeaderText = "ID";
-            this.CIdProd.Name = "CIdProd";
-            this.CIdProd.ReadOnly = true;
-            this.CIdProd.Visible = false;
-            this.CIdProd.Width = 40;
-            // 
             // Cproducto
             // 
             this.Cproducto.HeaderText = "Producto";
@@ -395,14 +383,6 @@
             this.CDescripcion.Name = "CDescripcion";
             this.CDescripcion.ReadOnly = true;
             this.CDescripcion.Width = 130;
-            // 
-            // CCategoria
-            // 
-            this.CCategoria.HeaderText = "Categoria";
-            this.CCategoria.Name = "CCategoria";
-            this.CCategoria.ReadOnly = true;
-            this.CCategoria.Visible = false;
-            this.CCategoria.Width = 80;
             // 
             // Cprecio
             // 
@@ -482,10 +462,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TFormaPago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CIdProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cprecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;

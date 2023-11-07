@@ -33,16 +33,25 @@ namespace CapaPresentacion
             // Limpia el DataGridView antes de agregar nuevos detalles
             DGDetalle.Rows.Clear();
 
+            // Relleno cabecera de venta
             TIdVenta.Text = cabeceraVenta.NumeroDocumento.ToString();
             TVendedor.Text = cabeceraVenta.oUsuario.Nombre + " " + cabeceraVenta.oUsuario.Apellido;
             TFormaPago.Text = cabeceraVenta.oFormaPago.Descripcion;
-            TFecha.Text = cabeceraVenta.FechaRegistro.ToString();
+            TFecha.Text = Convert.ToDateTime(cabeceraVenta.FechaRegistro).ToString("dd-MM-yyyy");
             TNombre.Text = cabeceraVenta.NombreCliente;
             TApellido.Text = cabeceraVenta.ApellidoCliente;
             TDocumento.Text = Convert.ToInt32(cabeceraVenta.DniCliente).ToString();
             TTotal.Text = cabeceraVenta.MontoTotal.ToString();
             TCambio.Text = cabeceraVenta.MontoCambio.ToString();
             TPago.Text = cabeceraVenta.MontoPago.ToString();
+
+            // Relleno detalle de venta
+            foreach (DetalleVenta item in detalle)
+            {
+
+                DGDetalle.Rows.Add(new object[] { item.oProducto.Nombre, item.oProducto.Descripcion, item.Cantidad, item.PrecioVenta, item.SubTotal,
+                });
+            }
         }
 
         private void label8_Click(object sender, EventArgs e)

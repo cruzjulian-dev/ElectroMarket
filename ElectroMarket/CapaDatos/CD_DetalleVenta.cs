@@ -20,13 +20,13 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.Nombre, p.Descripcion, c.IdCategoria, c.Descripcion , p.Stock, p.PrecioVenta, p.Estado");
+                    query.AppendLine("SELECT p.Nombre, p.Descripcion,  dv.Cantidad, dv.PrecioVenta, dv.SubTotal");
                     query.AppendLine("FROM PRODUCTOS p");
-                    query.AppendLine("INNER JOIN CATEGORIAS c ON c.IdCategoria = p.IdCategoria");
                     query.AppendLine("INNER JOIN DETALLE_VENTA dv ON dv.IdProducto = p.IdProducto");
                     query.AppendLine("WHERE dv.IdVenta = @IdVenta");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
+                    cmd.Parameters.AddWithValue("@IdVenta", idVenta);
                     cmd.CommandType = CommandType.Text;
 
                     oConexion.Open();
@@ -35,22 +35,21 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
-                            listaDetalle.Add(new DetalleVenta()
+                            DetalleVenta detalle = new DetalleVenta
                             {
-                                IdDetalleVenta = Convert.ToInt32(dr["IdDetalleVenta"]),
-                                IdVenta = Convert.ToInt32(dr["IdVenta"]),
-                                oProducto = new Producto() { Nombre = dr["Nombre"].ToString(), Descripcion = dr["DescripcionCategoria"].ToString(), Precio = Convert.ToDecimal(dr["PrecioVenta"])},
+                                oProducto = new Producto() { Nombre = dr["Nombre"].ToString(), Descripcion = dr["Descripcion"].ToString()},
                                 PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"]),
                                 Cantidad = Convert.ToInt32(dr["Cantidad"]),
                                 SubTotal = Convert.ToDecimal(dr["SubTotal"])
-                            });
+                            };
+                            listaDetalle.Add(detalle);
                         }
                     }
 
                 }
                 catch (Exception)
                 {
-                    listaDetalle = new List<DetalleVenta>();
+                    listaDetalle = null;
                 }
 
             }
