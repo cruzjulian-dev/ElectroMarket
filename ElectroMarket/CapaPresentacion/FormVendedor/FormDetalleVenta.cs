@@ -85,10 +85,11 @@ namespace CapaPresentacion
         {
             if(TIdVenta.Text == "")
             {
-                MessageBox.Show("No se Econtraron resultados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se encontraron resultados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
+            //agregar aca if si es factura o presupuesto
 
             string Texto_html = Properties.Resources.PlantillaVenta.ToString();
 
@@ -99,7 +100,7 @@ namespace CapaPresentacion
             Texto_html = Texto_html.Replace("@nombrecliente", TNombre.Text + " " + TApellido.Text);
             Texto_html = Texto_html.Replace("@fecharegistro", TFecha.Text);
             Texto_html = Texto_html.Replace("@vendedorregistro", TVendedor.Text);
-
+            Texto_html = Texto_html.Replace("@formapago", TFormaPago.Text);
 
             string filas = string.Empty;
             foreach(DataGridViewRow row in DGDetalle.Rows)

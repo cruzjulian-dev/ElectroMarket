@@ -506,6 +506,7 @@ GO
 
 ------------------------------------- COMIENZO DE CREACION DE DATOS DE PRUEBA -------------------------------------
 
+-- ROLES
 INSERT INTO ROLES (Descripcion) 
 VALUES ('Vendedor')
 
@@ -518,11 +519,11 @@ GO
 
 INSERT INTO ROLES (Descripcion) 
 VALUES ('Super Administrador')
+-- FIN ROLES
 
 GO
 
-
-
+-- FORMAS DE PAGO
 INSERT INTO FORMA_PAGO(Descripcion)
 VALUES ('Efectivo')
 
@@ -535,7 +536,7 @@ GO
 
 INSERT INTO FORMA_PAGO(Descripcion)
 VALUES ('Mercado Pago')
-
+-- FIN FORMAS DE PAGO
 
 GO
 
@@ -640,6 +641,28 @@ insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Es
 values ('HTCH40LD','Smart TV Hitachi','LED - FULL HD - 40" - Android Tv', 1, 37, 174999.99, 1)
 -- FIN PRODUCTOS
 
+GO
 
---update productos set stock = stock  - @cantidad where idproducto = @idproducto
+-- VENTAS
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (3, 1, 25082522, 'Juan', 'Perez', 'Factura', '00001', 911000, 500.01, 910499.99, '07-11-2023')
+-- FIN VENTAS
+
+GO
+
+-- DETALLE DE VENTAS
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 2, 125000, 2, 250000, '07-11-2023')
+
+GO
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 1, 79999.99, 1, 79999.99, '07-11-2023')
+
+GO
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 4, 580500, 1, 580500, '07-11-2023')
+-- FIN DETALLE DE VENTAS
+
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------
