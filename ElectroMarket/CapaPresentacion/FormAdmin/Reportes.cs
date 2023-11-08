@@ -86,5 +86,14 @@ namespace CapaPresentacion
         {
             DGVentas.Rows.Clear();
         }
+
+        private void DGVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && DGVentas.Columns[e.ColumnIndex].Name == "CDetalle")
+            {
+                FormDetalleVenta detalleForm = new FormDetalleVenta(Convert.ToInt32(DGVentas.Rows[e.RowIndex].Cells["CIdVenta"].Value.ToString()), new Venta());
+                detalleForm.ShowDialog();
+            }
+        }
     }
 }

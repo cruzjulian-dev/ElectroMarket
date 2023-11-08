@@ -39,8 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DGVentas = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +49,8 @@
             this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,26 +181,7 @@
             this.DGVentas.Name = "DGVentas";
             this.DGVentas.Size = new System.Drawing.Size(843, 443);
             this.DGVentas.TabIndex = 70;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(892, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 18);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Total vendido:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 502);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 18);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "Cantidad de ventas realizadas:";
+            this.DGVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVentas_CellContentClick);
             // 
             // CIdVenta
             // 
@@ -268,6 +249,26 @@
             this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CDetalle.Width = 70;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(892, 502);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 18);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "Total vendido:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(315, 502);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 18);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Cantidad de ventas realizadas:";
             // 
             // Reportes
             // 
