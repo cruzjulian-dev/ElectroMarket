@@ -44,9 +44,22 @@ namespace CapaPresentacion
 
                 }
             }
-            
+            calcularDatos();
         }
 
+        private void calcularDatos()
+        {
+            decimal montoTotal = 0;
+
+            foreach (DataGridViewRow row in DGMisVentas.Rows)
+            {
+                decimal montoVenta = Convert.ToDecimal(row.Cells[6].Value);
+                montoTotal += montoVenta;
+            }
+
+            LTotal.Text = montoTotal.ToString();
+            LVentas.Text = DGMisVentas.Rows.Count.ToString();
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -79,6 +92,7 @@ namespace CapaPresentacion
 
                 }
             }
+            calcularDatos();
         }
 
         private void limpiarTabla()

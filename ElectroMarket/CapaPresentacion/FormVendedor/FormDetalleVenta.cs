@@ -92,7 +92,7 @@ namespace CapaPresentacion
 
             string Texto_html = Properties.Resources.PlantillaVenta.ToString();
 
-            Texto_html = Texto_html.Replace("tipodocumento", "BOLETA");
+            Texto_html = Texto_html.Replace("tipodocumento", "Factura");
             Texto_html = Texto_html.Replace("numerodocumento", TIdVenta.Text.ToUpper());
 
             Texto_html = Texto_html.Replace("@doccliente", TDocumento.Text);
@@ -118,9 +118,14 @@ namespace CapaPresentacion
             Texto_html = Texto_html.Replace("@pagocon", TPago.Text);
             Texto_html = Texto_html.Replace("@cambio", TCambio.Text);
 
+            DateTime fechaActual = DateTime.Now;
+            int anio = fechaActual.Year;
+            int mes = fechaActual.Month;
+            int dia = fechaActual.Day;
 
             SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("Venta_{0}.pdf", TIdVenta.Text);
+
+            savefile.FileName = string.Format("Venta_{0}__" + dia + "-" + mes + "-" + anio + ".pdf", TIdVenta.Text);
             savefile.Filter = "pdf Files|*.pdf";
 
             if(savefile.ShowDialog() == DialogResult.OK)
@@ -165,7 +170,15 @@ namespace CapaPresentacion
 
                     pdfDoc.Close();
                     stream.Close();
-                    MessageBox.Show("Documento Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Preguntar si el usuario desea abrir el PDF
+                    DialogResult result = MessageBox.Show("Factura guardada. ¿Desea visualizar la factura recién creada?", "Abrir PDF", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Abrir el archivo PDF con la aplicación predeterminada
+                        System.Diagnostics.Process.Start(savefile.FileName);
+                    }
                 }
             }
         }
