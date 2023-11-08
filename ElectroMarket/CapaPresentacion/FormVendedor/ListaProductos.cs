@@ -67,6 +67,19 @@ namespace CapaPresentacion
 
         private void ListaProductos_Load(object sender, EventArgs e)
         {
+
+            foreach (DataGridViewColumn columna in DGProductos.Columns)
+            {
+                if (columna.Visible == true && columna.HeaderText != "Precio" && columna.HeaderText != "Seleccionar")
+                {
+                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                }
+            }
+            CBBusqueda.DisplayMember = "Texto";
+            CBBusqueda.ValueMember = "Valor";
+            CBBusqueda.SelectedIndex = 0;
+
+
             // Mostrar todos los Productos activos desde la BD
             List<Producto> lista = new CN_Producto().ListarProductosActivos();
 
@@ -100,7 +113,23 @@ namespace CapaPresentacion
 
         private void icoBtnBuscar_Click(object sender, EventArgs e)
         {
+            string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
 
+            if (DGProductos.Rows.Count > 0)  // pregunta si hay filas
+            {
+                foreach (DataGridViewRow row in DGProductos.Rows) // recorro cada fila del datagrid
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+
+                }
+            }
         }
 
         private void DGProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -124,5 +153,53 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void icoBtnLimpiar_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
+        }
+
+        private void ActualizarTabla()
+        {
+
+            // Mostrar todos los Productos activos desde la BD
+            List<Producto> lista = new CN_Producto().ListarProductosActivos();
+
+            foreach (Producto item in lista)
+            {
+                bool botonHabilitado = item.Stock >= 1;
+                string botonTexto = botonHabilitado ? "Seleccionar" : "Agotado";
+
+                DGProductos.Rows.Add(new object[] {
+                    item.Codigo,
+                    item.Nombre,
+                    item.Descripcion,
+                    item.Precio,
+                    item.Stock,
+                    item.oCategoria.IdCategoria,
+                    item.oCategoria.Descripcion,
+                    item.Estado == true ? "Activo" : "No Activo",
+                    item.Estado == true ? 1 : 0,
+                    botonTexto,
+                    item.IdProducto
+                    });
+
+            }
+
+            if (FuenteFormulario == "VistaVendedor")
+            {
+                DGProductos.Columns["CSeleccionar"].Visible = false;
+            }
+
+
+        }
+
+        private void VaciarTabla()
+        {
+            DGProductos.Rows.Clear();
+        }
+
     }
 }
