@@ -61,6 +61,8 @@
             this.TPago = new System.Windows.Forms.TextBox();
             this.TTotal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.TTipo = new System.Windows.Forms.TextBox();
+            this.LTipo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGDetalle)).BeginInit();
@@ -147,7 +149,7 @@
             // 
             // TFecha
             // 
-            this.TFecha.Location = new System.Drawing.Point(126, 60);
+            this.TFecha.Location = new System.Drawing.Point(140, 60);
             this.TFecha.Name = "TFecha";
             this.TFecha.ReadOnly = true;
             this.TFecha.Size = new System.Drawing.Size(148, 21);
@@ -158,7 +160,7 @@
             this.Ltipodoc.AutoSize = true;
             this.Ltipodoc.BackColor = System.Drawing.Color.White;
             this.Ltipodoc.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ltipodoc.Location = new System.Drawing.Point(132, 44);
+            this.Ltipodoc.Location = new System.Drawing.Point(137, 44);
             this.Ltipodoc.Name = "Ltipodoc";
             this.Ltipodoc.Size = new System.Drawing.Size(45, 13);
             this.Ltipodoc.TabIndex = 24;
@@ -171,16 +173,16 @@
             this.LFecha.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LFecha.Location = new System.Drawing.Point(5, 44);
             this.LFecha.Name = "LFecha";
-            this.LFecha.Size = new System.Drawing.Size(102, 13);
+            this.LFecha.Size = new System.Drawing.Size(126, 13);
             this.LFecha.TabIndex = 23;
-            this.LFecha.Text = "Numero Factura:";
+            this.LFecha.Text = "Numero Documento:";
             // 
             // TIdVenta
             // 
             this.TIdVenta.Location = new System.Drawing.Point(6, 60);
             this.TIdVenta.Name = "TIdVenta";
             this.TIdVenta.ReadOnly = true;
-            this.TIdVenta.Size = new System.Drawing.Size(101, 21);
+            this.TIdVenta.Size = new System.Drawing.Size(123, 21);
             this.TIdVenta.TabIndex = 1;
             // 
             // groupBox2
@@ -215,9 +217,9 @@
             this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(390, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Documento:";
+            this.label1.Text = "DNI:";
             // 
             // TApellido
             // 
@@ -405,11 +407,32 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
+            // TTipo
+            // 
+            this.TTipo.Location = new System.Drawing.Point(647, 36);
+            this.TTipo.Name = "TTipo";
+            this.TTipo.Size = new System.Drawing.Size(100, 20);
+            this.TTipo.TabIndex = 29;
+            this.TTipo.Visible = false;
+            // 
+            // LTipo
+            // 
+            this.LTipo.AutoSize = true;
+            this.LTipo.BackColor = System.Drawing.Color.White;
+            this.LTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTipo.Location = new System.Drawing.Point(644, 74);
+            this.LTipo.Name = "LTipo";
+            this.LTipo.Size = new System.Drawing.Size(11, 16);
+            this.LTipo.TabIndex = 29;
+            this.LTipo.Text = ".";
+            // 
             // FormDetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 561);
+            this.Controls.Add(this.LTipo);
+            this.Controls.Add(this.TTipo);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.TCambio);
             this.Controls.Add(this.TPago);
@@ -471,5 +494,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cprecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ccantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Csubtotal;
+        private System.Windows.Forms.TextBox TTipo;
+        private System.Windows.Forms.Label LTipo;
     }
 }

@@ -35,7 +35,7 @@ namespace CapaPresentacion
 
             // combo box tipo de documento
             TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Factura", Texto = "Factura"});
-            //TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Presupuesto", Texto = "Presupuesto" });
+            TTipoDoc.Items.Add(new OpcionCombo() { Valor = "Presupuesto", Texto = "Presupuesto" });
             TTipoDoc.DisplayMember = "Texto";
             TTipoDoc.ValueMember = "Valor";
             TTipoDoc.SelectedIndex = -1;
@@ -187,77 +187,141 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        if (MessageBox.Show("Seguro que quieres realizar la venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (TTipoDoc.Text == "Factura")
                         {
-                            List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
-
-                            DataTable detalle_venta = new DataTable();
-
-                            detalle_venta.Columns.Add("IdProducto", typeof(int));
-                            detalle_venta.Columns.Add("PrecioVenta", typeof(decimal));
-                            detalle_venta.Columns.Add("Cantidad", typeof(int));
-                            detalle_venta.Columns.Add("SubTotal", typeof(decimal));
-
-  
-                            foreach (DataGridViewRow row in DGDetalle.Rows)
+                            if (MessageBox.Show("Seguro que quieres realizar la venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
-                                DetalleVenta detalle = new DetalleVenta();
-                                detalle.oProducto = new Producto() {IdProducto = Convert.ToInt32(row.Cells["idProducto"].Value.ToString()), Nombre = row.Cells["Cproducto"].Value.ToString(), Descripcion = row.Cells["CDescripcion"].Value.ToString()  } ;
-                                detalle.PrecioVenta = Convert.ToDecimal(row.Cells["CPrecio"].Value.ToString());
-                                detalle.Cantidad = Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString());
-                                detalle.SubTotal = Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString());
+                                List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
 
-                                
-                                listaDetalle.Add(detalle);
+                                DataTable detalle_venta = new DataTable();
 
-                                detalle_venta.Rows.Add(
-                                    new object[]
-                                    {
+                                detalle_venta.Columns.Add("IdProducto", typeof(int));
+                                detalle_venta.Columns.Add("PrecioVenta", typeof(decimal));
+                                detalle_venta.Columns.Add("Cantidad", typeof(int));
+                                detalle_venta.Columns.Add("SubTotal", typeof(decimal));
+
+
+                                foreach (DataGridViewRow row in DGDetalle.Rows)
+                                {
+                                    DetalleVenta detalle = new DetalleVenta();
+                                    detalle.oProducto = new Producto() { IdProducto = Convert.ToInt32(row.Cells["idProducto"].Value.ToString()), Nombre = row.Cells["Cproducto"].Value.ToString(), Descripcion = row.Cells["CDescripcion"].Value.ToString() };
+                                    detalle.PrecioVenta = Convert.ToDecimal(row.Cells["CPrecio"].Value.ToString());
+                                    detalle.Cantidad = Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString());
+                                    detalle.SubTotal = Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString());
+
+
+                                    listaDetalle.Add(detalle);
+
+                                    detalle_venta.Rows.Add(
+                                        new object[]
+                                        {
                                         Convert.ToInt32(row.Cells["idProducto"].Value.ToString()),
                                         Convert.ToDecimal(row.Cells["CPrecio"].Value.ToString()),
                                         Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString()),
                                         Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString())
-                                    }
-                                );
+                                        }
+                                    );
+                                }
+
+
+                                int siguienteId = new CN_Venta().ObtenerSiguienteId();
+                                string numeroDocumento = string.Format("{0:00000}", siguienteId);
+
+                                Venta oVenta = new Venta()
+                                {
+                                    oUsuario = new Usuario() { IdUsuario = VistaVendedor.usuarioActual.IdUsuario },
+                                    DniCliente = Convert.ToInt32(TDni.Text),
+                                    NombreCliente = TNombre.Text.ToString(),
+                                    ApellidoCliente = TApe.Text.ToString(),
+                                    oFormaPago = new FormaPago() { IdFormaPago = Convert.ToInt32(((OpcionCombo)CBForma.SelectedItem).Valor) },
+                                    TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
+                                    NumeroDocumento = numeroDocumento,
+                                    MontoPago = Convert.ToDecimal(TPagaCon.Text),
+                                    MontoCambio = Convert.ToDecimal(TCambio.Text),
+                                    MontoTotal = Convert.ToDecimal(TTotal.Text),
+                                };
+
+                                string mensaje = string.Empty;
+                                bool respuesta = new CN_Venta().RegistrarVenta(oVenta, detalle_venta, out mensaje);
+
+                                if (respuesta)
+                                {
+
+                                    FormDetalleVenta detalle = new FormDetalleVenta(siguienteId, new Venta());
+                                    detalle.Show();
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show(mensaje);
+                                }
+
+                                VaciarCampos();
                             }
-
-                            
-                            int siguienteId = new CN_Venta().ObtenerSiguienteId();
-                            string numeroDocumento = string.Format("{0:00000}", siguienteId);
-
-
-
-                            Venta oVenta = new Venta()
-                            {
-                                oUsuario = new Usuario() { IdUsuario = VistaVendedor.usuarioActual.IdUsuario },
-                                DniCliente = Convert.ToInt32(TDni.Text),
-                                NombreCliente = TNombre.Text.ToString(),
-                                ApellidoCliente = TApe.Text.ToString(),
-                                oFormaPago = new FormaPago() { IdFormaPago = Convert.ToInt32(((OpcionCombo)CBForma.SelectedItem).Valor)},
-                                TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
-                                NumeroDocumento = numeroDocumento,
-                                MontoPago = Convert.ToDecimal(TPagaCon.Text),
-                                MontoCambio = Convert.ToDecimal(TCambio.Text),
-                                MontoTotal = Convert.ToDecimal(TTotal.Text)
-                            };
-
-                            string mensaje = string.Empty;
-                            bool respuesta = new CN_Venta().RegistrarVenta(oVenta, detalle_venta, out mensaje);
-
-                            if (respuesta)
-                            {
-
-                                FormDetalleVenta detalle = new FormDetalleVenta(siguienteId);
-                                detalle.Show();
-                                
-                            } else
-                            {
-                                MessageBox.Show(mensaje);
-                            }
-
-                            VaciarCampos();
                         }
-                        
+                        else
+                        {
+                            if (MessageBox.Show("Seguro que quieres realizar el presupuesto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                List<DetalleVenta> listaDetalle = new List<DetalleVenta>();
+
+                                DataTable detalle_venta = new DataTable();
+
+                                detalle_venta.Columns.Add("IdProducto", typeof(int));
+                                detalle_venta.Columns.Add("PrecioVenta", typeof(decimal));
+                                detalle_venta.Columns.Add("Cantidad", typeof(int));
+                                detalle_venta.Columns.Add("SubTotal", typeof(decimal));
+
+
+                                foreach (DataGridViewRow row in DGDetalle.Rows)
+                                {
+                                    DetalleVenta detalleventa = new DetalleVenta();
+                                    detalleventa.oProducto = new Producto() { IdProducto = Convert.ToInt32(row.Cells["idProducto"].Value.ToString()), Nombre = row.Cells["Cproducto"].Value.ToString(), Descripcion = row.Cells["CDescripcion"].Value.ToString() };
+                                    detalleventa.PrecioVenta = Convert.ToDecimal(row.Cells["CPrecio"].Value.ToString());
+                                    detalleventa.Cantidad = Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString());
+                                    detalleventa.SubTotal = Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString());
+
+
+                                    listaDetalle.Add(detalleventa);
+
+                                    detalle_venta.Rows.Add(
+                                        new object[]
+                                        {
+                                        Convert.ToInt32(row.Cells["idProducto"].Value.ToString()),
+                                        Convert.ToDecimal(row.Cells["CPrecio"].Value.ToString()),
+                                        Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString()),
+                                        Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString())
+                                        }
+                                    );
+                                }
+
+
+                                int siguienteId = new CN_Venta().ObtenerSiguienteId();
+                                string numeroDocumento = string.Format("{0:00000}", siguienteId);
+
+                                Venta presupuesto = new Venta()
+                                {
+                                    IdVenta = siguienteId,
+                                    oUsuario = VistaVendedor.usuarioActual,
+                                    DniCliente = Convert.ToInt32(TDni.Text),
+                                    NombreCliente = TNombre.Text.ToString(),
+                                    ApellidoCliente = TApe.Text.ToString(),
+                                    oFormaPago = new FormaPago() { Descripcion = ((OpcionCombo)CBForma.SelectedItem).Texto },
+                                    TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
+                                    Detalle_Venta = listaDetalle,
+                                    NumeroDocumento = numeroDocumento,
+                                    MontoPago = Convert.ToDecimal(TPagaCon.Text),
+                                    MontoCambio = Convert.ToDecimal(TCambio.Text),
+                                    MontoTotal = Convert.ToDecimal(TTotal.Text),
+                                };
+
+                                FormDetalleVenta detalle = new FormDetalleVenta(0, presupuesto);
+                                detalle.Show();
+
+                                VaciarCampos();
+                            }
+                        }
+
                     }
                 }
 

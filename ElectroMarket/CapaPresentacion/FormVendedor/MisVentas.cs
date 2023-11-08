@@ -65,7 +65,7 @@ namespace CapaPresentacion
         {
             if (e.RowIndex >= 0 && DGMisVentas.Columns[e.ColumnIndex].Name == "CDetalle")
             {
-                FormDetalleVenta detalleForm = new FormDetalleVenta(Convert.ToInt32(DGMisVentas.Rows[e.RowIndex].Cells["CIdVenta"].Value.ToString()));
+                FormDetalleVenta detalleForm = new FormDetalleVenta(Convert.ToInt32(DGMisVentas.Rows[e.RowIndex].Cells["CIdVenta"].Value.ToString()), new Venta());
                 detalleForm.ShowDialog();
             }
         }
