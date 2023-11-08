@@ -51,7 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.CBBusqueda = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TBusqueda = new System.Windows.Forms.TextBox();
             this.BMostrar = new FontAwesome.Sharp.IconButton();
             this.BBusqueda = new FontAwesome.Sharp.IconButton();
             this.label4 = new System.Windows.Forms.Label();
@@ -274,24 +274,19 @@
             this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBBusqueda.FormattingEnabled = true;
-            this.CBBusqueda.Items.AddRange(new object[] {
-            "DNI",
-            "Apellido",
-            "Nombre",
-            "ID"});
             this.CBBusqueda.Location = new System.Drawing.Point(852, 57);
             this.CBBusqueda.Name = "CBBusqueda";
             this.CBBusqueda.Size = new System.Drawing.Size(86, 21);
             this.CBBusqueda.TabIndex = 18;
             // 
-            // textBox1
+            // TBusqueda
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(944, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 19;
+            this.TBusqueda.BackColor = System.Drawing.Color.White;
+            this.TBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBusqueda.Location = new System.Drawing.Point(944, 57);
+            this.TBusqueda.Name = "TBusqueda";
+            this.TBusqueda.Size = new System.Drawing.Size(100, 21);
+            this.TBusqueda.TabIndex = 19;
             // 
             // BMostrar
             // 
@@ -309,6 +304,7 @@
             this.BMostrar.Size = new System.Drawing.Size(35, 33);
             this.BMostrar.TabIndex = 21;
             this.BMostrar.UseVisualStyleBackColor = false;
+            this.BMostrar.Click += new System.EventHandler(this.BMostrar_Click);
             // 
             // BBusqueda
             // 
@@ -450,7 +446,7 @@
             this.Controls.Add(this.LTelefono);
             this.Controls.Add(this.BBusqueda);
             this.Controls.Add(this.BMostrar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TBusqueda);
             this.Controls.Add(this.CBBusqueda);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -495,7 +491,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CBBusqueda;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TBusqueda;
         private FontAwesome.Sharp.IconButton BMostrar;
         private FontAwesome.Sharp.IconButton BBusqueda;
         private System.Windows.Forms.Label label4;

@@ -56,7 +56,7 @@ namespace CapaPresentacion
             foreach (Cliente item in listaCliente)
             {
 
-                DGClientes.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar", item.IdCliente 
+                DGClientes.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, Convert.ToDateTime(item.FechaNacimiento).ToString("dd-MM-yyyy"), item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar", item.IdCliente 
             });
 
             }
@@ -151,7 +151,7 @@ namespace CapaPresentacion
             foreach (Cliente item in listaCliente)
             {
 
-                DGClientes.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar", item.IdCliente
+                DGClientes.Rows.Add(new object[] { item.Nombre, item.Apellido, item.Dni, Convert.ToDateTime(item.FechaNacimiento).ToString("dd-MM-yyyy"), item.Telefono, item.Domicilio, item.Estado == true ? 1 : 0, item.Estado == true ? "Activo" : "No Activo", "Editar", item.IdCliente
             });
 
             }

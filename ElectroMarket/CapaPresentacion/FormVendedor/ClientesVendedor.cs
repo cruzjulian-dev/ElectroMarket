@@ -45,7 +45,7 @@ namespace CapaPresentacion
             {
                 if (item.Estado != false) //trae los clientes activos
                 {
-                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, "Editar"
+                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, Convert.ToDateTime(item.FechaNacimiento).ToString("dd-MM-yyyy"), item.Telefono, item.Domicilio, "Editar"
                     });
                 }
             }
@@ -255,7 +255,7 @@ namespace CapaPresentacion
             {
                 if (item.Estado != false) //trae los clientes activos
                 {
-                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, "Editar"
+                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, Convert.ToDateTime(item.FechaNacimiento).ToString("dd-MM-yyyy"), item.Telefono, item.Domicilio, "Editar"
                     });
                 }
             }
@@ -356,7 +356,7 @@ namespace CapaPresentacion
             {
                 foreach (DataGridViewRow row in DGClientes.Rows) // recorro cada fila del datagrid
                 {
-                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(BBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
                     {
                         row.Visible = true;
                     }
@@ -367,6 +367,13 @@ namespace CapaPresentacion
 
                 }
             }
+        }
+
+        private void BMostrar_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
         }
     }
 }

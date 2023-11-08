@@ -25,16 +25,20 @@ namespace CapaPresentacion
 
         private void datagridProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCell celda = DGProductos.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-            if (DGProductos.Columns[e.ColumnIndex].Name == "CSeleccionar" && e.RowIndex >= 0 && celda.Value.ToString() == "Seleccionar")
+            // Verifica que el índice de la fila (e.RowIndex) y la columna (e.ColumnIndex) sean válidos
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.ColumnIndex < DGProductos.Columns.Count)
             {
-                int indiceSeleccionado = e.RowIndex;
-                if (indiceSeleccionado >= 0)
+                DataGridViewCell celda = DGProductos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                if (DGProductos.Columns[e.ColumnIndex].Name == "CSeleccionar" && celda.Value != null && celda.Value.ToString() == "Seleccionar")
                 {
-                    Producto producto = ObtenerProductoSeleccionado(indiceSeleccionado);
-                    ProductoSeleccionado = producto;
-                    this.Close();
+                    int indiceSeleccionado = e.RowIndex;
+                    if (indiceSeleccionado >= 0)
+                    {
+                        Producto producto = ObtenerProductoSeleccionado(indiceSeleccionado);
+                        ProductoSeleccionado = producto;
+                        this.Close();
+                    }
                 }
             }
 

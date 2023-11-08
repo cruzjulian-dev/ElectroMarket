@@ -655,6 +655,7 @@
             this.CPrecio.HeaderText = "Precio";
             this.CPrecio.Name = "CPrecio";
             this.CPrecio.ReadOnly = true;
+            this.CPrecio.Width = 85;
             // 
             // Ccantidad
             // 
@@ -668,7 +669,6 @@
             this.Csubtotal.HeaderText = "Subtotal";
             this.Csubtotal.Name = "Csubtotal";
             this.Csubtotal.ReadOnly = true;
-            this.Csubtotal.Width = 140;
             // 
             // CEliminar
             // 
@@ -677,13 +677,14 @@
             this.CEliminar.ReadOnly = true;
             this.CEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CEliminar.Width = 75;
+            this.CEliminar.Width = 60;
             // 
             // Ceditar
             // 
             this.Ceditar.HeaderText = "Editar";
             this.Ceditar.Name = "Ceditar";
             this.Ceditar.ReadOnly = true;
+            this.Ceditar.Width = 70;
             // 
             // CDescripcion
             // 
