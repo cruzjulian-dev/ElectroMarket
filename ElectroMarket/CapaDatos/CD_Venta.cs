@@ -294,7 +294,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("update productos set stock = stock - @cantidad where idproducto = @idproducto");
+                    query.AppendLine("update productos set Stock = Stock - @cantidad where idproducto = @idproducto");
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.Parameters.AddWithValue("@cantidad", cantidad);
                     cmd.Parameters.AddWithValue("@idproducto", idproducto);

@@ -207,6 +207,7 @@ namespace CapaPresentacion
                                 detalle.Cantidad = Convert.ToInt32(row.Cells["Ccantidad"].Value.ToString());
                                 detalle.SubTotal = Convert.ToDecimal(row.Cells["Csubtotal"].Value.ToString());
 
+                                
                                 listaDetalle.Add(detalle);
 
                                 detalle_venta.Rows.Add(
@@ -220,7 +221,7 @@ namespace CapaPresentacion
                                 );
                             }
 
-
+                            
                             int siguienteId = new CN_Venta().ObtenerSiguienteId();
                             string numeroDocumento = string.Format("{0:00000}", siguienteId);
 
@@ -245,6 +246,7 @@ namespace CapaPresentacion
 
                             if (respuesta)
                             {
+
                                 FormDetalleVenta detalle = new FormDetalleVenta(siguienteId);
                                 detalle.Show();
                                 
