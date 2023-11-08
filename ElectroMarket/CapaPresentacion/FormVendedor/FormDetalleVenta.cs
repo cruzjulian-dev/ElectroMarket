@@ -311,7 +311,7 @@ namespace CapaPresentacion
                         stream.Close();
 
                         // Preguntar si el usuario desea abrir el PDF
-                        DialogResult result = MessageBox.Show("Presupuesto guardado. ¿Desea visualizar la factura recién creada?", "Abrir PDF", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("Presupuesto guardado. ¿Desea visualizar el presupuesto recién creado?", "Abrir PDF", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
