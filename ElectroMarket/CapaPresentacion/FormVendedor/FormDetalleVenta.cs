@@ -1,14 +1,21 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Imaging;
+
 
 namespace CapaPresentacion
 {
@@ -76,17 +83,90 @@ namespace CapaPresentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if (TDocumento.Text == "")
+            if(TIdVenta.Text == "")
             {
-                MessageBox.Show("No hay información necesaria para generar el reporte.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se Econtraron resultados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
-            } else
-            {
-                string Texto_Html = Properties.Resources.FacturaVenta.ToString();
-                Texto_Html = Texto_Html.Replace("@nombrenegocio", "ElectroMarket");
-                Texto_Html = Texto_Html.Replace("@docnegocio", "");
-                Texto_Html = Texto_Html.Replace("@nombrenegocio", "ElectroMarket");
+            }
 
+
+            string Texto_html = Properties.Resources.PlantillaVenta.ToString();
+
+            Texto_html = Texto_html.Replace("tipodocumento", "BOLETA");
+            Texto_html = Texto_html.Replace("numerodocumento", TIdVenta.Text.ToUpper());
+
+            Texto_html = Texto_html.Replace("@doccliente", TDocumento.Text);
+            Texto_html = Texto_html.Replace("@nombrecliente", TNombre.Text + " " + TApellido.Text);
+            Texto_html = Texto_html.Replace("@fecharegistro", TFecha.Text);
+            Texto_html = Texto_html.Replace("@vendedorregistro", TVendedor.Text);
+
+
+            string filas = string.Empty;
+            foreach(DataGridViewRow row in DGDetalle.Rows)
+            {
+                filas += "<tr>";
+                filas += "<td>" + row.Cells["Cproducto"].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells["CDescripcion"].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells["Cprecio"].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells["Ccantidad"].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells["Csubtotal"].Value.ToString() + "</td>";
+                filas += "</tr>"; 
+            }
+
+            Texto_html = Texto_html.Replace("@filas", filas);
+            Texto_html = Texto_html.Replace("@montototal", TTotal.Text);
+            Texto_html = Texto_html.Replace("@pagocon", TPago.Text);
+            Texto_html = Texto_html.Replace("@cambio", TCambio.Text);
+
+
+            SaveFileDialog savefile = new SaveFileDialog();
+            savefile.FileName = string.Format("Venta_{0}.pdf", TIdVenta.Text);
+            savefile.Filter = "pdf Files|*.pdf";
+
+            if(savefile.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4,25,25,25,25);
+
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+
+                    bool obtenido = true;
+                    byte[] byteimage;
+
+                    // Acceder a la imagen desde los recursos
+                    System.Drawing.Image imageFromResources = Properties.Resources.logo_electromarket;
+
+                    // Convertir la imagen en un array de bytes
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        imageFromResources.Save(ms, ImageFormat.Png); // Puedes cambiar el formato según el de tu imagen
+                        byteimage = ms.ToArray();
+                    }
+
+                    if (obtenido)
+                    {
+                        iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(byteimage);
+                        img.ScaleToFit(200, 200); // Aumenta el tamaño de la imagen
+                        img.Alignment = iTextSharp.text.Image.UNDERLYING;
+
+                        // Posiciona la imagen en la parte superior
+                        img.SetAbsolutePosition(pdfDoc.Left + (pdfDoc.Right - pdfDoc.Left - img.ScaledWidth) / 2, pdfDoc.Top - img.ScaledHeight - 10);
+
+                        pdfDoc.Add(img);
+                    }
+
+
+                    using (StringReader sr =  new StringReader(Texto_html))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer,pdfDoc,sr);
+                    }
+
+                    pdfDoc.Close();
+                    stream.Close();
+                    MessageBox.Show("Documento Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
