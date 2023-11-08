@@ -73,5 +73,21 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            if (TDocumento.Text == "")
+            {
+                MessageBox.Show("No hay información necesaria para generar el reporte.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            } else
+            {
+                string Texto_Html = Properties.Resources.FacturaVenta.ToString();
+                Texto_Html = Texto_Html.Replace("@nombrenegocio", "ElectroMarket");
+                Texto_Html = Texto_Html.Replace("@docnegocio", "");
+                Texto_Html = Texto_Html.Replace("@nombrenegocio", "ElectroMarket");
+
+            }
+        }
     }
 }
