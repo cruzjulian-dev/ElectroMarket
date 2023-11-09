@@ -525,6 +525,19 @@ group by P.IdCategoria , C.Descripcion
 order by COUNT(2) desc
 go
 
+--  OBTENER EL VENDEDOR CON MÁS VENTAS
+CREATE PROCEDURE SP_VendedorConMasVentas
+AS
+BEGIN
+    SELECT TOP 1 U.Nombre + ' ' + U.Apellido AS Vendedor,
+        COUNT(V.IdVenta) AS CantidadVentas
+    FROM USUARIOS AS U
+    INNER JOIN VENTAS AS V ON U.IdUsuario = V.IdUsuario
+    GROUP BY U.Nombre, U.Apellido
+    ORDER BY CantidadVentas DESC;
+END
+go
+
 --top3 clientes con mas compras
 CREATE PROCEDURE SP_Top3ClientesMasCompras
 AS
@@ -641,7 +654,6 @@ insert into CATEGORIAS(Descripcion,Estado)
 values ('Lavarropas',1)
 
 GO
-
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Hornos',1)
 -- FIN CATEGORIAS
@@ -671,6 +683,11 @@ GO
 
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('NBLX55LD','Smart Tv Noblex','LED - HD - 32" - Android Tv', 1, 65, 125000, 1)
+
+GO
+
+insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
+values ('NBLX5EED','Smart Tv Samsung','LED - 4k - 52" - Android Tv', 1, 65, 125000, 1)
 
 GO
 
@@ -722,5 +739,5 @@ GO
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
 VALUES (1, 4, 580500, 1, 580500, '07-11-2023')
 -- FIN DETALLE DE VENTAS
-
+go
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------

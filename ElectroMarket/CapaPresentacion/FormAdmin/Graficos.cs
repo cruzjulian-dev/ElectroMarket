@@ -33,9 +33,13 @@ namespace CapaPresentacion.FormAdmin
         private void Graficos_Load(object sender, EventArgs e)
         {
             GrafCate();
+            prodTop5ven();
         }
         ArrayList categoria = new ArrayList();
         ArrayList cantProd = new ArrayList();
+
+        ArrayList Producto = new ArrayList();
+        ArrayList Cant = new ArrayList();
 
 
         private void GrafCate()
@@ -53,6 +57,36 @@ namespace CapaPresentacion.FormAdmin
             dr.Close();
             oConexion.Close();
         }
+
+        private void prodTop5ven()
+        {
+            cmd = new SqlCommand("ProdMasVendidos", oConexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            oConexion.Open();
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Producto.Add(dr.GetString(0));
+                Cant.Add(dr.GetInt32(1).ToString());
+            }
+
+            chartProdTop5.Series[0].Points.DataBindXY(Producto, Cant);
+            dr.Close();
+            oConexion.Close();
+
+            // Después de obtener los datos y mostrarlos en el gráfico, obten el producto más vendido y muéstralo en el Label
+            if (Producto.Count > 0)
+            {
+                string productoMasVendido = Producto[0].ToString(); // El producto más vendido está en la primera posición
+                lblProductoMasVendido.Text = "Producto más vendido: " + productoMasVendido;
+            }
+            else
+            {
+                lblProductoMasVendido.Text = "No hay datos disponibles";
+            }
+        }
+
 
     }
 }
