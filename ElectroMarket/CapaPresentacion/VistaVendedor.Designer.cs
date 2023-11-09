@@ -123,14 +123,14 @@
             // SMCategoria
             // 
             this.SMCategoria.Name = "SMCategoria";
-            this.SMCategoria.Size = new System.Drawing.Size(180, 22);
+            this.SMCategoria.Size = new System.Drawing.Size(154, 22);
             this.SMCategoria.Text = "Nueva Venta";
             this.SMCategoria.Click += new System.EventHandler(this.SMCategoria_Click);
             // 
             // SMdetalleVenta
             // 
             this.SMdetalleVenta.Name = "SMdetalleVenta";
-            this.SMdetalleVenta.Size = new System.Drawing.Size(180, 22);
+            this.SMdetalleVenta.Size = new System.Drawing.Size(154, 22);
             this.SMdetalleVenta.Text = "Mis Ventas";
             this.SMdetalleVenta.Click += new System.EventHandler(this.SMdetalleVenta_Click);
             // 
@@ -191,7 +191,7 @@
             // 
             this.LUsuario.BackColor = System.Drawing.SystemColors.Window;
             this.LUsuario.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LUsuario.Location = new System.Drawing.Point(916, 91);
+            this.LUsuario.Location = new System.Drawing.Point(928, 90);
             this.LUsuario.Name = "LUsuario";
             this.LUsuario.Size = new System.Drawing.Size(256, 21);
             this.LUsuario.TabIndex = 46;
@@ -224,7 +224,7 @@
             // 
             this.label8.BackColor = System.Drawing.SystemColors.Window;
             this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(818, 87);
+            this.label8.Location = new System.Drawing.Point(818, 85);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(132, 30);
             this.label8.TabIndex = 43;

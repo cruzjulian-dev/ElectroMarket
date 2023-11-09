@@ -1,5 +1,6 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
+using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,19 @@ namespace CapaPresentacion.Modales
 
         private void mdProveedor_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn columna in DGClientes.Columns)
+            {
+                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Seleccionar")
+                {
+                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                }
+            }
+            CBBusqueda.DisplayMember = "Texto";
+            CBBusqueda.ValueMember = "Valor";
+            CBBusqueda.SelectedIndex = 0;
+
+
+
             // Mostrar todos los Clientes desde la BD
             List<Cliente> listaCliente = new CN_Cliente().Listar();
 
@@ -30,7 +44,7 @@ namespace CapaPresentacion.Modales
             {
                 if (item.Estado != false) //trae los clientes activos
                 {
-                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, item.FechaNacimiento, item.Telefono, item.Domicilio, "Seleccionar"
+                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, Convert.ToDateTime(item.FechaNacimiento).ToString("dd-MM-yyyy"), item.Telefono, item.Domicilio, "Seleccionar"
                     });
                 }
             }
@@ -79,6 +93,56 @@ namespace CapaPresentacion.Modales
             };
 
             return cliente;
+        }
+
+        private void icoBtnBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
+
+            if (DGClientes.Rows.Count > 0)  // pregunta si hay filas
+            {
+                foreach (DataGridViewRow row in DGClientes.Rows) // recorro cada fila del datagrid
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper())) //obtengo el valor de la fila que estoy recorriendo
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+
+                }
+            }
+        }
+
+        private void icoBtnLimpiar_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
+        }
+
+        private void ActualizarTabla()
+        {
+
+            // Mostrar todos los Clientes desde la BD
+            List<Cliente> listaCliente = new CN_Cliente().Listar();
+
+            foreach (Cliente item in listaCliente)
+            {
+                if (item.Estado != false) //trae los clientes activos
+                {
+                    DGClientes.Rows.Add(new object[] { item.IdCliente, item.Nombre, item.Apellido, item.Dni, Convert.ToDateTime(item.FechaNacimiento).ToString("dd-MM-yyyy"), item.Telefono, item.Domicilio, "Seleccionar"
+                    });
+                }
+            }
+
+        }
+
+        private void VaciarTabla()
+        {
+            DGClientes.Rows.Clear();
         }
     }
 }

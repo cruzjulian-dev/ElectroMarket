@@ -152,7 +152,7 @@
             // 
             this.label3.BackColor = System.Drawing.SystemColors.Window;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(855, 115);
+            this.label3.Location = new System.Drawing.Point(852, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(217, 25);
             this.label3.TabIndex = 41;
@@ -163,7 +163,7 @@
             // 
             this.label5.BackColor = System.Drawing.SystemColors.Window;
             this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(815, 112);
+            this.label5.Location = new System.Drawing.Point(812, 112);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 30);
             this.label5.TabIndex = 40;
@@ -174,7 +174,7 @@
             // 
             this.label6.BackColor = System.Drawing.SystemColors.Window;
             this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(815, 90);
+            this.label6.Location = new System.Drawing.Point(812, 82);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 30);
             this.label6.TabIndex = 39;
@@ -185,7 +185,7 @@
             // 
             this.LUsuario.BackColor = System.Drawing.SystemColors.Window;
             this.LUsuario.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LUsuario.Location = new System.Drawing.Point(917, 95);
+            this.LUsuario.Location = new System.Drawing.Point(917, 87);
             this.LUsuario.Name = "LUsuario";
             this.LUsuario.Size = new System.Drawing.Size(255, 21);
             this.LUsuario.TabIndex = 42;
