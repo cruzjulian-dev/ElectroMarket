@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades;
+using CapaPresentacion.FormAdmin;
 using FontAwesome.Sharp;
 
 namespace CapaPresentacion
@@ -127,6 +128,11 @@ namespace CapaPresentacion
         private void iconMenuItem1_Click_1(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new ProductosAdmin());
+        }
+
+        private void iconMenuItem2_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new Graficos());
         }
     }
 }

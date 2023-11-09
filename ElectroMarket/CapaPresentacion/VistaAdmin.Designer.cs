@@ -31,6 +31,7 @@
             this.MenuAdmin = new System.Windows.Forms.MenuStrip();
             this.MenuUser = new FontAwesome.Sharp.IconMenuItem();
             this.MenuProd = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.MenuLogo = new System.Windows.Forms.MenuStrip();
             this.PContenedor = new System.Windows.Forms.Panel();
@@ -40,7 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
             this.MenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,8 @@
             this.MenuUser,
             this.MenuProd,
             this.iconMenuItem1,
-            this.MenuReportes});
+            this.MenuReportes,
+            this.iconMenuItem2});
             this.MenuAdmin.Location = new System.Drawing.Point(0, 76);
             this.MenuAdmin.Name = "MenuAdmin";
             this.MenuAdmin.Size = new System.Drawing.Size(1184, 69);
@@ -89,6 +91,21 @@
             this.MenuProd.Text = "Categorias";
             this.MenuProd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuProd.Click += new System.EventHandler(this.MenuProd_Click);
+            // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.AutoSize = false;
+            this.iconMenuItem1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.IconSize = 46;
+            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(160, 65);
+            this.iconMenuItem1.Text = "Productos";
+            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItem1.Click += new System.EventHandler(this.iconMenuItem1_Click_1);
             // 
             // MenuReportes
             // 
@@ -197,20 +214,20 @@
             this.label7.Text = "Bienvenido:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // iconMenuItem1
+            // iconMenuItem2
             // 
-            this.iconMenuItem1.AutoSize = false;
-            this.iconMenuItem1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
-            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem1.IconSize = 46;
-            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.iconMenuItem1.Name = "iconMenuItem1";
-            this.iconMenuItem1.Size = new System.Drawing.Size(160, 65);
-            this.iconMenuItem1.Text = "Productos";
-            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconMenuItem1.Click += new System.EventHandler(this.iconMenuItem1_Click_1);
+            this.iconMenuItem2.AutoSize = false;
+            this.iconMenuItem2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
+            this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem2.IconSize = 46;
+            this.iconMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem2.Name = "iconMenuItem2";
+            this.iconMenuItem2.Size = new System.Drawing.Size(122, 65);
+            this.iconMenuItem2.Text = "Graficos";
+            this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItem2.Click += new System.EventHandler(this.iconMenuItem2_Click);
             // 
             // VistaAdmin
             // 
@@ -256,6 +273,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
     }
 }
 

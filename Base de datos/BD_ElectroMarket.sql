@@ -504,9 +504,46 @@ as
 
 GO
 
+--TOP5 productos mas vendidos
+create proc ProdMasVendidos
+as
+SELECT TOP 5 P.Nombre + ' ' +  P.Descripcion  + ' ' + C.Descripcion as Producto, COUNT(DV.IdProducto) AS top5Vendidos
+FROM DETALLE_VENTA AS DV
+INNER JOIN PRODUCTOS AS P ON P.IdProducto = DV.IdProducto
+INNER JOIN CATEGORIAS AS C ON C.IdCategoria = P.IdCategoria
+GROUP BY DV.IdProducto, C.Descripcion, P.Nombre, P.Descripcion
+ORDER BY top5Vendidos DESC;
+go
+
+--Cantidad de productos por categoria
+create proc prodPorCateg
+as
+select C.Descripcion, count(C.IdCategoria) as CantProd
+from PRODUCTOS as P
+inner join CATEGORIAS as C on C.IdCategoria=P.IdCategoria
+group by P.IdCategoria , C.Descripcion
+order by COUNT(2) desc
+go
+
+--top3 clientes con mas compras
+CREATE PROCEDURE SP_Top3ClientesMasCompras
+AS
+BEGIN
+    SELECT TOP 3
+        C.Nombre + ' ' + C.Apellido AS Cliente,
+        COUNT(V.IdVenta) AS CantidadCompras
+    FROM CLIENTES AS C
+    INNER JOIN VENTAS AS V ON C.Dni = V.DniCliente
+    GROUP BY C.Nombre, C.Apellido
+    ORDER BY CantidadCompras DESC;
+END
+go
+
 ------------------------------------- COMIENZO DE CREACION DE DATOS DE PRUEBA -------------------------------------
 
 -- ROLES
+go
+
 INSERT INTO ROLES (Descripcion) 
 VALUES ('Vendedor')
 
@@ -650,6 +687,12 @@ VALUES (3, 1, 25082522, 'Juan', 'Perez', 'Factura', '00001', 911000, 500.01, 910
 
 GO
 
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (3, 1, 46958532, 'Luis', 'Barrios', 'Factura', '00002', 911000, 500.01, 910499.99, '07-11-2023')
+-- FIN VENTAS
+
+GO
+
 -- DETALLE DE VENTAS
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
 VALUES (1, 2, 125000, 2, 250000, '07-11-2023')
@@ -657,7 +700,22 @@ VALUES (1, 2, 125000, 2, 250000, '07-11-2023')
 GO
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 2, 125000, 2, 250000, '07-11-2023')
+
+GO
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
 VALUES (1, 1, 79999.99, 1, 79999.99, '07-11-2023')
+
+GO
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 1, 79999.99, 3, 79999.99, '07-11-2023')
+
+GO
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 1, 79999.99, 3, 79999.99, '07-11-2023')
 
 GO
 
