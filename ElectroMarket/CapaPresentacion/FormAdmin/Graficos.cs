@@ -27,7 +27,7 @@ namespace CapaPresentacion.FormAdmin
 
         private void Graficos_Load(object sender, EventArgs e)
         {
-            //  cantProdPorCat();
+            //  VendedorConMasVentas();
             // prodTop5ven();
             //clientesMasCompras();
             //categoriasMasVendidas();
@@ -57,50 +57,50 @@ namespace CapaPresentacion.FormAdmin
         }
 
 
-        private void cantProdPorCat()
+        private void VendedorConMasVentas()
         {
             // Declara e inicializa las listas dentro de la función
-            ArrayList categoria = new ArrayList();
-            ArrayList cantProd = new ArrayList();
+            ArrayList vendedor = new ArrayList();
+            ArrayList cantVentas = new ArrayList();
 
             cmd = new SqlCommand("SP_VendedorConMasVentas", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
             dr = cmd.ExecuteReader();
 
-            string categoriaConMasProductos = "";
+            string VendedorMasVentas = "";
             int cantidadMaxima = 0;
 
             while (dr.Read())
             {
-                string categoriaActual = dr.GetString(0);
+                string vendedorActual = dr.GetString(0);
                 int cantidadActual = dr.GetInt32(1);
 
                 // Agregar datos al gráfico
-                categoria.Add(categoriaActual);
-                cantProd.Add(cantidadActual.ToString());
+                vendedor.Add(vendedorActual);
+                cantVentas.Add(cantidadActual.ToString());
 
                 // Verificar si la cantidad actual es mayor que la máxima
                 if (cantidadActual > cantidadMaxima)
                 {
                     cantidadMaxima = cantidadActual;
-                    categoriaConMasProductos = categoriaActual;
+                    VendedorMasVentas = vendedorActual;
                 }
             }
 
-            chartProdPorCat.Series[0].Points.DataBindXY(categoria, cantProd);
+            chartProdPorCat.Series[0].Points.DataBindXY(vendedor, cantVentas);
             dr.Close();
             oConexion.Close();
 
             // Mostrar la categoría con más productos en el Label
-            VendedoresConMasVentas(categoriaConMasProductos, cantidadMaxima);
+            MostrarVendedoresConMasVentas(VendedorMasVentas, cantidadMaxima);
         }
 
-        private void VendedoresConMasVentas(string categoriaConMasProductos, int cantidadMaxima)
+        private void MostrarVendedoresConMasVentas(string VendedorMasVentas, int cantidadMaxima)
         {
-            if (!string.IsNullOrEmpty(categoriaConMasProductos))
+            if (!string.IsNullOrEmpty(VendedorMasVentas))
             {
-                lblCliente1.Text = $"Vendedor con más ventas: {categoriaConMasProductos} ({cantidadMaxima} productos)";
+                lblCliente1.Text = $"Vendedor con más ventas: {VendedorMasVentas} ({cantidadMaxima} productos)";
             }
             else
             {
@@ -329,7 +329,7 @@ namespace CapaPresentacion.FormAdmin
 
             if (radioButtonCantProd.Checked)
             {
-                cantProdPorCat(); // Muestra el gráfico de cantidad de productos por categoría
+                VendedorConMasVentas(); // Muestra el gráfico de cantidad de productos por categoría
             }
             else if (radioButtonClientes.Checked)
             {
@@ -353,7 +353,7 @@ namespace CapaPresentacion.FormAdmin
 
         private void BMostrar_Click(object sender, EventArgs e)
         {
-            //  cantProdPorCat();
+            //  VendedorConMasVentas();
             prodTop5ven();
             //clientesMasCompras();
 
