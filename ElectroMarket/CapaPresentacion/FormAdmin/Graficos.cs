@@ -141,8 +141,9 @@ namespace CapaPresentacion.FormAdmin
 
         private void categoriasMasVendidas()
         {
-            ArrayList Producto = new ArrayList();
-            ArrayList Cant = new ArrayList();
+            ArrayList categorias = new ArrayList();
+            ArrayList cantidades = new ArrayList();
+
             cmd = new SqlCommand("SP_CategoriasMasVentas", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
@@ -150,32 +151,66 @@ namespace CapaPresentacion.FormAdmin
 
             while (dr.Read())
             {
-                Producto.Add(dr.GetString(0));
-                Cant.Add(dr.GetInt32(1).ToString());
+                categorias.Add(dr.GetString(0));
+
+                // Verificar si el valor es NULL antes de intentar convertirlo
+                if (!dr.IsDBNull(1))
+                {
+                    cantidades.Add(dr.GetInt32(1).ToString());
+                }
+                else
+                {
+                    // Si es NULL, puedes agregar un valor predeterminado o manejarlo según tu lógica
+                    cantidades.Add("0");
+                }
             }
 
-            chartProdTop5.Series[0].Points.DataBindXY(Producto, Cant);
+            chartProdTop5.Series[0].Points.DataBindXY(categorias, cantidades);
             dr.Close();
             oConexion.Close();
 
-            // Después de obtener los datos y mostrarlos en el gráfico, obten el producto más vendido y muéstralo en el Label
-           /*
-            if (Producto.Count > 0)
+            // Después de obtener los datos y mostrarlos en el gráfico, obtener la categoría más vendida y mostrarla en el Label
+            MostrarCategoriaMasVendida(categorias, cantidades);
+        }
+
+
+        private void MostrarCategoriaMasVendida(ArrayList categorias, ArrayList cantidades)
+        {
+            // Verificar si hay datos en las listas
+            if (categorias.Count > 0 && cantidades.Count > 0)
             {
-                string productoMasVendido = Producto[0].ToString(); // El producto más vendido está en la primera posición
-                lblProductoMasVendido.Text = "Producto más vendido: " + productoMasVendido;
+                // Encontrar la categoría más vendida
+                int indexCategoriaMasVendida = 0;
+                for (int i = 1; i < cantidades.Count; i++)
+                {
+                    int cantidadActual = Convert.ToInt32(cantidades[i]);
+                    int cantidadMaxima = Convert.ToInt32(cantidades[indexCategoriaMasVendida]);
+
+                    if (cantidadActual > cantidadMaxima)
+                    {
+                        indexCategoriaMasVendida = i;
+                    }
+                }
+
+                // Obtener la categoría más vendida y la cantidad
+                string categoriaMasVendida = categorias[indexCategoriaMasVendida].ToString();
+                int cantidadVendida = Convert.ToInt32(cantidades[indexCategoriaMasVendida]);
+
+                // Mostrar la información en el Label
+                lblProductoMasVendido.Text = $"Categoría Más Vendida: {categoriaMasVendida} ({cantidadVendida} unidades)";
             }
             else
             {
+                // Si no hay datos, mostrar un mensaje en el Label
                 lblProductoMasVendido.Text = "No hay datos disponibles";
             }
-           */
         }
 
         private void formasPagoPreferidas()
         {
-            ArrayList Producto = new ArrayList();
-            ArrayList Cant = new ArrayList();
+            ArrayList formasPago = new ArrayList();
+            ArrayList cantidades = new ArrayList();
+
             cmd = new SqlCommand("SP_FormasPagoMasUtilizadas", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
@@ -183,25 +218,48 @@ namespace CapaPresentacion.FormAdmin
 
             while (dr.Read())
             {
-                Producto.Add(dr.GetString(0));
-                Cant.Add(dr.GetInt32(1).ToString());
+                formasPago.Add(dr.GetString(0));
+                cantidades.Add(dr.GetInt32(1).ToString());
             }
 
-            chartProdTop5.Series[0].Points.DataBindXY(Producto, Cant);
+            chartProdTop5.Series[0].Points.DataBindXY(formasPago, cantidades);
             dr.Close();
             oConexion.Close();
 
-            // Después de obtener los datos y mostrarlos en el gráfico, obten el producto más vendido y muéstralo en el Label
-            /*
-            if (Producto.Count > 0)
+            // Después de obtener los datos y mostrarlos en el gráfico, obtener la forma de pago más utilizada y mostrarla en el Label
+            MostrarFormaPagoMasUtilizada(formasPago, cantidades);
+        }
+
+        private void MostrarFormaPagoMasUtilizada(ArrayList formasPago, ArrayList cantidades)
+        {
+            // Verificar si hay datos en las listas
+            if (formasPago.Count > 0 && cantidades.Count > 0)
             {
-                string productoMasVendido = Producto[0].ToString(); // El producto más vendido está en la primera posición
-                lblProductoMasVendido.Text = "Producto más vendido: " + productoMasVendido;
+                // Encontrar la forma de pago más utilizada
+                int indexFormaPagoMasUtilizada = 0;
+                for (int i = 1; i < cantidades.Count; i++)
+                {
+                    int cantidadActual = Convert.ToInt32(cantidades[i]);
+                    int cantidadMaxima = Convert.ToInt32(cantidades[indexFormaPagoMasUtilizada]);
+
+                    if (cantidadActual > cantidadMaxima)
+                    {
+                        indexFormaPagoMasUtilizada = i;
+                    }
+                }
+
+                // Obtener la forma de pago más utilizada y la cantidad
+                string formaPagoMasUtilizada = formasPago[indexFormaPagoMasUtilizada].ToString();
+                int cantidadUtilizada = Convert.ToInt32(cantidades[indexFormaPagoMasUtilizada]);
+
+                // Mostrar la información en el Label
+                lblProductoMasVendido.Text = $"Forma de Pago Más Utilizada: {formaPagoMasUtilizada} ({cantidadUtilizada} transacciones)";
             }
             else
             {
+                // Si no hay datos, mostrar un mensaje en el Label
                 lblProductoMasVendido.Text = "No hay datos disponibles";
-            }*/
+            }
         }
 
         private void clientesMasCompras()
