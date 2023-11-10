@@ -559,7 +559,7 @@ go
 CREATE PROCEDURE SP_FormasPagoMasUtilizadas
 AS
 BEGIN
-    SELECT TOP 3
+    SELECT
         FP.Descripcion AS FormaDePago,
         COUNT(V.IdFormaPago) AS CantidadUtilizada
     FROM FORMA_PAGO AS FP
