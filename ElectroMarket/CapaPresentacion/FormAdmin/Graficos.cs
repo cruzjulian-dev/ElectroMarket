@@ -28,8 +28,10 @@ namespace CapaPresentacion.FormAdmin
         private void Graficos_Load(object sender, EventArgs e)
         {
             //  cantProdPorCat();
-             prodTop5ven();
+            // prodTop5ven();
             //clientesMasCompras();
+            //categoriasMasVendidas();
+            formasPagoPreferidas();
 
             GB1.Controls.Add(radioButtonCantProd);
             GB1.Controls.Add(radioButtonClientes);
@@ -40,7 +42,7 @@ namespace CapaPresentacion.FormAdmin
             // Seleccionar uno de los RadioButtons por defecto
             radioButtonCantProd.Checked = true;
 
-
+            /*
             GB2.Controls.Add(RBTop5Prod);
             GB2.Controls.Add(RBTopCategorias);
             GB2.Controls.Add(RBTopFormasPago);
@@ -51,7 +53,7 @@ namespace CapaPresentacion.FormAdmin
 
             // Seleccionar uno de los RadioButtons por defecto
             RBTop5Prod.Checked = true;
-
+            */
         }
 
 
@@ -272,6 +274,19 @@ namespace CapaPresentacion.FormAdmin
             {
                 clientesMasCompras(); // Muestra el gráfico de clientes con más compras
             }
+            /*
+            if (RBTop5Prod.Checked)
+            {
+                categoriasMasVendidas();
+            } else if (RBTopFormasPago.Checked)
+            {
+                formasPagoPreferidas();
+            }
+            else
+            {
+                prodTop5ven();
+            }
+            */
         }
 
         private void BMostrar_Click(object sender, EventArgs e)
