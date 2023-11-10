@@ -42,7 +42,7 @@ namespace CapaPresentacion.FormAdmin
             // Seleccionar uno de los RadioButtons por defecto
             radioButtonCantProd.Checked = true;
 
-            /*
+
             GB2.Controls.Add(RBTop5Prod);
             GB2.Controls.Add(RBTopCategorias);
             GB2.Controls.Add(RBTopFormasPago);
@@ -53,12 +53,8 @@ namespace CapaPresentacion.FormAdmin
 
             // Seleccionar uno de los RadioButtons por defecto
             RBTop5Prod.Checked = true;
-            */
+
         }
-
-
-        ArrayList Producto = new ArrayList();
-        ArrayList Cant = new ArrayList();
 
 
         private void cantProdPorCat()
@@ -114,6 +110,8 @@ namespace CapaPresentacion.FormAdmin
 
         private void prodTop5ven()
         {
+            ArrayList Producto = new ArrayList();
+            ArrayList Cant = new ArrayList();
             cmd = new SqlCommand("SP_ProdMasVendidos", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
@@ -143,6 +141,8 @@ namespace CapaPresentacion.FormAdmin
 
         private void categoriasMasVendidas()
         {
+            ArrayList Producto = new ArrayList();
+            ArrayList Cant = new ArrayList();
             cmd = new SqlCommand("SP_CategoriasMasVentas", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
@@ -174,6 +174,8 @@ namespace CapaPresentacion.FormAdmin
 
         private void formasPagoPreferidas()
         {
+            ArrayList Producto = new ArrayList();
+            ArrayList Cant = new ArrayList();
             cmd = new SqlCommand("SP_FormasPagoMasUtilizadas", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
@@ -265,6 +267,7 @@ namespace CapaPresentacion.FormAdmin
         {
             // Limpiar datos existentes en los Charts
             chartProdPorCat.Series[0].Points.Clear();
+            chartProdTop5.Series[0].Points.Clear();
 
             if (radioButtonCantProd.Checked)
             {
@@ -274,19 +277,20 @@ namespace CapaPresentacion.FormAdmin
             {
                 clientesMasCompras(); // Muestra el gráfico de clientes con más compras
             }
-            /*
+
+
             if (RBTop5Prod.Checked)
             {
-                categoriasMasVendidas();
-            } else if (RBTopFormasPago.Checked)
+                prodTop5ven();
+            }
+            else if (RBTopFormasPago.Checked)
             {
                 formasPagoPreferidas();
             }
             else
             {
-                prodTop5ven();
+                categoriasMasVendidas();
             }
-            */
         }
 
         private void BMostrar_Click(object sender, EventArgs e)
