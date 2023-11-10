@@ -63,7 +63,7 @@ namespace CapaPresentacion.FormAdmin
             ArrayList categoria = new ArrayList();
             ArrayList cantProd = new ArrayList();
 
-            cmd = new SqlCommand("SP_ProdPorCateg", oConexion);
+            cmd = new SqlCommand("SP_VendedorConMasVentas", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
             dr = cmd.ExecuteReader();
@@ -93,14 +93,14 @@ namespace CapaPresentacion.FormAdmin
             oConexion.Close();
 
             // Mostrar la categoría con más productos en el Label
-            MostrarCategoriaConMasProductos(categoriaConMasProductos, cantidadMaxima);
+            VendedoresConMasVentas(categoriaConMasProductos, cantidadMaxima);
         }
 
-        private void MostrarCategoriaConMasProductos(string categoriaConMasProductos, int cantidadMaxima)
+        private void VendedoresConMasVentas(string categoriaConMasProductos, int cantidadMaxima)
         {
             if (!string.IsNullOrEmpty(categoriaConMasProductos))
             {
-                lblCliente1.Text = $"Categoría con Más Productos: {categoriaConMasProductos} ({cantidadMaxima} productos)";
+                lblCliente1.Text = $"Vendedor con más ventas: {categoriaConMasProductos} ({cantidadMaxima} productos)";
             }
             else
             {
@@ -366,6 +366,11 @@ namespace CapaPresentacion.FormAdmin
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RBTopCategorias_CheckedChanged(object sender, EventArgs e)
         {
 
         }

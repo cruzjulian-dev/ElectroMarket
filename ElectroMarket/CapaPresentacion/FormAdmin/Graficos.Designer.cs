@@ -124,10 +124,10 @@
             this.radioButtonCantProd.AutoSize = true;
             this.radioButtonCantProd.Location = new System.Drawing.Point(246, 12);
             this.radioButtonCantProd.Name = "radioButtonCantProd";
-            this.radioButtonCantProd.Size = new System.Drawing.Size(189, 17);
+            this.radioButtonCantProd.Size = new System.Drawing.Size(107, 17);
             this.radioButtonCantProd.TabIndex = 25;
             this.radioButtonCantProd.TabStop = true;
-            this.radioButtonCantProd.Text = "Cantidad Productos por Categorias";
+            this.radioButtonCantProd.Text = "TOP Vendedores";
             this.radioButtonCantProd.UseVisualStyleBackColor = true;
             // 
             // lblCliente1
@@ -239,6 +239,7 @@
             this.RBTopCategorias.TabStop = true;
             this.RBTopCategorias.Text = "Categorías más vendidas";
             this.RBTopCategorias.UseVisualStyleBackColor = true;
+            this.RBTopCategorias.CheckedChanged += new System.EventHandler(this.RBTopCategorias_CheckedChanged);
             // 
             // RBTop5Prod
             // 

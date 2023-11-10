@@ -532,7 +532,7 @@ go
 CREATE PROCEDURE SP_VendedorConMasVentas
 AS
 BEGIN
-    SELECT TOP 1 U.Nombre + ' ' + U.Apellido AS Vendedor,
+    SELECT U.Nombre + ' ' + U.Apellido AS Vendedor,
         COUNT(V.IdVenta) AS CantidadVentas
     FROM USUARIOS AS U
     INNER JOIN VENTAS AS V ON U.IdUsuario = V.IdUsuario
