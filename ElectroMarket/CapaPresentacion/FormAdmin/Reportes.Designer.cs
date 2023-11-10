@@ -39,6 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DGVentas = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BBuscar = new FontAwesome.Sharp.IconButton();
+            this.BMostrar = new FontAwesome.Sharp.IconButton();
+            this.TBusqueda = new System.Windows.Forms.TextBox();
+            this.CBBusqueda = new System.Windows.Forms.ComboBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.CIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +57,6 @@
             this.CForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,14 +124,15 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(240, 133);
             this.label5.TabIndex = 75;
-            this.label5.Text = "Seleccione el rango de fechas en el que desea filtrar las ventas y las estadístic" +
-    "as";
+            this.label5.Text = "Seleccione el rango de fechas para filtrar las ventas y/o utilize los filtros de " +
+    "busqueda para mejores resultados. Por cada busqueda se actualizará la cantidad d" +
+    "e ventas y el total vendido.";
             // 
             // LVentas
             // 
             this.LVentas.AutoSize = true;
             this.LVentas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LVentas.Location = new System.Drawing.Point(586, 502);
+            this.LVentas.Location = new System.Drawing.Point(574, 502);
             this.LVentas.Name = "LVentas";
             this.LVentas.Size = new System.Drawing.Size(26, 18);
             this.LVentas.TabIndex = 74;
@@ -177,11 +184,113 @@
             this.CForma,
             this.CFecha,
             this.CDetalle});
-            this.DGVentas.Location = new System.Drawing.Point(319, 46);
+            this.DGVentas.Location = new System.Drawing.Point(306, 116);
             this.DGVentas.Name = "DGVentas";
-            this.DGVentas.Size = new System.Drawing.Size(843, 443);
+            this.DGVentas.Size = new System.Drawing.Size(856, 373);
             this.DGVentas.TabIndex = 70;
             this.DGVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVentas_CellContentClick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(892, 502);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 18);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "Total vendido:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(303, 502);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 18);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Cantidad de ventas realizadas:";
+            // 
+            // BBuscar
+            // 
+            this.BBuscar.BackColor = System.Drawing.Color.White;
+            this.BBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BBuscar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBuscar.ForeColor = System.Drawing.Color.White;
+            this.BBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.BBuscar.IconColor = System.Drawing.Color.Black;
+            this.BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BBuscar.IconSize = 23;
+            this.BBuscar.Location = new System.Drawing.Point(1070, 41);
+            this.BBuscar.Name = "BBuscar";
+            this.BBuscar.Size = new System.Drawing.Size(38, 33);
+            this.BBuscar.TabIndex = 84;
+            this.BBuscar.UseVisualStyleBackColor = false;
+            this.BBuscar.Click += new System.EventHandler(this.BBuscar_Click);
+            // 
+            // BMostrar
+            // 
+            this.BMostrar.BackColor = System.Drawing.Color.White;
+            this.BMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BMostrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BMostrar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMostrar.ForeColor = System.Drawing.Color.White;
+            this.BMostrar.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.BMostrar.IconColor = System.Drawing.Color.Black;
+            this.BMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BMostrar.IconSize = 23;
+            this.BMostrar.Location = new System.Drawing.Point(1114, 41);
+            this.BMostrar.Name = "BMostrar";
+            this.BMostrar.Size = new System.Drawing.Size(39, 33);
+            this.BMostrar.TabIndex = 86;
+            this.BMostrar.UseVisualStyleBackColor = false;
+            this.BMostrar.Click += new System.EventHandler(this.BMostrar_Click);
+            // 
+            // TBusqueda
+            // 
+            this.TBusqueda.BackColor = System.Drawing.Color.White;
+            this.TBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBusqueda.Location = new System.Drawing.Point(955, 48);
+            this.TBusqueda.Name = "TBusqueda";
+            this.TBusqueda.Size = new System.Drawing.Size(109, 21);
+            this.TBusqueda.TabIndex = 83;
+            // 
+            // CBBusqueda
+            // 
+            this.CBBusqueda.BackColor = System.Drawing.Color.White;
+            this.CBBusqueda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBBusqueda.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBBusqueda.FormattingEnabled = true;
+            this.CBBusqueda.Location = new System.Drawing.Point(834, 48);
+            this.CBBusqueda.Name = "CBBusqueda";
+            this.CBBusqueda.Size = new System.Drawing.Size(115, 21);
+            this.CBBusqueda.TabIndex = 81;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.BackColor = System.Drawing.Color.White;
+            this.lblBuscar.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.Location = new System.Drawing.Point(754, 51);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(74, 13);
+            this.lblBuscar.TabIndex = 85;
+            this.lblBuscar.Text = "Buscar Por:";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(306, 30);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.label8.Size = new System.Drawing.Size(856, 51);
+            this.label8.TabIndex = 82;
+            this.label8.Text = "Lista de Ventas:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CIdVenta
             // 
@@ -214,12 +323,14 @@
             this.CNombreCliente.HeaderText = "Nombre Cliente";
             this.CNombreCliente.Name = "CNombreCliente";
             this.CNombreCliente.ReadOnly = true;
+            this.CNombreCliente.Width = 105;
             // 
             // CApellidoCliente
             // 
             this.CApellidoCliente.HeaderText = "Apellido Cliente";
             this.CApellidoCliente.Name = "CApellidoCliente";
             this.CApellidoCliente.ReadOnly = true;
+            this.CApellidoCliente.Width = 105;
             // 
             // CTotal
             // 
@@ -239,7 +350,7 @@
             this.CFecha.HeaderText = "Fecha Venta";
             this.CFecha.Name = "CFecha";
             this.CFecha.ReadOnly = true;
-            this.CFecha.Width = 85;
+            this.CFecha.Width = 95;
             // 
             // CDetalle
             // 
@@ -250,31 +361,17 @@
             this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CDetalle.Width = 70;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(892, 502);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 18);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Total vendido:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(315, 502);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 18);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "Cantidad de ventas realizadas:";
-            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.BBuscar);
+            this.Controls.Add(this.BMostrar);
+            this.Controls.Add(this.TBusqueda);
+            this.Controls.Add(this.CBBusqueda);
+            this.Controls.Add(this.lblBuscar);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.DTHasta);
             this.Controls.Add(this.DTDesde);
@@ -312,6 +409,12 @@
         private System.Windows.Forms.DataGridView DGVentas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton BBuscar;
+        private FontAwesome.Sharp.IconButton BMostrar;
+        private System.Windows.Forms.TextBox TBusqueda;
+        private System.Windows.Forms.ComboBox CBBusqueda;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIdVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNumDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;

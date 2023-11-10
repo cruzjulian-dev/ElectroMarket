@@ -25,6 +25,19 @@ namespace CapaPresentacion
 
         private void MisVentas_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn columna in DGMisVentas.Columns)
+            {
+                if (columna.Visible == true && columna.HeaderText != "Fecha de Venta" && columna.HeaderText != "Ver detalle")
+                {
+                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                }
+            }
+            CBBusqueda.DisplayMember = "Texto";
+            CBBusqueda.ValueMember = "Valor";
+            CBBusqueda.SelectedIndex = 0;
+
+
+
             CN_Venta cnVenta = new CN_Venta();
 
             List<Venta> listaVentas = cnVenta.traerVentas();
@@ -50,15 +63,21 @@ namespace CapaPresentacion
         private void calcularDatos()
         {
             decimal montoTotal = 0;
+            int cantidad = 0;
 
             foreach (DataGridViewRow row in DGMisVentas.Rows)
             {
-                decimal montoVenta = Convert.ToDecimal(row.Cells[6].Value);
-                montoTotal += montoVenta;
+                if (row.Visible == true)
+                {
+                    decimal montoVenta = Convert.ToDecimal(row.Cells[6].Value);
+                    montoTotal += montoVenta;
+                    cantidad++;
+                }
+
             }
 
             LTotal.Text = montoTotal.ToString();
-            LVentas.Text = DGMisVentas.Rows.Count.ToString();
+            LVentas.Text = cantidad.ToString();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -72,13 +91,81 @@ namespace CapaPresentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            limpiarTabla();
             string fechaDesde = DTDesde.Value.ToString("dd-MM-yyyy");
             string fechaHasta = DTHasta.Value.ToString("dd-MM-yyyy");
 
+            if (Convert.ToDateTime(fechaDesde) <= Convert.ToDateTime(fechaHasta))
+            {
+                limpiarTabla();
+                
+
+                CN_Venta cnVenta = new CN_Venta();
+
+                List<Venta> listaVentas = cnVenta.traerVentasFechas(fechaDesde, fechaHasta);
+
+                // Pregunto si hay ventas
+                if (listaVentas != null)
+                {
+                    // Relleno el datagrid con las ventas
+                    foreach (Venta item in listaVentas)
+                    {
+                        if (VistaVendedor.usuarioActual.UsuarioLogin == item.oUsuario.UsuarioLogin)
+                        {
+                            DGMisVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
+                    item.MontoTotal, item.oFormaPago.Descripcion, Convert.ToDateTime(item.FechaRegistro).ToString("dd-MM-yyyy"), "Ver Detalle"
+                    });
+                        }
+
+                    }
+                }
+                calcularDatos();
+            } else
+            {
+                MessageBox.Show("La fecha 'Desde' debe ser menor o igual que la fecha 'Hasta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void limpiarTabla()
+        {
+            DGMisVentas.Rows.Clear();
+        }
+
+        private void BBuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((OpcionCombo)CBBusqueda.SelectedItem).Valor.ToString();
+
+            if (DGMisVentas.Rows.Count > 0)  // pregunta si hay filas
+            {
+                foreach (DataGridViewRow row in DGMisVentas.Rows) // recorro cada fila del datagrid
+                {
+                    if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(TBusqueda.Text.Trim().ToUpper()) && row.Visible == true) //obtengo el valor de la fila que estoy recorriendo
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+
+                }
+            }
+
+            calcularDatos();
+        }
+
+        private void BMostrar_Click(object sender, EventArgs e)
+        {
+            TBusqueda.Text = "";
+            VaciarTabla();
+            ActualizarTabla();
+            calcularDatos();
+        }
+
+        private void ActualizarTabla()
+        {
             CN_Venta cnVenta = new CN_Venta();
 
-            List<Venta> listaVentas = cnVenta.traerVentasFechas(fechaDesde, fechaHasta);
+            List<Venta> listaVentas = cnVenta.traerVentas();
 
             // Pregunto si hay ventas
             if (listaVentas != null)
@@ -86,18 +173,22 @@ namespace CapaPresentacion
                 // Relleno el datagrid con las ventas
                 foreach (Venta item in listaVentas)
                 {
-                    DGMisVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
+                    if (VistaVendedor.usuarioActual.UsuarioLogin == item.oUsuario.UsuarioLogin)
+                    {
+                        DGMisVentas.Rows.Add(new object[] { item.IdVenta, item.NumeroDocumento, item.oUsuario.Nombre + " " + item.oUsuario.Apellido, item.DniCliente, item.NombreCliente, item.ApellidoCliente,
                     item.MontoTotal, item.oFormaPago.Descripcion, Convert.ToDateTime(item.FechaRegistro).ToString("dd-MM-yyyy"), "Ver Detalle"
                     });
+                    }
 
                 }
             }
             calcularDatos();
         }
 
-        private void limpiarTabla()
+        private void VaciarTabla()
         {
             DGMisVentas.Rows.Clear();
         }
+
     }
 }
