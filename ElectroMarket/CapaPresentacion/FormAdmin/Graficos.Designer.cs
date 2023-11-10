@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartProdPorCat = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProdTop5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblProductoMasVendido = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.BMostrar = new FontAwesome.Sharp.IconButton();
             this.RBTopCategorias = new System.Windows.Forms.RadioButton();
             this.RBTop5Prod = new System.Windows.Forms.RadioButton();
             this.RBTopFormasPago = new System.Windows.Forms.RadioButton();
@@ -60,39 +59,39 @@
             // 
             // chartProdPorCat
             // 
-            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea3.Name = "ChartArea1";
-            this.chartProdPorCat.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartProdPorCat.Legends.Add(legend3);
+            chartArea5.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea5.Name = "ChartArea1";
+            this.chartProdPorCat.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartProdPorCat.Legends.Add(legend5);
             this.chartProdPorCat.Location = new System.Drawing.Point(16, 105);
             this.chartProdPorCat.Name = "chartProdPorCat";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartProdPorCat.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartProdPorCat.Series.Add(series5);
             this.chartProdPorCat.Size = new System.Drawing.Size(530, 390);
             this.chartProdPorCat.TabIndex = 0;
             this.chartProdPorCat.Text = "chart1";
             // 
             // chartProdTop5
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartProdTop5.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartProdTop5.Legends.Add(legend4);
+            chartArea6.Name = "ChartArea1";
+            this.chartProdTop5.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chartProdTop5.Legends.Add(legend6);
             this.chartProdTop5.Location = new System.Drawing.Point(612, 105);
             this.chartProdTop5.Name = "chartProdTop5";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.IsValueShownAsLabel = true;
-            series4.LabelForeColor = System.Drawing.Color.White;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartProdTop5.Series.Add(series4);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.IsValueShownAsLabel = true;
+            series6.LabelForeColor = System.Drawing.Color.White;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartProdTop5.Series.Add(series6);
             this.chartProdTop5.Size = new System.Drawing.Size(530, 390);
             this.chartProdTop5.TabIndex = 1;
             this.chartProdTop5.Text = "chart1";
@@ -211,24 +210,6 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // BMostrar
-            // 
-            this.BMostrar.BackColor = System.Drawing.Color.White;
-            this.BMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BMostrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BMostrar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMostrar.ForeColor = System.Drawing.Color.White;
-            this.BMostrar.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.BMostrar.IconColor = System.Drawing.Color.Black;
-            this.BMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BMostrar.IconSize = 23;
-            this.BMostrar.Location = new System.Drawing.Point(1107, 6);
-            this.BMostrar.Name = "BMostrar";
-            this.BMostrar.Size = new System.Drawing.Size(51, 37);
-            this.BMostrar.TabIndex = 89;
-            this.BMostrar.UseVisualStyleBackColor = false;
-            this.BMostrar.Click += new System.EventHandler(this.BMostrar_Click);
-            // 
             // RBTopCategorias
             // 
             this.RBTopCategorias.AutoSize = true;
@@ -291,7 +272,6 @@
             this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.GB2);
             this.Controls.Add(this.GB1);
-            this.Controls.Add(this.BMostrar);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.DTHasta);
             this.Controls.Add(this.DTDesde);
@@ -330,7 +310,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton BMostrar;
         private System.Windows.Forms.RadioButton RBTopCategorias;
         private System.Windows.Forms.RadioButton RBTop5Prod;
         private System.Windows.Forms.RadioButton RBTopFormasPago;
