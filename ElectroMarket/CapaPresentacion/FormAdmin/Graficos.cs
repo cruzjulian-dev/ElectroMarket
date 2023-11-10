@@ -217,5 +217,10 @@ namespace CapaPresentacion.FormAdmin
             // Seleccionar uno de los RadioButtons por defecto
             radioButtonCantProd.Checked = true;
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

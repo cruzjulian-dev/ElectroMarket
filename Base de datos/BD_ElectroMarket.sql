@@ -507,12 +507,14 @@ GO
 --TOP5 productos mas vendidos
 create proc ProdMasVendidos
 as
-SELECT TOP 5 P.Nombre + ' ' +  P.Descripcion  + ' ' + C.Descripcion as Producto, COUNT(DV.IdProducto) AS top5Vendidos
+SELECT TOP 5 P.Nombre + ' || ' +  P.Descripcion  as Producto, SUM(DV.Cantidad) AS top5Vendidos
 FROM DETALLE_VENTA AS DV
 INNER JOIN PRODUCTOS AS P ON P.IdProducto = DV.IdProducto
 INNER JOIN CATEGORIAS AS C ON C.IdCategoria = P.IdCategoria
 GROUP BY DV.IdProducto, C.Descripcion, P.Nombre, P.Descripcion
 ORDER BY top5Vendidos DESC;
+
+
 go
 
 --Cantidad de productos por categoria
