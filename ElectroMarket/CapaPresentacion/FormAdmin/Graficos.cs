@@ -204,5 +204,18 @@ namespace CapaPresentacion.FormAdmin
             }
         }
 
+        private void BMostrar_Click(object sender, EventArgs e)
+        {
+            //  cantProdPorCat();
+            prodTop5ven();
+            //clientesMasCompras();
+
+            // Configurar el evento CheckedChanged para los RadioButtons
+            radioButtonCantProd.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
+            radioButtonClientes.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
+
+            // Seleccionar uno de los RadioButtons por defecto
+            radioButtonCantProd.Checked = true;
+        }
     }
 }

@@ -697,7 +697,7 @@ values ('HTCH40LD','Smart TV Hitachi','LED - FULL HD - 40" - Android Tv', 1, 37,
 
 GO
 
--- VENTAS
+-- VENTAS         (ARREGLAR)
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
 VALUES (3, 1, 25082522, 'Juan', 'Perez', 'Factura', '00001', 911000, 500.01, 910499.99, '07-11-2023')
 -- FIN VENTAS
@@ -710,7 +710,7 @@ VALUES (3, 1, 46958532, 'Luis', 'Barrios', 'Factura', '00002', 911000, 500.01, 9
 
 GO
 
--- DETALLE DE VENTAS
+-- DETALLE DE VENTAS      (ARREGLAR)
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
 VALUES (1, 2, 125000, 2, 250000, '07-11-2023')
 
