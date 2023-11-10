@@ -505,20 +505,21 @@ as
 GO
 
 --TOP5 productos mas vendidos
-create proc ProdMasVendidos
+create proc SP_ProdMasVendidos
 as
+begin
 SELECT TOP 5 P.Nombre + ' || ' +  P.Descripcion  as Producto, SUM(DV.Cantidad) AS top5Vendidos
 FROM DETALLE_VENTA AS DV
 INNER JOIN PRODUCTOS AS P ON P.IdProducto = DV.IdProducto
 INNER JOIN CATEGORIAS AS C ON C.IdCategoria = P.IdCategoria
 GROUP BY DV.IdProducto, C.Descripcion, P.Nombre, P.Descripcion
 ORDER BY top5Vendidos DESC;
-
+end
 
 go
 
 --Cantidad de productos por categoria
-create proc prodPorCateg
+create proc SP_ProdPorCateg
 as
 select C.Descripcion, count(C.IdCategoria) as CantProd
 from PRODUCTOS as P
@@ -541,10 +542,10 @@ END
 go
 
 --top3 clientes con mas compras
-CREATE PROCEDURE SP_Top3ClientesMasCompras
+CREATE PROCEDURE SP_Top5ClientesMasCompras
 AS
 BEGIN
-    SELECT TOP 3
+    SELECT TOP 5
         C.Nombre + ' ' + C.Apellido AS Cliente,
         COUNT(V.IdVenta) AS CantidadCompras
     FROM CLIENTES AS C
@@ -552,8 +553,38 @@ BEGIN
     GROUP BY C.Nombre, C.Apellido
     ORDER BY CantidadCompras DESC;
 END
+
 go
 
+CREATE PROCEDURE SP_FormasPagoMasUtilizadas
+AS
+BEGIN
+    SELECT TOP 3
+        FP.Descripcion AS FormaDePago,
+        COUNT(V.IdFormaPago) AS CantidadUtilizada
+    FROM FORMA_PAGO AS FP
+    LEFT JOIN VENTAS AS V ON FP.IdFormaPago = V.IdFormaPago
+    GROUP BY FP.Descripcion
+    ORDER BY CantidadUtilizada DESC;
+END;
+
+go
+
+CREATE PROCEDURE SP_CategoriasMasVentas
+AS
+BEGIN
+    SELECT 
+        C.Descripcion AS Categoria,
+        SUM(DV.Cantidad) AS CantidadVentas
+    FROM CATEGORIAS AS C
+    LEFT JOIN PRODUCTOS AS P ON C.IdCategoria = P.IdCategoria
+    LEFT JOIN DETALLE_VENTA AS DV ON P.IdProducto = DV.IdProducto
+    LEFT JOIN VENTAS AS V ON DV.IdVenta = V.IdVenta
+    GROUP BY C.Descripcion
+    ORDER BY CantidadVentas DESC;
+END;
+
+go
 ------------------------------------- COMIENZO DE CREACION DE DATOS DE PRUEBA -------------------------------------
 
 -- ROLES

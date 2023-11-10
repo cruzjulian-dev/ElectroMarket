@@ -47,11 +47,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.BMostrar = new FontAwesome.Sharp.IconButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.RBTopCategorias = new System.Windows.Forms.RadioButton();
+            this.RBTop5Prod = new System.Windows.Forms.RadioButton();
+            this.RBTopFormasPago = new System.Windows.Forms.RadioButton();
+            this.GB1 = new System.Windows.Forms.GroupBox();
+            this.GB2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartProdPorCat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartProdTop5)).BeginInit();
+            this.GB1.SuspendLayout();
+            this.GB2.SuspendLayout();
             this.SuspendLayout();
             // 
             // chartProdPorCat
@@ -73,7 +77,6 @@
             this.chartProdPorCat.Size = new System.Drawing.Size(530, 390);
             this.chartProdPorCat.TabIndex = 0;
             this.chartProdPorCat.Text = "chart1";
-            this.chartProdPorCat.Click += new System.EventHandler(this.chartProdPorCat_Click);
             // 
             // chartProdTop5
             // 
@@ -108,18 +111,18 @@
             // radioButtonClientes
             // 
             this.radioButtonClientes.AutoSize = true;
-            this.radioButtonClientes.Location = new System.Drawing.Point(36, 70);
+            this.radioButtonClientes.Location = new System.Drawing.Point(7, 12);
             this.radioButtonClientes.Name = "radioButtonClientes";
             this.radioButtonClientes.Size = new System.Drawing.Size(182, 17);
             this.radioButtonClientes.TabIndex = 24;
             this.radioButtonClientes.TabStop = true;
-            this.radioButtonClientes.Text = "TOP 3 Clientes con mas compras";
+            this.radioButtonClientes.Text = "TOP 5 Clientes con mas compras";
             this.radioButtonClientes.UseVisualStyleBackColor = true;
             // 
             // radioButtonCantProd
             // 
             this.radioButtonCantProd.AutoSize = true;
-            this.radioButtonCantProd.Location = new System.Drawing.Point(275, 70);
+            this.radioButtonCantProd.Location = new System.Drawing.Point(246, 12);
             this.radioButtonCantProd.Name = "radioButtonCantProd";
             this.radioButtonCantProd.Size = new System.Drawing.Size(189, 17);
             this.radioButtonCantProd.TabIndex = 25;
@@ -226,47 +229,67 @@
             this.BMostrar.UseVisualStyleBackColor = false;
             this.BMostrar.Click += new System.EventHandler(this.BMostrar_Click);
             // 
-            // radioButton1
+            // RBTopCategorias
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(819, 70);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(145, 17);
-            this.radioButton1.TabIndex = 91;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Categorías más vendidas";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RBTopCategorias.AutoSize = true;
+            this.RBTopCategorias.Location = new System.Drawing.Point(208, 14);
+            this.RBTopCategorias.Name = "RBTopCategorias";
+            this.RBTopCategorias.Size = new System.Drawing.Size(145, 17);
+            this.RBTopCategorias.TabIndex = 91;
+            this.RBTopCategorias.TabStop = true;
+            this.RBTopCategorias.Text = "Categorías más vendidas";
+            this.RBTopCategorias.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // RBTop5Prod
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(628, 70);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(175, 17);
-            this.radioButton2.TabIndex = 90;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "TOP 5 Productos más vendidos";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RBTop5Prod.AutoSize = true;
+            this.RBTop5Prod.Location = new System.Drawing.Point(17, 14);
+            this.RBTop5Prod.Name = "RBTop5Prod";
+            this.RBTop5Prod.Size = new System.Drawing.Size(175, 17);
+            this.RBTop5Prod.TabIndex = 90;
+            this.RBTop5Prod.TabStop = true;
+            this.RBTop5Prod.Text = "TOP 5 Productos más vendidos";
+            this.RBTop5Prod.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // RBTopFormasPago
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(985, 70);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(157, 17);
-            this.radioButton3.TabIndex = 92;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Métodos de pago preferidos";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.RBTopFormasPago.AutoSize = true;
+            this.RBTopFormasPago.Location = new System.Drawing.Point(374, 14);
+            this.RBTopFormasPago.Name = "RBTopFormasPago";
+            this.RBTopFormasPago.Size = new System.Drawing.Size(150, 17);
+            this.RBTopFormasPago.TabIndex = 92;
+            this.RBTopFormasPago.TabStop = true;
+            this.RBTopFormasPago.Text = "Formas de pago preferidos";
+            this.RBTopFormasPago.UseVisualStyleBackColor = true;
+            // 
+            // GB1
+            // 
+            this.GB1.Controls.Add(this.radioButtonCantProd);
+            this.GB1.Controls.Add(this.radioButtonClientes);
+            this.GB1.Location = new System.Drawing.Point(29, 58);
+            this.GB1.Name = "GB1";
+            this.GB1.Size = new System.Drawing.Size(449, 37);
+            this.GB1.TabIndex = 93;
+            this.GB1.TabStop = false;
+            // 
+            // GB2
+            // 
+            this.GB2.Controls.Add(this.RBTopFormasPago);
+            this.GB2.Controls.Add(this.RBTopCategorias);
+            this.GB2.Controls.Add(this.RBTop5Prod);
+            this.GB2.Location = new System.Drawing.Point(611, 56);
+            this.GB2.Name = "GB2";
+            this.GB2.Size = new System.Drawing.Size(546, 38);
+            this.GB2.TabIndex = 94;
+            this.GB2.TabStop = false;
             // 
             // Graficos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.GB2);
+            this.Controls.Add(this.GB1);
             this.Controls.Add(this.BMostrar);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.DTHasta);
@@ -275,8 +298,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblCliente1);
-            this.Controls.Add(this.radioButtonCantProd);
-            this.Controls.Add(this.radioButtonClientes);
             this.Controls.Add(this.lblProductoMasVendido);
             this.Controls.Add(this.chartProdTop5);
             this.Controls.Add(this.chartProdPorCat);
@@ -285,6 +306,10 @@
             this.Load += new System.EventHandler(this.Graficos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartProdPorCat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartProdTop5)).EndInit();
+            this.GB1.ResumeLayout(false);
+            this.GB1.PerformLayout();
+            this.GB2.ResumeLayout(false);
+            this.GB2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,8 +330,10 @@
         private System.Windows.Forms.Label label6;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton BMostrar;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton RBTopCategorias;
+        private System.Windows.Forms.RadioButton RBTop5Prod;
+        private System.Windows.Forms.RadioButton RBTopFormasPago;
+        private System.Windows.Forms.GroupBox GB1;
+        private System.Windows.Forms.GroupBox GB2;
     }
 }

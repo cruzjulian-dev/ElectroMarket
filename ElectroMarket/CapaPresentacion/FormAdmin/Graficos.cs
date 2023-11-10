@@ -25,23 +25,32 @@ namespace CapaPresentacion.FormAdmin
             InitializeComponent();
         }
 
-        private void chartProdPorCat_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Graficos_Load(object sender, EventArgs e)
         {
             //  cantProdPorCat();
              prodTop5ven();
             //clientesMasCompras();
 
+            GB1.Controls.Add(radioButtonCantProd);
+            GB1.Controls.Add(radioButtonClientes);
             // Configurar el evento CheckedChanged para los RadioButtons
             radioButtonCantProd.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
             radioButtonClientes.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
 
             // Seleccionar uno de los RadioButtons por defecto
             radioButtonCantProd.Checked = true;
+
+
+            GB2.Controls.Add(RBTop5Prod);
+            GB2.Controls.Add(RBTopCategorias);
+            GB2.Controls.Add(RBTopFormasPago);
+            // Configurar el evento CheckedChanged para los RadioButtons
+            RBTop5Prod.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
+            RBTopCategorias.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
+            RBTopFormasPago.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
+
+            // Seleccionar uno de los RadioButtons por defecto
+            RBTop5Prod.Checked = true;
 
         }
 
@@ -56,7 +65,7 @@ namespace CapaPresentacion.FormAdmin
             ArrayList categoria = new ArrayList();
             ArrayList cantProd = new ArrayList();
 
-            cmd = new SqlCommand("prodPorCateg", oConexion);
+            cmd = new SqlCommand("SP_ProdPorCateg", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
             dr = cmd.ExecuteReader();
@@ -103,7 +112,7 @@ namespace CapaPresentacion.FormAdmin
 
         private void prodTop5ven()
         {
-            cmd = new SqlCommand("ProdMasVendidos", oConexion);
+            cmd = new SqlCommand("SP_ProdMasVendidos", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
             dr = cmd.ExecuteReader();
@@ -130,13 +139,74 @@ namespace CapaPresentacion.FormAdmin
             }
         }
 
+        private void categoriasMasVendidas()
+        {
+            cmd = new SqlCommand("SP_CategoriasMasVentas", oConexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            oConexion.Open();
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Producto.Add(dr.GetString(0));
+                Cant.Add(dr.GetInt32(1).ToString());
+            }
+
+            chartProdTop5.Series[0].Points.DataBindXY(Producto, Cant);
+            dr.Close();
+            oConexion.Close();
+
+            // Después de obtener los datos y mostrarlos en el gráfico, obten el producto más vendido y muéstralo en el Label
+           /*
+            if (Producto.Count > 0)
+            {
+                string productoMasVendido = Producto[0].ToString(); // El producto más vendido está en la primera posición
+                lblProductoMasVendido.Text = "Producto más vendido: " + productoMasVendido;
+            }
+            else
+            {
+                lblProductoMasVendido.Text = "No hay datos disponibles";
+            }
+           */
+        }
+
+        private void formasPagoPreferidas()
+        {
+            cmd = new SqlCommand("SP_FormasPagoMasUtilizadas", oConexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            oConexion.Open();
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Producto.Add(dr.GetString(0));
+                Cant.Add(dr.GetInt32(1).ToString());
+            }
+
+            chartProdTop5.Series[0].Points.DataBindXY(Producto, Cant);
+            dr.Close();
+            oConexion.Close();
+
+            // Después de obtener los datos y mostrarlos en el gráfico, obten el producto más vendido y muéstralo en el Label
+            /*
+            if (Producto.Count > 0)
+            {
+                string productoMasVendido = Producto[0].ToString(); // El producto más vendido está en la primera posición
+                lblProductoMasVendido.Text = "Producto más vendido: " + productoMasVendido;
+            }
+            else
+            {
+                lblProductoMasVendido.Text = "No hay datos disponibles";
+            }*/
+        }
+
         private void clientesMasCompras()
         {
             // Declara e inicializa las listas dentro de la función
             ArrayList cliente = new ArrayList();
             ArrayList cantCompras = new ArrayList();
 
-            cmd = new SqlCommand("SP_Top3ClientesMasCompras", oConexion);
+            cmd = new SqlCommand("SP_Top5ClientesMasCompras", oConexion);
             cmd.CommandType = CommandType.StoredProcedure;
             oConexion.Open();
             dr = cmd.ExecuteReader();
