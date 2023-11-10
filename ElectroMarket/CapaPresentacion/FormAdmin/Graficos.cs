@@ -203,5 +203,6 @@ namespace CapaPresentacion.FormAdmin
                 clientesMasCompras(); // Muestra el gráfico de clientes con más compras
             }
         }
+
     }
 }
