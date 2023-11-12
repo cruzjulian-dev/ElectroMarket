@@ -588,17 +588,11 @@ go
 ------------------------------------- COMIENZO DE CREACION DE DATOS DE PRUEBA -------------------------------------
 
 -- ROLES
-go
-
 INSERT INTO ROLES (Descripcion) 
 VALUES ('Vendedor')
 
-GO
-
 INSERT INTO ROLES (Descripcion) 
 VALUES ('Administrador')
-
-GO
 
 INSERT INTO ROLES (Descripcion) 
 VALUES ('Super Administrador')
@@ -610,12 +604,8 @@ GO
 INSERT INTO FORMA_PAGO(Descripcion)
 VALUES ('Efectivo')
 
-GO
-
 INSERT INTO FORMA_PAGO(Descripcion)
 VALUES ('Tarjeta')
-
-GO
 
 INSERT INTO FORMA_PAGO(Descripcion)
 VALUES ('Mercado Pago')
@@ -627,27 +617,20 @@ GO
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Julian', 'Cruz', '40982522', 'cruz', '123', '1998-02-17', 3795012213, 'San Martin 2412', 3, 1)
 
-GO
-
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Fabricio', 'Blanco', '20952532', 'blanco', '123', '1992-04-24', 3453324645, 'Bolivar 1432', 2, 1)
 
-GO
-
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
-VALUES ('Yamila', 'Davalos', '43912552', 'davalos', '123', '1978-03-07', 3794042215, 'Sarmiento 412', 1, 0)
-
-GO
+VALUES ('Yamila', 'Davalos', '33912552', 'davalos', '123', '1978-03-07', 3794042215, 'Sarmiento 412', 1, 1)
 
 INSERT INTO USUARIOS (Nombre,Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Vendedor', 'ApeVendedor', '12345678', 'vendedor', '123', '1999-09-27', 364042215, 'Calle 412', 1, 1)
 
-GO
+INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
+VALUES ('Fernando', 'Gutierrez', '32912552', 'fernando', '123', '1976-04-08', 3794052615, 'Brasil 772', 1, 0)
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Admin', 'ApeAdmin', '32345678', 'admin', '123', '2001-12-12', 335042215, 'Calle 512', 2, 1)
-
-GO
 
 INSERT INTO USUARIOS (Nombre, Apellido, Dni, UsuarioLogin, Clave, FechaNacimiento, Telefono, Domicilio, IdRol, Estado) 
 VALUES ('Super', 'ApeSuper', '22345678', 'super', '123', '1994-01-13', 364012215, 'Calle 712', 3, 1)
@@ -659,15 +642,17 @@ GO
 INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
 VALUES ('Juan', 'Perez', '25082522', '1980-06-19', 3795012213, 'San Juan 1442', 1)
 
-GO
-
 INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
 VALUES ('Ramon', 'Flores', '16958532', '1971-08-11', 3453324645, 'Cabral 1738', 1)
 
-GO
+INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
+VALUES ('Luis', 'Barrios', '46958532', '2004-09-24', 3572324645, 'Catamarca 1118', 1)
 
 INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
-VALUES ('Luis', 'Barrios', '46958532', '2004-09-24', 3577324645, 'Catamarca 1118', 1)
+VALUES ('Ivan', 'Lescano', '26958532', '1978-04-27', 3557364615, 'Guemes 2112', 1)
+
+INSERT INTO CLIENTES (Nombre, Apellido, Dni, FechaNacimiento, Telefono, Domicilio, Estado) 
+VALUES ('Monica', 'Ayala', '36958532', '1989-01-17', 3597724245, 'Bolivar 3121', 1)
 -- FIN CLIENTES -- 
 
 GO
@@ -676,20 +661,16 @@ GO
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Televisores',1)
 
-GO
-
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Heladeras',1)
-
-GO
 
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Lavarropas',1)
 
-GO
 insert into CATEGORIAS(Descripcion,Estado)
 values ('Hornos',1)
 -- FIN CATEGORIAS
+
 
 GO
 
@@ -697,32 +678,20 @@ GO
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('ATMA1500','Horno Electrico Grill Atma','1500w - 40L - 250° - Plateado', 4, 48, 79999.99, 1)
 
-GO
-
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('SM65LINV','Lavarropas Samsung Automatico','Carga Frontal - 6.5 Kg - Inverter - 1000 RPM', 3, 22, 559999.99, 1)
-
-GO
 
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('HGFA282L', 'Heladera Gafa', '282L - Freezer - 220V', 2, 17, 279999.99, 1)
 
-GO
-
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('HPHI282L', 'Heladera Philips', '323L - Freezer - 2 Puertas', 2, 4, 580500, 0)
-
-GO
 
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('NBLX55LD','Smart Tv Noblex','LED - HD - 32" - Android Tv', 1, 65, 125000, 1)
 
-GO
-
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
-values ('NBLX5EED','Smart Tv Samsung','LED - 4k - 52" - Android Tv', 1, 65, 125000, 1)
-
-GO
+values ('NBLX5EED','Smart Tv Samsung','LED - 4k - 52" - Android Tv', 1, 65, 145000, 1)
 
 insert into PRODUCTOS(Codigo,Nombre,Descripcion,IdCategoria,Stock,PrecioVenta,Estado)
 values ('HTCH40LD','Smart TV Hitachi','LED - FULL HD - 40" - Android Tv', 1, 37, 174999.99, 1)
@@ -730,47 +699,99 @@ values ('HTCH40LD','Smart TV Hitachi','LED - FULL HD - 40" - Android Tv', 1, 37,
 
 GO
 
--- VENTAS         (ARREGLAR)
+-- VENTA 1 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (3, 1, 25082522, 'Juan', 'Perez', 'Factura', '00001', 911000, 500.01, 910499.99, '07-11-2023')
--- FIN VENTAS
+VALUES (3, 1, 25082522, 'Juan', 'Perez', 'Factura', '00001', 1000000, 0.04, 999999.96, '11-11-2023')
 
-GO
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 2, 559999.99, 1, 559999.99, '11-11-2023')
 
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 3, 279999.99, 1, 279999.99, '11-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (1, 1, 79999.99, 2, 159999.98, '11-11-2023')
+-- FIN VENTAS 1 + DETALLE DE VENTA   
+
+
+-- VENTA 2 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (3, 1, 46958532, 'Luis', 'Barrios', 'Factura', '00002', 911000, 500.01, 910499.99, '07-11-2023')
--- FIN VENTAS
-
-GO
-
--- DETALLE DE VENTAS      (ARREGLAR)
-INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (1, 2, 125000, 2, 250000, '07-11-2023')
-
-GO
+VALUES (3, 3, 16958532, 'Ramon', 'Flores', 'Factura', '00002', 1536000, 0.0, 1536000, '11-11-2023')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (1, 2, 125000, 2, 250000, '07-11-2023')
-
-GO
+VALUES (2, 4, 580500.00, 2, 1161000.00, '11-11-2023')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (1, 1, 79999.99, 1, 79999.99, '07-11-2023')
+VALUES (2, 5, 125000, 3, 375000, '11-11-2023')
 
-GO
+-- FIN VENTAS 2 + DETALLE DE VENTA   
 
-INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (1, 1, 79999.99, 3, 79999.99, '07-11-2023')
 
-GO
-
-INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (1, 1, 79999.99, 3, 79999.99, '07-11-2023')
-
-GO
+-- VENTA 3 + DETALLE DE VENTA      
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (3, 3, 46958532, 'Luis', 'Barrios', 'Factura', '00003', 290000.00, 0.0, 290000.00, '12-11-2023')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (1, 4, 580500, 1, 580500, '07-11-2023')
--- FIN DETALLE DE VENTAS
-go
+VALUES (3, 6, 145000.00, 2, 290000.00, '12-11-2023')
+-- FIN VENTAS 3 + DETALLE DE VENTA   
+
+
+-- VENTA 4 + DETALLE DE VENTA      
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (4, 3, 26958532, 'Ivan', 'Lescano', 'Factura', '00004', 1164999.95, 0.0, 1164999.95, '12-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (4, 7, 174999.99, 5, 874999.95, '12-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (4, 6, 145000.00, 2, 290000.00, '12-11-2023')
+
+-- FIN VENTAS 4 + DETALLE DE VENTA   
+
+
+-- VENTA 5 + DETALLE DE VENTA      
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (4, 1, 36958532, 'Monica', 'Ayala', 'Factura', '00005', 560000.00, 0.01, 559999.99, '10-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (5, 2, 559999.99, 1, 559999.99, '10-11-2023')
+
+-- FIN VENTAS 5 + DETALLE DE VENTA   
+
+
+-- VENTA 6 + DETALLE DE VENTA      
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (5, 3, 36958532, 'Monica', 'Ayala', 'Factura', '00006', 1265500.00, 0.0, 1265500.00, '12-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (6, 4, 580500.00, 1, 580500.00, '12-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (6, 5, 125000.00, 2, 250000, '12-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (6, 6, 145000.00, 3, 435000.00, '12-11-2023')
+-- FIN VENTAS 6 + DETALLE DE VENTA   
+
+
+-- VENTA 7 + DETALLE DE VENTA      
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (5, 1, 36958532, 'Monica', 'Ayala', 'Factura', '00007', 520000.00, 0.04, 519999.96, '10-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (7, 1, 79999.99, 3, 239999.97, '10-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (7, 3, 279999.99, 1, 279999.99, '10-11-2023')
+-- FIN VENTAS 7 + DETALLE DE VENTA   
+
+
+-- VENTA 8 + DETALLE DE VENTA      
+INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
+VALUES (3, 2, 16958532, 'Ramon', 'Flores', 'Factura', '00008', 524999.97, 0.0, 524999.97, '12-11-2023')
+
+INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
+VALUES (8, 7, 174999.99, 3, 524999.97, '12-11-2023')
+-- FIN VENTAS 8 + DETALLE DE VENTA   
+
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------
