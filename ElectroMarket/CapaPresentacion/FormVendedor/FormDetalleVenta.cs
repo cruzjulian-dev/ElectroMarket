@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
-
+using Font = iTextSharp.text.Font;
 
 namespace CapaPresentacion
 {
@@ -139,8 +139,13 @@ namespace CapaPresentacion
             {
                 string Texto_html = Properties.Resources.PlantillaVenta.ToString();
 
-                Texto_html = Texto_html.Replace("tipodocumento", "Factura");
-                Texto_html = Texto_html.Replace("numerodocumento", TIdVenta.Text.ToUpper());
+                Texto_html = Texto_html.Replace("@tipodocumento", "Factura");
+                Texto_html = Texto_html.Replace("@numerodocumento", TIdVenta.Text.ToUpper());
+
+                Texto_html = Texto_html.Replace("@tiposociedad", "ElectroMarket S.R.L");
+                Texto_html = Texto_html.Replace("@telnegocio", "543794345790");
+                Texto_html = Texto_html.Replace("@direcnegocio", "Rivadavia 2290, Corrientes Argentina");
+                
 
                 Texto_html = Texto_html.Replace("@doccliente", TDocumento.Text);
                 Texto_html = Texto_html.Replace("@nombrecliente", TNombre.Text + " " + TApellido.Text);
@@ -232,8 +237,12 @@ namespace CapaPresentacion
             {
                 string Texto_html = Properties.Resources.PlantillaPresupuesto.ToString();
 
-                Texto_html = Texto_html.Replace("tipodocumento", "Presupuesto");
-                Texto_html = Texto_html.Replace("numerodocumento", TIdVenta.Text.ToUpper());
+                Texto_html = Texto_html.Replace("@tipodocumento", "Presupuesto");
+                Texto_html = Texto_html.Replace("@numerodocumento", TIdVenta.Text.ToUpper());
+
+                Texto_html = Texto_html.Replace("@tiposociedad", "ElectroMarket S.R.L");
+                Texto_html = Texto_html.Replace("@telnegocio", "543794345790");
+                Texto_html = Texto_html.Replace("@direcnegocio", "Rivadavia 2290, Corrientes Argentina");
 
                 Texto_html = Texto_html.Replace("@doccliente", TDocumento.Text);
                 Texto_html = Texto_html.Replace("@nombrecliente", TNombre.Text + " " + TApellido.Text);
@@ -323,5 +332,7 @@ namespace CapaPresentacion
 
             
         }
+
+
     }
 }

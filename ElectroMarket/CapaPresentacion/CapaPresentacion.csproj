@@ -304,10 +304,10 @@
     <None Include="Resources\ee38e2845c18afc829096dabfe0883be2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PlantillaVenta.html" />
+    <None Include="Resources\PlantillaPresupuesto.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PlantillaPresupuesto.html" />
+    <None Include="Resources\PlantillaVenta.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
