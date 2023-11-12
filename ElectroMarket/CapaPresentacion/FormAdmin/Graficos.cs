@@ -31,7 +31,7 @@ namespace CapaPresentacion.FormAdmin
             // prodTop5ven();
             //clientesMasCompras();
             //categoriasMasVendidas();
-            formasPagoPreferidas();
+            //formasPagoPreferidas();
 
             GB1.Controls.Add(radioButtonCantProd);
             GB1.Controls.Add(radioButtonClientes);
