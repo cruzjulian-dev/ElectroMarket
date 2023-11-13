@@ -55,6 +55,7 @@
     <Compile Include="CN_Cliente.cs" />
     <Compile Include="CN_ConexionBD.cs" />
     <Compile Include="CN_DetalleVenta.cs" />
+    <Compile Include="CN_Graficos.cs" />
     <Compile Include="CN_Producto.cs" />
     <Compile Include="CN_Restaurar.cs" />
     <Compile Include="CN_Rol.cs" />

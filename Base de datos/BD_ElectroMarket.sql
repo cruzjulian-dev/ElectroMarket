@@ -500,7 +500,6 @@ as
 
 
 -- FIN PROCEDIMIENTOS PRODUCTOS--
-------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
 
 GO
 
@@ -526,19 +525,6 @@ from PRODUCTOS as P
 inner join CATEGORIAS as C on C.IdCategoria=P.IdCategoria
 group by P.IdCategoria , C.Descripcion
 order by COUNT(2) desc
-go
-
---  OBTENER EL VENDEDOR CON MÁS VENTAS
-CREATE PROCEDURE SP_VendedorConMasVentas
-AS
-BEGIN
-    SELECT U.Nombre + ' ' + U.Apellido AS Vendedor,
-        COUNT(V.IdVenta) AS CantidadVentas
-    FROM USUARIOS AS U
-    INNER JOIN VENTAS AS V ON U.IdUsuario = V.IdUsuario
-    GROUP BY U.Nombre, U.Apellido
-    ORDER BY CantidadVentas DESC;
-END
 go
 
 --top3 clientes con mas compras
@@ -583,8 +569,10 @@ BEGIN
     GROUP BY C.Descripcion
     ORDER BY CantidadVentas DESC;
 END;
+------------------------------------- FIN DE PROCEDIMIENTOS ALMACENADOS -------------------------------------
 
 go
+
 ------------------------------------- COMIENZO DE CREACION DE DATOS DE PRUEBA -------------------------------------
 
 -- ROLES
