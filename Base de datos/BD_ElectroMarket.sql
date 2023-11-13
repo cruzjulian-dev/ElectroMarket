@@ -633,82 +633,82 @@ VALUES (1, 1, 79999.99, 2, 159999.98, '11-11-2023')
 
 -- VENTA 2 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (3, 3, 16958532, 'Ramon', 'Flores', 'Factura', '00002', 1536000, 0.0, 1536000, '11-11-2023')
+VALUES (3, 3, 16958532, 'Ramon', 'Flores', 'Factura', '00002', 1536000, 0.0, 1536000, '2023-11-11')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (2, 4, 580500.00, 2, 1161000.00, '11-11-2023')
+VALUES (2, 4, 580500.00, 2, 1161000.00, '2023-11-11')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (2, 5, 125000, 3, 375000, '11-11-2023')
+VALUES (2, 5, 125000, 3, 375000, '2023-11-11')
 
 -- FIN VENTAS 2 + DETALLE DE VENTA   
 
 
 -- VENTA 3 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (3, 3, 46958532, 'Luis', 'Barrios', 'Factura', '00003', 290000.00, 0.0, 290000.00, '12-11-2023')
+VALUES (3, 3, 46958532, 'Luis', 'Barrios', 'Factura', '00003', 290000.00, 0.0, 290000.00, '2023-11-12')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (3, 6, 145000.00, 2, 290000.00, '12-11-2023')
+VALUES (3, 6, 145000.00, 2, 290000.00, '2023-11-12')
 -- FIN VENTAS 3 + DETALLE DE VENTA   
 
 
 -- VENTA 4 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (4, 3, 26958532, 'Ivan', 'Lescano', 'Factura', '00004', 1164999.95, 0.0, 1164999.95, '12-11-2023')
+VALUES (4, 3, 26958532, 'Ivan', 'Lescano', 'Factura', '00004', 1164999.95, 0.0, 1164999.95, '2023-11-12')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (4, 7, 174999.99, 5, 874999.95, '12-11-2023')
+VALUES (4, 7, 174999.99, 5, 874999.95, '2023-11-12')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (4, 6, 145000.00, 2, 290000.00, '12-11-2023')
+VALUES (4, 6, 145000.00, 2, 290000.00, '2023-11-12')
 
 -- FIN VENTAS 4 + DETALLE DE VENTA   
 
 
 -- VENTA 5 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (4, 1, 36958532, 'Monica', 'Ayala', 'Factura', '00005', 560000.00, 0.01, 559999.99, '10-11-2023')
+VALUES (4, 1, 36958532, 'Monica', 'Ayala', 'Factura', '00005', 560000.00, 0.01, 559999.99, '2023-11-10')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (5, 2, 559999.99, 1, 559999.99, '10-11-2023')
+VALUES (5, 2, 559999.99, 1, 559999.99, '2023-11-10')
 
 -- FIN VENTAS 5 + DETALLE DE VENTA   
 
 
 -- VENTA 6 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (5, 3, 36958532, 'Monica', 'Ayala', 'Factura', '00006', 1265500.00, 0.0, 1265500.00, '12-11-2023')
+VALUES (5, 3, 36958532, 'Monica', 'Ayala', 'Factura', '00006', 1265500.00, 0.0, 1265500.00, '2023-11-12')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (6, 4, 580500.00, 1, 580500.00, '12-11-2023')
+VALUES (6, 4, 580500.00, 1, 580500.00, '2023-11-12')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (6, 5, 125000.00, 2, 250000, '12-11-2023')
+VALUES (6, 5, 125000.00, 2, 250000, '2023-11-12')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (6, 6, 145000.00, 3, 435000.00, '12-11-2023')
+VALUES (6, 6, 145000.00, 3, 435000.00, '2023-11-12')
 -- FIN VENTAS 6 + DETALLE DE VENTA   
 
 
 -- VENTA 7 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (5, 1, 36958532, 'Monica', 'Ayala', 'Factura', '00007', 520000.00, 0.04, 519999.96, '10-11-2023')
+VALUES (5, 1, 36958532, 'Monica', 'Ayala', 'Factura', '00007', 520000.00, 0.04, 519999.96, '2023-11-10')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (7, 1, 79999.99, 3, 239999.97, '10-11-2023')
+VALUES (7, 1, 79999.99, 3, 239999.97, '2023-11-10')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (7, 3, 279999.99, 1, 279999.99, '10-11-2023')
+VALUES (7, 3, 279999.99, 1, 279999.99, '2023-11-10')
 -- FIN VENTAS 7 + DETALLE DE VENTA   
 
 
 -- VENTA 8 + DETALLE DE VENTA      
 INSERT INTO VENTAS (IdUsuario, IdFormaPago, DniCliente, NombreCliente, ApellidoCliente, TipoDocumento, NumeroDocumento, MontoPago, MontoCambio, MontoTotal, FechaRegistro)
-VALUES (3, 2, 16958532, 'Ramon', 'Flores', 'Factura', '00008', 524999.97, 0.0, 524999.97, '12-11-2023')
+VALUES (3, 2, 16958532, 'Ramon', 'Flores', 'Factura', '00008', 524999.97, 0.0, 524999.97, '2023-11-12')
 
 INSERT INTO DETALLE_VENTA (IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal, FechaRegistro)
-VALUES (8, 7, 174999.99, 3, 524999.97, '12-11-2023')
+VALUES (8, 7, 174999.99, 3, 524999.97, '2023-11-12')
 -- FIN VENTAS 8 + DETALLE DE VENTA   
 
 ------------------------------------- FIN DE CREACION DE DATOS DE PRUEBA -------------------------------------
