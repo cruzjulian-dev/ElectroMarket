@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartProdPorCat = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProdTop5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblProductoMasVendido = new System.Windows.Forms.Label();
-            this.radioButtonClientes = new System.Windows.Forms.RadioButton();
-            this.radioButtonCantProd = new System.Windows.Forms.RadioButton();
+            this.RBTop5Clientes = new System.Windows.Forms.RadioButton();
+            this.RBTopVendedores = new System.Windows.Forms.RadioButton();
             this.lblCliente1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.DTHasta = new System.Windows.Forms.DateTimePicker();
@@ -59,45 +59,45 @@
             // 
             // chartProdPorCat
             // 
-            chartArea5.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea5.AxisX.MajorGrid.Enabled = false;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea5.BackColor = System.Drawing.Color.White;
-            chartArea5.Name = "ChartArea1";
-            this.chartProdPorCat.ChartAreas.Add(chartArea5);
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.chartProdPorCat.Legends.Add(legend5);
+            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.BackColor = System.Drawing.Color.White;
+            chartArea3.Name = "ChartArea1";
+            this.chartProdPorCat.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chartProdPorCat.Legends.Add(legend3);
             this.chartProdPorCat.Location = new System.Drawing.Point(16, 105);
             this.chartProdPorCat.Name = "chartProdPorCat";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series5.IsValueShownAsLabel = true;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartProdPorCat.Series.Add(series5);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series3.IsValueShownAsLabel = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartProdPorCat.Series.Add(series3);
             this.chartProdPorCat.Size = new System.Drawing.Size(530, 390);
             this.chartProdPorCat.TabIndex = 0;
             this.chartProdPorCat.Text = "chart1";
             // 
             // chartProdTop5
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartProdTop5.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chartProdTop5.Legends.Add(legend6);
+            chartArea4.Name = "ChartArea1";
+            this.chartProdTop5.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartProdTop5.Legends.Add(legend4);
             this.chartProdTop5.Location = new System.Drawing.Point(612, 105);
             this.chartProdTop5.Name = "chartProdTop5";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.IsValueShownAsLabel = true;
-            series6.LabelForeColor = System.Drawing.Color.White;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartProdTop5.Series.Add(series6);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.IsValueShownAsLabel = true;
+            series4.LabelForeColor = System.Drawing.Color.White;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartProdTop5.Series.Add(series4);
             this.chartProdTop5.Size = new System.Drawing.Size(530, 390);
             this.chartProdTop5.TabIndex = 1;
             this.chartProdTop5.Text = "chart1";
@@ -110,30 +110,30 @@
             this.lblProductoMasVendido.Name = "lblProductoMasVendido";
             this.lblProductoMasVendido.Size = new System.Drawing.Size(487, 30);
             this.lblProductoMasVendido.TabIndex = 22;
-            this.lblProductoMasVendido.Text = "hhh";
+            this.lblProductoMasVendido.Text = ".";
             this.lblProductoMasVendido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // radioButtonClientes
+            // RBTop5Clientes
             // 
-            this.radioButtonClientes.AutoSize = true;
-            this.radioButtonClientes.Location = new System.Drawing.Point(7, 12);
-            this.radioButtonClientes.Name = "radioButtonClientes";
-            this.radioButtonClientes.Size = new System.Drawing.Size(182, 17);
-            this.radioButtonClientes.TabIndex = 24;
-            this.radioButtonClientes.TabStop = true;
-            this.radioButtonClientes.Text = "TOP 5 Clientes con mas compras";
-            this.radioButtonClientes.UseVisualStyleBackColor = true;
+            this.RBTop5Clientes.AutoSize = true;
+            this.RBTop5Clientes.Location = new System.Drawing.Point(7, 12);
+            this.RBTop5Clientes.Name = "RBTop5Clientes";
+            this.RBTop5Clientes.Size = new System.Drawing.Size(182, 17);
+            this.RBTop5Clientes.TabIndex = 24;
+            this.RBTop5Clientes.TabStop = true;
+            this.RBTop5Clientes.Text = "TOP 5 Clientes con mas compras";
+            this.RBTop5Clientes.UseVisualStyleBackColor = true;
             // 
-            // radioButtonCantProd
+            // RBTopVendedores
             // 
-            this.radioButtonCantProd.AutoSize = true;
-            this.radioButtonCantProd.Location = new System.Drawing.Point(246, 12);
-            this.radioButtonCantProd.Name = "radioButtonCantProd";
-            this.radioButtonCantProd.Size = new System.Drawing.Size(107, 17);
-            this.radioButtonCantProd.TabIndex = 25;
-            this.radioButtonCantProd.TabStop = true;
-            this.radioButtonCantProd.Text = "TOP Vendedores";
-            this.radioButtonCantProd.UseVisualStyleBackColor = true;
+            this.RBTopVendedores.AutoSize = true;
+            this.RBTopVendedores.Location = new System.Drawing.Point(246, 12);
+            this.RBTopVendedores.Name = "RBTopVendedores";
+            this.RBTopVendedores.Size = new System.Drawing.Size(107, 17);
+            this.RBTopVendedores.TabIndex = 25;
+            this.RBTopVendedores.TabStop = true;
+            this.RBTopVendedores.Text = "TOP Vendedores";
+            this.RBTopVendedores.UseVisualStyleBackColor = true;
             // 
             // lblCliente1
             // 
@@ -143,7 +143,7 @@
             this.lblCliente1.Name = "lblCliente1";
             this.lblCliente1.Size = new System.Drawing.Size(477, 30);
             this.lblCliente1.TabIndex = 26;
-            this.lblCliente1.Text = "hhh";
+            this.lblCliente1.Text = ".";
             this.lblCliente1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
@@ -159,7 +159,6 @@
             this.label8.TabIndex = 83;
             this.label8.Text = "Filtrar por fechas:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // DTHasta
             // 
@@ -227,7 +226,6 @@
             this.RBTopCategorias.TabStop = true;
             this.RBTopCategorias.Text = "Categorías más vendidas";
             this.RBTopCategorias.UseVisualStyleBackColor = true;
-            this.RBTopCategorias.CheckedChanged += new System.EventHandler(this.RBTopCategorias_CheckedChanged);
             // 
             // RBTop5Prod
             // 
@@ -239,7 +237,6 @@
             this.RBTop5Prod.TabStop = true;
             this.RBTop5Prod.Text = "TOP 5 Productos más vendidos";
             this.RBTop5Prod.UseVisualStyleBackColor = true;
-            this.RBTop5Prod.CheckedChanged += new System.EventHandler(this.RBTop5Prod_CheckedChanged);
             // 
             // RBTopFormasPago
             // 
@@ -254,8 +251,8 @@
             // 
             // GB1
             // 
-            this.GB1.Controls.Add(this.radioButtonCantProd);
-            this.GB1.Controls.Add(this.radioButtonClientes);
+            this.GB1.Controls.Add(this.RBTopVendedores);
+            this.GB1.Controls.Add(this.RBTop5Clientes);
             this.GB1.Location = new System.Drawing.Point(29, 58);
             this.GB1.Name = "GB1";
             this.GB1.Size = new System.Drawing.Size(449, 37);
@@ -309,8 +306,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProdPorCat;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProdTop5;
         private System.Windows.Forms.Label lblProductoMasVendido;
-        private System.Windows.Forms.RadioButton radioButtonClientes;
-        private System.Windows.Forms.RadioButton radioButtonCantProd;
+        private System.Windows.Forms.RadioButton RBTop5Clientes;
+        private System.Windows.Forms.RadioButton RBTopVendedores;
         private System.Windows.Forms.Label lblCliente1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker DTHasta;

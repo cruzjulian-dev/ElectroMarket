@@ -13,10 +13,6 @@ namespace CapaDatos
     public class CD_Graficos
     {
         SqlConnection oConexion = new SqlConnection(Conexion.cadena);
-        SqlCommand cmd;
-        SqlDataReader dr;
-
-
         public ArrayList VendedorConMasVentas(string fechaDesde, string fechaHasta)
         {
             ArrayList VendedoresVentas = new ArrayList();
@@ -169,45 +165,104 @@ namespace CapaDatos
         }
 
 
-        public void categoriasMasVendidas()
+        public ArrayList FormasPagoMasUtilizadas(string fechaDesde, string fechaHasta)
         {
+            ArrayList FormaCantidad = new ArrayList();
+            using (oConexion)
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT");
+                    query.AppendLine("    FP.Descripcion AS FormaDePago,");
+                    query.AppendLine("    COUNT(V.IdFormaPago) AS CantidadUtilizada");
+                    query.AppendLine("FROM FORMA_PAGO AS FP");
+                    query.AppendLine("LEFT JOIN VENTAS AS V ON FP.IdFormaPago = V.IdFormaPago");
+                    query.AppendLine("WHERE");
+                    query.AppendLine("CONVERT(DATE, V.FechaRegistro, 105) >= CONVERT(DATE, @FechaDesde, 105) AND");
+                    query.AppendLine("CONVERT(DATE, V.FechaRegistro, 105) <= CONVERT(DATE, @FechaHasta, 105)");
+                    query.AppendLine("GROUP BY FP.Descripcion");
+                    query.AppendLine("ORDER BY CantidadUtilizada DESC;");
 
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
+                    cmd.CommandType = CommandType.Text;
 
+                    cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta);
+
+                    oConexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            string formaActual = dr.GetString(0);
+                            int cantidadActual = dr.GetInt32(1);
+
+                            // Agregar datos al gráfico
+                            FormaCantidad.Add(new object[] { formaActual, cantidadActual });
+                        }
+                        dr.Close();
+                    }
+                }
+                catch (Exception)
+                {
+                    FormaCantidad = null;
+                }
+            }
+            return FormaCantidad;
         }
 
 
-        public void MostrarCategoriaMasVendida()
+        public ArrayList CategoriasMasVendidas(string fechaDesde, string fechaHasta)
         {
+            ArrayList CategoriaCantidad = new ArrayList();
+            using (oConexion)
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT");
+                    query.AppendLine("    C.Descripcion AS Categoria,");
+                    query.AppendLine("    SUM(DV.Cantidad) AS CantidadVentas");
+                    query.AppendLine("FROM CATEGORIAS AS C");
+                    query.AppendLine("LEFT JOIN PRODUCTOS AS P ON C.IdCategoria = P.IdCategoria");
+                    query.AppendLine("LEFT JOIN DETALLE_VENTA AS DV ON P.IdProducto = DV.IdProducto");
+                    query.AppendLine("LEFT JOIN VENTAS AS V ON DV.IdVenta = V.IdVenta");
+                    query.AppendLine("WHERE");
+                    query.AppendLine("CONVERT(DATE, V.FechaRegistro, 105) >= CONVERT(DATE, @FechaDesde, 105) AND");
+                    query.AppendLine("CONVERT(DATE, V.FechaRegistro, 105) <= CONVERT(DATE, @FechaHasta, 105)");
+                    query.AppendLine("GROUP BY C.Descripcion");
+                    query.AppendLine("ORDER BY CantidadVentas DESC;");
 
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta);
+
+                    oConexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            string categoriaActual = dr.GetString(0);
+                            int cantidadActual = dr.GetInt32(1);
+
+                            // Agregar datos al gráfico
+                            CategoriaCantidad.Add(new object[] { categoriaActual, cantidadActual });
+                        }
+                        dr.Close();
+                    }
+                }
+                catch (Exception)
+                {
+                    CategoriaCantidad = null;
+                }
+            }
+            return CategoriaCantidad;
 
         }
-
-
-        public void formasPagoPreferidas()
-        {
-
-
-        }
-
-
-        public void MostrarFormaPagoMasUtilizada()
-        {
-
-
-        }
-
-        public void clientesMasCompras()
-        {
-
-
-        }
-
-
-        public void MostrarClienteConMasCompras()
-        {
-
-
-        }
-
     }
 }

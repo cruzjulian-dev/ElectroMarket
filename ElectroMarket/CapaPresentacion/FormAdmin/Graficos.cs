@@ -18,11 +18,6 @@ namespace CapaPresentacion.FormAdmin
 {
     public partial class Graficos : Form
     {
-        SqlConnection oConexion = new SqlConnection(Conexion.cadena);
-
-        SqlCommand cmd;
-        SqlDataReader dr;
-
         string fechaDesdeGlobal;
         string fechaHastaGlobal;
 
@@ -39,38 +34,35 @@ namespace CapaPresentacion.FormAdmin
 
             fechaHastaGlobal = DTHasta.Value.ToString("dd-MM-yyyy");
 
-
+            // cargar graficos default
             VendedorConMasVentas();
             Top5Productos();
             
-            GB1.Controls.Add(radioButtonCantProd);
-            GB1.Controls.Add(radioButtonClientes);
-            // Configurar el evento CheckedChanged para los RadioButtons
-            radioButtonCantProd.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
-            radioButtonClientes.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
 
-            // Seleccionar uno de los RadioButtons por defecto
-            radioButtonCantProd.Checked = true;
+            GB1.Controls.Add(RBTopVendedores);
+            GB1.Controls.Add(RBTop5Clientes);
+
+            // asocio el método MostrarGraficoSeleccionado() al evento CheckedChanged
+            RBTopVendedores.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
+            RBTop5Clientes.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
+            RBTopVendedores.Checked = true;
+
 
 
             GB2.Controls.Add(RBTop5Prod);
             GB2.Controls.Add(RBTopCategorias);
             GB2.Controls.Add(RBTopFormasPago);
-            // Configurar el evento CheckedChanged para los RadioButtons
+
+            // asocio el método MostrarGraficoSeleccionado() al evento CheckedChanged
             RBTop5Prod.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
             RBTopCategorias.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
             RBTopFormasPago.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
-
-            // Seleccionar uno de los RadioButtons por defecto
             RBTop5Prod.Checked = true;
-            
-
         }
 
 
         private void VendedorConMasVentas()
         {
-
             string fechaDesde = fechaDesdeGlobal;
             string fechaHasta = fechaHastaGlobal;
 
@@ -116,7 +108,6 @@ namespace CapaPresentacion.FormAdmin
                 }
                 else
                 {
-                    chartProdPorCat.Series.Clear();
                     lblCliente1.Text = "No hay datos disponibles";
                 }
             }
@@ -156,7 +147,7 @@ namespace CapaPresentacion.FormAdmin
                         clientes.Add(productoActual);
                         cantidadesCompras.Add(cantidadActual.ToString());
 
-                        // obtengo el vendedor con mas ventas y su total vendido
+                        // obtengo el cliente con mas compras y su total comprado
                         if (cantidadActual > cantidadMaxima)
                         {
                             cantidadMaxima = cantidadActual;
@@ -167,14 +158,13 @@ namespace CapaPresentacion.FormAdmin
                     chartProdPorCat.Series[0].Points.DataBindXY(clientes, cantidadesCompras);
 
                 }
-                //muestro el producto con mas ventas o mensaje de que no hay datos
+                //muestro el cliente con mas compras o mensaje de que no hay datos
                 if (ClienteCantidad.Count > 0)
                 {
                     lblCliente1.Text = $"Cliente con más compras: {ClienteMasCompras} ({cantidadMaxima} productos)";
                 }
                 else
                 {
-                    chartProdPorCat.Series.Clear();
                     lblCliente1.Text = "No hay datos disponibles";
                 }
             }
@@ -213,7 +203,7 @@ namespace CapaPresentacion.FormAdmin
                         productos.Add(productoActual);
                         cantidadesVentas.Add(cantidadActual.ToString());
 
-                        // obtengo el vendedor con mas ventas y su total vendido
+                        // obtengo el producto con mas ventas y su total vendido
                         if (cantidadActual > cantidadMaxima)
                         {
                             cantidadMaxima = cantidadActual;
@@ -231,7 +221,6 @@ namespace CapaPresentacion.FormAdmin
                 }
                 else
                 {
-                    chartProdTop5.Series.Clear();
                     lblProductoMasVendido.Text = "No hay datos disponibles";
                 }
             }
@@ -241,164 +230,117 @@ namespace CapaPresentacion.FormAdmin
             }
         }
 
-        private void categoriasMasVendidas()
+        private void FormasPagoMasUtilizadas()
         {
-            ArrayList categorias = new ArrayList();
-            ArrayList cantidades = new ArrayList();
+            string fechaDesde = fechaDesdeGlobal;
+            string fechaHasta = fechaHastaGlobal;
 
-            cmd = new SqlCommand("SP_CategoriasMasVentas", oConexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            oConexion.Open();
-            dr = cmd.ExecuteReader();
-
-            while (dr.Read())
+            if (Convert.ToDateTime(fechaDesde) <= Convert.ToDateTime(fechaHasta))
             {
-                categorias.Add(dr.GetString(0));
+                CN_Graficos cnGraficos = new CN_Graficos();
 
-                // Verificar si el valor es NULL antes de intentar convertirlo
-                if (!dr.IsDBNull(1))
+                ArrayList FormasCantidad = cnGraficos.FormasPagoMasUtilizadas(fechaDesde, fechaHasta);
+
+                string FormaMasUtilizada = "";
+                int cantidadMaxima = 0;
+
+                // Pregunto si hay ventas
+                if (FormasCantidad != null && FormasCantidad.Count > 0)
                 {
-                    cantidades.Add(dr.GetInt32(1).ToString());
+                    List<string> formas = new List<string>();
+                    List<string> cantidadesVentas = new List<string>();
+
+                    foreach (object[] datos in FormasCantidad)
+                    {
+                        string formaActual = (string)datos[0];
+                        int cantidadActual = (int)datos[1];
+
+
+                        formas.Add(formaActual);
+                        cantidadesVentas.Add(cantidadActual.ToString());
+
+                        // obtengo la forma de pago mas utilizada y la cantidad
+                        if (cantidadActual > cantidadMaxima)
+                        {
+                            cantidadMaxima = cantidadActual;
+                            FormaMasUtilizada = formaActual;
+                        }
+                    }
+
+                    chartProdTop5.Series[0].Points.DataBindXY(formas, cantidadesVentas);
+
+                }
+                //muestro la forma de pago mas utilizada o mensaje de que no hay datos
+                if (FormasCantidad.Count > 0)
+                {
+                    lblProductoMasVendido.Text = $"Forma de pago preferida: {FormaMasUtilizada} ({cantidadMaxima} productos)";
                 }
                 else
                 {
-                    // Si es NULL, puedes agregar un valor predeterminado o manejarlo según tu lógica
-                    cantidades.Add("0");
+                    lblProductoMasVendido.Text = "No hay datos disponibles";
                 }
-            }
-
-            chartProdTop5.Series[0].Points.DataBindXY(categorias, cantidades);
-            dr.Close();
-            oConexion.Close();
-
-            // Después de obtener los datos y mostrarlos en el gráfico, obtener la categoría más vendida y mostrarla en el Label
-            MostrarCategoriaMasVendida(categorias, cantidades);
-        }
-
-
-        private void MostrarCategoriaMasVendida(ArrayList categorias, ArrayList cantidades)
-        {
-            // Verificar si hay datos en las listas
-            if (categorias.Count > 0 && cantidades.Count > 0)
-            {
-                // Encontrar la categoría más vendida
-                int indexCategoriaMasVendida = 0;
-                for (int i = 1; i < cantidades.Count; i++)
-                {
-                    int cantidadActual = Convert.ToInt32(cantidades[i]);
-                    int cantidadMaxima = Convert.ToInt32(cantidades[indexCategoriaMasVendida]);
-
-                    if (cantidadActual > cantidadMaxima)
-                    {
-                        indexCategoriaMasVendida = i;
-                    }
-                }
-
-                // Obtener la categoría más vendida y la cantidad
-                string categoriaMasVendida = categorias[indexCategoriaMasVendida].ToString();
-                int cantidadVendida = Convert.ToInt32(cantidades[indexCategoriaMasVendida]);
-
-                // Mostrar la información en el Label
-                lblProductoMasVendido.Text = $"Categoría Más Vendida: {categoriaMasVendida} ({cantidadVendida} unidades)";
             }
             else
             {
-                // Si no hay datos, mostrar un mensaje en el Label
-                lblProductoMasVendido.Text = "No hay datos disponibles";
+                MessageBox.Show("La fecha 'Desde' debe ser menor o igual que la fecha 'Hasta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void formasPagoPreferidas()
+        private void CategoriasMasVendidas()
         {
-            ArrayList formasPago = new ArrayList();
-            ArrayList cantidades = new ArrayList();
+            string fechaDesde = fechaDesdeGlobal;
+            string fechaHasta = fechaHastaGlobal;
 
-            cmd = new SqlCommand("SP_FormasPagoMasUtilizadas", oConexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            oConexion.Open();
-            dr = cmd.ExecuteReader();
-
-            while (dr.Read())
+            if (Convert.ToDateTime(fechaDesde) <= Convert.ToDateTime(fechaHasta))
             {
-                formasPago.Add(dr.GetString(0));
-                cantidades.Add(dr.GetInt32(1).ToString());
-            }
+                CN_Graficos cnGraficos = new CN_Graficos();
 
-            chartProdTop5.Series[0].Points.DataBindXY(formasPago, cantidades);
-            dr.Close();
-            oConexion.Close();
+                ArrayList CategoriaCantidad = cnGraficos.CategoriasMasVendidas(fechaDesde, fechaHasta);
 
-            // Después de obtener los datos y mostrarlos en el gráfico, obtener la forma de pago más utilizada y mostrarla en el Label
-            MostrarFormaPagoMasUtilizada(formasPago, cantidades);
-        }
+                string CategoriaMasVendida = "";
+                int cantidadMaxima = 0;
 
-        private void MostrarFormaPagoMasUtilizada(ArrayList formasPago, ArrayList cantidades)
-        {
-            // Verificar si hay datos en las listas
-            if (formasPago.Count > 0 && cantidades.Count > 0)
-            {
-                // Encontrar la forma de pago más utilizada
-                int indexFormaPagoMasUtilizada = 0;
-                for (int i = 1; i < cantidades.Count; i++)
+                // Pregunto si hay ventas
+                if (CategoriaCantidad != null && CategoriaCantidad.Count > 0)
                 {
-                    int cantidadActual = Convert.ToInt32(cantidades[i]);
-                    int cantidadMaxima = Convert.ToInt32(cantidades[indexFormaPagoMasUtilizada]);
+                    List<string> categorias = new List<string>();
+                    List<string> cantidadesVentas = new List<string>();
 
-                    if (cantidadActual > cantidadMaxima)
+                    foreach (object[] datos in CategoriaCantidad)
                     {
-                        indexFormaPagoMasUtilizada = i;
+                        string categoriaActual = (string)datos[0];
+                        int cantidadActual = (int)datos[1];
+
+
+                        categorias.Add(categoriaActual);
+                        cantidadesVentas.Add(cantidadActual.ToString());
+
+                        // obtengo la categoria mas vendida
+                        if (cantidadActual > cantidadMaxima)
+                        {
+                            cantidadMaxima = cantidadActual;
+                            CategoriaMasVendida = categoriaActual;
+                        }
                     }
+
+                    chartProdTop5.Series[0].Points.DataBindXY(categorias, cantidadesVentas);
+
                 }
-
-                // Obtener la forma de pago más utilizada y la cantidad
-                string formaPagoMasUtilizada = formasPago[indexFormaPagoMasUtilizada].ToString();
-                int cantidadUtilizada = Convert.ToInt32(cantidades[indexFormaPagoMasUtilizada]);
-
-                // Mostrar la información en el Label
-                lblProductoMasVendido.Text = $"Forma de Pago Más Utilizada: {formaPagoMasUtilizada} ({cantidadUtilizada} transacciones)";
+                //muestro la categoria mas vendida
+                if (CategoriaCantidad.Count > 0)
+                {
+                    lblProductoMasVendido.Text = $"Categoria con más ventas: {CategoriaMasVendida} ({cantidadMaxima} productos)";
+                }
+                else
+                {
+                    lblProductoMasVendido.Text = "No hay datos disponibles";
+                }
             }
             else
             {
-                // Si no hay datos, mostrar un mensaje en el Label
-                lblProductoMasVendido.Text = "No hay datos disponibles";
+                MessageBox.Show("La fecha 'Desde' debe ser menor o igual que la fecha 'Hasta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
-
-
-        private void MostrarClienteConMasCompras(ArrayList clientes, ArrayList cantidades)
-        {
-            // Verificar si hay datos en las listas
-            if (clientes.Count > 0 && cantidades.Count > 0)
-            {
-                // Encontrar el cliente con más compras
-                int indexClienteMasCompras = 0;
-                for (int i = 1; i < cantidades.Count; i++)
-                {
-                    int cantidadActual = Convert.ToInt32(cantidades[i]);
-                    int cantidadMaxima = Convert.ToInt32(cantidades[indexClienteMasCompras]);
-
-                    if (cantidadActual > cantidadMaxima)
-                    {
-                        indexClienteMasCompras = i;
-                    }
-                }
-
-                // Obtener el nombre del cliente con más compras y la cantidad
-                string clienteMasCompras = clientes[indexClienteMasCompras].ToString();
-                int cantidadCompras = Convert.ToInt32(cantidades[indexClienteMasCompras]);
-
-                // Mostrar la información en el Label
-                lblCliente1.Text = $"Cliente con Más Compras: {clienteMasCompras} ({cantidadCompras} compras)";
-            }
-            else
-            {
-                // Si no hay datos, mostrar un mensaje en el Label
-                lblCliente1.Text = "No hay datos disponibles";
-            }
-        }
-
 
         private void MostrarGraficoSeleccionado()
         {
@@ -406,15 +348,14 @@ namespace CapaPresentacion.FormAdmin
             chartProdPorCat.Series[0].Points.Clear();
             chartProdTop5.Series[0].Points.Clear();
 
-            if (radioButtonCantProd.Checked)
+            if (RBTopVendedores.Checked)
             {
-                VendedorConMasVentas(); // Muestra el gráfico de cantidad de productos por categoría
+                VendedorConMasVentas(); 
             }
-            else if (radioButtonClientes.Checked)
+            else if (RBTop5Clientes.Checked)
             {
-                Top5Clientes(); // Muestra el gráfico de clientes con más compras
+                Top5Clientes(); 
             }
-
 
             if (RBTop5Prod.Checked)
             {
@@ -422,50 +363,30 @@ namespace CapaPresentacion.FormAdmin
             }
             else if (RBTopFormasPago.Checked)
             {
-                formasPagoPreferidas();
+                FormasPagoMasUtilizadas();
             }
             else
             {
-                categoriasMasVendidas();
+                CategoriasMasVendidas();
             }
-        }
-
-        private void BMostrar_Click(object sender, EventArgs e)
-        {
-            //  VendedorConMasVentas();
-            Top5Productos();
-            //clientesMasCompras();
-
-            // Configurar el evento CheckedChanged para los RadioButtons
-            radioButtonCantProd.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
-            radioButtonClientes.CheckedChanged += (s, ev) => MostrarGraficoSeleccionado();
-
-            // Seleccionar uno de los RadioButtons por defecto
-            radioButtonCantProd.Checked = true;
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RBTopCategorias_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            fechaDesdeGlobal = DTDesde.Value.ToString("dd-MM-yyyy");
-            fechaHastaGlobal = DTHasta.Value.ToString("dd-MM-yyyy");
+            string fechaDesde = DTDesde.Value.ToString("dd-MM-yyyy");
+            string fechaHasta = DTHasta.Value.ToString("dd-MM-yyyy");
 
-            VendedorConMasVentas();
-            Top5Productos();
-        }
+            if (Convert.ToDateTime(fechaDesde) <= Convert.ToDateTime(fechaHasta))
+            {
+                fechaDesdeGlobal = DTDesde.Value.ToString("dd-MM-yyyy");
+                fechaHastaGlobal = DTHasta.Value.ToString("dd-MM-yyyy");
 
-        private void RBTop5Prod_CheckedChanged(object sender, EventArgs e)
-        {
-
+                MostrarGraficoSeleccionado();
+            }
+            else
+            {
+                MessageBox.Show("La fecha 'Desde' debe ser menor o igual que la fecha 'Hasta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

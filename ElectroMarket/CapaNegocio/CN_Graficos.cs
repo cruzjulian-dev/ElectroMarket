@@ -28,6 +28,15 @@ namespace CapaNegocio
             return objCd_Graficos.Top5Productos(fechaDesde, fechaHasta);
         }
 
+        public ArrayList FormasPagoMasUtilizadas(string fechaDesde, string fechaHasta)
+        {
+            return objCd_Graficos.FormasPagoMasUtilizadas(fechaDesde, fechaHasta);
+        }
+
+        public ArrayList CategoriasMasVendidas(string fechaDesde, string fechaHasta)
+        {
+            return objCd_Graficos.CategoriasMasVendidas(fechaDesde, fechaHasta);
+        }
 
     }
 }

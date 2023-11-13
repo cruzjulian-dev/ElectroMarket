@@ -525,6 +525,8 @@ from PRODUCTOS as P
 inner join CATEGORIAS as C on C.IdCategoria=P.IdCategoria
 group by P.IdCategoria , C.Descripcion
 order by COUNT(2) desc
+
+
 go
 
 --top3 clientes con mas compras
