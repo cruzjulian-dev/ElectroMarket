@@ -143,7 +143,7 @@ namespace CapaPresentacion
                 Texto_html = Texto_html.Replace("@numerodocumento", TIdVenta.Text.ToUpper());
 
                 Texto_html = Texto_html.Replace("@tiposociedad", "ElectroMarket S.R.L");
-                Texto_html = Texto_html.Replace("@telnegocio", "543794345790");
+                Texto_html = Texto_html.Replace("@telnegocio", "+54-3794345790");
                 Texto_html = Texto_html.Replace("@direcnegocio", "Rivadavia 2290, Corrientes, Argentina");
                 
 
@@ -241,7 +241,7 @@ namespace CapaPresentacion
                 Texto_html = Texto_html.Replace("@numerodocumento", TIdVenta.Text.ToUpper());
 
                 Texto_html = Texto_html.Replace("@tiposociedad", "ElectroMarket S.R.L");
-                Texto_html = Texto_html.Replace("@telnegocio", "543794345790");
+                Texto_html = Texto_html.Replace("@telnegocio", "+54-3794345790");
                 Texto_html = Texto_html.Replace("@direcnegocio", "Rivadavia 2290, Corrientes, Argentina");
 
                 Texto_html = Texto_html.Replace("@doccliente", TDocumento.Text);

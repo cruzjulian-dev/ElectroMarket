@@ -52,18 +52,6 @@ namespace CapaPresentacion
             CBCategoria.ValueMember = "Valor";
             CBCategoria.SelectedIndex = -1;
 
-            foreach (DataGridViewColumn columna in DGProductos.Columns)
-            {
-                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Contraseña" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
-                {
-                    CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
-                }
-            }
-            CBBusqueda.DisplayMember = "Texto";
-            CBBusqueda.ValueMember = "Valor";
-            CBBusqueda.SelectedIndex = 0;
-
-
             // Mostrar todos los Productos desde la BD
             List<Producto> lista = new CN_Producto().ListarProductos();
 
@@ -89,7 +77,7 @@ namespace CapaPresentacion
             //combobox filtros de busqueda
             foreach (DataGridViewColumn columna in DGProductos.Columns)
             {
-                if (columna.Visible == true && columna.HeaderText != "Fecha de Nacimiento" && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
+                if (columna.Visible == true && columna.HeaderText != "Estado" && columna.HeaderText != "Editar")
                 {
                     CBBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
                 }
