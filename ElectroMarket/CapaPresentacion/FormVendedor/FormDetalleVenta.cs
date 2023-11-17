@@ -54,8 +54,6 @@ namespace CapaPresentacion
                 TApellido.Text = cabeceraVenta.ApellidoCliente;
                 TDocumento.Text = Convert.ToInt32(cabeceraVenta.DniCliente).ToString();
                 TTotal.Text = cabeceraVenta.MontoTotal.ToString();
-                TCambio.Text = cabeceraVenta.MontoCambio.ToString();
-                TPago.Text = cabeceraVenta.MontoPago.ToString();
                 TTipo.Text = cabeceraVenta.TipoDocumento.ToString();
 
                 // Relleno detalle de venta
@@ -88,8 +86,6 @@ namespace CapaPresentacion
                 TApellido.Text = presupuesto.ApellidoCliente;
                 TDocumento.Text = Convert.ToInt32(presupuesto.DniCliente).ToString();
                 TTotal.Text = presupuesto.MontoTotal.ToString();
-                TCambio.Text = presupuesto.MontoCambio.ToString();
-                TPago.Text = presupuesto.MontoPago.ToString();
                 TTipo.Text = presupuesto.TipoDocumento.ToString();
 
                 List<DetalleVenta> detalle = new List<DetalleVenta>();
@@ -167,8 +163,6 @@ namespace CapaPresentacion
 
                 Texto_html = Texto_html.Replace("@filas", filas);
                 Texto_html = Texto_html.Replace("@montototal", TTotal.Text);
-                Texto_html = Texto_html.Replace("@pagocon", TPago.Text);
-                Texto_html = Texto_html.Replace("@cambio", TCambio.Text);
 
                 DateTime fechaActual = DateTime.Now;
                 int anio = fechaActual.Year;

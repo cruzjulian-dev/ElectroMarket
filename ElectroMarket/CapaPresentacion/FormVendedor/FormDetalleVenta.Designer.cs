@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,11 +54,7 @@
             this.Cprecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ccantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Csubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labmontocambio = new System.Windows.Forms.Label();
-            this.labmontopago = new System.Windows.Forms.Label();
             this.labmontototal = new System.Windows.Forms.Label();
-            this.TCambio = new System.Windows.Forms.TextBox();
-            this.TPago = new System.Windows.Forms.TextBox();
             this.TTotal = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.TTipo = new System.Windows.Forms.TextBox();
@@ -269,27 +265,27 @@
             this.Cprecio,
             this.Ccantidad,
             this.Csubtotal});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGDetalle.DefaultCellStyle = dataGridViewCellStyle7;
             this.DGDetalle.Location = new System.Drawing.Point(99, 271);
             this.DGDetalle.MultiSelect = false;
             this.DGDetalle.Name = "DGDetalle";
             this.DGDetalle.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DGDetalle.RowTemplate.Height = 28;
             this.DGDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGDetalle.Size = new System.Drawing.Size(654, 223);
@@ -329,61 +325,23 @@
             this.Csubtotal.ReadOnly = true;
             this.Csubtotal.Width = 120;
             // 
-            // labmontocambio
-            // 
-            this.labmontocambio.AutoSize = true;
-            this.labmontocambio.BackColor = System.Drawing.Color.White;
-            this.labmontocambio.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labmontocambio.Location = new System.Drawing.Point(405, 510);
-            this.labmontocambio.Name = "labmontocambio";
-            this.labmontocambio.Size = new System.Drawing.Size(94, 13);
-            this.labmontocambio.TabIndex = 47;
-            this.labmontocambio.Text = "Monto Cambio:";
-            // 
-            // labmontopago
-            // 
-            this.labmontopago.AutoSize = true;
-            this.labmontopago.BackColor = System.Drawing.Color.White;
-            this.labmontopago.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labmontopago.Location = new System.Drawing.Point(247, 510);
-            this.labmontopago.Name = "labmontopago";
-            this.labmontopago.Size = new System.Drawing.Size(78, 13);
-            this.labmontopago.TabIndex = 48;
-            this.labmontopago.Text = "Monto Pago:";
-            // 
             // labmontototal
             // 
             this.labmontototal.AutoSize = true;
             this.labmontototal.BackColor = System.Drawing.Color.White;
             this.labmontototal.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labmontototal.Location = new System.Drawing.Point(88, 510);
+            this.labmontototal.Location = new System.Drawing.Point(518, 510);
             this.labmontototal.Name = "labmontototal";
             this.labmontototal.Size = new System.Drawing.Size(77, 13);
             this.labmontototal.TabIndex = 49;
             this.labmontototal.Text = "Monto Total:";
             // 
-            // TCambio
-            // 
-            this.TCambio.Location = new System.Drawing.Point(497, 507);
-            this.TCambio.Name = "TCambio";
-            this.TCambio.ReadOnly = true;
-            this.TCambio.Size = new System.Drawing.Size(83, 20);
-            this.TCambio.TabIndex = 11;
-            // 
-            // TPago
-            // 
-            this.TPago.Location = new System.Drawing.Point(325, 507);
-            this.TPago.Name = "TPago";
-            this.TPago.ReadOnly = true;
-            this.TPago.Size = new System.Drawing.Size(74, 20);
-            this.TPago.TabIndex = 10;
-            // 
             // TTotal
             // 
-            this.TTotal.Location = new System.Drawing.Point(162, 507);
+            this.TTotal.Location = new System.Drawing.Point(610, 507);
             this.TTotal.Name = "TTotal";
             this.TTotal.ReadOnly = true;
-            this.TTotal.Size = new System.Drawing.Size(78, 20);
+            this.TTotal.Size = new System.Drawing.Size(143, 20);
             this.TTotal.TabIndex = 9;
             // 
             // iconButton1
@@ -398,7 +356,7 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 23;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(586, 500);
+            this.iconButton1.Location = new System.Drawing.Point(99, 500);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(167, 32);
             this.iconButton1.TabIndex = 12;
@@ -434,12 +392,8 @@
             this.Controls.Add(this.LTipo);
             this.Controls.Add(this.TTipo);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.TCambio);
-            this.Controls.Add(this.TPago);
             this.Controls.Add(this.TTotal);
             this.Controls.Add(this.labmontototal);
-            this.Controls.Add(this.labmontopago);
-            this.Controls.Add(this.labmontocambio);
             this.Controls.Add(this.DGDetalle);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -478,10 +432,6 @@
         private System.Windows.Forms.Label labeldocucliente;
         private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.DataGridView DGDetalle;
-        private System.Windows.Forms.TextBox TPago;
-        private System.Windows.Forms.TextBox TCambio;
-        private System.Windows.Forms.Label labmontocambio;
-        private System.Windows.Forms.Label labmontopago;
         private System.Windows.Forms.Label labmontototal;
         private System.Windows.Forms.TextBox TTotal;
         private FontAwesome.Sharp.IconButton iconButton1;

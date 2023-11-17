@@ -236,8 +236,6 @@ namespace CapaPresentacion
                                     oFormaPago = new FormaPago() { IdFormaPago = Convert.ToInt32(((OpcionCombo)CBForma.SelectedItem).Valor) },
                                     TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
                                     NumeroDocumento = numeroDocumento,
-                                    MontoPago = Convert.ToDecimal(TPagaCon.Text),
-                                    MontoCambio = Convert.ToDecimal(TCambio.Text),
                                     MontoTotal = Convert.ToDecimal(TTotal.Text),
                                 };
 
@@ -310,8 +308,6 @@ namespace CapaPresentacion
                                     TipoDocumento = ((OpcionCombo)TTipoDoc.SelectedItem).Texto,
                                     Detalle_Venta = listaDetalle,
                                     NumeroDocumento = numeroDocumento,
-                                    MontoPago = Convert.ToDecimal(TPagaCon.Text),
-                                    MontoCambio = Convert.ToDecimal(TCambio.Text),
                                     MontoTotal = Convert.ToDecimal(TTotal.Text),
                                 };
 

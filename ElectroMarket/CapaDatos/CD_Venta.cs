@@ -57,8 +57,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("ApellidoCliente", objVenta.ApellidoCliente);
                     cmd.Parameters.AddWithValue("TipoDocumento", objVenta.TipoDocumento);
                     cmd.Parameters.AddWithValue("NumeroDocumento", objVenta.NumeroDocumento);
-                    cmd.Parameters.AddWithValue("MontoPago", objVenta.MontoPago);
-                    cmd.Parameters.AddWithValue("MontoCambio", objVenta.MontoCambio);
                     cmd.Parameters.AddWithValue("MontoTotal", objVenta.MontoTotal);
                     cmd.Parameters.AddWithValue("DetalleVenta", detalleVenta);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output; // parámetros de salida
@@ -237,7 +235,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT v.IdVenta, v.FechaRegistro, u.Nombre, u.Apellido, fp.Descripcion, v.NombreCliente, v.ApellidoCliente, v.DniCliente, v.MontoTotal, v.MontoPago, v.MontoCambio, v.NumeroDocumento, v.TipoDocumento");
+                    query.AppendLine("SELECT v.IdVenta, v.FechaRegistro, u.Nombre, u.Apellido, fp.Descripcion, v.NombreCliente, v.ApellidoCliente, v.DniCliente, v.MontoTotal, v.NumeroDocumento, v.TipoDocumento");
                     query.AppendLine("FROM VENTAS v");
                     query.AppendLine("INNER JOIN USUARIOS u ON u.IdUsuario = v.IdUsuario");
                     query.AppendLine("INNER JOIN FORMA_PAGO fp ON fp.IdFormaPago = v.IdFormaPago");
@@ -265,8 +263,6 @@ namespace CapaDatos
                                 TipoDocumento = dr["TipoDocumento"].ToString(),
                                 NumeroDocumento = dr["NumeroDocumento"].ToString(),
                                 MontoTotal = Convert.ToDecimal(dr["MontoTotal"]),
-                                MontoPago = Convert.ToInt32(dr["MontoPago"]),
-                                MontoCambio = Convert.ToDecimal(dr["MontoCambio"]),
                                 oFormaPago = new FormaPago { Descripcion = dr["Descripcion"].ToString() },
                                 FechaRegistro = dr["FechaRegistro"].ToString()
                             };
