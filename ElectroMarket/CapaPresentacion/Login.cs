@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
 using System.Data.SqlClient;
+using Org.BouncyCastle.Crypto.Generators;
 
 namespace CapaPresentacion
 {
@@ -34,10 +35,73 @@ namespace CapaPresentacion
 
         private void BIngresar_Click(object sender, EventArgs e)
         {
+
             CN_ConexionBD conexion = new CN_ConexionBD();
 
             if (conexion.Conectar())
             {
+                // Obtener el usuario por el nombre de usuario
+                CN_Usuario cnUsuario = new CN_Usuario();
+                Usuario oUsuario = cnUsuario.Listar().FirstOrDefault(x => x.UsuarioLogin == TUser.Text);
+
+                if (string.IsNullOrWhiteSpace(TUser.Text) || string.IsNullOrWhiteSpace(TContra.Text))
+                {
+                    MessageBox.Show("Debe completar todos los campos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TUser.Text = "";
+                    TContra.Text = "";
+                }
+                else
+                {
+                    if (oUsuario != null && BCrypt.Net.BCrypt.Verify(TContra.Text, oUsuario.Clave))
+                    {
+                        if (oUsuario.Estado != false)
+                        {
+                            switch (oUsuario.oRol.IdRol)
+                            {
+                                case 1:
+                                    VistaVendedor vistaVendedor = new VistaVendedor(oUsuario);
+                                    vistaVendedor.Show();
+                                    break;
+
+                                case 2:
+                                    VistaAdmin vistaAdmin = new VistaAdmin(oUsuario);
+                                    vistaAdmin.Show();
+                                    break;
+                                case 3:
+                                    VistaSuper vistaSuper = new VistaSuper(oUsuario);
+                                    vistaSuper.Show();
+                                    break;
+                            }
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario deshabilitado, por favor contacta al Administrador del sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            TUser.Text = "";
+                            TContra.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrecto/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TUser.Text = "";
+                        TContra.Text = "";
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar a la base de datos. Verifique la conexión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+            /*
+            CN_ConexionBD conexion = new CN_ConexionBD();
+
+            if (conexion.Conectar())
+            {
+
                 Usuario oUsuario = new CN_Usuario().Listar().Where(x => x.UsuarioLogin == TUser.Text && x.Clave == TContra.Text).FirstOrDefault();
 
                 if ((TUser.Text.Trim() == "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() != "" && TContra.Text.Trim() == "") || (TUser.Text.Trim() == "" && TContra.Text.Trim() != ""))
@@ -91,6 +155,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Error al conectar a la base de datos. Verifique la conexión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
 
         }
 

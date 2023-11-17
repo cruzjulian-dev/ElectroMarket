@@ -52,6 +52,7 @@ namespace CapaPresentacion
                         if (MessageBox.Show("Seguro que quieres guardar el usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             string mensaje = string.Empty;
+                            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(TContra.Text.Trim());
 
                             Usuario objUsuario = new Usuario()
                             {
@@ -59,7 +60,7 @@ namespace CapaPresentacion
                                 Apellido = TApellido.Text.Trim(),
                                 Dni = Convert.ToInt32(TDni.Text),
                                 UsuarioLogin = TUsuario.Text.Trim(),
-                                Clave = TContra.Text.Trim(),
+                                Clave = hashedPassword,
                                 FechaNacimiento = DTFecha.Value,
                                 Domicilio = TDomicilio.Text.Trim(),
                                 Telefono = TTelefono.Text.Trim(),
@@ -71,7 +72,7 @@ namespace CapaPresentacion
 
                             if (idUsuarioGenerado != 0)
                             {
-                                DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, TContra.Text,
+                                DGUsuarios.Rows.Add(new object[] { TNombre.Text, TApellido.Text, TDni.Text, TUsuario.Text, hashedPassword,
                                 ((OpcionCombo)CBRol.SelectedItem).Valor.ToString(), ((OpcionCombo)CBRol.SelectedItem).Texto.ToString(),
                                 DTFecha.Text, TTelefono.Text, TDomicilio.Text,
                                 ((OpcionCombo)CBEstado.SelectedItem).Valor.ToString(), ((OpcionCombo)CBEstado.SelectedItem).Texto.ToString(),
@@ -163,6 +164,8 @@ namespace CapaPresentacion
                         {
                             string mensaje = string.Empty;
 
+                            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(TContra.Text);
+
                             Usuario objUsuario = new Usuario()
                             {
                                 IdUsuario = Convert.ToInt32(TId.Text),
@@ -170,7 +173,7 @@ namespace CapaPresentacion
                                 Apellido = TApellido.Text.Trim(),
                                 Dni = Convert.ToInt32(TDni.Text),
                                 UsuarioLogin = TUsuario.Text.Trim(),
-                                Clave = TContra.Text.Trim(),
+                                Clave = hashedPassword,
                                 FechaNacimiento = DTFecha.Value,
                                 Domicilio = TDomicilio.Text.Trim(),
                                 Telefono = TTelefono.Text.Trim(),
@@ -188,7 +191,7 @@ namespace CapaPresentacion
                                 row.Cells["CApellido"].Value = TApellido.Text.Trim();
                                 row.Cells["CDni"].Value = Convert.ToInt32(TDni.Text);
                                 row.Cells["CUsuario"].Value = TUsuario.Text.Trim();
-                                row.Cells["CContra"].Value = TContra.Text.Trim();
+                                row.Cells["CContra"].Value = hashedPassword;
                                 row.Cells["CIdRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Valor.ToString();
                                 row.Cells["CRol"].Value = ((OpcionCombo)CBRol.SelectedItem).Texto.ToString();
                                 row.Cells["CFechaNacim"].Value = DTFecha.Value;
